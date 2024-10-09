@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "rtc.h"
+#include "alrm.h"
+#include "keys.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,13 +44,12 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-uint16_t alarm_A_trigger;
+uint8_t debug_settime_trig,debug_setalarm_trig;
+uint8_t ab_alarm_hour, ab_alarm_min, ab_alarm_sec, db_hr, db_min, db_sec;
+
 uint16_t timer_cnt;
 
-RTC_TimeTypeDef sTime = {0};
-RTC_DateTypeDef sDate = {0};
-
-char trans_str[64] = {0,};
+uint8_t init_buttons_flag;
 
 /* USER CODE END PV */
 
@@ -67,7 +68,6 @@ extern RTC_HandleTypeDef hrtc;
 extern TIM_HandleTypeDef htim6;
 /* USER CODE BEGIN EV */
 
-extern RTC_AlarmTypeDef sAlarm;
 
 /* USER CODE END EV */
 
@@ -219,8 +219,6 @@ void RTC_Alarm_IRQHandler(void)
   /* USER CODE END RTC_Alarm_IRQn 0 */
   HAL_RTC_AlarmIRQHandler(&hrtc);
   /* USER CODE BEGIN RTC_Alarm_IRQn 1 */
-	
-	
 
   /* USER CODE END RTC_Alarm_IRQn 1 */
 }
@@ -236,35 +234,38 @@ void TIM6_DAC_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
 	
-	HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BCD); // RTC_FORMAT_BIN , RTC_FORMAT_BCD
-	HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD);
-	if(!timer_cnt){
-	sAlarm.AlarmTime.Hours = 0x17;
-  sAlarm.AlarmTime.Minutes = 0x10;
-  sAlarm.AlarmTime.Seconds = 0x10;
-  sAlarm.AlarmTime.SubSeconds = 0x0;
-  sAlarm.AlarmTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
-  sAlarm.AlarmTime.StoreOperation = RTC_STOREOPERATION_RESET;
-  sAlarm.AlarmMask = RTC_ALARMMASK_DATEWEEKDAY;
-  sAlarm.AlarmSubSecondMask = RTC_ALARMSUBSECONDMASK_ALL;
-  sAlarm.AlarmDateWeekDaySel = RTC_ALARMDATEWEEKDAYSEL_DATE;
-  sAlarm.AlarmDateWeekDay = 0x1;
-  sAlarm.Alarm = RTC_ALARM_A;
-  if (HAL_RTC_SetAlarm_IT(&hrtc, &sAlarm, RTC_FORMAT_BCD) != HAL_OK)
-  {
-    Error_Handler();
-  }
-	}
-	timer_cnt++;
+	// Here we set alarm (not sure why but all the things aside time are necessary)
+	
+//	timer_cnt++;
 
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
 
-void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
-{
-	alarm_A_trigger++;
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	if(htim->Instance == TIM6){
+		
+		if(!init_buttons_flag){
+			hbut0 = buttonInit(0.01, 100);
+			hbut1 = buttonInit(0.01, 100);
+			init_buttons_flag = 1;
+		}
+		But0_State = getDebouncedButton(hbut0, !HAL_GPIO_ReadPin(BUT0_GPIO_Port, BUT0_Pin));
+		But1_State = getDebouncedButton(hbut1, !HAL_GPIO_ReadPin(BUT1_GPIO_Port, BUT1_Pin));
+		
+		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BCD); // RTC_FORMAT_BIN , RTC_FORMAT_BCD
+		HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD);
+		if(debug_settime_trig){
+			alrm_SetTime(db_hr, db_min, db_sec);
+			debug_settime_trig = 0;
+		}
+		if(debug_setalarm_trig){
+			alrm_SetAlarm(ab_alarm_hour, ab_alarm_min, ab_alarm_sec);
+			debug_setalarm_trig = 0;
+		}
+		
+	}
 }
 
 /* USER CODE END 1 */

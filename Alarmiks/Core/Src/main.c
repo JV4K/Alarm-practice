@@ -24,6 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "alrm.h"
 
 /* USER CODE END Includes */
 
@@ -45,7 +46,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-RTC_AlarmTypeDef sAlarm;
+
 
 
 /* USER CODE END PV */

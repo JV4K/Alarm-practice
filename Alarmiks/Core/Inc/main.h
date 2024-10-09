@@ -57,6 +57,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define BUT1_Pin GPIO_PIN_3
+#define BUT1_GPIO_Port GPIOE
+#define BUT0_Pin GPIO_PIN_4
+#define BUT0_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 

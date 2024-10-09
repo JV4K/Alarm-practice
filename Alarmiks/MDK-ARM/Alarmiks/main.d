@@ -24,4 +24,5 @@ alarmiks/main.o: ..\Core\Src\main.c ..\Core\Inc\main.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rtc_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
-  ..\Core\Inc\rtc.h ..\Core\Inc\tim.h ..\Core\Inc\gpio.h
+  ..\Core\Inc\rtc.h ..\Core\Inc\tim.h ..\Core\Inc\gpio.h \
+  ..\Core\Inc\alrm.h

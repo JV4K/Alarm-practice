@@ -1,5 +1,8 @@
 --cpu=Cortex-M4.fp.sp
 "alarmiks\startup_stm32f407xx.o"
+"alarmiks\alrm.o"
+"alarmiks\button.o"
+"alarmiks\keys.o"
 "alarmiks\main.o"
 "alarmiks\gpio.o"
 "alarmiks\rtc.o"
