@@ -406,11 +406,6 @@
               <FilePath>..\Core\Src\button.c</FilePath>
             </File>
             <File>
-              <FileName>keys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\keys.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -592,6 +587,16 @@
               <FileName>stm32f4xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>alrm_logic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\alrm_logic.c</FilePath>
+            </File>
+            <File>
+              <FileName>press_detection.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\press_detection.c</FilePath>
             </File>
           </Files>
         </Group>

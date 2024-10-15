@@ -8,8 +8,6 @@ RTC_AlarmTypeDef sAlarm;
 
 uint16_t alarm_A_trigger;
 
-
-
 HAL_StatusTypeDef alrm_SetTime(uint8_t hours, uint8_t minutes, uint8_t seconds){
 	HAL_StatusTypeDef status_code;
 	sTime.Hours = hours;

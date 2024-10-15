@@ -24,7 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "rtc.h"
 #include "alrm.h"
-#include "keys.h"
+#include "press_detection.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,6 +50,8 @@ uint8_t ab_alarm_hour, ab_alarm_min, ab_alarm_sec, db_hr, db_min, db_sec;
 uint16_t timer_cnt;
 
 uint8_t init_buttons_flag;
+
+uint8_t db_b0_short_cnt, db_b1_short_cnt;
 
 /* USER CODE END PV */
 
@@ -246,16 +248,31 @@ void TIM6_DAC_IRQHandler(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if(htim->Instance == TIM6){
 		
+		// Init buttons on first interrupt
 		if(!init_buttons_flag){
 			hbut0 = buttonInit(0.01, 100);
 			hbut1 = buttonInit(0.01, 100);
+			
 			init_buttons_flag = 1;
 		}
+		
+		// Polling and debouncing of buttons (integrator + trigger)
 		But0_State = getDebouncedButton(hbut0, !HAL_GPIO_ReadPin(BUT0_GPIO_Port, BUT0_Pin));
 		But1_State = getDebouncedButton(hbut1, !HAL_GPIO_ReadPin(BUT1_GPIO_Port, BUT1_Pin));
 		
+		// Process keystrokes (long/short)
+		PressDetection_Update();
+		
+		But0_press_state = Get_Button0_PressState();
+		But1_press_state = Get_Button1_PressState();
+		if (But0_press_state == BUTTON_SHORT_PRESS) db_b0_short_cnt++;
+		if (But1_press_state == BUTTON_SHORT_PRESS) db_b1_short_cnt++;
+		// Update time from HW RTC
 		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BCD); // RTC_FORMAT_BIN , RTC_FORMAT_BCD
 		HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD);
+		
+		
+		// debug stuff, can be deleted
 		if(debug_settime_trig){
 			alrm_SetTime(db_hr, db_min, db_sec);
 			debug_settime_trig = 0;
@@ -264,7 +281,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 			alrm_SetAlarm(ab_alarm_hour, ab_alarm_min, ab_alarm_sec);
 			debug_setalarm_trig = 0;
 		}
-		
 	}
 }
 
