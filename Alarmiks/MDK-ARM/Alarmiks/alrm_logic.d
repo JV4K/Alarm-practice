@@ -24,4 +24,5 @@ alarmiks/alrm_logic.o: ..\Core\Src\alrm_logic.c ..\Core\Inc\alrm_logic.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_rtc_ex.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   ..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
-  ..\Core\Inc\alrm.h ..\Core\Inc\rtc.h ..\Core\Inc\tim.h
+  ..\Core\Inc\alrm.h ..\Core\Inc\rtc.h ..\Core\Inc\tim.h \
+  ..\Core\Inc\press_detection.h ..\Core\Inc\button.h ..\Core\Inc\Leds.h

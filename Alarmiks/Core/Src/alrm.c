@@ -1,12 +1,10 @@
-// 
-#define __ARLM_C__
 #include "alrm.h"
 
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 RTC_AlarmTypeDef sAlarm;
 
-uint16_t alarm_A_trigger;
+uint16_t alarm_A_flag;
 
 HAL_StatusTypeDef alrm_SetTime(uint8_t hours, uint8_t minutes, uint8_t seconds){
 	HAL_StatusTypeDef status_code;
@@ -43,6 +41,6 @@ HAL_StatusTypeDef alrm_SetAlarm(uint8_t hours, uint8_t minutes, uint8_t seconds)
 
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 {
-	alarm_A_trigger++;
+	alarm_A_flag = 1;
 }
 

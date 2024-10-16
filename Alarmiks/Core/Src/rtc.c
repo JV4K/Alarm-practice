@@ -62,6 +62,10 @@ void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date
   */
+	
+	
+	// -------SET TIME ON STARTUP------
+	/*
   sTime.Hours = 0x17;
   sTime.Minutes = 0x10;
   sTime.Seconds = 0x0;
@@ -80,9 +84,14 @@ void MX_RTC_Init(void)
   {
     Error_Handler();
   }
+	*/
+	
 
   /** Enable the Alarm A
   */
+	
+	// -------SET ALARM ON STARTUP------
+	/*
   sAlarm.AlarmTime.Hours = 0x0;
   sAlarm.AlarmTime.Minutes = 0x0;
   sAlarm.AlarmTime.Seconds = 0x0;
@@ -98,6 +107,8 @@ void MX_RTC_Init(void)
   {
     Error_Handler();
   }
+	*/
+	
   /* USER CODE BEGIN RTC_Init 2 */
 
   /* USER CODE END RTC_Init 2 */

@@ -24,5 +24,6 @@ ButtonPressState Get_Button0_PressState(void);
 ButtonPressState Get_Button1_PressState(void);
 
 extern ButtonPressState But0_press_state, But1_press_state;
+extern ButtonPressState But0_prev_press_state, But1_prev_press_state;
 
 #endif // PRESS_DETECTION_H
