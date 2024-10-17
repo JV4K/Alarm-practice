@@ -35,6 +35,9 @@ typedef struct{
 		uint8_t time_set_minutes;
 		uint8_t alarm_set_hours; 
 		uint8_t alarm_set_minutes;
+	
+		uint8_t hours_scroll_flag;
+		uint8_t minutes_scroll_flag;
 }alarm_t;
 
 

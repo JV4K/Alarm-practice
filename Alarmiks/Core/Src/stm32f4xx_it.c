@@ -255,21 +255,21 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		
 		alarm_periph_handler();
 		
+		alarm_state_machine();
 		
 		
-		
-		// debug stuff, will be deleted
-		if (But0_press_state == BUTTON_SHORT_PRESS) db_b0_short_cnt++;
-		if (But1_press_state == BUTTON_SHORT_PRESS) db_b1_short_cnt++;
-		
-		if(debug_settime_trig){
-			alrm_SetTime(db_hr, db_min, db_sec);
-			debug_settime_trig = 0;
-		}
-		if(debug_setalarm_trig){
-			alrm_SetAlarm(ab_alarm_hour, ab_alarm_min, ab_alarm_sec);
-			debug_setalarm_trig = 0;
-		}
+//		// debug stuff, will be deleted
+//		if (But0_press_state == BUTTON_SHORT_PRESS) db_b0_short_cnt++;
+//		if (But1_press_state == BUTTON_SHORT_PRESS) db_b1_short_cnt++;
+//		
+//		if(debug_settime_trig){
+//			alrm_SetTime(db_hr, db_min, db_sec);
+//			debug_settime_trig = 0;
+//		}
+//		if(debug_setalarm_trig){
+//			alrm_SetAlarm(ab_alarm_hour, ab_alarm_min, ab_alarm_sec);
+//			debug_setalarm_trig = 0;
+//		}
 	}
 }
 

@@ -1,6 +1,6 @@
 #include "alrm_logic.h"
-
-alarm_t* alarm_p; // Pointer to alarm data structure
+alarm_t halarm;
+alarm_t* alarm_p = &halarm; // Pointer to alarm data structure
 
 void alarm_init_components(){
 	hbut0 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
@@ -65,19 +65,49 @@ void alarm_state_machine(){
 		case SET_TIME:{
 			if(!alarm_p->time_set_flag){
 				alarm_p->time_set_hours = sTime.Hours;
-				alarm_p->time_set_hours = sTime.Minutes;
+				alarm_p->time_set_minutes = sTime.Minutes;
 				alarm_p->time_set_flag = 1;
 			}
 			
+			if (alarm_p->time_set_hours > 0x23) alarm_p->time_set_hours = 0;
+			if (alarm_p->time_set_minutes > 0x59) alarm_p->time_set_minutes = 0;
+			
 			// First check if we are exiting time set mode
-			if ((But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS) && 
-					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
-				
-					}
+			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+				alarm_p->alarm_state = IDLE;
+				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
+				alarm_p->time_set_flag = 0;
+				alarm_p->hours_scroll_flag = 0;
+				alarm_p->minutes_scroll_flag = 0;
+				return; // Skip the rest
+			}
 			
 			if (But0_press_state == BUTTON_SHORT_PRESS){
 				alarm_p->time_set_hours++;
 			}
+			
+			if (But1_press_state == BUTTON_SHORT_PRESS){
+				alarm_p->time_set_minutes++;
+			}
+			
+			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+				alarm_p->hours_scroll_flag = 1;
+			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS && 
+									alarm_p->hours_scroll_flag){
+				alarm_p->time_set_hours++;
+			} else if (But0_press_state == IDLE){
+				alarm_p->hours_scroll_flag = 0;
+			}
+			
+			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+				alarm_p->minutes_scroll_flag = 1;
+			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS && 
+									alarm_p->minutes_scroll_flag){
+				alarm_p->time_set_minutes++;
+			} else if (But1_press_state == IDLE){
+				alarm_p->minutes_scroll_flag = 0;
+			}
+			
 			
 			break;
 		}

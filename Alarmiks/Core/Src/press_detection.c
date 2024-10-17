@@ -8,6 +8,7 @@ Button_Handle_t *hbut1, *hbut0;
 
 // Button press state (idle/short/long)
 ButtonPressState But0_press_state, But1_press_state;
+ButtonPressState But0_prev_press_state, But1_prev_press_state;
 
 // Internal states to track timing and conditions
 static uint8_t But0_PressCounter = 0;

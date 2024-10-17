@@ -3,7 +3,7 @@
 LEDS* alarm_led;
 
 void led_init(uint16_t timer_frequency,
-		uint16_t led_frequency, uint16_t blink_time) {
+	uint16_t led_frequency, uint16_t blink_time) {
 	alarm_led->led_cur_state = DIM;
 	alarm_led->timer_frequency = timer_frequency;
 	alarm_led->led_frequency = led_frequency;
@@ -11,6 +11,7 @@ void led_init(uint16_t timer_frequency,
 	alarm_led->is_on = 1;
 	alarm_led->counter = 0;
 	alarm_led->counter_max = 0;
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, 1);
 }
 
 void leds_calculation() {

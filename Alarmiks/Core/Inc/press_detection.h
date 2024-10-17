@@ -6,8 +6,8 @@
 extern uint8_t But0_State, But1_State;
 extern Button_Handle_t *hbut1, *hbut0;
 
-// Define thresholds (in units of 100ms intervals)
-#define LONG_PRESS_THRESHOLD 30  // 3 seconds for long press
+// Define thresholds (in units of 10ms intervals)
+#define LONG_PRESS_THRESHOLD 80  // 800 milliseconds for long press
 
 // Enum to describe button press states
 typedef enum {
