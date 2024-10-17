@@ -28,6 +28,13 @@ typedef struct{
 		ALARM_STATE alarm_state;
 		ALARM_STATE prev_alarm_state;
 		uint8_t ring_flag;
+		uint8_t time_set_flag;
+		uint8_t alarm_set_flag;
+	
+		uint8_t time_set_hours; 
+		uint8_t time_set_minutes;
+		uint8_t alarm_set_hours; 
+		uint8_t alarm_set_minutes;
 }alarm_t;
 
 
