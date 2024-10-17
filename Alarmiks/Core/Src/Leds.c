@@ -1,6 +1,7 @@
 #include "Leds.h"
 
-LEDS* alarm_led;
+LEDS govno;
+LEDS* alarm_led = &govno;
 
 void led_init(uint16_t timer_frequency,
 	uint16_t led_frequency, uint16_t blink_time) {
@@ -34,6 +35,8 @@ void leds_calculation() {
 				alarm_led->counter = 0;
 			}
 		}
+	} else{
+		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, 1);
 	}
 }
 

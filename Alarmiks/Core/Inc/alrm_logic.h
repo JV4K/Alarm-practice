@@ -11,6 +11,8 @@
 #define DEBOUNCE_TIME 0.01 // Debounce time in seconds
 #define LED_BLINK_FREQ 5 // Frequency of led blinking
 #define LED_BLINK_TIME 10 // Time during which the led will blink (seconds)
+#define BUTTON_SCROLL_TIMEOUT 10 // 
+#define BUTTON_SCROLL_FREQ_DIV 10 // Divider of scroll speed
 
 
 
@@ -26,7 +28,6 @@ typedef enum {IDLE, RING, SET_TIME, SET_ALARM}ALARM_STATE;
 // Struct to store
 typedef struct{
 		ALARM_STATE alarm_state;
-		ALARM_STATE prev_alarm_state;
 		uint8_t ring_flag;
 		uint8_t time_set_flag;
 		uint8_t alarm_set_flag;
@@ -38,6 +39,10 @@ typedef struct{
 	
 		uint8_t hours_scroll_flag;
 		uint8_t minutes_scroll_flag;
+		uint16_t hours_scroll_timeout_cnt;
+		uint16_t minutes_scroll_timeout_cnt;
+		uint8_t hours_scroll_divider_cnt;
+		uint8_t minutes_scroll_divider_cnt;
 }alarm_t;
 
 

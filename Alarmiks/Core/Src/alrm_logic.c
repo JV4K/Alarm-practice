@@ -26,6 +26,8 @@ void alarm_periph_handler(){
 		// Update time from HW RTC
 		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BCD);
 		HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD); // Necessary for proper time update
+	
+		leds_calculation();
 }
 
 void alarm_state_machine(){
@@ -78,42 +80,147 @@ void alarm_state_machine(){
 				alarm_p->time_set_flag = 0;
 				alarm_p->hours_scroll_flag = 0;
 				alarm_p->minutes_scroll_flag = 0;
+				alarm_p->hours_scroll_timeout_cnt = 0;
+				alarm_p->minutes_scroll_timeout_cnt = 0;
+				alarm_p->hours_scroll_divider_cnt = 0;
+				alarm_p->minutes_scroll_divider_cnt = 0;
 				return; // Skip the rest
 			}
 			
+			// Increment hours on short press of button0
 			if (But0_press_state == BUTTON_SHORT_PRESS){
 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
 			}
 			
+			// Increment minutes on short press of button1
 			if (But1_press_state == BUTTON_SHORT_PRESS){
 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
 			}
 			
+			// Increment hours quickly on long press of button0
 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
 				alarm_p->hours_scroll_flag = 1;
-				
 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS && 
 									alarm_p->hours_scroll_flag){
-				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
-										
+				
+				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+					alarm_p->hours_scroll_timeout_cnt++;
+				} else {
+					alarm_p->hours_scroll_divider_cnt++;
+					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+						alarm_p->hours_scroll_divider_cnt = 0;
+					}
+				}
+				
 			} else if (But0_press_state == IDLE){
 				alarm_p->hours_scroll_flag = 0;
+				alarm_p->hours_scroll_timeout_cnt = 0;
+				alarm_p->hours_scroll_divider_cnt = 0;
 			}
 			
+			// Increment minutes quickly on long press of button1
 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
 				alarm_p->minutes_scroll_flag = 1;
 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS && 
 									alarm_p->minutes_scroll_flag){
-				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+										
+				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+					alarm_p->minutes_scroll_timeout_cnt++;
+				} else {
+					alarm_p->minutes_scroll_divider_cnt++;
+					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+						alarm_p->minutes_scroll_divider_cnt = 0;
+					}
+				}
+				
 			} else if (But1_press_state == IDLE){
 				alarm_p->minutes_scroll_flag = 0;
+				alarm_p->minutes_scroll_timeout_cnt = 0;
+				alarm_p->minutes_scroll_divider_cnt = 0;
 			}
-			
 			
 			break;
 		}
 		
 		case SET_ALARM:{
+			
+//				if(!alarm_p->alarm_set_flag){
+//				alarm_p->alarm_set_hours = sTime.Hours;
+//				alarm_p->alarm_set_minutes = sTime.Minutes;
+//				alarm_p->alarm_set_flag = 1;
+//			}
+			
+			// First check if we are exiting alarm set mode
+			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+				alarm_p->alarm_state = IDLE;
+				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
+//				alarm_p->alarm_set_flag = 0;
+				alarm_p->hours_scroll_flag = 0;
+				alarm_p->minutes_scroll_flag = 0;
+				alarm_p->hours_scroll_timeout_cnt = 0;
+				alarm_p->minutes_scroll_timeout_cnt = 0;
+				alarm_p->hours_scroll_divider_cnt = 0;
+				alarm_p->minutes_scroll_divider_cnt = 0;
+				return; // Skip the rest
+			}
+			
+			// Increment hours on short press of button0
+			if (But0_press_state == BUTTON_SHORT_PRESS){
+				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+			}
+			
+			// Increment minutes on short press of button1
+			if (But1_press_state == BUTTON_SHORT_PRESS){
+				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+			}
+			
+			// Increment hours quickly on long press of button0
+			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+				alarm_p->hours_scroll_flag = 1;
+			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS && 
+									alarm_p->hours_scroll_flag){
+				
+				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+					alarm_p->hours_scroll_timeout_cnt++;
+				} else {
+					alarm_p->hours_scroll_divider_cnt++;
+					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+						alarm_p->hours_scroll_divider_cnt = 0;
+					}
+				}
+				
+			} else if (But0_press_state == IDLE){
+				alarm_p->hours_scroll_flag = 0;
+				alarm_p->hours_scroll_timeout_cnt = 0;
+				alarm_p->hours_scroll_divider_cnt = 0;
+			}
+			
+			// Increment minutes quickly on long press of button1
+			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+				alarm_p->minutes_scroll_flag = 1;
+			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS && 
+									alarm_p->minutes_scroll_flag){
+										
+				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+					alarm_p->minutes_scroll_timeout_cnt++;
+				} else {
+					
+					alarm_p->minutes_scroll_divider_cnt++;
+					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+						alarm_p->minutes_scroll_divider_cnt = 0;
+					}
+				}
+				
+			} else if (But1_press_state == IDLE){
+				alarm_p->minutes_scroll_flag = 0;
+				alarm_p->minutes_scroll_timeout_cnt = 0;
+				alarm_p->minutes_scroll_divider_cnt = 0;
+			}
+			
 			
 			break;
 		}

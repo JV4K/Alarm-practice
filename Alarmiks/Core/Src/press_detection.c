@@ -11,8 +11,8 @@ ButtonPressState But0_press_state, But1_press_state;
 ButtonPressState But0_prev_press_state, But1_prev_press_state;
 
 // Internal states to track timing and conditions
-static uint8_t But0_PressCounter = 0;
-static uint8_t But1_PressCounter = 0;
+static uint16_t But0_PressCounter = 0;
+static uint16_t But1_PressCounter = 0;
 static ButtonPressState But0_PressState = BUTTON_IDLE;
 static ButtonPressState But1_PressState = BUTTON_IDLE;
 
