@@ -9,6 +9,7 @@
 
 HAL_StatusTypeDef alrm_SetTime(uint8_t hours, uint8_t minutes, uint8_t seconds);
 HAL_StatusTypeDef alrm_SetAlarm(uint8_t hours, uint8_t minutes, uint8_t seconds);
+uint8_t increment_bcd(uint8_t bcd_val, uint8_t max_val);
 
 extern uint16_t alarm_A_flag;
 extern RTC_TimeTypeDef sTime;

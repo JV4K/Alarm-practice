@@ -44,3 +44,22 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 	alarm_A_flag = 1;
 }
 
+
+// Special increment func for BCD format
+uint8_t increment_bcd(uint8_t bcd_val, uint8_t max_val) {
+    // Increment the BCD value
+    bcd_val++;
+    
+    // If ones place is greater than 9, convert to BCD tens place
+    if ((bcd_val & 0x0F) > 0x09) {
+        bcd_val += 0x06; // This skips invalid BCD values
+    }
+    
+    // Handle overflow
+    if (bcd_val > max_val) {
+        bcd_val = 0x00; // Reset to 0 if the max BCD value is exceeded
+    }
+
+    return bcd_val;
+}
+

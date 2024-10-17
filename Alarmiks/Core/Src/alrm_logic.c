@@ -2,6 +2,8 @@
 alarm_t halarm;
 alarm_t* alarm_p = &halarm; // Pointer to alarm data structure
 
+// alarm_t* alarm_p;
+
 void alarm_init_components(){
 	hbut0 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
 	hbut1 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
@@ -69,9 +71,6 @@ void alarm_state_machine(){
 				alarm_p->time_set_flag = 1;
 			}
 			
-			if (alarm_p->time_set_hours > 0x23) alarm_p->time_set_hours = 0;
-			if (alarm_p->time_set_minutes > 0x59) alarm_p->time_set_minutes = 0;
-			
 			// First check if we are exiting time set mode
 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
 				alarm_p->alarm_state = IDLE;
@@ -83,18 +82,20 @@ void alarm_state_machine(){
 			}
 			
 			if (But0_press_state == BUTTON_SHORT_PRESS){
-				alarm_p->time_set_hours++;
+				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
 			}
 			
 			if (But1_press_state == BUTTON_SHORT_PRESS){
-				alarm_p->time_set_minutes++;
+				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
 			}
 			
 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
 				alarm_p->hours_scroll_flag = 1;
+				
 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS && 
 									alarm_p->hours_scroll_flag){
-				alarm_p->time_set_hours++;
+				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+										
 			} else if (But0_press_state == IDLE){
 				alarm_p->hours_scroll_flag = 0;
 			}
@@ -103,7 +104,7 @@ void alarm_state_machine(){
 				alarm_p->minutes_scroll_flag = 1;
 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS && 
 									alarm_p->minutes_scroll_flag){
-				alarm_p->time_set_minutes++;
+				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
 			} else if (But1_press_state == IDLE){
 				alarm_p->minutes_scroll_flag = 0;
 			}
