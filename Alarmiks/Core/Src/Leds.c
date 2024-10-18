@@ -1,7 +1,6 @@
 #include "Leds.h"
-
-LEDS govno;
-LEDS* alarm_led = &govno;
+LEDS hled;
+LEDS* alarm_led = &hled;
 
 void led_init(uint16_t timer_frequency,
 	uint16_t led_frequency, uint16_t blink_time) {
