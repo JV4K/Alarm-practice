@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "alrm_logic.h": "c",
+        "alrm.h": "c",
+        "tim.h": "c"
+    }
+}

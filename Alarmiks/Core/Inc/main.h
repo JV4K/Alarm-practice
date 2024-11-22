@@ -31,6 +31,9 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "fonts.h"
+#include "z_displ_ST7735.h"
+#include "z_displ_ST7735_test.h"
 
 /* USER CODE END Includes */
 
@@ -61,8 +64,20 @@ void Error_Handler(void);
 #define BUT1_GPIO_Port GPIOE
 #define BUT0_Pin GPIO_PIN_4
 #define BUT0_GPIO_Port GPIOE
+#define DISPL_CS_Pin GPIO_PIN_4
+#define DISPL_CS_GPIO_Port GPIOA
+#define DISPL_SCK_Pin GPIO_PIN_5
+#define DISPL_SCK_GPIO_Port GPIOA
 #define LED_Pin GPIO_PIN_6
 #define LED_GPIO_Port GPIOA
+#define DISPL_MOSI_Pin GPIO_PIN_7
+#define DISPL_MOSI_GPIO_Port GPIOA
+#define DISPL_LED_Pin GPIO_PIN_4
+#define DISPL_LED_GPIO_Port GPIOC
+#define DISPL_DC_Pin GPIO_PIN_5
+#define DISPL_DC_GPIO_Port GPIOC
+#define DISPL_RST_Pin GPIO_PIN_0
+#define DISPL_RST_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

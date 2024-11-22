@@ -1,0 +1,3455 @@
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"z_displ_ST7735_test.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/z_displ_ST7735_test.c"
+  20              		.section	.text.testLines,"ax",%progbits
+  21              		.align	1
+  22              		.global	testLines
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	testLines:
+  28              	.LVL0:
+  29              	.LFB137:
+   1:Core/Src/z_displ_ST7735_test.c **** /*
+   2:Core/Src/z_displ_ST7735_test.c ****  * z_displ_ST7735_test.c
+   3:Core/Src/z_displ_ST7735_test.c ****  * rel. 5
+   4:Core/Src/z_displ_ST7735_test.c ****  *
+   5:Core/Src/z_displ_ST7735_test.c ****  *  Created on: Mar 25, 2022
+   6:Core/Src/z_displ_ST7735_test.c ****  *      Author: mauro
+   7:Core/Src/z_displ_ST7735_test.c ****  *
+   8:Core/Src/z_displ_ST7735_test.c ****  *  This is related to the functions testing features and showing performance
+   9:Core/Src/z_displ_ST7735_test.c ****  *  you don't need this file in the production project
+  10:Core/Src/z_displ_ST7735_test.c ****  *
+  11:Core/Src/z_displ_ST7735_test.c ****  */
+  12:Core/Src/z_displ_ST7735_test.c **** 
+  13:Core/Src/z_displ_ST7735_test.c **** 
+  14:Core/Src/z_displ_ST7735_test.c **** 
+  15:Core/Src/z_displ_ST7735_test.c **** #include "main.h"
+  16:Core/Src/z_displ_ST7735_test.c **** 
+  17:Core/Src/z_displ_ST7735_test.c **** extern int16_t _width;       								///< (oriented) display width
+  18:Core/Src/z_displ_ST7735_test.c **** extern int16_t _height;      								///< (oriented) display height
+  19:Core/Src/z_displ_ST7735_test.c **** 
+  20:Core/Src/z_displ_ST7735_test.c **** 
+  21:Core/Src/z_displ_ST7735_test.c **** 
+  22:Core/Src/z_displ_ST7735_test.c **** 
+  23:Core/Src/z_displ_ST7735_test.c **** 
+  24:Core/Src/z_displ_ST7735_test.c **** void testLines(uint16_t color)
+  25:Core/Src/z_displ_ST7735_test.c **** {
+  30              		.loc 1 25 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 2
+
+
+  34              		.loc 1 25 1 is_stmt 0 view .LVU1
+  35 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+  36              		.cfi_def_cfa_offset 28
+  37              		.cfi_offset 4, -28
+  38              		.cfi_offset 5, -24
+  39              		.cfi_offset 6, -20
+  40              		.cfi_offset 7, -16
+  41              		.cfi_offset 8, -12
+  42              		.cfi_offset 9, -8
+  43              		.cfi_offset 14, -4
+  44 0004 83B0     		sub	sp, sp, #12
+  45              		.cfi_def_cfa_offset 40
+  46 0006 0446     		mov	r4, r0
+  26:Core/Src/z_displ_ST7735_test.c ****     int           x1, y1, x2, y2,
+  47              		.loc 1 26 5 is_stmt 1 view .LVU2
+  27:Core/Src/z_displ_ST7735_test.c ****                   w = _width,
+  48              		.loc 1 27 19 is_stmt 0 view .LVU3
+  49 0008 424B     		ldr	r3, .L19
+  50 000a B3F90060 		ldrsh	r6, [r3]
+  51              	.LVL1:
+  28:Core/Src/z_displ_ST7735_test.c ****                   h = _height;
+  52              		.loc 1 28 19 view .LVU4
+  53 000e 424B     		ldr	r3, .L19+4
+  54 0010 B3F90050 		ldrsh	r5, [r3]
+  55              	.LVL2:
+  29:Core/Src/z_displ_ST7735_test.c **** 
+  30:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+  56              		.loc 1 30 5 is_stmt 1 view .LVU5
+  57 0014 0020     		movs	r0, #0
+  58              	.LVL3:
+  59              		.loc 1 30 5 is_stmt 0 view .LVU6
+  60 0016 FFF7FEFF 		bl	Displ_CLS
+  61              	.LVL4:
+  31:Core/Src/z_displ_ST7735_test.c **** 
+  32:Core/Src/z_displ_ST7735_test.c ****     x1 = y1 = 0;
+  62              		.loc 1 32 5 is_stmt 1 view .LVU7
+  33:Core/Src/z_displ_ST7735_test.c ****     y2    = h - 1;
+  63              		.loc 1 33 5 view .LVU8
+  34:Core/Src/z_displ_ST7735_test.c **** //    for (x2 = 0; x2 < w; x2 += 6) drawLine(x1, y1, x2, y2, color);
+  35:Core/Src/z_displ_ST7735_test.c ****     for (x2 = 0; x2 < w; x2 += 6) Displ_Line(x1, y1, x2, y2, color);
+  64              		.loc 1 35 5 view .LVU9
+  65              		.loc 1 35 13 is_stmt 0 view .LVU10
+  66 001a 0027     		movs	r7, #0
+  67              		.loc 1 35 5 view .LVU11
+  68 001c 08E0     		b	.L2
+  69              	.LVL5:
+  70              	.L3:
+  71              		.loc 1 35 35 is_stmt 1 discriminator 3 view .LVU12
+  72 001e 6B1E     		subs	r3, r5, #1
+  73 0020 0094     		str	r4, [sp]
+  74 0022 1BB2     		sxth	r3, r3
+  75 0024 3AB2     		sxth	r2, r7
+  76 0026 0021     		movs	r1, #0
+  77 0028 0846     		mov	r0, r1
+  78 002a FFF7FEFF 		bl	Displ_Line
+  79              	.LVL6:
+  80              		.loc 1 35 29 discriminator 3 view .LVU13
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 3
+
+
+  81 002e 0637     		adds	r7, r7, #6
+  82              	.LVL7:
+  83              	.L2:
+  84              		.loc 1 35 21 discriminator 2 view .LVU14
+  85 0030 B742     		cmp	r7, r6
+  86 0032 F4DB     		blt	.L3
+  36:Core/Src/z_displ_ST7735_test.c ****     x2    = w - 1;
+  37:Core/Src/z_displ_ST7735_test.c ****     for (y2 = 0; y2 < h; y2 += 6) Displ_Line(x1, y1, x2, y2, color);
+  87              		.loc 1 37 13 is_stmt 0 view .LVU15
+  88 0034 0027     		movs	r7, #0
+  89              	.LVL8:
+  90              		.loc 1 37 13 view .LVU16
+  91 0036 08E0     		b	.L4
+  92              	.LVL9:
+  93              	.L5:
+  94              		.loc 1 37 35 is_stmt 1 discriminator 3 view .LVU17
+  95 0038 721E     		subs	r2, r6, #1
+  96 003a 0094     		str	r4, [sp]
+  97 003c 3BB2     		sxth	r3, r7
+  98 003e 12B2     		sxth	r2, r2
+  99 0040 0021     		movs	r1, #0
+ 100 0042 0846     		mov	r0, r1
+ 101 0044 FFF7FEFF 		bl	Displ_Line
+ 102              	.LVL10:
+ 103              		.loc 1 37 29 discriminator 3 view .LVU18
+ 104 0048 0637     		adds	r7, r7, #6
+ 105              	.LVL11:
+ 106              	.L4:
+ 107              		.loc 1 37 21 discriminator 2 view .LVU19
+ 108 004a AF42     		cmp	r7, r5
+ 109 004c F4DB     		blt	.L5
+  38:Core/Src/z_displ_ST7735_test.c **** 
+  39:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 110              		.loc 1 39 5 view .LVU20
+ 111 004e 0020     		movs	r0, #0
+ 112 0050 FFF7FEFF 		bl	Displ_CLS
+ 113              	.LVL12:
+  40:Core/Src/z_displ_ST7735_test.c **** 
+  41:Core/Src/z_displ_ST7735_test.c ****     x1    = w - 1;
+ 114              		.loc 1 41 5 view .LVU21
+ 115              		.loc 1 41 11 is_stmt 0 view .LVU22
+ 116 0054 06F1FF38 		add	r8, r6, #-1
+ 117              	.LVL13:
+  42:Core/Src/z_displ_ST7735_test.c ****     y1    = 0;
+ 118              		.loc 1 42 5 is_stmt 1 view .LVU23
+  43:Core/Src/z_displ_ST7735_test.c ****     y2    = h - 1;
+ 119              		.loc 1 43 5 view .LVU24
+  44:Core/Src/z_displ_ST7735_test.c ****     for (x2 = 0; x2 < w; x2 += 6) Displ_Line(x1, y1, x2, y2, color);
+ 120              		.loc 1 44 5 view .LVU25
+ 121              		.loc 1 44 13 is_stmt 0 view .LVU26
+ 122 0058 0027     		movs	r7, #0
+ 123              		.loc 1 44 5 view .LVU27
+ 124 005a 09E0     		b	.L6
+ 125              	.LVL14:
+ 126              	.L7:
+ 127              		.loc 1 44 35 is_stmt 1 discriminator 3 view .LVU28
+ 128 005c 6B1E     		subs	r3, r5, #1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 4
+
+
+ 129 005e 0094     		str	r4, [sp]
+ 130 0060 1BB2     		sxth	r3, r3
+ 131 0062 3AB2     		sxth	r2, r7
+ 132 0064 0021     		movs	r1, #0
+ 133 0066 0FFA88F0 		sxth	r0, r8
+ 134 006a FFF7FEFF 		bl	Displ_Line
+ 135              	.LVL15:
+ 136              		.loc 1 44 29 discriminator 3 view .LVU29
+ 137 006e 0637     		adds	r7, r7, #6
+ 138              	.LVL16:
+ 139              	.L6:
+ 140              		.loc 1 44 21 discriminator 2 view .LVU30
+ 141 0070 B742     		cmp	r7, r6
+ 142 0072 F3DB     		blt	.L7
+  45:Core/Src/z_displ_ST7735_test.c ****     x2    = 0;
+  46:Core/Src/z_displ_ST7735_test.c ****     for (y2 = 0; y2 < h; y2 += 6) Displ_Line(x1, y1, x2, y2, color);
+ 143              		.loc 1 46 13 is_stmt 0 view .LVU31
+ 144 0074 0027     		movs	r7, #0
+ 145              	.LVL17:
+ 146              		.loc 1 46 13 view .LVU32
+ 147 0076 08E0     		b	.L8
+ 148              	.LVL18:
+ 149              	.L9:
+ 150              		.loc 1 46 35 is_stmt 1 discriminator 3 view .LVU33
+ 151 0078 0094     		str	r4, [sp]
+ 152 007a 3BB2     		sxth	r3, r7
+ 153 007c 0022     		movs	r2, #0
+ 154 007e 1146     		mov	r1, r2
+ 155 0080 0FFA88F0 		sxth	r0, r8
+ 156 0084 FFF7FEFF 		bl	Displ_Line
+ 157              	.LVL19:
+ 158              		.loc 1 46 29 discriminator 3 view .LVU34
+ 159 0088 0637     		adds	r7, r7, #6
+ 160              	.LVL20:
+ 161              	.L8:
+ 162              		.loc 1 46 21 discriminator 2 view .LVU35
+ 163 008a AF42     		cmp	r7, r5
+ 164 008c F4DB     		blt	.L9
+  47:Core/Src/z_displ_ST7735_test.c **** 
+  48:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 165              		.loc 1 48 5 view .LVU36
+ 166 008e 0020     		movs	r0, #0
+ 167 0090 FFF7FEFF 		bl	Displ_CLS
+ 168              	.LVL21:
+  49:Core/Src/z_displ_ST7735_test.c **** 
+  50:Core/Src/z_displ_ST7735_test.c ****     x1    = 0;
+ 169              		.loc 1 50 5 view .LVU37
+  51:Core/Src/z_displ_ST7735_test.c ****     y1    = h - 1;
+ 170              		.loc 1 51 5 view .LVU38
+ 171              		.loc 1 51 11 is_stmt 0 view .LVU39
+ 172 0094 05F1FF39 		add	r9, r5, #-1
+ 173              	.LVL22:
+  52:Core/Src/z_displ_ST7735_test.c ****     y2    = 0;
+ 174              		.loc 1 52 5 is_stmt 1 view .LVU40
+  53:Core/Src/z_displ_ST7735_test.c ****     for (x2 = 0; x2 < w; x2 += 6) Displ_Line(x1, y1, x2, y2, color);
+ 175              		.loc 1 53 5 view .LVU41
+ 176              		.loc 1 53 13 is_stmt 0 view .LVU42
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 5
+
+
+ 177 0098 0027     		movs	r7, #0
+ 178              		.loc 1 53 5 view .LVU43
+ 179 009a 08E0     		b	.L10
+ 180              	.LVL23:
+ 181              	.L11:
+ 182              		.loc 1 53 35 is_stmt 1 discriminator 3 view .LVU44
+ 183 009c 0094     		str	r4, [sp]
+ 184 009e 0023     		movs	r3, #0
+ 185 00a0 3AB2     		sxth	r2, r7
+ 186 00a2 0FFA89F1 		sxth	r1, r9
+ 187 00a6 1846     		mov	r0, r3
+ 188 00a8 FFF7FEFF 		bl	Displ_Line
+ 189              	.LVL24:
+ 190              		.loc 1 53 29 discriminator 3 view .LVU45
+ 191 00ac 0637     		adds	r7, r7, #6
+ 192              	.LVL25:
+ 193              	.L10:
+ 194              		.loc 1 53 21 discriminator 2 view .LVU46
+ 195 00ae B742     		cmp	r7, r6
+ 196 00b0 F4DB     		blt	.L11
+  54:Core/Src/z_displ_ST7735_test.c ****     x2    = w - 1;
+  55:Core/Src/z_displ_ST7735_test.c ****     for (y2 = 0; y2 < h; y2 += 6) Displ_Line(x1, y1, x2, y2, color);
+ 197              		.loc 1 55 13 is_stmt 0 view .LVU47
+ 198 00b2 0027     		movs	r7, #0
+ 199              	.LVL26:
+ 200              		.loc 1 55 13 view .LVU48
+ 201 00b4 09E0     		b	.L12
+ 202              	.LVL27:
+ 203              	.L13:
+ 204              		.loc 1 55 35 is_stmt 1 discriminator 3 view .LVU49
+ 205 00b6 721E     		subs	r2, r6, #1
+ 206 00b8 0094     		str	r4, [sp]
+ 207 00ba 3BB2     		sxth	r3, r7
+ 208 00bc 12B2     		sxth	r2, r2
+ 209 00be 0FFA89F1 		sxth	r1, r9
+ 210 00c2 0020     		movs	r0, #0
+ 211 00c4 FFF7FEFF 		bl	Displ_Line
+ 212              	.LVL28:
+ 213              		.loc 1 55 29 discriminator 3 view .LVU50
+ 214 00c8 0637     		adds	r7, r7, #6
+ 215              	.LVL29:
+ 216              	.L12:
+ 217              		.loc 1 55 21 discriminator 2 view .LVU51
+ 218 00ca AF42     		cmp	r7, r5
+ 219 00cc F3DB     		blt	.L13
+  56:Core/Src/z_displ_ST7735_test.c **** 
+  57:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 220              		.loc 1 57 5 view .LVU52
+ 221 00ce 0020     		movs	r0, #0
+ 222 00d0 FFF7FEFF 		bl	Displ_CLS
+ 223              	.LVL30:
+  58:Core/Src/z_displ_ST7735_test.c **** 
+  59:Core/Src/z_displ_ST7735_test.c ****     x1    = w - 1;
+ 224              		.loc 1 59 5 view .LVU53
+  60:Core/Src/z_displ_ST7735_test.c ****     y1    = h - 1;
+ 225              		.loc 1 60 5 view .LVU54
+  61:Core/Src/z_displ_ST7735_test.c ****     y2    = 0;
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 6
+
+
+ 226              		.loc 1 61 5 view .LVU55
+  62:Core/Src/z_displ_ST7735_test.c ****     for (x2 = 0; x2 < w; x2 += 6) Displ_Line(x1, y1, x2, y2, color);
+ 227              		.loc 1 62 5 view .LVU56
+ 228              		.loc 1 62 13 is_stmt 0 view .LVU57
+ 229 00d4 0027     		movs	r7, #0
+ 230              		.loc 1 62 5 view .LVU58
+ 231 00d6 09E0     		b	.L14
+ 232              	.LVL31:
+ 233              	.L15:
+ 234              		.loc 1 62 35 is_stmt 1 discriminator 3 view .LVU59
+ 235 00d8 0094     		str	r4, [sp]
+ 236 00da 0023     		movs	r3, #0
+ 237 00dc 3AB2     		sxth	r2, r7
+ 238 00de 0FFA89F1 		sxth	r1, r9
+ 239 00e2 0FFA88F0 		sxth	r0, r8
+ 240 00e6 FFF7FEFF 		bl	Displ_Line
+ 241              	.LVL32:
+ 242              		.loc 1 62 29 discriminator 3 view .LVU60
+ 243 00ea 0637     		adds	r7, r7, #6
+ 244              	.LVL33:
+ 245              	.L14:
+ 246              		.loc 1 62 21 discriminator 2 view .LVU61
+ 247 00ec B742     		cmp	r7, r6
+ 248 00ee F3DB     		blt	.L15
+  63:Core/Src/z_displ_ST7735_test.c ****     x2    = 0;
+  64:Core/Src/z_displ_ST7735_test.c ****     for (y2 = 0; y2 < h; y2 += 6) Displ_Line(x1, y1, x2, y2, color);
+ 249              		.loc 1 64 13 is_stmt 0 view .LVU62
+ 250 00f0 0026     		movs	r6, #0
+ 251              	.LVL34:
+ 252              		.loc 1 64 13 view .LVU63
+ 253 00f2 09E0     		b	.L16
+ 254              	.LVL35:
+ 255              	.L17:
+ 256              		.loc 1 64 35 is_stmt 1 discriminator 3 view .LVU64
+ 257 00f4 0094     		str	r4, [sp]
+ 258 00f6 33B2     		sxth	r3, r6
+ 259 00f8 0022     		movs	r2, #0
+ 260 00fa 0FFA89F1 		sxth	r1, r9
+ 261 00fe 0FFA88F0 		sxth	r0, r8
+ 262 0102 FFF7FEFF 		bl	Displ_Line
+ 263              	.LVL36:
+ 264              		.loc 1 64 29 discriminator 3 view .LVU65
+ 265 0106 0636     		adds	r6, r6, #6
+ 266              	.LVL37:
+ 267              	.L16:
+ 268              		.loc 1 64 21 discriminator 2 view .LVU66
+ 269 0108 AE42     		cmp	r6, r5
+ 270 010a F3DB     		blt	.L17
+  65:Core/Src/z_displ_ST7735_test.c **** 
+  66:Core/Src/z_displ_ST7735_test.c **** }
+ 271              		.loc 1 66 1 is_stmt 0 view .LVU67
+ 272 010c 03B0     		add	sp, sp, #12
+ 273              		.cfi_def_cfa_offset 28
+ 274              		@ sp needed
+ 275 010e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 276              	.LVL38:
+ 277              	.L20:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 7
+
+
+ 278              		.loc 1 66 1 view .LVU68
+ 279 0112 00BF     		.align	2
+ 280              	.L19:
+ 281 0114 00000000 		.word	_width
+ 282 0118 00000000 		.word	_height
+ 283              		.cfi_endproc
+ 284              	.LFE137:
+ 286              		.section	.text.testFastLines,"ax",%progbits
+ 287              		.align	1
+ 288              		.global	testFastLines
+ 289              		.syntax unified
+ 290              		.thumb
+ 291              		.thumb_func
+ 293              	testFastLines:
+ 294              	.LVL39:
+ 295              	.LFB138:
+  67:Core/Src/z_displ_ST7735_test.c **** 
+  68:Core/Src/z_displ_ST7735_test.c **** 
+  69:Core/Src/z_displ_ST7735_test.c **** 
+  70:Core/Src/z_displ_ST7735_test.c **** 
+  71:Core/Src/z_displ_ST7735_test.c **** void testFastLines(uint16_t color1, uint16_t color2)
+  72:Core/Src/z_displ_ST7735_test.c **** {
+ 296              		.loc 1 72 1 is_stmt 1 view -0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              		.loc 1 72 1 is_stmt 0 view .LVU70
+ 301 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 302              		.cfi_def_cfa_offset 24
+ 303              		.cfi_offset 4, -24
+ 304              		.cfi_offset 5, -20
+ 305              		.cfi_offset 6, -16
+ 306              		.cfi_offset 7, -12
+ 307              		.cfi_offset 8, -8
+ 308              		.cfi_offset 14, -4
+ 309 0004 82B0     		sub	sp, sp, #8
+ 310              		.cfi_def_cfa_offset 32
+ 311 0006 8046     		mov	r8, r0
+ 312 0008 0F46     		mov	r7, r1
+  73:Core/Src/z_displ_ST7735_test.c ****     int           x, y, w = _width, h = _height;
+ 313              		.loc 1 73 5 is_stmt 1 view .LVU71
+ 314              		.loc 1 73 25 is_stmt 0 view .LVU72
+ 315 000a 134B     		ldr	r3, .L27
+ 316 000c B3F90050 		ldrsh	r5, [r3]
+ 317              	.LVL40:
+ 318              		.loc 1 73 37 view .LVU73
+ 319 0010 124B     		ldr	r3, .L27+4
+ 320 0012 B3F90060 		ldrsh	r6, [r3]
+ 321              	.LVL41:
+  74:Core/Src/z_displ_ST7735_test.c **** 
+  75:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 322              		.loc 1 75 5 is_stmt 1 view .LVU74
+ 323 0016 0020     		movs	r0, #0
+ 324              	.LVL42:
+ 325              		.loc 1 75 5 is_stmt 0 view .LVU75
+ 326 0018 FFF7FEFF 		bl	Displ_CLS
+ 327              	.LVL43:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 8
+
+
+  76:Core/Src/z_displ_ST7735_test.c **** //    for (y = 0; y < h; y += 5) drawFastHLine(0, y, w, color1);
+  77:Core/Src/z_displ_ST7735_test.c ****     for (y = 0; y < h; y += 5) Displ_Line(0, y, w-1, y, color1);
+ 328              		.loc 1 77 5 is_stmt 1 view .LVU76
+ 329              		.loc 1 77 12 is_stmt 0 view .LVU77
+ 330 001c 0024     		movs	r4, #0
+ 331              		.loc 1 77 5 view .LVU78
+ 332 001e 09E0     		b	.L22
+ 333              	.LVL44:
+ 334              	.L23:
+ 335              		.loc 1 77 32 is_stmt 1 discriminator 3 view .LVU79
+ 336 0020 21B2     		sxth	r1, r4
+ 337              		.loc 1 77 50 is_stmt 0 discriminator 3 view .LVU80
+ 338 0022 6A1E     		subs	r2, r5, #1
+ 339              		.loc 1 77 32 discriminator 3 view .LVU81
+ 340 0024 CDF80080 		str	r8, [sp]
+ 341 0028 0B46     		mov	r3, r1
+ 342 002a 12B2     		sxth	r2, r2
+ 343 002c 0020     		movs	r0, #0
+ 344 002e FFF7FEFF 		bl	Displ_Line
+ 345              	.LVL45:
+ 346              		.loc 1 77 26 is_stmt 1 discriminator 3 view .LVU82
+ 347 0032 0534     		adds	r4, r4, #5
+ 348              	.LVL46:
+ 349              	.L22:
+ 350              		.loc 1 77 19 discriminator 2 view .LVU83
+ 351 0034 B442     		cmp	r4, r6
+ 352 0036 F3DB     		blt	.L23
+  78:Core/Src/z_displ_ST7735_test.c **** 
+  79:Core/Src/z_displ_ST7735_test.c **** //    for (x = 0; x < w; x += 5) drawFastVLine(x, 0, h, color2);
+  80:Core/Src/z_displ_ST7735_test.c ****     for (x = 0; x < w; x += 5) Displ_Line(x, 0, x, h-1, color2);
+ 353              		.loc 1 80 12 is_stmt 0 view .LVU84
+ 354 0038 0024     		movs	r4, #0
+ 355              	.LVL47:
+ 356              		.loc 1 80 12 view .LVU85
+ 357 003a 08E0     		b	.L24
+ 358              	.LVL48:
+ 359              	.L25:
+ 360              		.loc 1 80 32 is_stmt 1 discriminator 3 view .LVU86
+ 361 003c 20B2     		sxth	r0, r4
+ 362              		.loc 1 80 53 is_stmt 0 discriminator 3 view .LVU87
+ 363 003e 731E     		subs	r3, r6, #1
+ 364              		.loc 1 80 32 discriminator 3 view .LVU88
+ 365 0040 0097     		str	r7, [sp]
+ 366 0042 1BB2     		sxth	r3, r3
+ 367 0044 0246     		mov	r2, r0
+ 368 0046 0021     		movs	r1, #0
+ 369 0048 FFF7FEFF 		bl	Displ_Line
+ 370              	.LVL49:
+ 371              		.loc 1 80 26 is_stmt 1 discriminator 3 view .LVU89
+ 372 004c 0534     		adds	r4, r4, #5
+ 373              	.LVL50:
+ 374              	.L24:
+ 375              		.loc 1 80 19 discriminator 2 view .LVU90
+ 376 004e AC42     		cmp	r4, r5
+ 377 0050 F4DB     		blt	.L25
+  81:Core/Src/z_displ_ST7735_test.c **** }
+ 378              		.loc 1 81 1 is_stmt 0 view .LVU91
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 9
+
+
+ 379 0052 02B0     		add	sp, sp, #8
+ 380              		.cfi_def_cfa_offset 24
+ 381              		@ sp needed
+ 382 0054 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 383              	.LVL51:
+ 384              	.L28:
+ 385              		.loc 1 81 1 view .LVU92
+ 386              		.align	2
+ 387              	.L27:
+ 388 0058 00000000 		.word	_width
+ 389 005c 00000000 		.word	_height
+ 390              		.cfi_endproc
+ 391              	.LFE138:
+ 393              		.section	.text.testRects,"ax",%progbits
+ 394              		.align	1
+ 395              		.global	testRects
+ 396              		.syntax unified
+ 397              		.thumb
+ 398              		.thumb_func
+ 400              	testRects:
+ 401              	.LVL52:
+ 402              	.LFB139:
+  82:Core/Src/z_displ_ST7735_test.c **** 
+  83:Core/Src/z_displ_ST7735_test.c **** 
+  84:Core/Src/z_displ_ST7735_test.c **** 
+  85:Core/Src/z_displ_ST7735_test.c **** 
+  86:Core/Src/z_displ_ST7735_test.c **** 
+  87:Core/Src/z_displ_ST7735_test.c **** void testRects(uint16_t color)
+  88:Core/Src/z_displ_ST7735_test.c **** {
+ 403              		.loc 1 88 1 is_stmt 1 view -0
+ 404              		.cfi_startproc
+ 405              		@ args = 0, pretend = 0, frame = 0
+ 406              		@ frame_needed = 0, uses_anonymous_args = 0
+ 407              		.loc 1 88 1 is_stmt 0 view .LVU94
+ 408 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 409              		.cfi_def_cfa_offset 24
+ 410              		.cfi_offset 4, -24
+ 411              		.cfi_offset 5, -20
+ 412              		.cfi_offset 6, -16
+ 413              		.cfi_offset 7, -12
+ 414              		.cfi_offset 8, -8
+ 415              		.cfi_offset 14, -4
+ 416 0004 82B0     		sub	sp, sp, #8
+ 417              		.cfi_def_cfa_offset 32
+ 418 0006 8046     		mov	r8, r0
+  89:Core/Src/z_displ_ST7735_test.c **** 	int           n, i, i2,
+ 419              		.loc 1 89 2 is_stmt 1 view .LVU95
+  90:Core/Src/z_displ_ST7735_test.c **** 	cx = _width  / 2,
+ 420              		.loc 1 90 15 is_stmt 0 view .LVU96
+ 421 0008 164C     		ldr	r4, .L33
+ 422 000a B4F90060 		ldrsh	r6, [r4]
+ 423 000e 06EBD676 		add	r6, r6, r6, lsr #31
+ 424 0012 7610     		asrs	r6, r6, #1
+ 425              	.LVL53:
+  91:Core/Src/z_displ_ST7735_test.c **** 	cy = _height / 2;
+ 426              		.loc 1 91 15 view .LVU97
+ 427 0014 144F     		ldr	r7, .L33+4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 10
+
+
+ 428 0016 B7F90050 		ldrsh	r5, [r7]
+ 429 001a 05EBD575 		add	r5, r5, r5, lsr #31
+ 430 001e 6D10     		asrs	r5, r5, #1
+ 431              	.LVL54:
+  92:Core/Src/z_displ_ST7735_test.c **** 
+  93:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(BLACK);
+ 432              		.loc 1 93 2 is_stmt 1 view .LVU98
+ 433 0020 0020     		movs	r0, #0
+ 434              	.LVL55:
+ 435              		.loc 1 93 2 is_stmt 0 view .LVU99
+ 436 0022 FFF7FEFF 		bl	Displ_CLS
+ 437              	.LVL56:
+  94:Core/Src/z_displ_ST7735_test.c **** 	n     = min(_width, _height);
+ 438              		.loc 1 94 2 is_stmt 1 view .LVU100
+ 439              		.loc 1 94 10 is_stmt 0 view .LVU101
+ 440 0026 B7F90070 		ldrsh	r7, [r7]
+ 441 002a B4F90030 		ldrsh	r3, [r4]
+ 442 002e 9F42     		cmp	r7, r3
+ 443 0030 A8BF     		it	ge
+ 444 0032 1F46     		movge	r7, r3
+ 445              	.LVL57:
+  95:Core/Src/z_displ_ST7735_test.c **** 	for (i = 2; i < n; i += 6) {
+ 446              		.loc 1 95 2 is_stmt 1 view .LVU102
+ 447              		.loc 1 95 9 is_stmt 0 view .LVU103
+ 448 0034 0224     		movs	r4, #2
+ 449              		.loc 1 95 2 view .LVU104
+ 450 0036 10E0     		b	.L30
+ 451              	.LVL58:
+ 452              	.L31:
+  96:Core/Src/z_displ_ST7735_test.c **** 		i2 = i / 2;
+ 453              		.loc 1 96 3 is_stmt 1 view .LVU105
+ 454              		.loc 1 96 6 is_stmt 0 view .LVU106
+ 455 0038 04EBD471 		add	r1, r4, r4, lsr #31
+ 456              	.LVL59:
+  97:Core/Src/z_displ_ST7735_test.c **** //        drawRect(cx - i2, cy - i2, i, i, color);
+  98:Core/Src/z_displ_ST7735_test.c **** 		Displ_Border(cx - i2, cy - i2, i, i, 1, color);
+ 457              		.loc 1 98 3 is_stmt 1 view .LVU107
+ 458              		.loc 1 98 19 is_stmt 0 view .LVU108
+ 459 003c C1F34F01 		ubfx	r1, r1, #1, #16
+ 460              	.LVL60:
+ 461              		.loc 1 98 19 view .LVU109
+ 462 0040 701A     		subs	r0, r6, r1
+ 463              		.loc 1 98 28 view .LVU110
+ 464 0042 691A     		subs	r1, r5, r1
+ 465              		.loc 1 98 3 view .LVU111
+ 466 0044 22B2     		sxth	r2, r4
+ 467 0046 CDF80480 		str	r8, [sp, #4]
+ 468 004a 0123     		movs	r3, #1
+ 469 004c 0093     		str	r3, [sp]
+ 470 004e 1346     		mov	r3, r2
+ 471 0050 09B2     		sxth	r1, r1
+ 472 0052 00B2     		sxth	r0, r0
+ 473 0054 FFF7FEFF 		bl	Displ_Border
+ 474              	.LVL61:
+  95:Core/Src/z_displ_ST7735_test.c **** 		i2 = i / 2;
+ 475              		.loc 1 95 23 is_stmt 1 discriminator 3 view .LVU112
+ 476 0058 0634     		adds	r4, r4, #6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 11
+
+
+ 477              	.LVL62:
+ 478              	.L30:
+  95:Core/Src/z_displ_ST7735_test.c **** 		i2 = i / 2;
+ 479              		.loc 1 95 16 discriminator 1 view .LVU113
+ 480 005a BC42     		cmp	r4, r7
+ 481 005c ECDB     		blt	.L31
+  99:Core/Src/z_displ_ST7735_test.c **** 	}
+ 100:Core/Src/z_displ_ST7735_test.c **** }
+ 482              		.loc 1 100 1 is_stmt 0 view .LVU114
+ 483 005e 02B0     		add	sp, sp, #8
+ 484              		.cfi_def_cfa_offset 24
+ 485              		@ sp needed
+ 486 0060 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 487              	.LVL63:
+ 488              	.L34:
+ 489              		.loc 1 100 1 view .LVU115
+ 490              		.align	2
+ 491              	.L33:
+ 492 0064 00000000 		.word	_width
+ 493 0068 00000000 		.word	_height
+ 494              		.cfi_endproc
+ 495              	.LFE139:
+ 497              		.section	.text.testFilledRects,"ax",%progbits
+ 498              		.align	1
+ 499              		.global	testFilledRects
+ 500              		.syntax unified
+ 501              		.thumb
+ 502              		.thumb_func
+ 504              	testFilledRects:
+ 505              	.LVL64:
+ 506              	.LFB140:
+ 101:Core/Src/z_displ_ST7735_test.c **** 
+ 102:Core/Src/z_displ_ST7735_test.c **** 
+ 103:Core/Src/z_displ_ST7735_test.c **** 
+ 104:Core/Src/z_displ_ST7735_test.c **** 
+ 105:Core/Src/z_displ_ST7735_test.c **** void testFilledRects(uint16_t color1, uint16_t color2)
+ 106:Core/Src/z_displ_ST7735_test.c **** {
+ 507              		.loc 1 106 1 is_stmt 1 view -0
+ 508              		.cfi_startproc
+ 509              		@ args = 0, pretend = 0, frame = 0
+ 510              		@ frame_needed = 0, uses_anonymous_args = 0
+ 511              		.loc 1 106 1 is_stmt 0 view .LVU117
+ 512 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 513              		.cfi_def_cfa_offset 32
+ 514              		.cfi_offset 4, -32
+ 515              		.cfi_offset 5, -28
+ 516              		.cfi_offset 6, -24
+ 517              		.cfi_offset 7, -20
+ 518              		.cfi_offset 8, -16
+ 519              		.cfi_offset 9, -12
+ 520              		.cfi_offset 10, -8
+ 521              		.cfi_offset 14, -4
+ 522 0004 82B0     		sub	sp, sp, #8
+ 523              		.cfi_def_cfa_offset 40
+ 524 0006 8246     		mov	r10, r0
+ 525 0008 8946     		mov	r9, r1
+ 107:Core/Src/z_displ_ST7735_test.c **** 	int           n, i, i2,
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 12
+
+
+ 526              		.loc 1 107 2 is_stmt 1 view .LVU118
+ 108:Core/Src/z_displ_ST7735_test.c **** 	cx = _width  / 2 - 1,
+ 527              		.loc 1 108 15 is_stmt 0 view .LVU119
+ 528 000a 1E4C     		ldr	r4, .L39
+ 529 000c B4F90080 		ldrsh	r8, [r4]
+ 530 0010 08EBD878 		add	r8, r8, r8, lsr #31
+ 531 0014 4FEA6808 		asr	r8, r8, #1
+ 532              		.loc 1 108 2 view .LVU120
+ 533 0018 08F1FF38 		add	r8, r8, #-1
+ 534              	.LVL65:
+ 109:Core/Src/z_displ_ST7735_test.c **** 	cy = _height / 2 - 1;
+ 535              		.loc 1 109 15 view .LVU121
+ 536 001c 1A4D     		ldr	r5, .L39+4
+ 537 001e B5F90070 		ldrsh	r7, [r5]
+ 538 0022 07EBD777 		add	r7, r7, r7, lsr #31
+ 539 0026 7F10     		asrs	r7, r7, #1
+ 540              		.loc 1 109 2 view .LVU122
+ 541 0028 013F     		subs	r7, r7, #1
+ 542              	.LVL66:
+ 110:Core/Src/z_displ_ST7735_test.c **** 
+ 111:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(BLACK);
+ 543              		.loc 1 111 2 is_stmt 1 view .LVU123
+ 544 002a 0020     		movs	r0, #0
+ 545              	.LVL67:
+ 546              		.loc 1 111 2 is_stmt 0 view .LVU124
+ 547 002c FFF7FEFF 		bl	Displ_CLS
+ 548              	.LVL68:
+ 112:Core/Src/z_displ_ST7735_test.c **** 	n = min(_width, _height);
+ 549              		.loc 1 112 2 is_stmt 1 view .LVU125
+ 550              		.loc 1 112 6 is_stmt 0 view .LVU126
+ 551 0030 B5F90050 		ldrsh	r5, [r5]
+ 552 0034 B4F90030 		ldrsh	r3, [r4]
+ 553 0038 9D42     		cmp	r5, r3
+ 554 003a A8BF     		it	ge
+ 555 003c 1D46     		movge	r5, r3
+ 556              	.LVL69:
+ 113:Core/Src/z_displ_ST7735_test.c **** 	for (i = n; i > 0; i -= 6) {
+ 557              		.loc 1 113 2 is_stmt 1 view .LVU127
+ 558              		.loc 1 113 2 is_stmt 0 view .LVU128
+ 559 003e 1BE0     		b	.L36
+ 560              	.LVL70:
+ 561              	.L37:
+ 114:Core/Src/z_displ_ST7735_test.c **** 		i2    = i / 2;
+ 562              		.loc 1 114 3 is_stmt 1 view .LVU129
+ 563              		.loc 1 114 9 is_stmt 0 view .LVU130
+ 564 0040 05EBD574 		add	r4, r5, r5, lsr #31
+ 565              	.LVL71:
+ 115:Core/Src/z_displ_ST7735_test.c **** 
+ 116:Core/Src/z_displ_ST7735_test.c **** //       fillRect(cx - i2, cy - i2, i, i, color1);
+ 117:Core/Src/z_displ_ST7735_test.c **** 		Displ_FillArea(cx - i2, cy - i2, i, i, color1);
+ 566              		.loc 1 117 3 is_stmt 1 view .LVU131
+ 567 0044 C4F34F04 		ubfx	r4, r4, #1, #16
+ 568              	.LVL72:
+ 569              		.loc 1 117 3 is_stmt 0 view .LVU132
+ 570 0048 A8EB0406 		sub	r6, r8, r4
+ 571 004c B6B2     		uxth	r6, r6
+ 572 004e 3C1B     		subs	r4, r7, r4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 13
+
+
+ 573 0050 A4B2     		uxth	r4, r4
+ 574 0052 AAB2     		uxth	r2, r5
+ 575 0054 CDF800A0 		str	r10, [sp]
+ 576 0058 1346     		mov	r3, r2
+ 577 005a 2146     		mov	r1, r4
+ 578 005c 3046     		mov	r0, r6
+ 579 005e FFF7FEFF 		bl	Displ_FillArea
+ 580              	.LVL73:
+ 118:Core/Src/z_displ_ST7735_test.c **** 
+ 119:Core/Src/z_displ_ST7735_test.c **** //        drawRect(cx - i2, cy - i2, i, i, color2);
+ 120:Core/Src/z_displ_ST7735_test.c **** 		Displ_Border(cx - i2, cy - i2, i, i, 1, color2);
+ 581              		.loc 1 120 3 is_stmt 1 view .LVU133
+ 582 0062 2AB2     		sxth	r2, r5
+ 583 0064 CDF80490 		str	r9, [sp, #4]
+ 584 0068 0123     		movs	r3, #1
+ 585 006a 0093     		str	r3, [sp]
+ 586 006c 1346     		mov	r3, r2
+ 587 006e 21B2     		sxth	r1, r4
+ 588 0070 30B2     		sxth	r0, r6
+ 589 0072 FFF7FEFF 		bl	Displ_Border
+ 590              	.LVL74:
+ 113:Core/Src/z_displ_ST7735_test.c **** 		i2    = i / 2;
+ 591              		.loc 1 113 23 discriminator 3 view .LVU134
+ 592 0076 063D     		subs	r5, r5, #6
+ 593              	.LVL75:
+ 594              	.L36:
+ 113:Core/Src/z_displ_ST7735_test.c **** 		i2    = i / 2;
+ 595              		.loc 1 113 16 discriminator 1 view .LVU135
+ 596 0078 002D     		cmp	r5, #0
+ 597 007a E1DC     		bgt	.L37
+ 121:Core/Src/z_displ_ST7735_test.c **** 	}
+ 122:Core/Src/z_displ_ST7735_test.c **** }
+ 598              		.loc 1 122 1 is_stmt 0 view .LVU136
+ 599 007c 02B0     		add	sp, sp, #8
+ 600              		.cfi_def_cfa_offset 32
+ 601              		@ sp needed
+ 602 007e BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 603              	.LVL76:
+ 604              	.L40:
+ 605              		.loc 1 122 1 view .LVU137
+ 606 0082 00BF     		.align	2
+ 607              	.L39:
+ 608 0084 00000000 		.word	_width
+ 609 0088 00000000 		.word	_height
+ 610              		.cfi_endproc
+ 611              	.LFE140:
+ 613              		.section	.text.testFilledCircles,"ax",%progbits
+ 614              		.align	1
+ 615              		.global	testFilledCircles
+ 616              		.syntax unified
+ 617              		.thumb
+ 618              		.thumb_func
+ 620              	testFilledCircles:
+ 621              	.LVL77:
+ 622              	.LFB141:
+ 123:Core/Src/z_displ_ST7735_test.c **** 
+ 124:Core/Src/z_displ_ST7735_test.c **** 
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 14
+
+
+ 125:Core/Src/z_displ_ST7735_test.c **** 
+ 126:Core/Src/z_displ_ST7735_test.c **** 
+ 127:Core/Src/z_displ_ST7735_test.c **** void testFilledCircles(uint8_t radius, uint16_t color)
+ 128:Core/Src/z_displ_ST7735_test.c **** {
+ 623              		.loc 1 128 1 is_stmt 1 view -0
+ 624              		.cfi_startproc
+ 625              		@ args = 0, pretend = 0, frame = 0
+ 626              		@ frame_needed = 0, uses_anonymous_args = 0
+ 627              		.loc 1 128 1 is_stmt 0 view .LVU139
+ 628 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 629              		.cfi_def_cfa_offset 32
+ 630              		.cfi_offset 4, -32
+ 631              		.cfi_offset 5, -28
+ 632              		.cfi_offset 6, -24
+ 633              		.cfi_offset 7, -20
+ 634              		.cfi_offset 8, -16
+ 635              		.cfi_offset 9, -12
+ 636              		.cfi_offset 10, -8
+ 637              		.cfi_offset 14, -4
+ 638 0004 0646     		mov	r6, r0
+ 639 0006 8946     		mov	r9, r1
+ 129:Core/Src/z_displ_ST7735_test.c ****     int x, y, w = _width, h = _height, r2 = radius * 2;
+ 640              		.loc 1 129 5 is_stmt 1 view .LVU140
+ 641              		.loc 1 129 15 is_stmt 0 view .LVU141
+ 642 0008 0D4B     		ldr	r3, .L48
+ 643 000a B3F900A0 		ldrsh	r10, [r3]
+ 644              	.LVL78:
+ 645              		.loc 1 129 27 view .LVU142
+ 646 000e 0D4B     		ldr	r3, .L48+4
+ 647 0010 B3F90080 		ldrsh	r8, [r3]
+ 648              	.LVL79:
+ 649              		.loc 1 129 40 view .LVU143
+ 650 0014 4700     		lsls	r7, r0, #1
+ 651              	.LVL80:
+ 130:Core/Src/z_displ_ST7735_test.c **** 
+ 131:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 652              		.loc 1 131 5 is_stmt 1 view .LVU144
+ 653 0016 0020     		movs	r0, #0
+ 654              	.LVL81:
+ 655              		.loc 1 131 5 is_stmt 0 view .LVU145
+ 656 0018 FFF7FEFF 		bl	Displ_CLS
+ 657              	.LVL82:
+ 132:Core/Src/z_displ_ST7735_test.c ****     for (x = radius; x < w; x += r2) {
+ 658              		.loc 1 132 5 is_stmt 1 view .LVU146
+ 659              		.loc 1 132 12 is_stmt 0 view .LVU147
+ 660 001c 3546     		mov	r5, r6
+ 661              		.loc 1 132 5 view .LVU148
+ 662 001e 09E0     		b	.L42
+ 663              	.LVL83:
+ 664              	.L43:
+ 133:Core/Src/z_displ_ST7735_test.c ****         for (y = radius; y < h; y += r2) {
+ 134:Core/Src/z_displ_ST7735_test.c ****         	Displ_fillCircle(x, y, radius, color);
+ 665              		.loc 1 134 10 is_stmt 1 view .LVU149
+ 666 0020 4B46     		mov	r3, r9
+ 667 0022 3246     		mov	r2, r6
+ 668 0024 21B2     		sxth	r1, r4
+ 669 0026 28B2     		sxth	r0, r5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 15
+
+
+ 670 0028 FFF7FEFF 		bl	Displ_fillCircle
+ 671              	.LVL84:
+ 133:Core/Src/z_displ_ST7735_test.c ****         for (y = radius; y < h; y += r2) {
+ 672              		.loc 1 133 35 discriminator 3 view .LVU150
+ 673 002c 3C44     		add	r4, r4, r7
+ 674              	.LVL85:
+ 675              	.L44:
+ 133:Core/Src/z_displ_ST7735_test.c ****         for (y = radius; y < h; y += r2) {
+ 676              		.loc 1 133 28 discriminator 1 view .LVU151
+ 677 002e 4445     		cmp	r4, r8
+ 678 0030 F6DB     		blt	.L43
+ 132:Core/Src/z_displ_ST7735_test.c ****     for (x = radius; x < w; x += r2) {
+ 679              		.loc 1 132 31 discriminator 2 view .LVU152
+ 680 0032 3D44     		add	r5, r5, r7
+ 681              	.LVL86:
+ 682              	.L42:
+ 132:Core/Src/z_displ_ST7735_test.c ****     for (x = radius; x < w; x += r2) {
+ 683              		.loc 1 132 24 discriminator 1 view .LVU153
+ 684 0034 5545     		cmp	r5, r10
+ 685 0036 01DA     		bge	.L47
+ 133:Core/Src/z_displ_ST7735_test.c ****         for (y = radius; y < h; y += r2) {
+ 686              		.loc 1 133 16 is_stmt 0 view .LVU154
+ 687 0038 3446     		mov	r4, r6
+ 688 003a F8E7     		b	.L44
+ 689              	.L47:
+ 135:Core/Src/z_displ_ST7735_test.c ****         }
+ 136:Core/Src/z_displ_ST7735_test.c ****     }
+ 137:Core/Src/z_displ_ST7735_test.c **** }
+ 690              		.loc 1 137 1 view .LVU155
+ 691 003c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 692              	.LVL87:
+ 693              	.L49:
+ 694              		.loc 1 137 1 view .LVU156
+ 695              		.align	2
+ 696              	.L48:
+ 697 0040 00000000 		.word	_width
+ 698 0044 00000000 		.word	_height
+ 699              		.cfi_endproc
+ 700              	.LFE141:
+ 702              		.section	.text.testCircles,"ax",%progbits
+ 703              		.align	1
+ 704              		.global	testCircles
+ 705              		.syntax unified
+ 706              		.thumb
+ 707              		.thumb_func
+ 709              	testCircles:
+ 710              	.LVL88:
+ 711              	.LFB142:
+ 138:Core/Src/z_displ_ST7735_test.c **** 
+ 139:Core/Src/z_displ_ST7735_test.c **** 
+ 140:Core/Src/z_displ_ST7735_test.c **** 
+ 141:Core/Src/z_displ_ST7735_test.c **** 
+ 142:Core/Src/z_displ_ST7735_test.c **** 
+ 143:Core/Src/z_displ_ST7735_test.c **** 
+ 144:Core/Src/z_displ_ST7735_test.c **** void testCircles(uint8_t radius, uint16_t color)
+ 145:Core/Src/z_displ_ST7735_test.c **** {
+ 712              		.loc 1 145 1 is_stmt 1 view -0
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 16
+
+
+ 713              		.cfi_startproc
+ 714              		@ args = 0, pretend = 0, frame = 0
+ 715              		@ frame_needed = 0, uses_anonymous_args = 0
+ 716              		.loc 1 145 1 is_stmt 0 view .LVU158
+ 717 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 718              		.cfi_def_cfa_offset 32
+ 719              		.cfi_offset 4, -32
+ 720              		.cfi_offset 5, -28
+ 721              		.cfi_offset 6, -24
+ 722              		.cfi_offset 7, -20
+ 723              		.cfi_offset 8, -16
+ 724              		.cfi_offset 9, -12
+ 725              		.cfi_offset 10, -8
+ 726              		.cfi_offset 14, -4
+ 727 0004 8046     		mov	r8, r0
+ 728 0006 8946     		mov	r9, r1
+ 146:Core/Src/z_displ_ST7735_test.c ****     int           x, y, r2 = radius * 2,
+ 729              		.loc 1 146 5 is_stmt 1 view .LVU159
+ 730              		.loc 1 146 25 is_stmt 0 view .LVU160
+ 731 0008 4700     		lsls	r7, r0, #1
+ 732              	.LVL89:
+ 147:Core/Src/z_displ_ST7735_test.c ****                         w = _width  + radius,
+ 733              		.loc 1 147 37 view .LVU161
+ 734 000a 0D4B     		ldr	r3, .L57
+ 735 000c B3F900A0 		ldrsh	r10, [r3]
+ 736              		.loc 1 147 25 view .LVU162
+ 737 0010 8244     		add	r10, r10, r0
+ 738              	.LVL90:
+ 148:Core/Src/z_displ_ST7735_test.c ****                         h = _height + radius;
+ 739              		.loc 1 148 37 view .LVU163
+ 740 0012 0C4B     		ldr	r3, .L57+4
+ 741 0014 B3F90060 		ldrsh	r6, [r3]
+ 742              		.loc 1 148 25 view .LVU164
+ 743 0018 0644     		add	r6, r6, r0
+ 744              	.LVL91:
+ 149:Core/Src/z_displ_ST7735_test.c **** 
+ 150:Core/Src/z_displ_ST7735_test.c ****     // Screen is not cleared for this one -- this is
+ 151:Core/Src/z_displ_ST7735_test.c ****     // intentional and does not affect the reported time.
+ 152:Core/Src/z_displ_ST7735_test.c ****     for (x = 0; x < w; x += r2) {
+ 745              		.loc 1 152 5 is_stmt 1 view .LVU165
+ 746              		.loc 1 152 12 is_stmt 0 view .LVU166
+ 747 001a 0025     		movs	r5, #0
+ 748              		.loc 1 152 5 view .LVU167
+ 749 001c 09E0     		b	.L51
+ 750              	.LVL92:
+ 751              	.L52:
+ 153:Core/Src/z_displ_ST7735_test.c ****         for (y = 0; y < h; y += r2) {
+ 154:Core/Src/z_displ_ST7735_test.c ****             Displ_drawCircle(x, y, radius, color);
+ 752              		.loc 1 154 13 is_stmt 1 view .LVU168
+ 753 001e 4B46     		mov	r3, r9
+ 754 0020 4246     		mov	r2, r8
+ 755 0022 21B2     		sxth	r1, r4
+ 756 0024 28B2     		sxth	r0, r5
+ 757 0026 FFF7FEFF 		bl	Displ_drawCircle
+ 758              	.LVL93:
+ 153:Core/Src/z_displ_ST7735_test.c ****         for (y = 0; y < h; y += r2) {
+ 759              		.loc 1 153 30 discriminator 3 view .LVU169
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 17
+
+
+ 760 002a 3C44     		add	r4, r4, r7
+ 761              	.LVL94:
+ 762              	.L53:
+ 153:Core/Src/z_displ_ST7735_test.c ****         for (y = 0; y < h; y += r2) {
+ 763              		.loc 1 153 23 discriminator 1 view .LVU170
+ 764 002c B442     		cmp	r4, r6
+ 765 002e F6DB     		blt	.L52
+ 152:Core/Src/z_displ_ST7735_test.c ****         for (y = 0; y < h; y += r2) {
+ 766              		.loc 1 152 26 discriminator 2 view .LVU171
+ 767 0030 3D44     		add	r5, r5, r7
+ 768              	.LVL95:
+ 769              	.L51:
+ 152:Core/Src/z_displ_ST7735_test.c ****         for (y = 0; y < h; y += r2) {
+ 770              		.loc 1 152 19 discriminator 1 view .LVU172
+ 771 0032 5545     		cmp	r5, r10
+ 772 0034 01DA     		bge	.L56
+ 153:Core/Src/z_displ_ST7735_test.c ****         for (y = 0; y < h; y += r2) {
+ 773              		.loc 1 153 16 is_stmt 0 view .LVU173
+ 774 0036 0024     		movs	r4, #0
+ 775 0038 F8E7     		b	.L53
+ 776              	.L56:
+ 155:Core/Src/z_displ_ST7735_test.c ****         }
+ 156:Core/Src/z_displ_ST7735_test.c ****     }
+ 157:Core/Src/z_displ_ST7735_test.c **** }
+ 777              		.loc 1 157 1 view .LVU174
+ 778 003a BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 779              	.LVL96:
+ 780              	.L58:
+ 781              		.loc 1 157 1 view .LVU175
+ 782 003e 00BF     		.align	2
+ 783              	.L57:
+ 784 0040 00000000 		.word	_width
+ 785 0044 00000000 		.word	_height
+ 786              		.cfi_endproc
+ 787              	.LFE142:
+ 789              		.section	.text.testTriangles,"ax",%progbits
+ 790              		.align	1
+ 791              		.global	testTriangles
+ 792              		.syntax unified
+ 793              		.thumb
+ 794              		.thumb_func
+ 796              	testTriangles:
+ 797              	.LFB143:
+ 158:Core/Src/z_displ_ST7735_test.c **** 
+ 159:Core/Src/z_displ_ST7735_test.c **** 
+ 160:Core/Src/z_displ_ST7735_test.c **** 
+ 161:Core/Src/z_displ_ST7735_test.c **** 
+ 162:Core/Src/z_displ_ST7735_test.c **** 
+ 163:Core/Src/z_displ_ST7735_test.c **** 
+ 164:Core/Src/z_displ_ST7735_test.c **** void testTriangles()
+ 165:Core/Src/z_displ_ST7735_test.c **** {
+ 798              		.loc 1 165 1 is_stmt 1 view -0
+ 799              		.cfi_startproc
+ 800              		@ args = 0, pretend = 0, frame = 0
+ 801              		@ frame_needed = 0, uses_anonymous_args = 0
+ 802 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 803              		.cfi_def_cfa_offset 20
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 18
+
+
+ 804              		.cfi_offset 4, -20
+ 805              		.cfi_offset 5, -16
+ 806              		.cfi_offset 6, -12
+ 807              		.cfi_offset 7, -8
+ 808              		.cfi_offset 14, -4
+ 809 0002 85B0     		sub	sp, sp, #20
+ 810              		.cfi_def_cfa_offset 40
+ 166:Core/Src/z_displ_ST7735_test.c ****     int           n, i, cx = _width  / 2 - 1,
+ 811              		.loc 1 166 5 view .LVU177
+ 812              		.loc 1 166 38 is_stmt 0 view .LVU178
+ 813 0004 184B     		ldr	r3, .L63
+ 814 0006 B3F90050 		ldrsh	r5, [r3]
+ 815 000a 05EBD575 		add	r5, r5, r5, lsr #31
+ 816 000e 6D10     		asrs	r5, r5, #1
+ 817              		.loc 1 166 25 view .LVU179
+ 818 0010 013D     		subs	r5, r5, #1
+ 819              	.LVL97:
+ 167:Core/Src/z_displ_ST7735_test.c ****                         cy = _height / 2 - 1;
+ 820              		.loc 1 167 38 view .LVU180
+ 821 0012 164B     		ldr	r3, .L63+4
+ 822 0014 B3F90060 		ldrsh	r6, [r3]
+ 823 0018 06EBD676 		add	r6, r6, r6, lsr #31
+ 824 001c 7610     		asrs	r6, r6, #1
+ 825              		.loc 1 167 25 view .LVU181
+ 826 001e 013E     		subs	r6, r6, #1
+ 827              	.LVL98:
+ 168:Core/Src/z_displ_ST7735_test.c **** 
+ 169:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 828              		.loc 1 169 5 is_stmt 1 view .LVU182
+ 829 0020 0020     		movs	r0, #0
+ 830 0022 FFF7FEFF 		bl	Displ_CLS
+ 831              	.LVL99:
+ 170:Core/Src/z_displ_ST7735_test.c ****     n     = min(cx, cy);
+ 832              		.loc 1 170 5 view .LVU183
+ 833              		.loc 1 170 11 is_stmt 0 view .LVU184
+ 834 0026 2F46     		mov	r7, r5
+ 835 0028 B542     		cmp	r5, r6
+ 836 002a A8BF     		it	ge
+ 837 002c 3746     		movge	r7, r6
+ 838              	.LVL100:
+ 171:Core/Src/z_displ_ST7735_test.c ****     for (i = 0; i < n; i += 5) {
+ 839              		.loc 1 171 5 is_stmt 1 view .LVU185
+ 840              		.loc 1 171 12 is_stmt 0 view .LVU186
+ 841 002e 0024     		movs	r4, #0
+ 842              		.loc 1 171 5 view .LVU187
+ 843 0030 16E0     		b	.L60
+ 844              	.LVL101:
+ 845              	.L61:
+ 172:Core/Src/z_displ_ST7735_test.c ****     	Displ_drawTriangle(
+ 846              		.loc 1 172 6 is_stmt 1 view .LVU188
+ 173:Core/Src/z_displ_ST7735_test.c ****             cx    , cy - i, // peak
+ 847              		.loc 1 173 24 is_stmt 0 view .LVU189
+ 848 0032 B3B2     		uxth	r3, r6
+ 849 0034 A0B2     		uxth	r0, r4
+ 850 0036 191A     		subs	r1, r3, r0
+ 174:Core/Src/z_displ_ST7735_test.c ****             cx - i, cy + i, // bottom left
+ 851              		.loc 1 174 16 view .LVU190
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 19
+
+
+ 852 0038 1FFA85FC 		uxth	ip, r5
+ 853 003c ACEB0002 		sub	r2, ip, r0
+ 854              		.loc 1 174 24 view .LVU191
+ 855 0040 0344     		add	r3, r3, r0
+ 172:Core/Src/z_displ_ST7735_test.c ****     	Displ_drawTriangle(
+ 856              		.loc 1 172 6 view .LVU192
+ 857 0042 1BB2     		sxth	r3, r3
+ 175:Core/Src/z_displ_ST7735_test.c ****             cx + i, cy + i, // bottom right
+ 858              		.loc 1 175 16 view .LVU193
+ 859 0044 6044     		add	r0, r0, ip
+ 172:Core/Src/z_displ_ST7735_test.c ****             cx    , cy - i, // peak
+ 860              		.loc 1 172 6 view .LVU194
+ 861 0046 C4F3C40C 		ubfx	ip, r4, #3, #5
+ 862 004a CDF808C0 		str	ip, [sp, #8]
+ 863 004e 0193     		str	r3, [sp, #4]
+ 864 0050 00B2     		sxth	r0, r0
+ 865 0052 0090     		str	r0, [sp]
+ 866 0054 12B2     		sxth	r2, r2
+ 867 0056 09B2     		sxth	r1, r1
+ 868 0058 28B2     		sxth	r0, r5
+ 869 005a FFF7FEFF 		bl	Displ_drawTriangle
+ 870              	.LVL102:
+ 171:Core/Src/z_displ_ST7735_test.c ****     	Displ_drawTriangle(
+ 871              		.loc 1 171 26 is_stmt 1 discriminator 3 view .LVU195
+ 872 005e 0534     		adds	r4, r4, #5
+ 873              	.LVL103:
+ 874              	.L60:
+ 171:Core/Src/z_displ_ST7735_test.c ****     	Displ_drawTriangle(
+ 875              		.loc 1 171 19 discriminator 1 view .LVU196
+ 876 0060 BC42     		cmp	r4, r7
+ 877 0062 E6DB     		blt	.L61
+ 176:Core/Src/z_displ_ST7735_test.c ****             color565(0, 0, i));
+ 177:Core/Src/z_displ_ST7735_test.c ****     }
+ 178:Core/Src/z_displ_ST7735_test.c **** }
+ 878              		.loc 1 178 1 is_stmt 0 view .LVU197
+ 879 0064 05B0     		add	sp, sp, #20
+ 880              		.cfi_def_cfa_offset 20
+ 881              		@ sp needed
+ 882 0066 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 883              	.LVL104:
+ 884              	.L64:
+ 885              		.loc 1 178 1 view .LVU198
+ 886              		.align	2
+ 887              	.L63:
+ 888 0068 00000000 		.word	_width
+ 889 006c 00000000 		.word	_height
+ 890              		.cfi_endproc
+ 891              	.LFE143:
+ 893              		.section	.text.testFilledTriangles,"ax",%progbits
+ 894              		.align	1
+ 895              		.global	testFilledTriangles
+ 896              		.syntax unified
+ 897              		.thumb
+ 898              		.thumb_func
+ 900              	testFilledTriangles:
+ 901              	.LFB144:
+ 179:Core/Src/z_displ_ST7735_test.c **** 
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 20
+
+
+ 180:Core/Src/z_displ_ST7735_test.c **** 
+ 181:Core/Src/z_displ_ST7735_test.c **** 
+ 182:Core/Src/z_displ_ST7735_test.c **** 
+ 183:Core/Src/z_displ_ST7735_test.c **** 
+ 184:Core/Src/z_displ_ST7735_test.c **** void testFilledTriangles() {
+ 902              		.loc 1 184 28 is_stmt 1 view -0
+ 903              		.cfi_startproc
+ 904              		@ args = 0, pretend = 0, frame = 8
+ 905              		@ frame_needed = 0, uses_anonymous_args = 0
+ 906 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 907              		.cfi_def_cfa_offset 36
+ 908              		.cfi_offset 4, -36
+ 909              		.cfi_offset 5, -32
+ 910              		.cfi_offset 6, -28
+ 911              		.cfi_offset 7, -24
+ 912              		.cfi_offset 8, -20
+ 913              		.cfi_offset 9, -16
+ 914              		.cfi_offset 10, -12
+ 915              		.cfi_offset 11, -8
+ 916              		.cfi_offset 14, -4
+ 917 0004 87B0     		sub	sp, sp, #28
+ 918              		.cfi_def_cfa_offset 64
+ 185:Core/Src/z_displ_ST7735_test.c ****     int           i, cx = _width  / 2 - 1,
+ 919              		.loc 1 185 5 view .LVU200
+ 920              		.loc 1 185 35 is_stmt 0 view .LVU201
+ 921 0006 2A4B     		ldr	r3, .L69
+ 922 0008 B3F90030 		ldrsh	r3, [r3]
+ 923 000c 03EBD373 		add	r3, r3, r3, lsr #31
+ 924 0010 5B10     		asrs	r3, r3, #1
+ 925              		.loc 1 185 22 view .LVU202
+ 926 0012 5C1E     		subs	r4, r3, #1
+ 927 0014 0494     		str	r4, [sp, #16]
+ 928              	.LVL105:
+ 186:Core/Src/z_displ_ST7735_test.c ****                      cy = _height / 2 - 1;
+ 929              		.loc 1 186 35 view .LVU203
+ 930 0016 274B     		ldr	r3, .L69+4
+ 931 0018 B3F90030 		ldrsh	r3, [r3]
+ 932 001c 03EBD373 		add	r3, r3, r3, lsr #31
+ 933 0020 5B10     		asrs	r3, r3, #1
+ 934              		.loc 1 186 22 view .LVU204
+ 935 0022 5D1E     		subs	r5, r3, #1
+ 936 0024 0595     		str	r5, [sp, #20]
+ 937              	.LVL106:
+ 187:Core/Src/z_displ_ST7735_test.c **** 
+ 188:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 938              		.loc 1 188 5 is_stmt 1 view .LVU205
+ 939 0026 0020     		movs	r0, #0
+ 940 0028 FFF7FEFF 		bl	Displ_CLS
+ 941              	.LVL107:
+ 189:Core/Src/z_displ_ST7735_test.c ****     for (i = min(cx, cy); i > 10; i -= 5) {
+ 942              		.loc 1 189 5 view .LVU206
+ 943              		.loc 1 189 12 is_stmt 0 view .LVU207
+ 944 002c AC42     		cmp	r4, r5
+ 945 002e A8BF     		it	ge
+ 946 0030 2C46     		movge	r4, r5
+ 947              	.LVL108:
+ 948              		.loc 1 189 12 view .LVU208
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 21
+
+
+ 949 0032 A046     		mov	r8, r4
+ 950              	.LVL109:
+ 951              		.loc 1 189 5 view .LVU209
+ 952 0034 35E0     		b	.L66
+ 953              	.LVL110:
+ 954              	.L67:
+ 190:Core/Src/z_displ_ST7735_test.c ****     	Displ_fillTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+ 955              		.loc 1 190 6 is_stmt 1 view .LVU210
+ 956 0036 049B     		ldr	r3, [sp, #16]
+ 957 0038 0FFA83F9 		sxth	r9, r3
+ 958              		.loc 1 190 32 is_stmt 0 view .LVU211
+ 959 003c BDF81440 		ldrh	r4, [sp, #20]
+ 960 0040 1FFA88F5 		uxth	r5, r8
+ 961 0044 A4EB050A 		sub	r10, r4, r5
+ 962              		.loc 1 190 6 view .LVU212
+ 963 0048 0FFA8AFA 		sxth	r10, r10
+ 964              		.loc 1 190 40 view .LVU213
+ 965 004c 9BB2     		uxth	r3, r3
+ 966 004e A3EB050B 		sub	fp, r3, r5
+ 967              		.loc 1 190 6 view .LVU214
+ 968 0052 0FFA8BFB 		sxth	fp, fp
+ 969              		.loc 1 190 48 view .LVU215
+ 970 0056 2C44     		add	r4, r4, r5
+ 971              		.loc 1 190 6 view .LVU216
+ 972 0058 24B2     		sxth	r4, r4
+ 973              		.loc 1 190 56 view .LVU217
+ 974 005a 1D44     		add	r5, r5, r3
+ 975              		.loc 1 190 6 view .LVU218
+ 976 005c 2DB2     		sxth	r5, r5
+ 191:Core/Src/z_displ_ST7735_test.c ****     	                         color565(0, i, i));
+ 977              		.loc 1 191 31 view .LVU219
+ 978 005e 0FFA88F7 		sxth	r7, r8
+ 979 0062 FE00     		lsls	r6, r7, #3
+ 980 0064 06F4FC66 		and	r6, r6, #2016
+ 981 0068 C8F3C403 		ubfx	r3, r8, #3, #5
+ 190:Core/Src/z_displ_ST7735_test.c ****     	Displ_fillTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+ 982              		.loc 1 190 6 view .LVU220
+ 983 006c 3343     		orrs	r3, r3, r6
+ 984 006e 0293     		str	r3, [sp, #8]
+ 985 0070 0194     		str	r4, [sp, #4]
+ 986 0072 0095     		str	r5, [sp]
+ 987 0074 2346     		mov	r3, r4
+ 988 0076 5A46     		mov	r2, fp
+ 989 0078 5146     		mov	r1, r10
+ 990 007a 4846     		mov	r0, r9
+ 991 007c FFF7FEFF 		bl	Displ_fillTriangle
+ 992              	.LVL111:
+ 192:Core/Src/z_displ_ST7735_test.c ****     	Displ_drawTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+ 993              		.loc 1 192 6 is_stmt 1 view .LVU221
+ 193:Core/Src/z_displ_ST7735_test.c ****     	                         color565(i, i, 0));
+ 994              		.loc 1 193 31 is_stmt 0 view .LVU222
+ 995 0080 3F02     		lsls	r7, r7, #8
+ 996 0082 6FF30A07 		bfc	r7, #0, #11
+ 997 0086 3FB2     		sxth	r7, r7
+ 998 0088 3E43     		orrs	r6, r6, r7
+ 192:Core/Src/z_displ_ST7735_test.c ****     	Displ_drawTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+ 999              		.loc 1 192 6 view .LVU223
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 22
+
+
+ 1000 008a B6B2     		uxth	r6, r6
+ 1001 008c 0296     		str	r6, [sp, #8]
+ 1002 008e 0194     		str	r4, [sp, #4]
+ 1003 0090 0095     		str	r5, [sp]
+ 1004 0092 2346     		mov	r3, r4
+ 1005 0094 5A46     		mov	r2, fp
+ 1006 0096 5146     		mov	r1, r10
+ 1007 0098 4846     		mov	r0, r9
+ 1008 009a FFF7FEFF 		bl	Displ_drawTriangle
+ 1009              	.LVL112:
+ 189:Core/Src/z_displ_ST7735_test.c ****     	Displ_fillTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+ 1010              		.loc 1 189 37 is_stmt 1 discriminator 3 view .LVU224
+ 1011 009e A8F10508 		sub	r8, r8, #5
+ 1012              	.LVL113:
+ 1013              	.L66:
+ 189:Core/Src/z_displ_ST7735_test.c ****     	Displ_fillTriangle(cx, cy - i, cx - i, cy + i, cx + i, cy + i,
+ 1014              		.loc 1 189 29 discriminator 1 view .LVU225
+ 1015 00a2 B8F10A0F 		cmp	r8, #10
+ 1016 00a6 C6DC     		bgt	.L67
+ 194:Core/Src/z_displ_ST7735_test.c ****     }
+ 195:Core/Src/z_displ_ST7735_test.c **** }
+ 1017              		.loc 1 195 1 is_stmt 0 view .LVU226
+ 1018 00a8 07B0     		add	sp, sp, #28
+ 1019              		.cfi_def_cfa_offset 36
+ 1020              		@ sp needed
+ 1021 00aa BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1022              	.LVL114:
+ 1023              	.L70:
+ 1024              		.loc 1 195 1 view .LVU227
+ 1025 00ae 00BF     		.align	2
+ 1026              	.L69:
+ 1027 00b0 00000000 		.word	_width
+ 1028 00b4 00000000 		.word	_height
+ 1029              		.cfi_endproc
+ 1030              	.LFE144:
+ 1032              		.section	.text.testRoundRects,"ax",%progbits
+ 1033              		.align	1
+ 1034              		.global	testRoundRects
+ 1035              		.syntax unified
+ 1036              		.thumb
+ 1037              		.thumb_func
+ 1039              	testRoundRects:
+ 1040              	.LFB145:
+ 196:Core/Src/z_displ_ST7735_test.c **** 
+ 197:Core/Src/z_displ_ST7735_test.c **** 
+ 198:Core/Src/z_displ_ST7735_test.c **** 
+ 199:Core/Src/z_displ_ST7735_test.c **** 
+ 200:Core/Src/z_displ_ST7735_test.c **** 
+ 201:Core/Src/z_displ_ST7735_test.c **** 
+ 202:Core/Src/z_displ_ST7735_test.c **** void testRoundRects() {
+ 1041              		.loc 1 202 23 is_stmt 1 view -0
+ 1042              		.cfi_startproc
+ 1043              		@ args = 0, pretend = 0, frame = 0
+ 1044              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1045 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 1046              		.cfi_def_cfa_offset 28
+ 1047              		.cfi_offset 4, -28
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 23
+
+
+ 1048              		.cfi_offset 5, -24
+ 1049              		.cfi_offset 6, -20
+ 1050              		.cfi_offset 7, -16
+ 1051              		.cfi_offset 8, -12
+ 1052              		.cfi_offset 9, -8
+ 1053              		.cfi_offset 14, -4
+ 1054 0004 83B0     		sub	sp, sp, #12
+ 1055              		.cfi_def_cfa_offset 40
+ 203:Core/Src/z_displ_ST7735_test.c ****     int           w, i, i2, red, step,
+ 1056              		.loc 1 203 5 view .LVU229
+ 204:Core/Src/z_displ_ST7735_test.c ****                   cx = _width  / 2 - 1,
+ 1057              		.loc 1 204 32 is_stmt 0 view .LVU230
+ 1058 0006 214C     		ldr	r4, .L77
+ 1059 0008 B4F90070 		ldrsh	r7, [r4]
+ 1060 000c 07EBD777 		add	r7, r7, r7, lsr #31
+ 1061 0010 7F10     		asrs	r7, r7, #1
+ 1062              		.loc 1 204 19 view .LVU231
+ 1063 0012 013F     		subs	r7, r7, #1
+ 1064              	.LVL115:
+ 205:Core/Src/z_displ_ST7735_test.c ****                   cy = _height / 2 - 1;
+ 1065              		.loc 1 205 32 view .LVU232
+ 1066 0014 1E4D     		ldr	r5, .L77+4
+ 1067 0016 B5F90060 		ldrsh	r6, [r5]
+ 1068 001a 06EBD676 		add	r6, r6, r6, lsr #31
+ 1069 001e 7610     		asrs	r6, r6, #1
+ 1070              		.loc 1 205 19 view .LVU233
+ 1071 0020 013E     		subs	r6, r6, #1
+ 1072              	.LVL116:
+ 206:Core/Src/z_displ_ST7735_test.c **** 
+ 207:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 1073              		.loc 1 207 5 is_stmt 1 view .LVU234
+ 1074 0022 0020     		movs	r0, #0
+ 1075 0024 FFF7FEFF 		bl	Displ_CLS
+ 1076              	.LVL117:
+ 208:Core/Src/z_displ_ST7735_test.c ****     w     = min(_width, _height);
+ 1077              		.loc 1 208 5 view .LVU235
+ 1078              		.loc 1 208 13 is_stmt 0 view .LVU236
+ 1079 0028 B5F90080 		ldrsh	r8, [r5]
+ 1080 002c B4F90030 		ldrsh	r3, [r4]
+ 1081 0030 9845     		cmp	r8, r3
+ 1082 0032 A8BF     		it	ge
+ 1083 0034 9846     		movge	r8, r3
+ 1084              	.LVL118:
+ 209:Core/Src/z_displ_ST7735_test.c ****     red = 0;
+ 1085              		.loc 1 209 5 is_stmt 1 view .LVU237
+ 210:Core/Src/z_displ_ST7735_test.c ****     step = (256 * 6) / w;
+ 1086              		.loc 1 210 5 view .LVU238
+ 1087              		.loc 1 210 10 is_stmt 0 view .LVU239
+ 1088 0036 4FF4C069 		mov	r9, #1536
+ 1089 003a 99FBF8F9 		sdiv	r9, r9, r8
+ 1090              	.LVL119:
+ 211:Core/Src/z_displ_ST7735_test.c ****     for (i = 0; i < w; i += 6) {
+ 1091              		.loc 1 211 5 is_stmt 1 view .LVU240
+ 209:Core/Src/z_displ_ST7735_test.c ****     red = 0;
+ 1092              		.loc 1 209 9 is_stmt 0 view .LVU241
+ 1093 003e 0025     		movs	r5, #0
+ 1094              		.loc 1 211 12 view .LVU242
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 24
+
+
+ 1095 0040 2C46     		mov	r4, r5
+ 1096              		.loc 1 211 5 view .LVU243
+ 1097 0042 0DE0     		b	.L72
+ 1098              	.LVL120:
+ 1099              	.L73:
+ 212:Core/Src/z_displ_ST7735_test.c ****         i2 = i / 2;
+ 213:Core/Src/z_displ_ST7735_test.c ****         red += step;
+ 214:Core/Src/z_displ_ST7735_test.c ****         Displ_drawRoundRect(cx - i2, cy - i2, i, i, i / 8, color565(red, 0, 0));
+ 1100              		.loc 1 214 60 view .LVU244
+ 1101 0044 4FEA052E 		lsl	lr, r5, #8
+ 1102              		.loc 1 214 9 view .LVU245
+ 1103 0048 0EF47843 		and	r3, lr, #63488
+ 1104 004c 0193     		str	r3, [sp, #4]
+ 1105 004e 4CF3CF03 		sbfx	r3, ip, #3, #16
+ 1106 0052 0093     		str	r3, [sp]
+ 1107 0054 1346     		mov	r3, r2
+ 1108 0056 09B2     		sxth	r1, r1
+ 1109 0058 00B2     		sxth	r0, r0
+ 1110 005a FFF7FEFF 		bl	Displ_drawRoundRect
+ 1111              	.LVL121:
+ 211:Core/Src/z_displ_ST7735_test.c ****     for (i = 0; i < w; i += 6) {
+ 1112              		.loc 1 211 26 is_stmt 1 discriminator 3 view .LVU246
+ 1113 005e 0634     		adds	r4, r4, #6
+ 1114              	.LVL122:
+ 1115              	.L72:
+ 211:Core/Src/z_displ_ST7735_test.c ****     for (i = 0; i < w; i += 6) {
+ 1116              		.loc 1 211 19 discriminator 1 view .LVU247
+ 1117 0060 4445     		cmp	r4, r8
+ 1118 0062 0FDA     		bge	.L76
+ 212:Core/Src/z_displ_ST7735_test.c ****         i2 = i / 2;
+ 1119              		.loc 1 212 9 view .LVU248
+ 212:Core/Src/z_displ_ST7735_test.c ****         i2 = i / 2;
+ 1120              		.loc 1 212 12 is_stmt 0 view .LVU249
+ 1121 0064 04EBD473 		add	r3, r4, r4, lsr #31
+ 213:Core/Src/z_displ_ST7735_test.c ****         Displ_drawRoundRect(cx - i2, cy - i2, i, i, i / 8, color565(red, 0, 0));
+ 1122              		.loc 1 213 9 is_stmt 1 view .LVU250
+ 213:Core/Src/z_displ_ST7735_test.c ****         Displ_drawRoundRect(cx - i2, cy - i2, i, i, i / 8, color565(red, 0, 0));
+ 1123              		.loc 1 213 13 is_stmt 0 view .LVU251
+ 1124 0068 4D44     		add	r5, r5, r9
+ 1125              	.LVL123:
+ 1126              		.loc 1 214 9 is_stmt 1 view .LVU252
+ 1127              		.loc 1 214 32 is_stmt 0 view .LVU253
+ 1128 006a C3F34F03 		ubfx	r3, r3, #1, #16
+ 1129 006e F81A     		subs	r0, r7, r3
+ 1130 0070 80B2     		uxth	r0, r0
+ 1131              		.loc 1 214 41 view .LVU254
+ 1132 0072 F31A     		subs	r3, r6, r3
+ 1133 0074 99B2     		uxth	r1, r3
+ 1134              		.loc 1 214 9 view .LVU255
+ 1135 0076 22B2     		sxth	r2, r4
+ 1136              		.loc 1 214 55 view .LVU256
+ 1137 0078 A446     		mov	ip, r4
+ 1138 007a 002C     		cmp	r4, #0
+ 1139 007c E2DA     		bge	.L73
+ 1140 007e 04F1070C 		add	ip, r4, #7
+ 1141 0082 DFE7     		b	.L73
+ 1142              	.L76:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 25
+
+
+ 215:Core/Src/z_displ_ST7735_test.c ****     }
+ 216:Core/Src/z_displ_ST7735_test.c **** }
+ 1143              		.loc 1 216 1 view .LVU257
+ 1144 0084 03B0     		add	sp, sp, #12
+ 1145              		.cfi_def_cfa_offset 28
+ 1146              		@ sp needed
+ 1147 0086 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 1148              	.LVL124:
+ 1149              	.L78:
+ 1150              		.loc 1 216 1 view .LVU258
+ 1151 008a 00BF     		.align	2
+ 1152              	.L77:
+ 1153 008c 00000000 		.word	_width
+ 1154 0090 00000000 		.word	_height
+ 1155              		.cfi_endproc
+ 1156              	.LFE145:
+ 1158              		.section	.text.testFilledRoundRects,"ax",%progbits
+ 1159              		.align	1
+ 1160              		.global	testFilledRoundRects
+ 1161              		.syntax unified
+ 1162              		.thumb
+ 1163              		.thumb_func
+ 1165              	testFilledRoundRects:
+ 1166              	.LFB146:
+ 217:Core/Src/z_displ_ST7735_test.c **** 
+ 218:Core/Src/z_displ_ST7735_test.c **** 
+ 219:Core/Src/z_displ_ST7735_test.c **** 
+ 220:Core/Src/z_displ_ST7735_test.c **** 
+ 221:Core/Src/z_displ_ST7735_test.c **** 
+ 222:Core/Src/z_displ_ST7735_test.c **** void testFilledRoundRects() {
+ 1167              		.loc 1 222 29 is_stmt 1 view -0
+ 1168              		.cfi_startproc
+ 1169              		@ args = 0, pretend = 0, frame = 0
+ 1170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1171 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1172              		.cfi_def_cfa_offset 24
+ 1173              		.cfi_offset 4, -24
+ 1174              		.cfi_offset 5, -20
+ 1175              		.cfi_offset 6, -16
+ 1176              		.cfi_offset 7, -12
+ 1177              		.cfi_offset 8, -8
+ 1178              		.cfi_offset 14, -4
+ 1179 0004 82B0     		sub	sp, sp, #8
+ 1180              		.cfi_def_cfa_offset 32
+ 223:Core/Src/z_displ_ST7735_test.c ****     int           i, i2, green, step,
+ 1181              		.loc 1 223 5 view .LVU260
+ 224:Core/Src/z_displ_ST7735_test.c ****                   cx = _width  / 2 - 1,
+ 1182              		.loc 1 224 32 is_stmt 0 view .LVU261
+ 1183 0006 224D     		ldr	r5, .L85
+ 1184 0008 B5F90070 		ldrsh	r7, [r5]
+ 1185 000c 07EBD777 		add	r7, r7, r7, lsr #31
+ 1186 0010 7F10     		asrs	r7, r7, #1
+ 1187              		.loc 1 224 19 view .LVU262
+ 1188 0012 013F     		subs	r7, r7, #1
+ 1189              	.LVL125:
+ 225:Core/Src/z_displ_ST7735_test.c ****                   cy = _height / 2 - 1;
+ 1190              		.loc 1 225 32 view .LVU263
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 26
+
+
+ 1191 0014 1F4C     		ldr	r4, .L85+4
+ 1192 0016 B4F90060 		ldrsh	r6, [r4]
+ 1193 001a 06EBD676 		add	r6, r6, r6, lsr #31
+ 1194 001e 7610     		asrs	r6, r6, #1
+ 1195              		.loc 1 225 19 view .LVU264
+ 1196 0020 013E     		subs	r6, r6, #1
+ 1197              	.LVL126:
+ 226:Core/Src/z_displ_ST7735_test.c **** 
+ 227:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 1198              		.loc 1 227 5 is_stmt 1 view .LVU265
+ 1199 0022 0020     		movs	r0, #0
+ 1200 0024 FFF7FEFF 		bl	Displ_CLS
+ 1201              	.LVL127:
+ 228:Core/Src/z_displ_ST7735_test.c ****     green = 256;
+ 1202              		.loc 1 228 5 view .LVU266
+ 229:Core/Src/z_displ_ST7735_test.c ****     step = (256 * 6) / min(_width, _height);
+ 1203              		.loc 1 229 5 view .LVU267
+ 1204              		.loc 1 229 24 is_stmt 0 view .LVU268
+ 1205 0028 B4F90040 		ldrsh	r4, [r4]
+ 1206 002c B5F90030 		ldrsh	r3, [r5]
+ 1207 0030 9C42     		cmp	r4, r3
+ 1208 0032 A8BF     		it	ge
+ 1209 0034 1C46     		movge	r4, r3
+ 1210              		.loc 1 229 10 view .LVU269
+ 1211 0036 4FF4C068 		mov	r8, #1536
+ 1212 003a 98FBF4F8 		sdiv	r8, r8, r4
+ 1213              	.LVL128:
+ 230:Core/Src/z_displ_ST7735_test.c ****     for (i = min(_width, _height); i > 20; i -= 6) {
+ 1214              		.loc 1 230 5 is_stmt 1 view .LVU270
+ 228:Core/Src/z_displ_ST7735_test.c ****     green = 256;
+ 1215              		.loc 1 228 11 is_stmt 0 view .LVU271
+ 1216 003e 4FF48075 		mov	r5, #256
+ 1217              		.loc 1 230 5 view .LVU272
+ 1218 0042 0DE0     		b	.L80
+ 1219              	.LVL129:
+ 1220              	.L81:
+ 231:Core/Src/z_displ_ST7735_test.c ****         i2 = i / 2;
+ 232:Core/Src/z_displ_ST7735_test.c ****         green -= step;
+ 233:Core/Src/z_displ_ST7735_test.c ****         Displ_fillRoundRect(cx - i2, cy - i2, i, i, i / 8, color565(0, green, 0));
+ 1221              		.loc 1 233 60 view .LVU273
+ 1222 0044 E800     		lsls	r0, r5, #3
+ 1223              		.loc 1 233 9 view .LVU274
+ 1224 0046 00F4FC60 		and	r0, r0, #2016
+ 1225 004a 0190     		str	r0, [sp, #4]
+ 1226 004c 4CF3CF00 		sbfx	r0, ip, #3, #16
+ 1227 0050 0090     		str	r0, [sp]
+ 1228 0052 1346     		mov	r3, r2
+ 1229 0054 09B2     		sxth	r1, r1
+ 1230 0056 0FFA8EF0 		sxth	r0, lr
+ 1231 005a FFF7FEFF 		bl	Displ_fillRoundRect
+ 1232              	.LVL130:
+ 230:Core/Src/z_displ_ST7735_test.c ****     for (i = min(_width, _height); i > 20; i -= 6) {
+ 1233              		.loc 1 230 46 is_stmt 1 discriminator 3 view .LVU275
+ 1234 005e 063C     		subs	r4, r4, #6
+ 1235              	.LVL131:
+ 1236              	.L80:
+ 230:Core/Src/z_displ_ST7735_test.c ****     for (i = min(_width, _height); i > 20; i -= 6) {
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 27
+
+
+ 1237              		.loc 1 230 38 discriminator 1 view .LVU276
+ 1238 0060 142C     		cmp	r4, #20
+ 1239 0062 12DD     		ble	.L84
+ 231:Core/Src/z_displ_ST7735_test.c ****         i2 = i / 2;
+ 1240              		.loc 1 231 9 view .LVU277
+ 231:Core/Src/z_displ_ST7735_test.c ****         i2 = i / 2;
+ 1241              		.loc 1 231 12 is_stmt 0 view .LVU278
+ 1242 0064 04EBD471 		add	r1, r4, r4, lsr #31
+ 232:Core/Src/z_displ_ST7735_test.c ****         Displ_fillRoundRect(cx - i2, cy - i2, i, i, i / 8, color565(0, green, 0));
+ 1243              		.loc 1 232 9 is_stmt 1 view .LVU279
+ 232:Core/Src/z_displ_ST7735_test.c ****         Displ_fillRoundRect(cx - i2, cy - i2, i, i, i / 8, color565(0, green, 0));
+ 1244              		.loc 1 232 15 is_stmt 0 view .LVU280
+ 1245 0068 A5EB0805 		sub	r5, r5, r8
+ 1246              	.LVL132:
+ 1247              		.loc 1 233 9 is_stmt 1 view .LVU281
+ 1248              		.loc 1 233 32 is_stmt 0 view .LVU282
+ 1249 006c C1F34F01 		ubfx	r1, r1, #1, #16
+ 1250 0070 A7EB010E 		sub	lr, r7, r1
+ 1251 0074 1FFA8EFE 		uxth	lr, lr
+ 1252              		.loc 1 233 41 view .LVU283
+ 1253 0078 711A     		subs	r1, r6, r1
+ 1254 007a 89B2     		uxth	r1, r1
+ 1255              		.loc 1 233 9 view .LVU284
+ 1256 007c 22B2     		sxth	r2, r4
+ 1257              		.loc 1 233 55 view .LVU285
+ 1258 007e A446     		mov	ip, r4
+ 1259 0080 002C     		cmp	r4, #0
+ 1260 0082 DFDA     		bge	.L81
+ 1261 0084 04F1070C 		add	ip, r4, #7
+ 1262 0088 DCE7     		b	.L81
+ 1263              	.L84:
+ 234:Core/Src/z_displ_ST7735_test.c ****     }
+ 235:Core/Src/z_displ_ST7735_test.c **** }
+ 1264              		.loc 1 235 1 view .LVU286
+ 1265 008a 02B0     		add	sp, sp, #8
+ 1266              		.cfi_def_cfa_offset 24
+ 1267              		@ sp needed
+ 1268 008c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1269              	.LVL133:
+ 1270              	.L86:
+ 1271              		.loc 1 235 1 view .LVU287
+ 1272              		.align	2
+ 1273              	.L85:
+ 1274 0090 00000000 		.word	_width
+ 1275 0094 00000000 		.word	_height
+ 1276              		.cfi_endproc
+ 1277              	.LFE146:
+ 1279              		.section	.text.TestChar,"ax",%progbits
+ 1280              		.align	1
+ 1281              		.global	TestChar
+ 1282              		.syntax unified
+ 1283              		.thumb
+ 1284              		.thumb_func
+ 1286              	TestChar:
+ 1287              	.LFB147:
+ 236:Core/Src/z_displ_ST7735_test.c **** 
+ 237:Core/Src/z_displ_ST7735_test.c **** 
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 28
+
+
+ 238:Core/Src/z_displ_ST7735_test.c **** 
+ 239:Core/Src/z_displ_ST7735_test.c **** 
+ 240:Core/Src/z_displ_ST7735_test.c **** 
+ 241:Core/Src/z_displ_ST7735_test.c **** void TestChar(){
+ 1288              		.loc 1 241 16 is_stmt 1 view -0
+ 1289              		.cfi_startproc
+ 1290              		@ args = 0, pretend = 0, frame = 0
+ 1291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1292 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1293              		.cfi_def_cfa_offset 36
+ 1294              		.cfi_offset 4, -36
+ 1295              		.cfi_offset 5, -32
+ 1296              		.cfi_offset 6, -28
+ 1297              		.cfi_offset 7, -24
+ 1298              		.cfi_offset 8, -20
+ 1299              		.cfi_offset 9, -16
+ 1300              		.cfi_offset 10, -12
+ 1301              		.cfi_offset 11, -8
+ 1302              		.cfi_offset 14, -4
+ 1303 0004 87B0     		sub	sp, sp, #28
+ 1304              		.cfi_def_cfa_offset 64
+ 242:Core/Src/z_displ_ST7735_test.c **** 
+ 243:Core/Src/z_displ_ST7735_test.c **** 	uint16_t x,y,k,a,b;
+ 1305              		.loc 1 243 2 view .LVU289
+ 244:Core/Src/z_displ_ST7735_test.c **** 	uint8_t c;
+ 1306              		.loc 1 244 2 view .LVU290
+ 245:Core/Src/z_displ_ST7735_test.c **** 
+ 246:Core/Src/z_displ_ST7735_test.c **** 	for (k=0;k<2500;k++) {
+ 1307              		.loc 1 246 2 view .LVU291
+ 1308              	.LVL134:
+ 1309              		.loc 1 246 8 is_stmt 0 view .LVU292
+ 1310 0006 4FF0000A 		mov	r10, #0
+ 1311              		.loc 1 246 2 view .LVU293
+ 1312 000a 65E0     		b	.L88
+ 1313              	.LVL135:
+ 1314              	.L89:
+ 247:Core/Src/z_displ_ST7735_test.c **** 		a=rand();
+ 1315              		.loc 1 247 3 is_stmt 1 view .LVU294
+ 1316              		.loc 1 247 5 is_stmt 0 view .LVU295
+ 1317 000c FFF7FEFF 		bl	rand
+ 1318              	.LVL136:
+ 1319              		.loc 1 247 4 discriminator 1 view .LVU296
+ 1320 0010 85B2     		uxth	r5, r0
+ 1321              	.LVL137:
+ 248:Core/Src/z_displ_ST7735_test.c **** 		b=rand();
+ 1322              		.loc 1 248 3 is_stmt 1 view .LVU297
+ 1323              		.loc 1 248 5 is_stmt 0 view .LVU298
+ 1324 0012 FFF7FEFF 		bl	rand
+ 1325              	.LVL138:
+ 1326              		.loc 1 248 4 discriminator 1 view .LVU299
+ 1327 0016 84B2     		uxth	r4, r0
+ 1328              	.LVL139:
+ 249:Core/Src/z_displ_ST7735_test.c **** 		x=a % (_width-11) ;
+ 1329              		.loc 1 249 3 is_stmt 1 view .LVU300
+ 1330              		.loc 1 249 16 is_stmt 0 view .LVU301
+ 1331 0018 DFF8D4B0 		ldr	fp, .L91+8
+ 1332 001c BBF90030 		ldrsh	r3, [fp]
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 29
+
+
+ 1333 0020 0B3B     		subs	r3, r3, #11
+ 1334              		.loc 1 249 7 view .LVU302
+ 1335 0022 95FBF3FC 		sdiv	ip, r5, r3
+ 1336 0026 03FB1C5C 		mls	ip, r3, ip, r5
+ 1337              	.LVL140:
+ 250:Core/Src/z_displ_ST7735_test.c **** 		y=b % (_height-18) ;
+ 1338              		.loc 1 250 3 is_stmt 1 view .LVU303
+ 1339              		.loc 1 250 17 is_stmt 0 view .LVU304
+ 1340 002a 2F4B     		ldr	r3, .L91
+ 1341 002c B3F90030 		ldrsh	r3, [r3]
+ 1342 0030 123B     		subs	r3, r3, #18
+ 1343              		.loc 1 250 7 view .LVU305
+ 1344 0032 94FBF3FE 		sdiv	lr, r4, r3
+ 1345 0036 03FB1E4E 		mls	lr, r3, lr, r4
+ 1346              	.LVL141:
+ 251:Core/Src/z_displ_ST7735_test.c **** 		c=a % 26+'A';
+ 1347              		.loc 1 251 3 is_stmt 1 view .LVU306
+ 1348              		.loc 1 251 11 is_stmt 0 view .LVU307
+ 1349 003a 2C4E     		ldr	r6, .L91+4
+ 1350 003c A6FB0532 		umull	r3, r2, r6, r5
+ 1351 0040 D208     		lsrs	r2, r2, #3
+ 1352 0042 4FF01A09 		mov	r9, #26
+ 1353 0046 09FB1252 		mls	r2, r9, r2, r5
+ 1354 004a D2B2     		uxtb	r2, r2
+ 1355              		.loc 1 251 4 view .LVU308
+ 1356 004c 4132     		adds	r2, r2, #65
+ 1357              	.LVL142:
+ 252:Core/Src/z_displ_ST7735_test.c **** 		Displ_WChar(x, y, c, Font16, 1, YELLOW, RED);
+ 1358              		.loc 1 252 3 is_stmt 1 view .LVU309
+ 1359 004e DFF8A480 		ldr	r8, .L91+12
+ 1360 0052 1F21     		movs	r1, #31
+ 1361 0054 0491     		str	r1, [sp, #16]
+ 1362 0056 40F2FF71 		movw	r1, #2047
+ 1363 005a 0391     		str	r1, [sp, #12]
+ 1364 005c 0121     		movs	r1, #1
+ 1365 005e 0291     		str	r1, [sp, #8]
+ 1366 0060 08F10407 		add	r7, r8, #4
+ 1367 0064 97E80300 		ldm	r7, {r0, r1}
+ 1368 0068 8DE80300 		stm	sp, {r0, r1}
+ 1369 006c D8F80030 		ldr	r3, [r8]
+ 1370 0070 D2B2     		uxtb	r2, r2
+ 1371              		.loc 1 252 3 is_stmt 0 view .LVU310
+ 1372 0072 1FFA8EF1 		uxth	r1, lr
+ 1373 0076 1FFA8CF0 		uxth	r0, ip
+ 1374 007a FFF7FEFF 		bl	Displ_WChar
+ 1375              	.LVL143:
+ 253:Core/Src/z_displ_ST7735_test.c **** 		x=b % (_width-11) ;
+ 1376              		.loc 1 253 3 is_stmt 1 view .LVU311
+ 1377              		.loc 1 253 16 is_stmt 0 view .LVU312
+ 1378 007e BBF90030 		ldrsh	r3, [fp]
+ 1379 0082 0B3B     		subs	r3, r3, #11
+ 1380              		.loc 1 253 7 view .LVU313
+ 1381 0084 94FBF3FC 		sdiv	ip, r4, r3
+ 1382 0088 03FB1C4C 		mls	ip, r3, ip, r4
+ 1383              	.LVL144:
+ 254:Core/Src/z_displ_ST7735_test.c **** 		y=a % (_height-18) ;
+ 1384              		.loc 1 254 3 is_stmt 1 view .LVU314
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 30
+
+
+ 1385              		.loc 1 254 17 is_stmt 0 view .LVU315
+ 1386 008c 164B     		ldr	r3, .L91
+ 1387 008e B3F90030 		ldrsh	r3, [r3]
+ 1388 0092 123B     		subs	r3, r3, #18
+ 1389              		.loc 1 254 7 view .LVU316
+ 1390 0094 95FBF3F2 		sdiv	r2, r5, r3
+ 1391 0098 03FB1255 		mls	r5, r3, r2, r5
+ 1392              	.LVL145:
+ 255:Core/Src/z_displ_ST7735_test.c **** 		c=b % 26+'A';
+ 1393              		.loc 1 255 3 is_stmt 1 view .LVU317
+ 1394              		.loc 1 255 11 is_stmt 0 view .LVU318
+ 1395 009c A6FB0436 		umull	r3, r6, r6, r4
+ 1396 00a0 F608     		lsrs	r6, r6, #3
+ 1397 00a2 09FB1642 		mls	r2, r9, r6, r4
+ 1398 00a6 D2B2     		uxtb	r2, r2
+ 1399              		.loc 1 255 4 view .LVU319
+ 1400 00a8 4132     		adds	r2, r2, #65
+ 1401              	.LVL146:
+ 256:Core/Src/z_displ_ST7735_test.c **** 		Displ_WChar(x, y, c, Font16, 1, RED, YELLOW);
+ 1402              		.loc 1 256 3 is_stmt 1 view .LVU320
+ 1403 00aa 40F2FF73 		movw	r3, #2047
+ 1404 00ae 0493     		str	r3, [sp, #16]
+ 1405 00b0 1F23     		movs	r3, #31
+ 1406 00b2 0393     		str	r3, [sp, #12]
+ 1407 00b4 0123     		movs	r3, #1
+ 1408 00b6 0293     		str	r3, [sp, #8]
+ 1409 00b8 97E80300 		ldm	r7, {r0, r1}
+ 1410 00bc 8DE80300 		stm	sp, {r0, r1}
+ 1411 00c0 D8F80030 		ldr	r3, [r8]
+ 1412 00c4 D2B2     		uxtb	r2, r2
+ 1413              		.loc 1 256 3 is_stmt 0 view .LVU321
+ 1414 00c6 A9B2     		uxth	r1, r5
+ 1415 00c8 1FFA8CF0 		uxth	r0, ip
+ 1416 00cc FFF7FEFF 		bl	Displ_WChar
+ 1417              	.LVL147:
+ 246:Core/Src/z_displ_ST7735_test.c **** 		a=rand();
+ 1418              		.loc 1 246 19 is_stmt 1 discriminator 3 view .LVU322
+ 1419 00d0 0AF1010A 		add	r10, r10, #1
+ 1420              	.LVL148:
+ 246:Core/Src/z_displ_ST7735_test.c **** 		a=rand();
+ 1421              		.loc 1 246 19 is_stmt 0 discriminator 3 view .LVU323
+ 1422 00d4 1FFA8AFA 		uxth	r10, r10
+ 1423              	.LVL149:
+ 1424              	.L88:
+ 246:Core/Src/z_displ_ST7735_test.c **** 		a=rand();
+ 1425              		.loc 1 246 12 is_stmt 1 discriminator 1 view .LVU324
+ 1426 00d8 40F6C313 		movw	r3, #2499
+ 1427 00dc 9A45     		cmp	r10, r3
+ 1428 00de 95D9     		bls	.L89
+ 257:Core/Src/z_displ_ST7735_test.c **** 	}
+ 258:Core/Src/z_displ_ST7735_test.c **** };
+ 1429              		.loc 1 258 1 is_stmt 0 view .LVU325
+ 1430 00e0 07B0     		add	sp, sp, #28
+ 1431              		.cfi_def_cfa_offset 36
+ 1432              		@ sp needed
+ 1433 00e2 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1434              	.LVL150:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 31
+
+
+ 1435              	.L92:
+ 1436              		.loc 1 258 1 view .LVU326
+ 1437 00e6 00BF     		.align	2
+ 1438              	.L91:
+ 1439 00e8 00000000 		.word	_height
+ 1440 00ec 4FECC44E 		.word	1321528399
+ 1441 00f0 00000000 		.word	_width
+ 1442 00f4 00000000 		.word	Font16
+ 1443              		.cfi_endproc
+ 1444              	.LFE147:
+ 1446              		.section	.text.wait,"ax",%progbits
+ 1447              		.align	1
+ 1448              		.global	wait
+ 1449              		.syntax unified
+ 1450              		.thumb
+ 1451              		.thumb_func
+ 1453              	wait:
+ 1454              	.LVL151:
+ 1455              	.LFB148:
+ 259:Core/Src/z_displ_ST7735_test.c **** 
+ 260:Core/Src/z_displ_ST7735_test.c **** 
+ 261:Core/Src/z_displ_ST7735_test.c **** 
+ 262:Core/Src/z_displ_ST7735_test.c **** void wait(uint16_t delay){
+ 1456              		.loc 1 262 26 is_stmt 1 view -0
+ 1457              		.cfi_startproc
+ 1458              		@ args = 0, pretend = 0, frame = 8
+ 1459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1460              		.loc 1 262 26 is_stmt 0 view .LVU328
+ 1461 0000 30B5     		push	{r4, r5, lr}
+ 1462              		.cfi_def_cfa_offset 12
+ 1463              		.cfi_offset 4, -12
+ 1464              		.cfi_offset 5, -8
+ 1465              		.cfi_offset 14, -4
+ 1466 0002 83B0     		sub	sp, sp, #12
+ 1467              		.cfi_def_cfa_offset 24
+ 1468 0004 0546     		mov	r5, r0
+ 263:Core/Src/z_displ_ST7735_test.c **** uint16_t time;
+ 1469              		.loc 1 263 1 is_stmt 1 view .LVU329
+ 264:Core/Src/z_displ_ST7735_test.c **** volatile uint32_t dummy1,dummy2;
+ 1470              		.loc 1 264 1 view .LVU330
+ 265:Core/Src/z_displ_ST7735_test.c **** //volatile uint32_t *mem = 0x20000000;
+ 266:Core/Src/z_displ_ST7735_test.c **** 
+ 267:Core/Src/z_displ_ST7735_test.c **** 	time=HAL_GetTick();
+ 1471              		.loc 1 267 2 view .LVU331
+ 1472              		.loc 1 267 7 is_stmt 0 view .LVU332
+ 1473 0006 FFF7FEFF 		bl	HAL_GetTick
+ 1474              	.LVL152:
+ 1475              		.loc 1 267 7 view .LVU333
+ 1476 000a 0446     		mov	r4, r0
+ 1477              	.LVL153:
+ 268:Core/Src/z_displ_ST7735_test.c **** 	dummy1=0;
+ 1478              		.loc 1 268 2 is_stmt 1 view .LVU334
+ 1479              		.loc 1 268 8 is_stmt 0 view .LVU335
+ 1480 000c 0023     		movs	r3, #0
+ 1481 000e 0193     		str	r3, [sp, #4]
+ 269:Core/Src/z_displ_ST7735_test.c **** 	while ((HAL_GetTick()-time)<delay){
+ 1482              		.loc 1 269 2 is_stmt 1 view .LVU336
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 32
+
+
+ 1483              		.loc 1 269 8 is_stmt 0 view .LVU337
+ 1484 0010 03E0     		b	.L94
+ 1485              	.L95:
+ 270:Core/Src/z_displ_ST7735_test.c **** 		dummy2=dummy1;
+ 1486              		.loc 1 270 3 is_stmt 1 view .LVU338
+ 1487              		.loc 1 270 9 is_stmt 0 view .LVU339
+ 1488 0012 019B     		ldr	r3, [sp, #4]
+ 1489 0014 0093     		str	r3, [sp]
+ 271:Core/Src/z_displ_ST7735_test.c **** 		dummy1=dummy2;
+ 1490              		.loc 1 271 3 is_stmt 1 view .LVU340
+ 1491              		.loc 1 271 9 is_stmt 0 view .LVU341
+ 1492 0016 009B     		ldr	r3, [sp]
+ 1493 0018 0193     		str	r3, [sp, #4]
+ 1494              	.L94:
+ 269:Core/Src/z_displ_ST7735_test.c **** 	while ((HAL_GetTick()-time)<delay){
+ 1495              		.loc 1 269 29 is_stmt 1 view .LVU342
+ 269:Core/Src/z_displ_ST7735_test.c **** 	while ((HAL_GetTick()-time)<delay){
+ 1496              		.loc 1 269 10 is_stmt 0 view .LVU343
+ 1497 001a FFF7FEFF 		bl	HAL_GetTick
+ 1498              	.LVL154:
+ 269:Core/Src/z_displ_ST7735_test.c **** 	while ((HAL_GetTick()-time)<delay){
+ 1499              		.loc 1 269 23 discriminator 1 view .LVU344
+ 1500 001e A3B2     		uxth	r3, r4
+ 1501 0020 C01A     		subs	r0, r0, r3
+ 269:Core/Src/z_displ_ST7735_test.c **** 	while ((HAL_GetTick()-time)<delay){
+ 1502              		.loc 1 269 29 discriminator 1 view .LVU345
+ 1503 0022 A842     		cmp	r0, r5
+ 1504 0024 F5D3     		bcc	.L95
+ 272:Core/Src/z_displ_ST7735_test.c **** 	}
+ 273:Core/Src/z_displ_ST7735_test.c **** 
+ 274:Core/Src/z_displ_ST7735_test.c **** }
+ 1505              		.loc 1 274 1 view .LVU346
+ 1506 0026 03B0     		add	sp, sp, #12
+ 1507              		.cfi_def_cfa_offset 12
+ 1508              		@ sp needed
+ 1509 0028 30BD     		pop	{r4, r5, pc}
+ 1510              		.loc 1 274 1 view .LVU347
+ 1511              		.cfi_endproc
+ 1512              	.LFE148:
+ 1514              		.section	.text.TestFillScreen,"ax",%progbits
+ 1515              		.align	1
+ 1516              		.global	TestFillScreen
+ 1517              		.syntax unified
+ 1518              		.thumb
+ 1519              		.thumb_func
+ 1521              	TestFillScreen:
+ 1522              	.LVL155:
+ 1523              	.LFB149:
+ 275:Core/Src/z_displ_ST7735_test.c **** 
+ 276:Core/Src/z_displ_ST7735_test.c **** 
+ 277:Core/Src/z_displ_ST7735_test.c **** 
+ 278:Core/Src/z_displ_ST7735_test.c **** void TestFillScreen(uint16_t delay) {
+ 1524              		.loc 1 278 37 is_stmt 1 view -0
+ 1525              		.cfi_startproc
+ 1526              		@ args = 0, pretend = 0, frame = 0
+ 1527              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1528              		.loc 1 278 37 is_stmt 0 view .LVU349
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 33
+
+
+ 1529 0000 10B5     		push	{r4, lr}
+ 1530              		.cfi_def_cfa_offset 8
+ 1531              		.cfi_offset 4, -8
+ 1532              		.cfi_offset 14, -4
+ 1533 0002 0446     		mov	r4, r0
+ 279:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(RED);
+ 1534              		.loc 1 279 2 is_stmt 1 view .LVU350
+ 1535 0004 1F20     		movs	r0, #31
+ 1536              	.LVL156:
+ 1537              		.loc 1 279 2 is_stmt 0 view .LVU351
+ 1538 0006 FFF7FEFF 		bl	Displ_CLS
+ 1539              	.LVL157:
+ 280:Core/Src/z_displ_ST7735_test.c **** 	if (delay)
+ 1540              		.loc 1 280 2 is_stmt 1 view .LVU352
+ 1541              		.loc 1 280 5 is_stmt 0 view .LVU353
+ 1542 000a 9CB9     		cbnz	r4, .L104
+ 1543              	.L98:
+ 281:Core/Src/z_displ_ST7735_test.c **** 		wait(delay);
+ 282:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(GREEN);
+ 1544              		.loc 1 282 5 is_stmt 1 view .LVU354
+ 1545 000c 4FF4FC60 		mov	r0, #2016
+ 1546 0010 FFF7FEFF 		bl	Displ_CLS
+ 1547              	.LVL158:
+ 283:Core/Src/z_displ_ST7735_test.c **** 	if (delay)
+ 1548              		.loc 1 283 2 view .LVU355
+ 1549              		.loc 1 283 5 is_stmt 0 view .LVU356
+ 1550 0014 94B9     		cbnz	r4, .L105
+ 1551              	.L99:
+ 284:Core/Src/z_displ_ST7735_test.c **** 		wait(delay);
+ 285:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLUE);
+ 1552              		.loc 1 285 5 is_stmt 1 view .LVU357
+ 1553 0016 4FF47840 		mov	r0, #63488
+ 1554 001a FFF7FEFF 		bl	Displ_CLS
+ 1555              	.LVL159:
+ 286:Core/Src/z_displ_ST7735_test.c **** 	if (delay)
+ 1556              		.loc 1 286 2 view .LVU358
+ 1557              		.loc 1 286 5 is_stmt 0 view .LVU359
+ 1558 001e 8CB9     		cbnz	r4, .L106
+ 1559              	.L100:
+ 287:Core/Src/z_displ_ST7735_test.c **** 		wait(delay);
+ 288:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(YELLOW);
+ 1560              		.loc 1 288 5 is_stmt 1 view .LVU360
+ 1561 0020 40F2FF70 		movw	r0, #2047
+ 1562 0024 FFF7FEFF 		bl	Displ_CLS
+ 1563              	.LVL160:
+ 289:Core/Src/z_displ_ST7735_test.c **** 	if (delay)
+ 1564              		.loc 1 289 2 view .LVU361
+ 1565              		.loc 1 289 5 is_stmt 0 view .LVU362
+ 1566 0028 84B9     		cbnz	r4, .L107
+ 1567              	.L101:
+ 290:Core/Src/z_displ_ST7735_test.c **** 		wait(delay);
+ 291:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 1568              		.loc 1 291 5 is_stmt 1 view .LVU363
+ 1569 002a 0020     		movs	r0, #0
+ 1570 002c FFF7FEFF 		bl	Displ_CLS
+ 1571              	.LVL161:
+ 292:Core/Src/z_displ_ST7735_test.c **** 	if (delay)
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 34
+
+
+ 1572              		.loc 1 292 2 view .LVU364
+ 1573              		.loc 1 292 5 is_stmt 0 view .LVU365
+ 1574 0030 84B9     		cbnz	r4, .L108
+ 1575              	.L97:
+ 293:Core/Src/z_displ_ST7735_test.c **** 		wait(delay);
+ 294:Core/Src/z_displ_ST7735_test.c **** }
+ 1576              		.loc 1 294 1 view .LVU366
+ 1577 0032 10BD     		pop	{r4, pc}
+ 1578              	.LVL162:
+ 1579              	.L104:
+ 281:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(GREEN);
+ 1580              		.loc 1 281 3 is_stmt 1 view .LVU367
+ 1581 0034 2046     		mov	r0, r4
+ 1582 0036 FFF7FEFF 		bl	wait
+ 1583              	.LVL163:
+ 1584 003a E7E7     		b	.L98
+ 1585              	.L105:
+ 284:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLUE);
+ 1586              		.loc 1 284 3 view .LVU368
+ 1587 003c 2046     		mov	r0, r4
+ 1588 003e FFF7FEFF 		bl	wait
+ 1589              	.LVL164:
+ 1590 0042 E8E7     		b	.L99
+ 1591              	.L106:
+ 287:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(YELLOW);
+ 1592              		.loc 1 287 3 view .LVU369
+ 1593 0044 2046     		mov	r0, r4
+ 1594 0046 FFF7FEFF 		bl	wait
+ 1595              	.LVL165:
+ 1596 004a E9E7     		b	.L100
+ 1597              	.L107:
+ 290:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 1598              		.loc 1 290 3 view .LVU370
+ 1599 004c 2046     		mov	r0, r4
+ 1600 004e FFF7FEFF 		bl	wait
+ 1601              	.LVL166:
+ 1602 0052 EAE7     		b	.L101
+ 1603              	.L108:
+ 293:Core/Src/z_displ_ST7735_test.c **** }
+ 1604              		.loc 1 293 3 view .LVU371
+ 1605 0054 2046     		mov	r0, r4
+ 1606 0056 FFF7FEFF 		bl	wait
+ 1607              	.LVL167:
+ 1608              		.loc 1 294 1 is_stmt 0 view .LVU372
+ 1609 005a EAE7     		b	.L97
+ 1610              		.cfi_endproc
+ 1611              	.LFE149:
+ 1613              		.section	.text.TestHVLine,"ax",%progbits
+ 1614              		.align	1
+ 1615              		.global	TestHVLine
+ 1616              		.syntax unified
+ 1617              		.thumb
+ 1618              		.thumb_func
+ 1620              	TestHVLine:
+ 1621              	.LFB150:
+ 295:Core/Src/z_displ_ST7735_test.c **** 
+ 296:Core/Src/z_displ_ST7735_test.c **** 
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 35
+
+
+ 297:Core/Src/z_displ_ST7735_test.c **** 
+ 298:Core/Src/z_displ_ST7735_test.c **** 
+ 299:Core/Src/z_displ_ST7735_test.c **** 
+ 300:Core/Src/z_displ_ST7735_test.c **** 
+ 301:Core/Src/z_displ_ST7735_test.c **** void TestHVLine() {
+ 1622              		.loc 1 301 19 is_stmt 1 view -0
+ 1623              		.cfi_startproc
+ 1624              		@ args = 0, pretend = 0, frame = 0
+ 1625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1626 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 1627              		.cfi_def_cfa_offset 24
+ 1628              		.cfi_offset 4, -24
+ 1629              		.cfi_offset 5, -20
+ 1630              		.cfi_offset 6, -16
+ 1631              		.cfi_offset 7, -12
+ 1632              		.cfi_offset 8, -8
+ 1633              		.cfi_offset 14, -4
+ 1634 0004 82B0     		sub	sp, sp, #8
+ 1635              		.cfi_def_cfa_offset 32
+ 302:Core/Src/z_displ_ST7735_test.c **** 	uint16_t k,x,y,l,a,b;
+ 1636              		.loc 1 302 2 view .LVU374
+ 303:Core/Src/z_displ_ST7735_test.c ****     Displ_CLS(BLACK);
+ 1637              		.loc 1 303 5 view .LVU375
+ 1638 0006 0020     		movs	r0, #0
+ 1639 0008 FFF7FEFF 		bl	Displ_CLS
+ 1640              	.LVL168:
+ 304:Core/Src/z_displ_ST7735_test.c ****     for (k=0 ; k<15000;k++) {
+ 1641              		.loc 1 304 5 view .LVU376
+ 1642              		.loc 1 304 11 is_stmt 0 view .LVU377
+ 1643 000c 0026     		movs	r6, #0
+ 1644              		.loc 1 304 5 view .LVU378
+ 1645 000e 40E0     		b	.L110
+ 1646              	.LVL169:
+ 1647              	.L111:
+ 305:Core/Src/z_displ_ST7735_test.c ****     	a=rand();
+ 1648              		.loc 1 305 6 is_stmt 1 view .LVU379
+ 1649              		.loc 1 305 8 is_stmt 0 view .LVU380
+ 1650 0010 FFF7FEFF 		bl	rand
+ 1651              	.LVL170:
+ 1652 0014 0446     		mov	r4, r0
+ 1653              	.LVL171:
+ 306:Core/Src/z_displ_ST7735_test.c ****     	b=rand();
+ 1654              		.loc 1 306 6 is_stmt 1 view .LVU381
+ 1655              		.loc 1 306 8 is_stmt 0 view .LVU382
+ 1656 0016 FFF7FEFF 		bl	rand
+ 1657              	.LVL172:
+ 1658 001a 0546     		mov	r5, r0
+ 1659              	.LVL173:
+ 307:Core/Src/z_displ_ST7735_test.c ****     	x=a % _width ;
+ 1660              		.loc 1 307 6 is_stmt 1 view .LVU383
+ 1661 001c A4B2     		uxth	r4, r4
+ 1662              		.loc 1 307 10 is_stmt 0 view .LVU384
+ 1663 001e DFF88480 		ldr	r8, .L113+4
+ 1664 0022 B8F90020 		ldrsh	r2, [r8]
+ 1665 0026 94FBF2F1 		sdiv	r1, r4, r2
+ 1666 002a 02FB1141 		mls	r1, r2, r1, r4
+ 1667              		.loc 1 307 7 view .LVU385
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 36
+
+
+ 1668 002e 88B2     		uxth	r0, r1
+ 1669              	.LVL174:
+ 308:Core/Src/z_displ_ST7735_test.c ****     	y=b % _height ;
+ 1670              		.loc 1 308 6 is_stmt 1 view .LVU386
+ 1671 0030 ADB2     		uxth	r5, r5
+ 1672              		.loc 1 308 10 is_stmt 0 view .LVU387
+ 1673 0032 1B4F     		ldr	r7, .L113
+ 1674 0034 B7F90030 		ldrsh	r3, [r7]
+ 1675 0038 95FBF3F1 		sdiv	r1, r5, r3
+ 1676 003c 03FB1151 		mls	r1, r3, r1, r5
+ 1677              	.LVL175:
+ 309:Core/Src/z_displ_ST7735_test.c ****     	l=a % (_width - x);
+ 1678              		.loc 1 309 6 is_stmt 1 view .LVU388
+ 1679              		.loc 1 309 20 is_stmt 0 view .LVU389
+ 1680 0040 121A     		subs	r2, r2, r0
+ 1681              		.loc 1 309 10 view .LVU390
+ 1682 0042 94FBF2F3 		sdiv	r3, r4, r2
+ 1683 0046 02FB1342 		mls	r2, r2, r3, r4
+ 1684              	.LVL176:
+ 310:Core/Src/z_displ_ST7735_test.c ****     	Displ_FillArea(x, y, l, 1, BLUE);
+ 1685              		.loc 1 310 6 is_stmt 1 view .LVU391
+ 1686 004a 4FF47843 		mov	r3, #63488
+ 1687 004e 0093     		str	r3, [sp]
+ 1688 0050 0123     		movs	r3, #1
+ 1689 0052 92B2     		uxth	r2, r2
+ 1690              		.loc 1 310 6 is_stmt 0 view .LVU392
+ 1691 0054 89B2     		uxth	r1, r1
+ 1692              		.loc 1 310 6 view .LVU393
+ 1693 0056 FFF7FEFF 		bl	Displ_FillArea
+ 1694              	.LVL177:
+ 311:Core/Src/z_displ_ST7735_test.c ****     	x=b % _width ;
+ 1695              		.loc 1 311 6 is_stmt 1 view .LVU394
+ 1696              		.loc 1 311 10 is_stmt 0 view .LVU395
+ 1697 005a B8F90030 		ldrsh	r3, [r8]
+ 1698 005e 95FBF3F0 		sdiv	r0, r5, r3
+ 1699 0062 03FB1050 		mls	r0, r3, r0, r5
+ 1700              	.LVL178:
+ 312:Core/Src/z_displ_ST7735_test.c ****     	y=a % _height ;
+ 1701              		.loc 1 312 6 is_stmt 1 view .LVU396
+ 1702              		.loc 1 312 10 is_stmt 0 view .LVU397
+ 1703 0066 B7F90030 		ldrsh	r3, [r7]
+ 1704 006a 94FBF3F2 		sdiv	r2, r4, r3
+ 1705 006e 03FB1241 		mls	r1, r3, r2, r4
+ 1706              		.loc 1 312 7 view .LVU398
+ 1707 0072 89B2     		uxth	r1, r1
+ 1708              	.LVL179:
+ 313:Core/Src/z_displ_ST7735_test.c ****     	l=b % (_height - y);
+ 1709              		.loc 1 313 6 is_stmt 1 view .LVU399
+ 1710              		.loc 1 313 21 is_stmt 0 view .LVU400
+ 1711 0074 5B1A     		subs	r3, r3, r1
+ 1712              		.loc 1 313 10 view .LVU401
+ 1713 0076 95FBF3F2 		sdiv	r2, r5, r3
+ 1714 007a 03FB1253 		mls	r3, r3, r2, r5
+ 1715              	.LVL180:
+ 314:Core/Src/z_displ_ST7735_test.c ****     	Displ_FillArea(x, y, 1, l, CYAN);
+ 1716              		.loc 1 314 6 is_stmt 1 view .LVU402
+ 1717 007e 4FF6E072 		movw	r2, #65504
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 37
+
+
+ 1718 0082 0092     		str	r2, [sp]
+ 1719 0084 9BB2     		uxth	r3, r3
+ 1720              		.loc 1 314 6 is_stmt 0 view .LVU403
+ 1721 0086 0122     		movs	r2, #1
+ 1722 0088 80B2     		uxth	r0, r0
+ 1723              		.loc 1 314 6 view .LVU404
+ 1724 008a FFF7FEFF 		bl	Displ_FillArea
+ 1725              	.LVL181:
+ 304:Core/Src/z_displ_ST7735_test.c ****     	a=rand();
+ 1726              		.loc 1 304 25 is_stmt 1 discriminator 3 view .LVU405
+ 1727 008e 0136     		adds	r6, r6, #1
+ 1728              	.LVL182:
+ 304:Core/Src/z_displ_ST7735_test.c ****     	a=rand();
+ 1729              		.loc 1 304 25 is_stmt 0 discriminator 3 view .LVU406
+ 1730 0090 B6B2     		uxth	r6, r6
+ 1731              	.LVL183:
+ 1732              	.L110:
+ 304:Core/Src/z_displ_ST7735_test.c ****     	a=rand();
+ 1733              		.loc 1 304 17 is_stmt 1 discriminator 1 view .LVU407
+ 1734 0092 43F69723 		movw	r3, #14999
+ 1735 0096 9E42     		cmp	r6, r3
+ 1736 0098 BAD9     		bls	.L111
+ 315:Core/Src/z_displ_ST7735_test.c ****     }
+ 316:Core/Src/z_displ_ST7735_test.c **** }
+ 1737              		.loc 1 316 1 is_stmt 0 view .LVU408
+ 1738 009a 02B0     		add	sp, sp, #8
+ 1739              		.cfi_def_cfa_offset 24
+ 1740              		@ sp needed
+ 1741 009c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1742              	.LVL184:
+ 1743              	.L114:
+ 1744              		.loc 1 316 1 view .LVU409
+ 1745              		.align	2
+ 1746              	.L113:
+ 1747 00a0 00000000 		.word	_height
+ 1748 00a4 00000000 		.word	_width
+ 1749              		.cfi_endproc
+ 1750              	.LFE150:
+ 1752              		.section	.text.Displ_Page,"ax",%progbits
+ 1753              		.align	1
+ 1754              		.global	Displ_Page
+ 1755              		.syntax unified
+ 1756              		.thumb
+ 1757              		.thumb_func
+ 1759              	Displ_Page:
+ 1760              	.LVL185:
+ 1761              	.LFB151:
+ 317:Core/Src/z_displ_ST7735_test.c **** 
+ 318:Core/Src/z_displ_ST7735_test.c **** 
+ 319:Core/Src/z_displ_ST7735_test.c **** 
+ 320:Core/Src/z_displ_ST7735_test.c **** 
+ 321:Core/Src/z_displ_ST7735_test.c **** 
+ 322:Core/Src/z_displ_ST7735_test.c **** 
+ 323:Core/Src/z_displ_ST7735_test.c **** /* @brief private function for TestDisplay() */
+ 324:Core/Src/z_displ_ST7735_test.c **** void Displ_Page(char * str1,char * str2,char * str3, uint8_t mode) {
+ 1762              		.loc 1 324 68 is_stmt 1 view -0
+ 1763              		.cfi_startproc
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 38
+
+
+ 1764              		@ args = 0, pretend = 0, frame = 0
+ 1765              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1766              		.loc 1 324 68 is_stmt 0 view .LVU411
+ 1767 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 1768              		.cfi_def_cfa_offset 36
+ 1769              		.cfi_offset 4, -36
+ 1770              		.cfi_offset 5, -32
+ 1771              		.cfi_offset 6, -28
+ 1772              		.cfi_offset 7, -24
+ 1773              		.cfi_offset 8, -20
+ 1774              		.cfi_offset 9, -16
+ 1775              		.cfi_offset 10, -12
+ 1776              		.cfi_offset 11, -8
+ 1777              		.cfi_offset 14, -4
+ 1778 0004 89B0     		sub	sp, sp, #36
+ 1779              		.cfi_def_cfa_offset 72
+ 1780 0006 0646     		mov	r6, r0
+ 1781 0008 8B46     		mov	fp, r1
+ 1782 000a 9046     		mov	r8, r2
+ 325:Core/Src/z_displ_ST7735_test.c **** const uint16_t bcol0=BLACK, col1=WHITE, col2=WHITE, col3=WHITE, bcol1=BLUE, bcol2=BLACK, bcol3=BLAC
+ 1783              		.loc 1 325 1 is_stmt 1 view .LVU412
+ 1784              	.LVL186:
+ 326:Core/Src/z_displ_ST7735_test.c **** 	Displ_FillArea(0, 21, _width, 72, bcol0);
+ 1785              		.loc 1 326 2 view .LVU413
+ 1786 000c 234F     		ldr	r7, .L117
+ 1787 000e 0025     		movs	r5, #0
+ 1788 0010 0095     		str	r5, [sp]
+ 1789 0012 4823     		movs	r3, #72
+ 1790              	.LVL187:
+ 1791              		.loc 1 326 2 is_stmt 0 view .LVU414
+ 1792 0014 3A88     		ldrh	r2, [r7]
+ 1793              	.LVL188:
+ 1794              		.loc 1 326 2 view .LVU415
+ 1795 0016 1521     		movs	r1, #21
+ 1796              	.LVL189:
+ 1797              		.loc 1 326 2 view .LVU416
+ 1798 0018 2846     		mov	r0, r5
+ 1799              	.LVL190:
+ 1800              		.loc 1 326 2 view .LVU417
+ 1801 001a FFF7FEFF 		bl	Displ_FillArea
+ 1802              	.LVL191:
+ 327:Core/Src/z_displ_ST7735_test.c **** 	Displ_CString(0,21, _width, 21+24, str1, Font24, 1, col1,bcol1);
+ 1803              		.loc 1 327 2 is_stmt 1 view .LVU418
+ 1804 001e 4FF47843 		mov	r3, #63488
+ 1805 0022 0693     		str	r3, [sp, #24]
+ 1806 0024 4FF6FF7A 		movw	r10, #65535
+ 1807 0028 CDF814A0 		str	r10, [sp, #20]
+ 1808 002c 4FF00109 		mov	r9, #1
+ 1809 0030 CDF81090 		str	r9, [sp, #16]
+ 1810 0034 1A4B     		ldr	r3, .L117+4
+ 1811 0036 01AC     		add	r4, sp, #4
+ 1812 0038 93E80700 		ldm	r3, {r0, r1, r2}
+ 1813 003c 84E80700 		stm	r4, {r0, r1, r2}
+ 1814 0040 0096     		str	r6, [sp]
+ 1815 0042 2D23     		movs	r3, #45
+ 1816 0044 3A88     		ldrh	r2, [r7]
+ 1817 0046 1521     		movs	r1, #21
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 39
+
+
+ 1818 0048 2846     		mov	r0, r5
+ 1819 004a FFF7FEFF 		bl	Displ_CString
+ 1820              	.LVL192:
+ 328:Core/Src/z_displ_ST7735_test.c **** 	Displ_CString(0,54, _width, 54+16, str2, Font16, 1, col2,bcol2);
+ 1821              		.loc 1 328 2 view .LVU419
+ 1822 004e 0695     		str	r5, [sp, #24]
+ 1823 0050 CDF814A0 		str	r10, [sp, #20]
+ 1824 0054 CDF81090 		str	r9, [sp, #16]
+ 1825 0058 124E     		ldr	r6, .L117+8
+ 1826              	.LVL193:
+ 1827              		.loc 1 328 2 is_stmt 0 view .LVU420
+ 1828 005a 96E80700 		ldm	r6, {r0, r1, r2}
+ 1829 005e 84E80700 		stm	r4, {r0, r1, r2}
+ 1830 0062 CDF800B0 		str	fp, [sp]
+ 1831 0066 4623     		movs	r3, #70
+ 1832 0068 3A88     		ldrh	r2, [r7]
+ 1833 006a 3621     		movs	r1, #54
+ 1834 006c 2846     		mov	r0, r5
+ 1835 006e FFF7FEFF 		bl	Displ_CString
+ 1836              	.LVL194:
+ 329:Core/Src/z_displ_ST7735_test.c **** 	Displ_CString(0,77, _width, 77+16, str3, Font16, 1, col3,bcol3);
+ 1837              		.loc 1 329 2 is_stmt 1 view .LVU421
+ 1838 0072 0695     		str	r5, [sp, #24]
+ 1839 0074 CDF814A0 		str	r10, [sp, #20]
+ 1840 0078 CDF81090 		str	r9, [sp, #16]
+ 1841 007c 96E80700 		ldm	r6, {r0, r1, r2}
+ 1842 0080 84E80700 		stm	r4, {r0, r1, r2}
+ 1843 0084 CDF80080 		str	r8, [sp]
+ 1844 0088 5D23     		movs	r3, #93
+ 1845 008a 3A88     		ldrh	r2, [r7]
+ 1846 008c 4D21     		movs	r1, #77
+ 1847 008e 2846     		mov	r0, r5
+ 1848 0090 FFF7FEFF 		bl	Displ_CString
+ 1849              	.LVL195:
+ 330:Core/Src/z_displ_ST7735_test.c **** }
+ 1850              		.loc 1 330 1 is_stmt 0 view .LVU422
+ 1851 0094 09B0     		add	sp, sp, #36
+ 1852              		.cfi_def_cfa_offset 36
+ 1853              		@ sp needed
+ 1854 0096 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1855              	.LVL196:
+ 1856              	.L118:
+ 1857              		.loc 1 330 1 view .LVU423
+ 1858 009a 00BF     		.align	2
+ 1859              	.L117:
+ 1860 009c 00000000 		.word	_width
+ 1861 00a0 00000000 		.word	Font24
+ 1862 00a4 00000000 		.word	Font16
+ 1863              		.cfi_endproc
+ 1864              	.LFE151:
+ 1866              		.section	.text.testFillScreen,"ax",%progbits
+ 1867              		.align	1
+ 1868              		.global	testFillScreen
+ 1869              		.syntax unified
+ 1870              		.thumb
+ 1871              		.thumb_func
+ 1873              	testFillScreen:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 40
+
+
+ 1874              	.LFB152:
+ 331:Core/Src/z_displ_ST7735_test.c **** 
+ 332:Core/Src/z_displ_ST7735_test.c **** 
+ 333:Core/Src/z_displ_ST7735_test.c **** 
+ 334:Core/Src/z_displ_ST7735_test.c **** 
+ 335:Core/Src/z_displ_ST7735_test.c **** 
+ 336:Core/Src/z_displ_ST7735_test.c **** 
+ 337:Core/Src/z_displ_ST7735_test.c **** 
+ 338:Core/Src/z_displ_ST7735_test.c **** void testFillScreen()
+ 339:Core/Src/z_displ_ST7735_test.c **** {
+ 1875              		.loc 1 339 1 is_stmt 1 view -0
+ 1876              		.cfi_startproc
+ 1877              		@ args = 0, pretend = 0, frame = 0
+ 1878              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1879 0000 08B5     		push	{r3, lr}
+ 1880              		.cfi_def_cfa_offset 8
+ 1881              		.cfi_offset 3, -8
+ 1882              		.cfi_offset 14, -4
+ 340:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(RED);
+ 1883              		.loc 1 340 2 view .LVU425
+ 1884 0002 1F20     		movs	r0, #31
+ 1885 0004 FFF7FEFF 		bl	Displ_CLS
+ 1886              	.LVL197:
+ 341:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(GREEN);
+ 1887              		.loc 1 341 2 view .LVU426
+ 1888 0008 4FF4FC60 		mov	r0, #2016
+ 1889 000c FFF7FEFF 		bl	Displ_CLS
+ 1890              	.LVL198:
+ 342:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(BLUE);
+ 1891              		.loc 1 342 2 view .LVU427
+ 1892 0010 4FF47840 		mov	r0, #63488
+ 1893 0014 FFF7FEFF 		bl	Displ_CLS
+ 1894              	.LVL199:
+ 343:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(YELLOW);
+ 1895              		.loc 1 343 2 view .LVU428
+ 1896 0018 40F2FF70 		movw	r0, #2047
+ 1897 001c FFF7FEFF 		bl	Displ_CLS
+ 1898              	.LVL200:
+ 344:Core/Src/z_displ_ST7735_test.c **** 	Displ_CLS(BLACK);
+ 1899              		.loc 1 344 2 view .LVU429
+ 1900 0020 0020     		movs	r0, #0
+ 1901 0022 FFF7FEFF 		bl	Displ_CLS
+ 1902              	.LVL201:
+ 345:Core/Src/z_displ_ST7735_test.c **** }
+ 1903              		.loc 1 345 1 is_stmt 0 view .LVU430
+ 1904 0026 08BD     		pop	{r3, pc}
+ 1905              		.cfi_endproc
+ 1906              	.LFE152:
+ 1908              		.section	.text.Displ_ColorTest,"ax",%progbits
+ 1909              		.align	1
+ 1910              		.global	Displ_ColorTest
+ 1911              		.syntax unified
+ 1912              		.thumb
+ 1913              		.thumb_func
+ 1915              	Displ_ColorTest:
+ 1916              	.LFB153:
+ 346:Core/Src/z_displ_ST7735_test.c **** 
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 41
+
+
+ 347:Core/Src/z_displ_ST7735_test.c **** 
+ 348:Core/Src/z_displ_ST7735_test.c **** 
+ 349:Core/Src/z_displ_ST7735_test.c **** 
+ 350:Core/Src/z_displ_ST7735_test.c **** 
+ 351:Core/Src/z_displ_ST7735_test.c **** 
+ 352:Core/Src/z_displ_ST7735_test.c **** void Displ_ColorTest(){
+ 1917              		.loc 1 352 23 is_stmt 1 view -0
+ 1918              		.cfi_startproc
+ 1919              		@ args = 0, pretend = 0, frame = 48
+ 1920              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1921 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1922              		.cfi_def_cfa_offset 20
+ 1923              		.cfi_offset 4, -20
+ 1924              		.cfi_offset 5, -16
+ 1925              		.cfi_offset 6, -12
+ 1926              		.cfi_offset 7, -8
+ 1927              		.cfi_offset 14, -4
+ 1928 0002 8FB0     		sub	sp, sp, #60
+ 1929              		.cfi_def_cfa_offset 80
+ 1930 0004 0024     		movs	r4, #0
+ 353:Core/Src/z_displ_ST7735_test.c **** 	const uint8_t colnum=8;
+ 1931              		.loc 1 353 2 view .LVU432
+ 1932              	.LVL202:
+ 354:Core/Src/z_displ_ST7735_test.c **** 	const uint8_t rownum=3;
+ 1933              		.loc 1 354 2 view .LVU433
+ 355:Core/Src/z_displ_ST7735_test.c **** 	const uint16_t colortab[]={DD_WHITE,RED,BLUE,GREEN,YELLOW,MAGENTA,CYAN,WHITE, \
+ 1934              		.loc 1 355 2 view .LVU434
+ 1935              		.loc 1 355 17 is_stmt 0 view .LVU435
+ 1936 0006 02AD     		add	r5, sp, #8
+ 1937 0008 364E     		ldr	r6, .L136
+ 1938 000a 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
+ 1939 000c 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 1940 000e 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
+ 1941 0010 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 1942 0012 96E80F00 		ldm	r6, {r0, r1, r2, r3}
+ 1943 0016 85E80F00 		stm	r5, {r0, r1, r2, r3}
+ 356:Core/Src/z_displ_ST7735_test.c **** 								DDD_WHITE,D_RED,D_BLUE,D_GREEN,D_YELLOW,D_MAGENTA,D_CYAN,D_WHITE, \
+ 357:Core/Src/z_displ_ST7735_test.c **** 								DDDD_WHITE,DD_RED,DD_BLUE,DD_GREEN,DD_YELLOW,DD_MAGENTA,DD_CYAN,DD_WHITE};
+ 358:Core/Src/z_displ_ST7735_test.c **** 	static Displ_Orientat_e orientation = Displ_Orientat_0;
+ 1944              		.loc 1 358 2 is_stmt 1 view .LVU436
+ 359:Core/Src/z_displ_ST7735_test.c **** 	uint16_t x,y,dx,dy;
+ 1945              		.loc 1 359 2 view .LVU437
+ 360:Core/Src/z_displ_ST7735_test.c **** 	Displ_Orientation(orientation);
+ 1946              		.loc 1 360 2 view .LVU438
+ 1947 001a 334D     		ldr	r5, .L136+4
+ 1948 001c 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ 1949 001e FFF7FEFF 		bl	Displ_Orientation
+ 1950              	.LVL203:
+ 361:Core/Src/z_displ_ST7735_test.c **** 	if (orientation==Displ_Orientat_0)
+ 1951              		.loc 1 361 2 view .LVU439
+ 1952              		.loc 1 361 17 is_stmt 0 view .LVU440
+ 1953 0022 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 1954              		.loc 1 361 5 view .LVU441
+ 1955 0024 9BB9     		cbnz	r3, .L122
+ 362:Core/Src/z_displ_ST7735_test.c **** 		orientation=Displ_Orientat_90;
+ 1956              		.loc 1 362 3 is_stmt 1 view .LVU442
+ 1957              		.loc 1 362 14 is_stmt 0 view .LVU443
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 42
+
+
+ 1958 0026 0122     		movs	r2, #1
+ 1959 0028 2A70     		strb	r2, [r5]
+ 1960              	.L123:
+ 363:Core/Src/z_displ_ST7735_test.c **** 	else
+ 364:Core/Src/z_displ_ST7735_test.c **** 		orientation=Displ_Orientat_0;
+ 365:Core/Src/z_displ_ST7735_test.c **** 	dx=_width/colnum;
+ 1961              		.loc 1 365 2 is_stmt 1 view .LVU444
+ 1962              		.loc 1 365 11 is_stmt 0 view .LVU445
+ 1963 002a 304B     		ldr	r3, .L136+8
+ 1964 002c B3F90070 		ldrsh	r7, [r3]
+ 1965 0030 002F     		cmp	r7, #0
+ 1966 0032 10DB     		blt	.L132
+ 1967              	.L124:
+ 1968              		.loc 1 365 4 view .LVU446
+ 1969 0034 C7F3CF07 		ubfx	r7, r7, #3, #16
+ 1970              	.LVL204:
+ 366:Core/Src/z_displ_ST7735_test.c **** 	dy=_height/rownum;
+ 1971              		.loc 1 366 2 is_stmt 1 view .LVU447
+ 1972              		.loc 1 366 12 is_stmt 0 view .LVU448
+ 1973 0038 2D4B     		ldr	r3, .L136+12
+ 1974 003a B3F90030 		ldrsh	r3, [r3]
+ 1975 003e 2D4E     		ldr	r6, .L136+16
+ 1976 0040 86FB0326 		smull	r2, r6, r6, r3
+ 1977 0044 A6EBE376 		sub	r6, r6, r3, asr #31
+ 1978              		.loc 1 366 4 view .LVU449
+ 1979 0048 B6B2     		uxth	r6, r6
+ 1980              	.LVL205:
+ 367:Core/Src/z_displ_ST7735_test.c **** 	for(y=0; y<rownum;y++){
+ 1981              		.loc 1 367 2 is_stmt 1 view .LVU450
+ 1982              		.loc 1 367 7 is_stmt 0 view .LVU451
+ 1983 004a 0025     		movs	r5, #0
+ 1984              		.loc 1 367 2 view .LVU452
+ 1985 004c 1EE0     		b	.L125
+ 1986              	.LVL206:
+ 1987              	.L122:
+ 364:Core/Src/z_displ_ST7735_test.c **** 	dx=_width/colnum;
+ 1988              		.loc 1 364 3 is_stmt 1 view .LVU453
+ 364:Core/Src/z_displ_ST7735_test.c **** 	dx=_width/colnum;
+ 1989              		.loc 1 364 14 is_stmt 0 view .LVU454
+ 1990 004e 264B     		ldr	r3, .L136+4
+ 1991 0050 0022     		movs	r2, #0
+ 1992 0052 1A70     		strb	r2, [r3]
+ 1993 0054 E9E7     		b	.L123
+ 1994              	.L132:
+ 365:Core/Src/z_displ_ST7735_test.c **** 	dy=_height/rownum;
+ 1995              		.loc 1 365 11 view .LVU455
+ 1996 0056 0737     		adds	r7, r7, #7
+ 1997 0058 ECE7     		b	.L124
+ 1998              	.LVL207:
+ 1999              	.L126:
+ 368:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 369:Core/Src/z_displ_ST7735_test.c **** 			Displ_FillArea(x*dx, y*dy, dx, dy, colortab[y*colnum+x]);
+ 2000              		.loc 1 369 4 is_stmt 1 view .LVU456
+ 2001              		.loc 1 369 56 is_stmt 0 view .LVU457
+ 2002 005a 04EBC503 		add	r3, r4, r5, lsl #3
+ 2003              		.loc 1 369 47 view .LVU458
+ 2004 005e 0EAA     		add	r2, sp, #56
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 43
+
+
+ 2005 0060 02EB4303 		add	r3, r2, r3, lsl #1
+ 2006 0064 33F8303C 		ldrh	r3, [r3, #-48]
+ 2007              		.loc 1 369 4 view .LVU459
+ 2008 0068 15FB06F1 		smulbb	r1, r5, r6
+ 2009 006c 14FB07F0 		smulbb	r0, r4, r7
+ 2010 0070 0093     		str	r3, [sp]
+ 2011 0072 3346     		mov	r3, r6
+ 2012 0074 3A46     		mov	r2, r7
+ 2013 0076 89B2     		uxth	r1, r1
+ 2014 0078 80B2     		uxth	r0, r0
+ 2015 007a FFF7FEFF 		bl	Displ_FillArea
+ 2016              	.LVL208:
+ 368:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2017              		.loc 1 368 23 is_stmt 1 discriminator 3 view .LVU460
+ 2018 007e 0134     		adds	r4, r4, #1
+ 2019              	.LVL209:
+ 368:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2020              		.loc 1 368 23 is_stmt 0 discriminator 3 view .LVU461
+ 2021 0080 A4B2     		uxth	r4, r4
+ 2022              	.LVL210:
+ 2023              	.L127:
+ 368:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2024              		.loc 1 368 13 is_stmt 1 discriminator 1 view .LVU462
+ 2025 0082 072C     		cmp	r4, #7
+ 2026 0084 E9D9     		bls	.L126
+ 370:Core/Src/z_displ_ST7735_test.c **** 		}
+ 371:Core/Src/z_displ_ST7735_test.c **** 		__NOP();
+ 2027              		.loc 1 371 3 view .LVU463
+ 2028              		.syntax unified
+ 2029              	@ 371 "Core/Src/z_displ_ST7735_test.c" 1
+ 2030 0086 00BF     		nop
+ 2031              	@ 0 "" 2
+ 367:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2032              		.loc 1 367 21 discriminator 2 view .LVU464
+ 2033              		.thumb
+ 2034              		.syntax unified
+ 2035 0088 0135     		adds	r5, r5, #1
+ 2036              	.LVL211:
+ 367:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2037              		.loc 1 367 21 is_stmt 0 discriminator 2 view .LVU465
+ 2038 008a ADB2     		uxth	r5, r5
+ 2039              	.LVL212:
+ 2040              	.L125:
+ 367:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2041              		.loc 1 367 12 is_stmt 1 discriminator 1 view .LVU466
+ 2042 008c 022D     		cmp	r5, #2
+ 2043 008e 01D8     		bhi	.L133
+ 368:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2044              		.loc 1 368 8 is_stmt 0 view .LVU467
+ 2045 0090 0024     		movs	r4, #0
+ 2046              	.LVL213:
+ 368:Core/Src/z_displ_ST7735_test.c **** 		for(x=0; x<colnum; x++){
+ 2047              		.loc 1 368 8 view .LVU468
+ 2048 0092 F6E7     		b	.L127
+ 2049              	.LVL214:
+ 2050              	.L133:
+ 372:Core/Src/z_displ_ST7735_test.c **** 	}
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 44
+
+
+ 373:Core/Src/z_displ_ST7735_test.c **** 	if ((x*dx)<_width)
+ 2051              		.loc 1 373 2 is_stmt 1 view .LVU469
+ 2052              		.loc 1 373 8 is_stmt 0 view .LVU470
+ 2053 0094 07FB04F3 		mul	r3, r7, r4
+ 2054              		.loc 1 373 12 view .LVU471
+ 2055 0098 144A     		ldr	r2, .L136+8
+ 2056 009a B2F90020 		ldrsh	r2, [r2]
+ 2057              		.loc 1 373 5 view .LVU472
+ 2058 009e 9342     		cmp	r3, r2
+ 2059 00a0 08DB     		blt	.L134
+ 2060              	.L128:
+ 374:Core/Src/z_displ_ST7735_test.c **** 		Displ_FillArea(x*dx, 0, (_width-x*dx), _height, BLACK);
+ 375:Core/Src/z_displ_ST7735_test.c **** 	if ((y*dy)<_height)
+ 2061              		.loc 1 375 2 is_stmt 1 view .LVU473
+ 2062              		.loc 1 375 8 is_stmt 0 view .LVU474
+ 2063 00a2 06FB05F3 		mul	r3, r6, r5
+ 2064              		.loc 1 375 12 view .LVU475
+ 2065 00a6 124A     		ldr	r2, .L136+12
+ 2066 00a8 B2F90020 		ldrsh	r2, [r2]
+ 2067              		.loc 1 375 5 view .LVU476
+ 2068 00ac 9342     		cmp	r3, r2
+ 2069 00ae 0DDB     		blt	.L135
+ 2070              	.L121:
+ 376:Core/Src/z_displ_ST7735_test.c **** 		Displ_FillArea(0, y*dy, _width, (_height-y*dy), BLACK);
+ 377:Core/Src/z_displ_ST7735_test.c **** }
+ 2071              		.loc 1 377 1 view .LVU477
+ 2072 00b0 0FB0     		add	sp, sp, #60
+ 2073              		.cfi_remember_state
+ 2074              		.cfi_def_cfa_offset 20
+ 2075              		@ sp needed
+ 2076 00b2 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 2077              	.LVL215:
+ 2078              	.L134:
+ 2079              		.cfi_restore_state
+ 374:Core/Src/z_displ_ST7735_test.c **** 		Displ_FillArea(x*dx, 0, (_width-x*dx), _height, BLACK);
+ 2080              		.loc 1 374 3 is_stmt 1 view .LVU478
+ 2081 00b4 14FB07F0 		smulbb	r0, r4, r7
+ 2082 00b8 80B2     		uxth	r0, r0
+ 2083 00ba 121A     		subs	r2, r2, r0
+ 2084 00bc 0021     		movs	r1, #0
+ 2085 00be 0091     		str	r1, [sp]
+ 2086 00c0 0B4B     		ldr	r3, .L136+12
+ 2087 00c2 1B88     		ldrh	r3, [r3]
+ 2088 00c4 92B2     		uxth	r2, r2
+ 2089 00c6 FFF7FEFF 		bl	Displ_FillArea
+ 2090              	.LVL216:
+ 2091 00ca EAE7     		b	.L128
+ 2092              	.L135:
+ 376:Core/Src/z_displ_ST7735_test.c **** 		Displ_FillArea(0, y*dy, _width, (_height-y*dy), BLACK);
+ 2093              		.loc 1 376 3 view .LVU479
+ 2094 00cc 15FB06F1 		smulbb	r1, r5, r6
+ 2095 00d0 89B2     		uxth	r1, r1
+ 2096 00d2 531A     		subs	r3, r2, r1
+ 2097 00d4 0020     		movs	r0, #0
+ 2098 00d6 0090     		str	r0, [sp]
+ 2099 00d8 9BB2     		uxth	r3, r3
+ 2100 00da 044A     		ldr	r2, .L136+8
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 45
+
+
+ 2101 00dc 1288     		ldrh	r2, [r2]
+ 2102 00de FFF7FEFF 		bl	Displ_FillArea
+ 2103              	.LVL217:
+ 2104              		.loc 1 377 1 is_stmt 0 view .LVU480
+ 2105 00e2 E5E7     		b	.L121
+ 2106              	.L137:
+ 2107              		.align	2
+ 2108              	.L136:
+ 2109 00e4 00000000 		.word	.LANCHOR0
+ 2110 00e8 00000000 		.word	orientation.0
+ 2111 00ec 00000000 		.word	_width
+ 2112 00f0 00000000 		.word	_height
+ 2113 00f4 56555555 		.word	1431655766
+ 2114              		.cfi_endproc
+ 2115              	.LFE153:
+ 2117              		.section	.text.Displ_TestAll,"ax",%progbits
+ 2118              		.align	1
+ 2119              		.global	Displ_TestAll
+ 2120              		.syntax unified
+ 2121              		.thumb
+ 2122              		.thumb_func
+ 2124              	Displ_TestAll:
+ 2125              	.LFB154:
+ 378:Core/Src/z_displ_ST7735_test.c **** 
+ 379:Core/Src/z_displ_ST7735_test.c **** 
+ 380:Core/Src/z_displ_ST7735_test.c **** 
+ 381:Core/Src/z_displ_ST7735_test.c **** 
+ 382:Core/Src/z_displ_ST7735_test.c **** 
+ 383:Core/Src/z_displ_ST7735_test.c **** 
+ 384:Core/Src/z_displ_ST7735_test.c **** 
+ 385:Core/Src/z_displ_ST7735_test.c **** void Displ_TestAll (){
+ 2126              		.loc 1 385 22 is_stmt 1 view -0
+ 2127              		.cfi_startproc
+ 2128              		@ args = 0, pretend = 0, frame = 0
+ 2129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2130 0000 08B5     		push	{r3, lr}
+ 2131              		.cfi_def_cfa_offset 8
+ 2132              		.cfi_offset 3, -8
+ 2133              		.cfi_offset 14, -4
+ 386:Core/Src/z_displ_ST7735_test.c **** 	testFillScreen();
+ 2134              		.loc 1 386 2 view .LVU482
+ 2135 0002 FFF7FEFF 		bl	testFillScreen
+ 2136              	.LVL218:
+ 387:Core/Src/z_displ_ST7735_test.c **** 	testLines(CYAN);
+ 2137              		.loc 1 387 2 view .LVU483
+ 2138 0006 4FF6E070 		movw	r0, #65504
+ 2139 000a FFF7FEFF 		bl	testLines
+ 2140              	.LVL219:
+ 388:Core/Src/z_displ_ST7735_test.c **** 	testFastLines(RED, BLUE);
+ 2141              		.loc 1 388 2 view .LVU484
+ 2142 000e 4FF47841 		mov	r1, #63488
+ 2143 0012 1F20     		movs	r0, #31
+ 2144 0014 FFF7FEFF 		bl	testFastLines
+ 2145              	.LVL220:
+ 389:Core/Src/z_displ_ST7735_test.c **** 	testRects(GREEN);
+ 2146              		.loc 1 389 2 view .LVU485
+ 2147 0018 4FF4FC60 		mov	r0, #2016
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 46
+
+
+ 2148 001c FFF7FEFF 		bl	testRects
+ 2149              	.LVL221:
+ 390:Core/Src/z_displ_ST7735_test.c **** 	testFilledRects(YELLOW, MAGENTA);
+ 2150              		.loc 1 390 2 view .LVU486
+ 2151 0020 4FF61F01 		movw	r1, #63519
+ 2152 0024 40F2FF70 		movw	r0, #2047
+ 2153 0028 FFF7FEFF 		bl	testFilledRects
+ 2154              	.LVL222:
+ 391:Core/Src/z_displ_ST7735_test.c **** 	testFilledCircles(10, MAGENTA);
+ 2155              		.loc 1 391 2 view .LVU487
+ 2156 002c 4FF61F01 		movw	r1, #63519
+ 2157 0030 0A20     		movs	r0, #10
+ 2158 0032 FFF7FEFF 		bl	testFilledCircles
+ 2159              	.LVL223:
+ 392:Core/Src/z_displ_ST7735_test.c **** 	testCircles(10, WHITE);
+ 2160              		.loc 1 392 2 view .LVU488
+ 2161 0036 4FF6FF71 		movw	r1, #65535
+ 2162 003a 0A20     		movs	r0, #10
+ 2163 003c FFF7FEFF 		bl	testCircles
+ 2164              	.LVL224:
+ 393:Core/Src/z_displ_ST7735_test.c **** 	testTriangles();
+ 2165              		.loc 1 393 2 view .LVU489
+ 2166 0040 FFF7FEFF 		bl	testTriangles
+ 2167              	.LVL225:
+ 394:Core/Src/z_displ_ST7735_test.c **** 	testFilledTriangles();
+ 2168              		.loc 1 394 2 view .LVU490
+ 2169 0044 FFF7FEFF 		bl	testFilledTriangles
+ 2170              	.LVL226:
+ 395:Core/Src/z_displ_ST7735_test.c **** 	testRoundRects();
+ 2171              		.loc 1 395 2 view .LVU491
+ 2172 0048 FFF7FEFF 		bl	testRoundRects
+ 2173              	.LVL227:
+ 396:Core/Src/z_displ_ST7735_test.c **** 	testFilledRoundRects();
+ 2174              		.loc 1 396 2 view .LVU492
+ 2175 004c FFF7FEFF 		bl	testFilledRoundRects
+ 2176              	.LVL228:
+ 397:Core/Src/z_displ_ST7735_test.c **** }
+ 2177              		.loc 1 397 1 is_stmt 0 view .LVU493
+ 2178 0050 08BD     		pop	{r3, pc}
+ 2179              		.cfi_endproc
+ 2180              	.LFE154:
+ 2182              		.section	.rodata.Displ_PerfTest.str1.4,"aMS",%progbits,1
+ 2183              		.align	2
+ 2184              	.LC1:
+ 2185 0000 256C6420 		.ascii	"%ld ms\000"
+ 2185      6D7300
+ 2186 0007 00       		.align	2
+ 2187              	.LC2:
+ 2188 0008 54657374 		.ascii	"TestAll:\000"
+ 2188      416C6C3A 
+ 2188      00
+ 2189 0011 000000   		.align	2
+ 2190              	.LC3:
+ 2191 0014 54455354 		.ascii	"TEST 1\000"
+ 2191      203100
+ 2192 001b 00       		.align	2
+ 2193              	.LC4:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 47
+
+
+ 2194 001c 35302073 		.ascii	"50 screens:\000"
+ 2194      63726565 
+ 2194      6E733A00 
+ 2195              		.align	2
+ 2196              	.LC5:
+ 2197 0028 54455354 		.ascii	"TEST 2\000"
+ 2197      203200
+ 2198 002f 00       		.align	2
+ 2199              	.LC6:
+ 2200 0030 33306B20 		.ascii	"30k lines:\000"
+ 2200      6C696E65 
+ 2200      733A00
+ 2201 003b 00       		.align	2
+ 2202              	.LC7:
+ 2203 003c 54455354 		.ascii	"TEST 3\000"
+ 2203      203300
+ 2204 0043 00       		.align	2
+ 2205              	.LC8:
+ 2206 0044 35303030 		.ascii	"5000 chars:\000"
+ 2206      20636861 
+ 2206      72733A00 
+ 2207              		.align	2
+ 2208              	.LC9:
+ 2209 0050 54455354 		.ascii	"TEST 4\000"
+ 2209      203400
+ 2210 0057 00       		.align	2
+ 2211              	.LC10:
+ 2212 0058 52455355 		.ascii	"RESULTS\000"
+ 2212      4C545300 
+ 2213              		.align	2
+ 2214              	.LC11:
+ 2215 0060 53544420 		.ascii	"STD TEST      %4ld\000"
+ 2215      54455354 
+ 2215      20202020 
+ 2215      20202534 
+ 2215      6C6400
+ 2216 0073 00       		.align	2
+ 2217              	.LC12:
+ 2218 0074 35302053 		.ascii	"50 SCREENS    %4ld\000"
+ 2218      43524545 
+ 2218      4E532020 
+ 2218      20202534 
+ 2218      6C6400
+ 2219 0087 00       		.align	2
+ 2220              	.LC13:
+ 2221 0088 33306B20 		.ascii	"30k H/V LINES %4ld\000"
+ 2221      482F5620 
+ 2221      4C494E45 
+ 2221      53202534 
+ 2221      6C6400
+ 2222 009b 00       		.align	2
+ 2223              	.LC14:
+ 2224 009c 356B2043 		.ascii	"5k CHARS      %4ld\000"
+ 2224      48415253 
+ 2224      20202020 
+ 2224      20202534 
+ 2224      6C6400
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 48
+
+
+ 2225              		.section	.text.Displ_PerfTest,"ax",%progbits
+ 2226              		.align	1
+ 2227              		.global	Displ_PerfTest
+ 2228              		.syntax unified
+ 2229              		.thumb
+ 2230              		.thumb_func
+ 2232              	Displ_PerfTest:
+ 2233              	.LFB155:
+ 398:Core/Src/z_displ_ST7735_test.c **** 
+ 399:Core/Src/z_displ_ST7735_test.c **** 
+ 400:Core/Src/z_displ_ST7735_test.c **** 
+ 401:Core/Src/z_displ_ST7735_test.c **** 
+ 402:Core/Src/z_displ_ST7735_test.c **** 
+ 403:Core/Src/z_displ_ST7735_test.c **** void Displ_PerfTest() {
+ 2234              		.loc 1 403 23 is_stmt 1 view -0
+ 2235              		.cfi_startproc
+ 2236              		@ args = 0, pretend = 0, frame = 64
+ 2237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2238 0000 70B5     		push	{r4, r5, r6, lr}
+ 2239              		.cfi_def_cfa_offset 16
+ 2240              		.cfi_offset 4, -16
+ 2241              		.cfi_offset 5, -12
+ 2242              		.cfi_offset 6, -8
+ 2243              		.cfi_offset 14, -4
+ 2244 0002 98B0     		sub	sp, sp, #96
+ 2245              		.cfi_def_cfa_offset 112
+ 404:Core/Src/z_displ_ST7735_test.c **** 	  uint32_t time[6];
+ 2246              		.loc 1 404 4 view .LVU495
+ 405:Core/Src/z_displ_ST7735_test.c **** 	  char riga[40];
+ 2247              		.loc 1 405 4 view .LVU496
+ 406:Core/Src/z_displ_ST7735_test.c **** 	  uint8_t k;
+ 2248              		.loc 1 406 4 view .LVU497
+ 407:Core/Src/z_displ_ST7735_test.c **** 
+ 408:Core/Src/z_displ_ST7735_test.c **** 	  time[1] = HAL_GetTick();
+ 2249              		.loc 1 408 4 view .LVU498
+ 2250              		.loc 1 408 14 is_stmt 0 view .LVU499
+ 2251 0004 FFF7FEFF 		bl	HAL_GetTick
+ 2252              	.LVL229:
+ 2253 0008 0446     		mov	r4, r0
+ 2254              		.loc 1 408 12 discriminator 1 view .LVU500
+ 2255 000a 1390     		str	r0, [sp, #76]
+ 409:Core/Src/z_displ_ST7735_test.c **** 	  Displ_TestAll();
+ 2256              		.loc 1 409 4 is_stmt 1 view .LVU501
+ 2257 000c FFF7FEFF 		bl	Displ_TestAll
+ 2258              	.LVL230:
+ 410:Core/Src/z_displ_ST7735_test.c **** 	  time[1] = HAL_GetTick()-time[1];
+ 2259              		.loc 1 410 4 view .LVU502
+ 2260              		.loc 1 410 14 is_stmt 0 view .LVU503
+ 2261 0010 FFF7FEFF 		bl	HAL_GetTick
+ 2262              	.LVL231:
+ 2263              		.loc 1 410 27 discriminator 1 view .LVU504
+ 2264 0014 021B     		subs	r2, r0, r4
+ 2265              		.loc 1 410 12 discriminator 1 view .LVU505
+ 2266 0016 1392     		str	r2, [sp, #76]
+ 411:Core/Src/z_displ_ST7735_test.c **** 	  sprintf(riga,"%ld ms",(long)time[1]);
+ 2267              		.loc 1 411 4 is_stmt 1 view .LVU506
+ 2268 0018 6E49     		ldr	r1, .L154
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 49
+
+
+ 2269 001a 08A8     		add	r0, sp, #32
+ 2270 001c FFF7FEFF 		bl	sprintf
+ 2271              	.LVL232:
+ 412:Core/Src/z_displ_ST7735_test.c **** 	  Displ_Page("TEST 1","TestAll:",riga,0);
+ 2272              		.loc 1 412 4 view .LVU507
+ 2273 0020 0023     		movs	r3, #0
+ 2274 0022 08AA     		add	r2, sp, #32
+ 2275 0024 6C49     		ldr	r1, .L154+4
+ 2276 0026 6D48     		ldr	r0, .L154+8
+ 2277 0028 FFF7FEFF 		bl	Displ_Page
+ 2278              	.LVL233:
+ 413:Core/Src/z_displ_ST7735_test.c **** 	  HAL_Delay(3000);
+ 2279              		.loc 1 413 4 view .LVU508
+ 2280 002c 40F6B830 		movw	r0, #3000
+ 2281 0030 FFF7FEFF 		bl	HAL_Delay
+ 2282              	.LVL234:
+ 414:Core/Src/z_displ_ST7735_test.c **** 
+ 415:Core/Src/z_displ_ST7735_test.c **** 	  time[2] = HAL_GetTick();
+ 2283              		.loc 1 415 4 view .LVU509
+ 2284              		.loc 1 415 14 is_stmt 0 view .LVU510
+ 2285 0034 FFF7FEFF 		bl	HAL_GetTick
+ 2286              	.LVL235:
+ 2287 0038 0546     		mov	r5, r0
+ 2288              		.loc 1 415 12 discriminator 1 view .LVU511
+ 2289 003a 1490     		str	r0, [sp, #80]
+ 416:Core/Src/z_displ_ST7735_test.c **** 	  for (k=0;k<10;k++)
+ 2290              		.loc 1 416 4 is_stmt 1 view .LVU512
+ 2291              	.LVL236:
+ 2292              		.loc 1 416 10 is_stmt 0 view .LVU513
+ 2293 003c 0024     		movs	r4, #0
+ 2294              		.loc 1 416 4 view .LVU514
+ 2295 003e 04E0     		b	.L141
+ 2296              	.LVL237:
+ 2297              	.L142:
+ 417:Core/Src/z_displ_ST7735_test.c **** 		  TestFillScreen(0);
+ 2298              		.loc 1 417 5 is_stmt 1 view .LVU515
+ 2299 0040 0020     		movs	r0, #0
+ 2300 0042 FFF7FEFF 		bl	TestFillScreen
+ 2301              	.LVL238:
+ 416:Core/Src/z_displ_ST7735_test.c **** 	  for (k=0;k<10;k++)
+ 2302              		.loc 1 416 19 discriminator 3 view .LVU516
+ 2303 0046 0134     		adds	r4, r4, #1
+ 2304              	.LVL239:
+ 416:Core/Src/z_displ_ST7735_test.c **** 	  for (k=0;k<10;k++)
+ 2305              		.loc 1 416 19 is_stmt 0 discriminator 3 view .LVU517
+ 2306 0048 E4B2     		uxtb	r4, r4
+ 2307              	.LVL240:
+ 2308              	.L141:
+ 416:Core/Src/z_displ_ST7735_test.c **** 	  for (k=0;k<10;k++)
+ 2309              		.loc 1 416 14 is_stmt 1 discriminator 1 view .LVU518
+ 2310 004a 092C     		cmp	r4, #9
+ 2311 004c F8D9     		bls	.L142
+ 418:Core/Src/z_displ_ST7735_test.c **** 	  time[2] = HAL_GetTick()-time[2];
+ 2312              		.loc 1 418 4 view .LVU519
+ 2313              		.loc 1 418 14 is_stmt 0 view .LVU520
+ 2314 004e FFF7FEFF 		bl	HAL_GetTick
+ 2315              	.LVL241:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 50
+
+
+ 2316              		.loc 1 418 27 discriminator 1 view .LVU521
+ 2317 0052 421B     		subs	r2, r0, r5
+ 2318              		.loc 1 418 12 discriminator 1 view .LVU522
+ 2319 0054 1492     		str	r2, [sp, #80]
+ 419:Core/Src/z_displ_ST7735_test.c **** 	  sprintf(riga,"%ld ms",(long)time[2]);
+ 2320              		.loc 1 419 4 is_stmt 1 view .LVU523
+ 2321 0056 5F4D     		ldr	r5, .L154
+ 2322 0058 2946     		mov	r1, r5
+ 2323 005a 08A8     		add	r0, sp, #32
+ 2324 005c FFF7FEFF 		bl	sprintf
+ 2325              	.LVL242:
+ 420:Core/Src/z_displ_ST7735_test.c **** 	  Displ_Page("TEST 2","50 screens:",riga,0);
+ 2326              		.loc 1 420 4 view .LVU524
+ 2327 0060 0023     		movs	r3, #0
+ 2328 0062 08AA     		add	r2, sp, #32
+ 2329 0064 5E49     		ldr	r1, .L154+12
+ 2330 0066 5F48     		ldr	r0, .L154+16
+ 2331 0068 FFF7FEFF 		bl	Displ_Page
+ 2332              	.LVL243:
+ 421:Core/Src/z_displ_ST7735_test.c **** 	  HAL_Delay(3000);
+ 2333              		.loc 1 421 4 view .LVU525
+ 2334 006c 40F6B830 		movw	r0, #3000
+ 2335 0070 FFF7FEFF 		bl	HAL_Delay
+ 2336              	.LVL244:
+ 422:Core/Src/z_displ_ST7735_test.c **** 
+ 423:Core/Src/z_displ_ST7735_test.c **** 	  time[3] = HAL_GetTick();
+ 2337              		.loc 1 423 4 view .LVU526
+ 2338              		.loc 1 423 14 is_stmt 0 view .LVU527
+ 2339 0074 FFF7FEFF 		bl	HAL_GetTick
+ 2340              	.LVL245:
+ 2341 0078 0446     		mov	r4, r0
+ 2342              	.LVL246:
+ 2343              		.loc 1 423 12 discriminator 1 view .LVU528
+ 2344 007a 1590     		str	r0, [sp, #84]
+ 424:Core/Src/z_displ_ST7735_test.c **** 	  TestHVLine();
+ 2345              		.loc 1 424 4 is_stmt 1 view .LVU529
+ 2346 007c FFF7FEFF 		bl	TestHVLine
+ 2347              	.LVL247:
+ 425:Core/Src/z_displ_ST7735_test.c **** 	  time[3] = HAL_GetTick()-time[3];
+ 2348              		.loc 1 425 4 view .LVU530
+ 2349              		.loc 1 425 14 is_stmt 0 view .LVU531
+ 2350 0080 FFF7FEFF 		bl	HAL_GetTick
+ 2351              	.LVL248:
+ 2352              		.loc 1 425 27 discriminator 1 view .LVU532
+ 2353 0084 021B     		subs	r2, r0, r4
+ 2354              		.loc 1 425 12 discriminator 1 view .LVU533
+ 2355 0086 1592     		str	r2, [sp, #84]
+ 426:Core/Src/z_displ_ST7735_test.c **** 	  sprintf(riga,"%ld ms",(long)time[3]);
+ 2356              		.loc 1 426 4 is_stmt 1 view .LVU534
+ 2357 0088 2946     		mov	r1, r5
+ 2358 008a 08A8     		add	r0, sp, #32
+ 2359 008c FFF7FEFF 		bl	sprintf
+ 2360              	.LVL249:
+ 427:Core/Src/z_displ_ST7735_test.c **** 	  Displ_Page("TEST 3","30k lines:",riga,0);
+ 2361              		.loc 1 427 4 view .LVU535
+ 2362 0090 0023     		movs	r3, #0
+ 2363 0092 08AA     		add	r2, sp, #32
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 51
+
+
+ 2364 0094 5449     		ldr	r1, .L154+20
+ 2365 0096 5548     		ldr	r0, .L154+24
+ 2366 0098 FFF7FEFF 		bl	Displ_Page
+ 2367              	.LVL250:
+ 428:Core/Src/z_displ_ST7735_test.c **** 	  HAL_Delay(3000);
+ 2368              		.loc 1 428 4 view .LVU536
+ 2369 009c 40F6B830 		movw	r0, #3000
+ 2370 00a0 FFF7FEFF 		bl	HAL_Delay
+ 2371              	.LVL251:
+ 429:Core/Src/z_displ_ST7735_test.c **** 
+ 430:Core/Src/z_displ_ST7735_test.c **** 	  Displ_CLS(BLACK);
+ 2372              		.loc 1 430 4 view .LVU537
+ 2373 00a4 0020     		movs	r0, #0
+ 2374 00a6 FFF7FEFF 		bl	Displ_CLS
+ 2375              	.LVL252:
+ 431:Core/Src/z_displ_ST7735_test.c **** 	  time[4] = HAL_GetTick();
+ 2376              		.loc 1 431 4 view .LVU538
+ 2377              		.loc 1 431 14 is_stmt 0 view .LVU539
+ 2378 00aa FFF7FEFF 		bl	HAL_GetTick
+ 2379              	.LVL253:
+ 2380 00ae 0446     		mov	r4, r0
+ 2381              		.loc 1 431 12 discriminator 1 view .LVU540
+ 2382 00b0 1690     		str	r0, [sp, #88]
+ 432:Core/Src/z_displ_ST7735_test.c **** 	  TestChar();
+ 2383              		.loc 1 432 4 is_stmt 1 view .LVU541
+ 2384 00b2 FFF7FEFF 		bl	TestChar
+ 2385              	.LVL254:
+ 433:Core/Src/z_displ_ST7735_test.c **** 	  time[4] = HAL_GetTick()-time[4];
+ 2386              		.loc 1 433 4 view .LVU542
+ 2387              		.loc 1 433 14 is_stmt 0 view .LVU543
+ 2388 00b6 FFF7FEFF 		bl	HAL_GetTick
+ 2389              	.LVL255:
+ 2390              		.loc 1 433 27 discriminator 1 view .LVU544
+ 2391 00ba 021B     		subs	r2, r0, r4
+ 2392              		.loc 1 433 12 discriminator 1 view .LVU545
+ 2393 00bc 1692     		str	r2, [sp, #88]
+ 434:Core/Src/z_displ_ST7735_test.c **** 	  sprintf(riga,"%ld ms",(long)time[4]);
+ 2394              		.loc 1 434 4 is_stmt 1 view .LVU546
+ 2395 00be 2946     		mov	r1, r5
+ 2396 00c0 08A8     		add	r0, sp, #32
+ 2397 00c2 FFF7FEFF 		bl	sprintf
+ 2398              	.LVL256:
+ 435:Core/Src/z_displ_ST7735_test.c **** 	  Displ_Page("TEST 4","5000 chars:",riga,0);
+ 2399              		.loc 1 435 4 view .LVU547
+ 2400 00c6 0023     		movs	r3, #0
+ 2401 00c8 08AA     		add	r2, sp, #32
+ 2402 00ca 4949     		ldr	r1, .L154+28
+ 2403 00cc 4948     		ldr	r0, .L154+32
+ 2404 00ce FFF7FEFF 		bl	Displ_Page
+ 2405              	.LVL257:
+ 436:Core/Src/z_displ_ST7735_test.c **** 	  HAL_Delay(3000);
+ 2406              		.loc 1 436 4 view .LVU548
+ 2407 00d2 40F6B830 		movw	r0, #3000
+ 2408 00d6 FFF7FEFF 		bl	HAL_Delay
+ 2409              	.LVL258:
+ 437:Core/Src/z_displ_ST7735_test.c **** 
+ 438:Core/Src/z_displ_ST7735_test.c **** 
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 52
+
+
+ 439:Core/Src/z_displ_ST7735_test.c **** 	  Displ_CLS(BGCOLOR);
+ 2410              		.loc 1 439 4 view .LVU549
+ 2411 00da 0020     		movs	r0, #0
+ 2412 00dc FFF7FEFF 		bl	Displ_CLS
+ 2413              	.LVL259:
+ 440:Core/Src/z_displ_ST7735_test.c **** 
+ 441:Core/Src/z_displ_ST7735_test.c **** 	  Displ_FillArea(0, 0, _width, 135, BGCOLOR);
+ 2414              		.loc 1 441 4 view .LVU550
+ 2415 00e0 454E     		ldr	r6, .L154+36
+ 2416 00e2 0025     		movs	r5, #0
+ 2417 00e4 0095     		str	r5, [sp]
+ 2418 00e6 8723     		movs	r3, #135
+ 2419 00e8 3288     		ldrh	r2, [r6]
+ 2420 00ea 2946     		mov	r1, r5
+ 2421 00ec 2846     		mov	r0, r5
+ 2422 00ee FFF7FEFF 		bl	Displ_FillArea
+ 2423              	.LVL260:
+ 442:Core/Src/z_displ_ST7735_test.c **** 	  Displ_CString(0,0,_width,38, "RESULTS", Font24, 1, WHITE,BLUE);
+ 2424              		.loc 1 442 4 view .LVU551
+ 2425 00f2 4FF47843 		mov	r3, #63488
+ 2426 00f6 0693     		str	r3, [sp, #24]
+ 2427 00f8 4FF6FF73 		movw	r3, #65535
+ 2428 00fc 0593     		str	r3, [sp, #20]
+ 2429 00fe 0124     		movs	r4, #1
+ 2430 0100 0494     		str	r4, [sp, #16]
+ 2431 0102 3E4A     		ldr	r2, .L154+40
+ 2432 0104 01AB     		add	r3, sp, #4
+ 2433 0106 07CA     		ldm	r2, {r0, r1, r2}
+ 2434 0108 83E80700 		stm	r3, {r0, r1, r2}
+ 2435 010c 3C4B     		ldr	r3, .L154+44
+ 2436 010e 0093     		str	r3, [sp]
+ 2437 0110 2623     		movs	r3, #38
+ 2438 0112 3288     		ldrh	r2, [r6]
+ 2439 0114 2946     		mov	r1, r5
+ 2440 0116 2846     		mov	r0, r5
+ 2441 0118 FFF7FEFF 		bl	Displ_CString
+ 2442              	.LVL261:
+ 443:Core/Src/z_displ_ST7735_test.c **** 
+ 444:Core/Src/z_displ_ST7735_test.c **** 	for (uint8_t k=1;k<5;k++) {
+ 2443              		.loc 1 444 2 view .LVU552
+ 2444              	.LBB2:
+ 2445              		.loc 1 444 7 view .LVU553
+ 2446              		.loc 1 444 2 is_stmt 0 view .LVU554
+ 2447 011c 26E0     		b	.L143
+ 2448              	.LVL262:
+ 2449              	.L149:
+ 445:Core/Src/z_displ_ST7735_test.c **** 		switch (k) {
+ 446:Core/Src/z_displ_ST7735_test.c **** 			case 0:
+ 447:Core/Src/z_displ_ST7735_test.c **** //				sprintf(riga,"INITIAL SETUP: %ld ms",time[k]);
+ 448:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 449:Core/Src/z_displ_ST7735_test.c **** 			case 1:
+ 450:Core/Src/z_displ_ST7735_test.c **** 				sprintf(riga,"STD TEST      %4ld",(long)time[k]);
+ 2450              		.loc 1 450 5 is_stmt 1 view .LVU555
+ 2451              		.loc 1 450 49 is_stmt 0 view .LVU556
+ 2452 011e 18AB     		add	r3, sp, #96
+ 2453 0120 03EB8403 		add	r3, r3, r4, lsl #2
+ 2454              		.loc 1 450 5 view .LVU557
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 53
+
+
+ 2455 0124 53F8182C 		ldr	r2, [r3, #-24]
+ 2456 0128 3649     		ldr	r1, .L154+48
+ 2457 012a 08A8     		add	r0, sp, #32
+ 2458 012c FFF7FEFF 		bl	sprintf
+ 2459              	.LVL263:
+ 451:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2460              		.loc 1 451 5 is_stmt 1 view .LVU558
+ 2461              	.L144:
+ 452:Core/Src/z_displ_ST7735_test.c **** 			case 2:
+ 453:Core/Src/z_displ_ST7735_test.c **** 				sprintf(riga,"50 SCREENS    %4ld",(long)time[k]);
+ 454:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 455:Core/Src/z_displ_ST7735_test.c **** 			case 3:
+ 456:Core/Src/z_displ_ST7735_test.c **** 				sprintf(riga,"30k H/V LINES %4ld",(long)time[k]);
+ 457:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 458:Core/Src/z_displ_ST7735_test.c **** 			case 4:
+ 459:Core/Src/z_displ_ST7735_test.c **** 				sprintf(riga,"5k CHARS      %4ld",(long)time[k]);
+ 460:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 461:Core/Src/z_displ_ST7735_test.c **** 		}
+ 462:Core/Src/z_displ_ST7735_test.c **** 		Displ_WString(0, 25+(k)*Font12.Height*2, riga, Font12, 1, WHITE, BGCOLOR);
+ 2462              		.loc 1 462 3 view .LVU559
+ 2463              		.loc 1 462 33 is_stmt 0 view .LVU560
+ 2464 0130 354B     		ldr	r3, .L154+52
+ 2465 0132 B3F806C0 		ldrh	ip, [r3, #6]
+ 2466              		.loc 1 462 3 view .LVU561
+ 2467 0136 14FB0CFC 		smulbb	ip, r4, ip
+ 2468 013a 4FEA4C0C 		lsl	ip, ip, #1
+ 2469 013e 0CF1190C 		add	ip, ip, #25
+ 2470 0142 0025     		movs	r5, #0
+ 2471 0144 0495     		str	r5, [sp, #16]
+ 2472 0146 4FF6FF72 		movw	r2, #65535
+ 2473 014a 0392     		str	r2, [sp, #12]
+ 2474 014c 0122     		movs	r2, #1
+ 2475 014e 0292     		str	r2, [sp, #8]
+ 2476 0150 1A1D     		adds	r2, r3, #4
+ 2477 0152 92E80300 		ldm	r2, {r0, r1}
+ 2478 0156 8DE80300 		stm	sp, {r0, r1}
+ 2479 015a 1B68     		ldr	r3, [r3]
+ 2480 015c 08AA     		add	r2, sp, #32
+ 2481 015e 1FFA8CF1 		uxth	r1, ip
+ 2482 0162 2846     		mov	r0, r5
+ 2483 0164 FFF7FEFF 		bl	Displ_WString
+ 2484              	.LVL264:
+ 444:Core/Src/z_displ_ST7735_test.c **** 		switch (k) {
+ 2485              		.loc 1 444 24 is_stmt 1 discriminator 2 view .LVU562
+ 2486 0168 0134     		adds	r4, r4, #1
+ 2487              	.LVL265:
+ 444:Core/Src/z_displ_ST7735_test.c **** 		switch (k) {
+ 2488              		.loc 1 444 24 is_stmt 0 discriminator 2 view .LVU563
+ 2489 016a E4B2     		uxtb	r4, r4
+ 2490              	.LVL266:
+ 2491              	.L143:
+ 444:Core/Src/z_displ_ST7735_test.c **** 		switch (k) {
+ 2492              		.loc 1 444 20 is_stmt 1 discriminator 1 view .LVU564
+ 2493 016c 042C     		cmp	r4, #4
+ 2494 016e 2BD8     		bhi	.L153
+ 445:Core/Src/z_displ_ST7735_test.c **** 			case 0:
+ 2495              		.loc 1 445 3 view .LVU565
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 54
+
+
+ 2496 0170 631E     		subs	r3, r4, #1
+ 2497 0172 032B     		cmp	r3, #3
+ 2498 0174 DCD8     		bhi	.L144
+ 2499 0176 01A2     		adr	r2, .L146
+ 2500 0178 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 2501              		.p2align 2
+ 2502              	.L146:
+ 2503 017c 1F010000 		.word	.L149+1
+ 2504 0180 8D010000 		.word	.L148+1
+ 2505 0184 A1010000 		.word	.L147+1
+ 2506 0188 B5010000 		.word	.L145+1
+ 2507              		.p2align 1
+ 2508              	.L148:
+ 453:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2509              		.loc 1 453 5 view .LVU566
+ 453:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2510              		.loc 1 453 49 is_stmt 0 view .LVU567
+ 2511 018c 18AB     		add	r3, sp, #96
+ 2512 018e 03EB8403 		add	r3, r3, r4, lsl #2
+ 453:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2513              		.loc 1 453 5 view .LVU568
+ 2514 0192 53F8182C 		ldr	r2, [r3, #-24]
+ 2515 0196 1D49     		ldr	r1, .L154+56
+ 2516 0198 08A8     		add	r0, sp, #32
+ 2517 019a FFF7FEFF 		bl	sprintf
+ 2518              	.LVL267:
+ 454:Core/Src/z_displ_ST7735_test.c **** 			case 3:
+ 2519              		.loc 1 454 5 is_stmt 1 view .LVU569
+ 2520 019e C7E7     		b	.L144
+ 2521              	.L147:
+ 456:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2522              		.loc 1 456 5 view .LVU570
+ 456:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2523              		.loc 1 456 49 is_stmt 0 view .LVU571
+ 2524 01a0 18AB     		add	r3, sp, #96
+ 2525 01a2 03EB8403 		add	r3, r3, r4, lsl #2
+ 456:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2526              		.loc 1 456 5 view .LVU572
+ 2527 01a6 53F8182C 		ldr	r2, [r3, #-24]
+ 2528 01aa 1949     		ldr	r1, .L154+60
+ 2529 01ac 08A8     		add	r0, sp, #32
+ 2530 01ae FFF7FEFF 		bl	sprintf
+ 2531              	.LVL268:
+ 457:Core/Src/z_displ_ST7735_test.c **** 			case 4:
+ 2532              		.loc 1 457 5 is_stmt 1 view .LVU573
+ 2533 01b2 BDE7     		b	.L144
+ 2534              	.L145:
+ 459:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2535              		.loc 1 459 5 view .LVU574
+ 459:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2536              		.loc 1 459 49 is_stmt 0 view .LVU575
+ 2537 01b4 18AB     		add	r3, sp, #96
+ 2538 01b6 03EB8403 		add	r3, r3, r4, lsl #2
+ 459:Core/Src/z_displ_ST7735_test.c **** 				break;
+ 2539              		.loc 1 459 5 view .LVU576
+ 2540 01ba 53F8182C 		ldr	r2, [r3, #-24]
+ 2541 01be 1549     		ldr	r1, .L154+64
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 55
+
+
+ 2542 01c0 08A8     		add	r0, sp, #32
+ 2543 01c2 FFF7FEFF 		bl	sprintf
+ 2544              	.LVL269:
+ 460:Core/Src/z_displ_ST7735_test.c **** 		}
+ 2545              		.loc 1 460 5 is_stmt 1 view .LVU577
+ 2546 01c6 B3E7     		b	.L144
+ 2547              	.L153:
+ 2548              	.LBE2:
+ 463:Core/Src/z_displ_ST7735_test.c **** 	};
+ 2549              		.loc 1 463 3 view .LVU578
+ 464:Core/Src/z_displ_ST7735_test.c **** 
+ 465:Core/Src/z_displ_ST7735_test.c **** #ifdef DISPLAY_DIMMING_MODE
+ 466:Core/Src/z_displ_ST7735_test.c **** 
+ 467:Core/Src/z_displ_ST7735_test.c **** 	{
+ 468:Core/Src/z_displ_ST7735_test.c **** 		uint32_t maxlevel=Displ_BackLight('F'); //set display backlight 100% and get the corresponding va
+ 469:Core/Src/z_displ_ST7735_test.c **** 		uint16_t dtime=4000/(maxlevel*3);
+ 470:Core/Src/z_displ_ST7735_test.c **** 		if (dtime==0)
+ 471:Core/Src/z_displ_ST7735_test.c **** 			dtime=1;
+ 472:Core/Src/z_displ_ST7735_test.c **** 		Displ_BackLight('0');  // turn off display
+ 473:Core/Src/z_displ_ST7735_test.c **** 
+ 474:Core/Src/z_displ_ST7735_test.c **** 		for (uint32_t k=0; k<=maxlevel;k++){
+ 475:Core/Src/z_displ_ST7735_test.c **** 			Displ_BackLight('+');  // increase light
+ 476:Core/Src/z_displ_ST7735_test.c **** 			HAL_Delay(dtime);
+ 477:Core/Src/z_displ_ST7735_test.c **** 		}
+ 478:Core/Src/z_displ_ST7735_test.c **** 		HAL_Delay(100);
+ 479:Core/Src/z_displ_ST7735_test.c **** 		for (uint32_t k=0; k<=maxlevel;k++){
+ 480:Core/Src/z_displ_ST7735_test.c **** 			Displ_BackLight('-');  // decrease light
+ 481:Core/Src/z_displ_ST7735_test.c **** 			HAL_Delay(dtime);
+ 482:Core/Src/z_displ_ST7735_test.c **** 		}
+ 483:Core/Src/z_displ_ST7735_test.c **** 		HAL_Delay(100);
+ 484:Core/Src/z_displ_ST7735_test.c **** 		for (uint32_t k=0; k<=maxlevel;k++){
+ 485:Core/Src/z_displ_ST7735_test.c **** 			Displ_BackLight('+');  // increase light
+ 486:Core/Src/z_displ_ST7735_test.c **** 			HAL_Delay(dtime);
+ 487:Core/Src/z_displ_ST7735_test.c **** 		}
+ 488:Core/Src/z_displ_ST7735_test.c **** 		HAL_Delay(1000);
+ 489:Core/Src/z_displ_ST7735_test.c **** 	}
+ 490:Core/Src/z_displ_ST7735_test.c **** 
+ 491:Core/Src/z_displ_ST7735_test.c **** #else
+ 492:Core/Src/z_displ_ST7735_test.c **** 	HAL_Delay(5000);
+ 2550              		.loc 1 492 2 view .LVU579
+ 2551 01c8 41F28830 		movw	r0, #5000
+ 2552 01cc FFF7FEFF 		bl	HAL_Delay
+ 2553              	.LVL270:
+ 493:Core/Src/z_displ_ST7735_test.c **** #endif
+ 494:Core/Src/z_displ_ST7735_test.c **** }
+ 2554              		.loc 1 494 1 is_stmt 0 view .LVU580
+ 2555 01d0 18B0     		add	sp, sp, #96
+ 2556              		.cfi_def_cfa_offset 16
+ 2557              		@ sp needed
+ 2558 01d2 70BD     		pop	{r4, r5, r6, pc}
+ 2559              	.LVL271:
+ 2560              	.L155:
+ 2561              		.loc 1 494 1 view .LVU581
+ 2562              		.align	2
+ 2563              	.L154:
+ 2564 01d4 00000000 		.word	.LC1
+ 2565 01d8 08000000 		.word	.LC2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 56
+
+
+ 2566 01dc 14000000 		.word	.LC3
+ 2567 01e0 1C000000 		.word	.LC4
+ 2568 01e4 28000000 		.word	.LC5
+ 2569 01e8 30000000 		.word	.LC6
+ 2570 01ec 3C000000 		.word	.LC7
+ 2571 01f0 44000000 		.word	.LC8
+ 2572 01f4 50000000 		.word	.LC9
+ 2573 01f8 00000000 		.word	_width
+ 2574 01fc 00000000 		.word	Font24
+ 2575 0200 58000000 		.word	.LC10
+ 2576 0204 60000000 		.word	.LC11
+ 2577 0208 00000000 		.word	Font12
+ 2578 020c 74000000 		.word	.LC12
+ 2579 0210 88000000 		.word	.LC13
+ 2580 0214 9C000000 		.word	.LC14
+ 2581              		.cfi_endproc
+ 2582              	.LFE155:
+ 2584              		.section	.bss.orientation.0,"aw",%nobits
+ 2587              	orientation.0:
+ 2588 0000 00       		.space	1
+ 2589              		.section	.rodata
+ 2590              		.align	2
+ 2591              		.set	.LANCHOR0,. + 0
+ 2592              	.LC0:
+ 2593 0000 1084     		.short	-31728
+ 2594 0002 1F00     		.short	31
+ 2595 0004 00F8     		.short	-2048
+ 2596 0006 E007     		.short	2016
+ 2597 0008 FF07     		.short	2047
+ 2598 000a 1FF8     		.short	-2017
+ 2599 000c E0FF     		.short	-32
+ 2600 000e FFFF     		.short	-1
+ 2601 0010 0842     		.short	16904
+ 2602 0012 1800     		.short	24
+ 2603 0014 00C0     		.short	-16384
+ 2604 0016 0006     		.short	1536
+ 2605 0018 1806     		.short	1560
+ 2606 001a 18C0     		.short	-16360
+ 2607 001c 00C6     		.short	-14848
+ 2608 001e 18C6     		.short	-14824
+ 2609 0020 0421     		.short	8452
+ 2610 0022 1000     		.short	16
+ 2611 0024 0080     		.short	-32768
+ 2612 0026 0004     		.short	1024
+ 2613 0028 1004     		.short	1040
+ 2614 002a 1080     		.short	-32752
+ 2615 002c 0084     		.short	-31744
+ 2616 002e 1084     		.short	-31728
+ 2617              		.text
+ 2618              	.Letext0:
+ 2619              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ 2620              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ 2621              		.file 4 "Core/Inc/fonts.h"
+ 2622              		.file 5 "Core/Inc/z_displ_ST7735.h"
+ 2623              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 2624              		.file 7 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ 2625              		.file 8 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 57
+
+
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 58
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 z_displ_ST7735_test.c
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:21     .text.testLines:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:27     .text.testLines:00000000 testLines
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:281    .text.testLines:00000114 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:287    .text.testFastLines:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:293    .text.testFastLines:00000000 testFastLines
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:388    .text.testFastLines:00000058 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:394    .text.testRects:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:400    .text.testRects:00000000 testRects
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:492    .text.testRects:00000064 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:498    .text.testFilledRects:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:504    .text.testFilledRects:00000000 testFilledRects
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:608    .text.testFilledRects:00000084 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:614    .text.testFilledCircles:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:620    .text.testFilledCircles:00000000 testFilledCircles
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:697    .text.testFilledCircles:00000040 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:703    .text.testCircles:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:709    .text.testCircles:00000000 testCircles
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:784    .text.testCircles:00000040 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:790    .text.testTriangles:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:796    .text.testTriangles:00000000 testTriangles
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:888    .text.testTriangles:00000068 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:894    .text.testFilledTriangles:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:900    .text.testFilledTriangles:00000000 testFilledTriangles
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1027   .text.testFilledTriangles:000000b0 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1033   .text.testRoundRects:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1039   .text.testRoundRects:00000000 testRoundRects
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1153   .text.testRoundRects:0000008c $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1159   .text.testFilledRoundRects:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1165   .text.testFilledRoundRects:00000000 testFilledRoundRects
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1274   .text.testFilledRoundRects:00000090 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1280   .text.TestChar:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1286   .text.TestChar:00000000 TestChar
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1439   .text.TestChar:000000e8 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1447   .text.wait:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1453   .text.wait:00000000 wait
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1515   .text.TestFillScreen:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1521   .text.TestFillScreen:00000000 TestFillScreen
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1614   .text.TestHVLine:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1620   .text.TestHVLine:00000000 TestHVLine
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1747   .text.TestHVLine:000000a0 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1753   .text.Displ_Page:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1759   .text.Displ_Page:00000000 Displ_Page
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1860   .text.Displ_Page:0000009c $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1867   .text.testFillScreen:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1873   .text.testFillScreen:00000000 testFillScreen
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1909   .text.Displ_ColorTest:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:1915   .text.Displ_ColorTest:00000000 Displ_ColorTest
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2109   .text.Displ_ColorTest:000000e4 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2587   .bss.orientation.0:00000000 orientation.0
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2118   .text.Displ_TestAll:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2124   .text.Displ_TestAll:00000000 Displ_TestAll
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2183   .rodata.Displ_PerfTest.str1.4:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2226   .text.Displ_PerfTest:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2232   .text.Displ_PerfTest:00000000 Displ_PerfTest
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2503   .text.Displ_PerfTest:0000017c $d
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s 			page 59
+
+
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2507   .text.Displ_PerfTest:0000018c $t
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2564   .text.Displ_PerfTest:000001d4 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2588   .bss.orientation.0:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccqE50te.s:2590   .rodata:00000000 $d
+
+UNDEFINED SYMBOLS
+Displ_CLS
+Displ_Line
+_width
+_height
+Displ_Border
+Displ_FillArea
+Displ_fillCircle
+Displ_drawCircle
+Displ_drawTriangle
+Displ_fillTriangle
+Displ_drawRoundRect
+Displ_fillRoundRect
+rand
+Displ_WChar
+Font16
+HAL_GetTick
+Displ_CString
+Font24
+Displ_Orientation
+sprintf
+HAL_Delay
+Displ_WString
+Font12

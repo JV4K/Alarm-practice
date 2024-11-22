@@ -1,0 +1,387 @@
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"press_detection.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/press_detection.c"
+  20              		.section	.text.PressDetection_Update,"ax",%progbits
+  21              		.align	1
+  22              		.global	PressDetection_Update
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	PressDetection_Update:
+  28              	.LFB0:
+   1:Core/Src/press_detection.c **** #include "press_detection.h"
+   2:Core/Src/press_detection.c **** 
+   3:Core/Src/press_detection.c **** // Debounced button states
+   4:Core/Src/press_detection.c **** uint8_t But0_State, But1_State;
+   5:Core/Src/press_detection.c **** 
+   6:Core/Src/press_detection.c **** // Button handlers (button.h)
+   7:Core/Src/press_detection.c **** Button_Handle_t *hbut1, *hbut0;
+   8:Core/Src/press_detection.c **** 
+   9:Core/Src/press_detection.c **** // Button press state (idle/short/long)
+  10:Core/Src/press_detection.c **** ButtonPressState But0_press_state, But1_press_state;
+  11:Core/Src/press_detection.c **** ButtonPressState But0_prev_press_state, But1_prev_press_state;
+  12:Core/Src/press_detection.c **** 
+  13:Core/Src/press_detection.c **** // Internal states to track timing and conditions
+  14:Core/Src/press_detection.c **** static uint16_t But0_PressCounter = 0;
+  15:Core/Src/press_detection.c **** static uint16_t But1_PressCounter = 0;
+  16:Core/Src/press_detection.c **** static ButtonPressState But0_PressState = BUTTON_IDLE;
+  17:Core/Src/press_detection.c **** static ButtonPressState But1_PressState = BUTTON_IDLE;
+  18:Core/Src/press_detection.c **** 
+  19:Core/Src/press_detection.c **** // Function to call in interrupt handler, 100 Hz
+  20:Core/Src/press_detection.c **** void PressDetection_Update(void) {
+  29              		.loc 1 20 34 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  21:Core/Src/press_detection.c ****     // Button 0
+  22:Core/Src/press_detection.c ****     if (But0_State == 1) {  // Button is pressed
+  34              		.loc 1 22 5 view .LVU1
+  35              		.loc 1 22 20 is_stmt 0 view .LVU2
+  36 0000 1B4B     		ldr	r3, .L10
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 2
+
+
+  37 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  38              		.loc 1 22 8 view .LVU3
+  39 0004 012B     		cmp	r3, #1
+  40 0006 1CD0     		beq	.L8
+  23:Core/Src/press_detection.c ****         But0_PressCounter++;
+  24:Core/Src/press_detection.c ****         if (But0_PressCounter >= LONG_PRESS_THRESHOLD) {
+  25:Core/Src/press_detection.c ****             But0_PressState = BUTTON_LONG_PRESS;
+  26:Core/Src/press_detection.c ****         }
+  27:Core/Src/press_detection.c ****     } else {  // Button is released
+  28:Core/Src/press_detection.c ****         if (But0_PressCounter > 0 && But0_PressCounter < LONG_PRESS_THRESHOLD) {
+  41              		.loc 1 28 9 is_stmt 1 view .LVU4
+  42              		.loc 1 28 35 is_stmt 0 view .LVU5
+  43 0008 1A4B     		ldr	r3, .L10+4
+  44 000a 1B88     		ldrh	r3, [r3]
+  45 000c 013B     		subs	r3, r3, #1
+  46 000e 9BB2     		uxth	r3, r3
+  47              		.loc 1 28 12 view .LVU6
+  48 0010 4E2B     		cmp	r3, #78
+  49 0012 02D8     		bhi	.L4
+  29:Core/Src/press_detection.c ****             But0_PressState = BUTTON_SHORT_PRESS;
+  50              		.loc 1 29 13 is_stmt 1 view .LVU7
+  51              		.loc 1 29 29 is_stmt 0 view .LVU8
+  52 0014 184B     		ldr	r3, .L10+8
+  53 0016 0122     		movs	r2, #1
+  54 0018 1A70     		strb	r2, [r3]
+  55              	.L4:
+  30:Core/Src/press_detection.c ****         }
+  31:Core/Src/press_detection.c ****         But0_PressCounter = 0;  // Reset counter after release
+  56              		.loc 1 31 9 is_stmt 1 view .LVU9
+  57              		.loc 1 31 27 is_stmt 0 view .LVU10
+  58 001a 164B     		ldr	r3, .L10+4
+  59 001c 0022     		movs	r2, #0
+  60 001e 1A80     		strh	r2, [r3]	@ movhi
+  61              	.L3:
+  32:Core/Src/press_detection.c ****     }
+  33:Core/Src/press_detection.c **** 
+  34:Core/Src/press_detection.c ****     // Button 1
+  35:Core/Src/press_detection.c ****     if (But1_State == 1) {  // Button is pressed
+  62              		.loc 1 35 5 is_stmt 1 view .LVU11
+  63              		.loc 1 35 20 is_stmt 0 view .LVU12
+  64 0020 164B     		ldr	r3, .L10+12
+  65 0022 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  66              		.loc 1 35 8 view .LVU13
+  67 0024 012B     		cmp	r3, #1
+  68 0026 17D0     		beq	.L9
+  36:Core/Src/press_detection.c ****         But1_PressCounter++;
+  37:Core/Src/press_detection.c ****         if (But1_PressCounter >= LONG_PRESS_THRESHOLD) {
+  38:Core/Src/press_detection.c ****             But1_PressState = BUTTON_LONG_PRESS;
+  39:Core/Src/press_detection.c ****         }
+  40:Core/Src/press_detection.c ****     } else {  // Button is released
+  41:Core/Src/press_detection.c ****         if (But1_PressCounter > 0 && But1_PressCounter < LONG_PRESS_THRESHOLD) {
+  69              		.loc 1 41 9 is_stmt 1 view .LVU14
+  70              		.loc 1 41 35 is_stmt 0 view .LVU15
+  71 0028 154B     		ldr	r3, .L10+16
+  72 002a 1B88     		ldrh	r3, [r3]
+  73 002c 013B     		subs	r3, r3, #1
+  74 002e 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 3
+
+
+  75              		.loc 1 41 12 view .LVU16
+  76 0030 4E2B     		cmp	r3, #78
+  77 0032 02D8     		bhi	.L7
+  42:Core/Src/press_detection.c ****             But1_PressState = BUTTON_SHORT_PRESS;
+  78              		.loc 1 42 13 is_stmt 1 view .LVU17
+  79              		.loc 1 42 29 is_stmt 0 view .LVU18
+  80 0034 134B     		ldr	r3, .L10+20
+  81 0036 0122     		movs	r2, #1
+  82 0038 1A70     		strb	r2, [r3]
+  83              	.L7:
+  43:Core/Src/press_detection.c ****         }
+  44:Core/Src/press_detection.c ****         But1_PressCounter = 0;  // Reset counter after release
+  84              		.loc 1 44 9 is_stmt 1 view .LVU19
+  85              		.loc 1 44 27 is_stmt 0 view .LVU20
+  86 003a 114B     		ldr	r3, .L10+16
+  87 003c 0022     		movs	r2, #0
+  88 003e 1A80     		strh	r2, [r3]	@ movhi
+  89              	.L1:
+  45:Core/Src/press_detection.c ****     }
+  46:Core/Src/press_detection.c **** }
+  90              		.loc 1 46 1 view .LVU21
+  91 0040 7047     		bx	lr
+  92              	.L8:
+  23:Core/Src/press_detection.c ****         if (But0_PressCounter >= LONG_PRESS_THRESHOLD) {
+  93              		.loc 1 23 9 is_stmt 1 view .LVU22
+  23:Core/Src/press_detection.c ****         if (But0_PressCounter >= LONG_PRESS_THRESHOLD) {
+  94              		.loc 1 23 26 is_stmt 0 view .LVU23
+  95 0042 0C4A     		ldr	r2, .L10+4
+  96 0044 1388     		ldrh	r3, [r2]
+  97 0046 0133     		adds	r3, r3, #1
+  98 0048 9BB2     		uxth	r3, r3
+  99 004a 1380     		strh	r3, [r2]	@ movhi
+  24:Core/Src/press_detection.c ****             But0_PressState = BUTTON_LONG_PRESS;
+ 100              		.loc 1 24 9 is_stmt 1 view .LVU24
+  24:Core/Src/press_detection.c ****             But0_PressState = BUTTON_LONG_PRESS;
+ 101              		.loc 1 24 12 is_stmt 0 view .LVU25
+ 102 004c 4F2B     		cmp	r3, #79
+ 103 004e E7D9     		bls	.L3
+  25:Core/Src/press_detection.c ****         }
+ 104              		.loc 1 25 13 is_stmt 1 view .LVU26
+  25:Core/Src/press_detection.c ****         }
+ 105              		.loc 1 25 29 is_stmt 0 view .LVU27
+ 106 0050 094B     		ldr	r3, .L10+8
+ 107 0052 0222     		movs	r2, #2
+ 108 0054 1A70     		strb	r2, [r3]
+ 109 0056 E3E7     		b	.L3
+ 110              	.L9:
+  36:Core/Src/press_detection.c ****         if (But1_PressCounter >= LONG_PRESS_THRESHOLD) {
+ 111              		.loc 1 36 9 is_stmt 1 view .LVU28
+  36:Core/Src/press_detection.c ****         if (But1_PressCounter >= LONG_PRESS_THRESHOLD) {
+ 112              		.loc 1 36 26 is_stmt 0 view .LVU29
+ 113 0058 094A     		ldr	r2, .L10+16
+ 114 005a 1388     		ldrh	r3, [r2]
+ 115 005c 0133     		adds	r3, r3, #1
+ 116 005e 9BB2     		uxth	r3, r3
+ 117 0060 1380     		strh	r3, [r2]	@ movhi
+  37:Core/Src/press_detection.c ****             But1_PressState = BUTTON_LONG_PRESS;
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 4
+
+
+ 118              		.loc 1 37 9 is_stmt 1 view .LVU30
+  37:Core/Src/press_detection.c ****             But1_PressState = BUTTON_LONG_PRESS;
+ 119              		.loc 1 37 12 is_stmt 0 view .LVU31
+ 120 0062 4F2B     		cmp	r3, #79
+ 121 0064 ECD9     		bls	.L1
+  38:Core/Src/press_detection.c ****         }
+ 122              		.loc 1 38 13 is_stmt 1 view .LVU32
+  38:Core/Src/press_detection.c ****         }
+ 123              		.loc 1 38 29 is_stmt 0 view .LVU33
+ 124 0066 074B     		ldr	r3, .L10+20
+ 125 0068 0222     		movs	r2, #2
+ 126 006a 1A70     		strb	r2, [r3]
+ 127 006c 7047     		bx	lr
+ 128              	.L11:
+ 129 006e 00BF     		.align	2
+ 130              	.L10:
+ 131 0070 00000000 		.word	But0_State
+ 132 0074 00000000 		.word	But0_PressCounter
+ 133 0078 00000000 		.word	But0_PressState
+ 134 007c 00000000 		.word	But1_State
+ 135 0080 00000000 		.word	But1_PressCounter
+ 136 0084 00000000 		.word	But1_PressState
+ 137              		.cfi_endproc
+ 138              	.LFE0:
+ 140              		.section	.text.Get_Button0_PressState,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	Get_Button0_PressState
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 147              	Get_Button0_PressState:
+ 148              	.LFB1:
+  47:Core/Src/press_detection.c **** 
+  48:Core/Src/press_detection.c **** // Function to check the state of Button 0
+  49:Core/Src/press_detection.c **** ButtonPressState Get_Button0_PressState(void) {
+ 149              		.loc 1 49 47 is_stmt 1 view -0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+  50:Core/Src/press_detection.c ****     ButtonPressState state = But0_PressState;
+ 154              		.loc 1 50 5 view .LVU35
+ 155              		.loc 1 50 22 is_stmt 0 view .LVU36
+ 156 0000 024B     		ldr	r3, .L13
+ 157 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 158              	.LVL0:
+  51:Core/Src/press_detection.c ****     // Reset the state after it's read
+  52:Core/Src/press_detection.c ****     But0_PressState = BUTTON_IDLE;
+ 159              		.loc 1 52 5 is_stmt 1 view .LVU37
+ 160              		.loc 1 52 21 is_stmt 0 view .LVU38
+ 161 0004 0022     		movs	r2, #0
+ 162 0006 1A70     		strb	r2, [r3]
+ 163              	.LVL1:
+  53:Core/Src/press_detection.c ****     return state;
+ 164              		.loc 1 53 5 is_stmt 1 view .LVU39
+  54:Core/Src/press_detection.c **** }
+ 165              		.loc 1 54 1 is_stmt 0 view .LVU40
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 5
+
+
+ 166 0008 7047     		bx	lr
+ 167              	.L14:
+ 168 000a 00BF     		.align	2
+ 169              	.L13:
+ 170 000c 00000000 		.word	But0_PressState
+ 171              		.cfi_endproc
+ 172              	.LFE1:
+ 174              		.section	.text.Get_Button1_PressState,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	Get_Button1_PressState
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ 181              	Get_Button1_PressState:
+ 182              	.LFB2:
+  55:Core/Src/press_detection.c **** 
+  56:Core/Src/press_detection.c **** // Function to check the state of Button 1
+  57:Core/Src/press_detection.c **** ButtonPressState Get_Button1_PressState(void) {
+ 183              		.loc 1 57 47 is_stmt 1 view -0
+ 184              		.cfi_startproc
+ 185              		@ args = 0, pretend = 0, frame = 0
+ 186              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187              		@ link register save eliminated.
+  58:Core/Src/press_detection.c ****     ButtonPressState state = But1_PressState;
+ 188              		.loc 1 58 5 view .LVU42
+ 189              		.loc 1 58 22 is_stmt 0 view .LVU43
+ 190 0000 024B     		ldr	r3, .L16
+ 191 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 192              	.LVL2:
+  59:Core/Src/press_detection.c ****     // Reset the state after it's read
+  60:Core/Src/press_detection.c ****     But1_PressState = BUTTON_IDLE;
+ 193              		.loc 1 60 5 is_stmt 1 view .LVU44
+ 194              		.loc 1 60 21 is_stmt 0 view .LVU45
+ 195 0004 0022     		movs	r2, #0
+ 196 0006 1A70     		strb	r2, [r3]
+ 197              	.LVL3:
+  61:Core/Src/press_detection.c ****     return state;
+ 198              		.loc 1 61 5 is_stmt 1 view .LVU46
+  62:Core/Src/press_detection.c **** }...
+ 199              		.loc 1 62 1 is_stmt 0 view .LVU47
+ 200 0008 7047     		bx	lr
+ 201              	.L17:
+ 202 000a 00BF     		.align	2
+ 203              	.L16:
+ 204 000c 00000000 		.word	But1_PressState
+ 205              		.cfi_endproc
+ 206              	.LFE2:
+ 208              		.section	.bss.But1_PressState,"aw",%nobits
+ 211              	But1_PressState:
+ 212 0000 00       		.space	1
+ 213              		.section	.bss.But0_PressState,"aw",%nobits
+ 216              	But0_PressState:
+ 217 0000 00       		.space	1
+ 218              		.section	.bss.But1_PressCounter,"aw",%nobits
+ 219              		.align	1
+ 222              	But1_PressCounter:
+ 223 0000 0000     		.space	2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 6
+
+
+ 224              		.section	.bss.But0_PressCounter,"aw",%nobits
+ 225              		.align	1
+ 228              	But0_PressCounter:
+ 229 0000 0000     		.space	2
+ 230              		.global	But1_prev_press_state
+ 231              		.section	.bss.But1_prev_press_state,"aw",%nobits
+ 234              	But1_prev_press_state:
+ 235 0000 00       		.space	1
+ 236              		.global	But0_prev_press_state
+ 237              		.section	.bss.But0_prev_press_state,"aw",%nobits
+ 240              	But0_prev_press_state:
+ 241 0000 00       		.space	1
+ 242              		.global	But1_press_state
+ 243              		.section	.bss.But1_press_state,"aw",%nobits
+ 246              	But1_press_state:
+ 247 0000 00       		.space	1
+ 248              		.global	But0_press_state
+ 249              		.section	.bss.But0_press_state,"aw",%nobits
+ 252              	But0_press_state:
+ 253 0000 00       		.space	1
+ 254              		.global	hbut0
+ 255              		.section	.bss.hbut0,"aw",%nobits
+ 256              		.align	2
+ 259              	hbut0:
+ 260 0000 00000000 		.space	4
+ 261              		.global	hbut1
+ 262              		.section	.bss.hbut1,"aw",%nobits
+ 263              		.align	2
+ 266              	hbut1:
+ 267 0000 00000000 		.space	4
+ 268              		.global	But1_State
+ 269              		.section	.bss.But1_State,"aw",%nobits
+ 272              	But1_State:
+ 273 0000 00       		.space	1
+ 274              		.global	But0_State
+ 275              		.section	.bss.But0_State,"aw",%nobits
+ 278              	But0_State:
+ 279 0000 00       		.space	1
+ 280              		.text
+ 281              	.Letext0:
+ 282              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ 283              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ 284              		.file 4 "Core/Inc/button.h"
+ 285              		.file 5 "Core/Inc/press_detection.h"
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 press_detection.c
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:21     .text.PressDetection_Update:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:27     .text.PressDetection_Update:00000000 PressDetection_Update
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:131    .text.PressDetection_Update:00000070 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:278    .bss.But0_State:00000000 But0_State
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:228    .bss.But0_PressCounter:00000000 But0_PressCounter
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:216    .bss.But0_PressState:00000000 But0_PressState
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:272    .bss.But1_State:00000000 But1_State
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:222    .bss.But1_PressCounter:00000000 But1_PressCounter
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:211    .bss.But1_PressState:00000000 But1_PressState
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:141    .text.Get_Button0_PressState:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:147    .text.Get_Button0_PressState:00000000 Get_Button0_PressState
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:170    .text.Get_Button0_PressState:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:175    .text.Get_Button1_PressState:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:181    .text.Get_Button1_PressState:00000000 Get_Button1_PressState
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:204    .text.Get_Button1_PressState:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:212    .bss.But1_PressState:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:217    .bss.But0_PressState:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:219    .bss.But1_PressCounter:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:225    .bss.But0_PressCounter:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:234    .bss.But1_prev_press_state:00000000 But1_prev_press_state
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:235    .bss.But1_prev_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:240    .bss.But0_prev_press_state:00000000 But0_prev_press_state
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:241    .bss.But0_prev_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:246    .bss.But1_press_state:00000000 But1_press_state
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:247    .bss.But1_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:252    .bss.But0_press_state:00000000 But0_press_state
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:253    .bss.But0_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:259    .bss.hbut0:00000000 hbut0
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:256    .bss.hbut0:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:266    .bss.hbut1:00000000 hbut1
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:263    .bss.hbut1:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:273    .bss.But1_State:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:279    .bss.But0_State:00000000 $d
+
+NO UNDEFINED SYMBOLS
