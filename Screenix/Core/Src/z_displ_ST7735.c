@@ -194,7 +194,7 @@ HAL_GPIO_WritePin(DISPL_DC_GPIO_Port, DISPL_DC_Pin, DC_Status);
 	}
 
 #ifdef DISPLAY_SPI_INTERRUPT_MODE
-	Displ_SpiAvailable=0;
+	dispSpiAvailable=0;
 	HAL_SPI_Transmit_IT(&DISPLAY_SPI_PORT , data, dataSize);
 #else
 #ifdef DISPLAY_SPI_DMA_MODE

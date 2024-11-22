@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
   28:Core/Src/stm32f4xx_it.c **** 
   29:Core/Src/stm32f4xx_it.c **** /* Private typedef -----------------------------------------------------------*/
   30:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN TD */
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 2
 
 
   31:Core/Src/stm32f4xx_it.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
   29              		.loc 1 84 1 view -0
   30              		.cfi_startproc
   31              		@ Volatile: function does not return.
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 3
 
 
   32              		@ args = 0, pretend = 0, frame = 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
   63              		.cfi_endproc
   64              	.LFE135:
   66              		.section	.text.MemManage_Handler,"ax",%progbits
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 4
 
 
   67              		.align	1
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  101              		@ args = 0, pretend = 0, frame = 0
  102              		@ frame_needed = 0, uses_anonymous_args = 0
  103              		@ link register save eliminated.
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 5
 
 
  104              	.L8:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  136              		.align	1
  137              		.global	SVC_Handler
  138              		.syntax unified
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 6
 
 
  139              		.thumb
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  169 0000 7047     		bx	lr
  170              		.cfi_endproc
  171              	.LFE140:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 7
 
 
  173              		.section	.text.PendSV_Handler,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  201:Core/Src/stm32f4xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
  202:Core/Src/stm32f4xx_it.c ****   HAL_IncTick();
  209              		.loc 1 202 3 view .LVU27
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 8
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 8
 
 
  210 0002 FFF7FEFF 		bl	HAL_IncTick
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  241 000a 00BF     		.align	2
  242              	.L18:
  243 000c 00000000 		.word	hspi1
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 9
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 9
 
 
  244              		.cfi_endproc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  244:Core/Src/stm32f4xx_it.c ****   * @brief This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts.
  245:Core/Src/stm32f4xx_it.c ****   */
  246:Core/Src/stm32f4xx_it.c **** void TIM6_DAC_IRQHandler(void)
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 10
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 10
 
 
  247:Core/Src/stm32f4xx_it.c **** {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  323              		.cfi_offset 14, -4
  266:Core/Src/stm32f4xx_it.c ****   /* USER CODE BEGIN DMA2_Stream3_IRQn 0 */
  267:Core/Src/stm32f4xx_it.c **** 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 11
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 11
 
 
  268:Core/Src/stm32f4xx_it.c ****   /* USER CODE END DMA2_Stream3_IRQn 0 */
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  283:Core/Src/stm32f4xx_it.c **** 			init_buttons_flag = 1;
  284:Core/Src/stm32f4xx_it.c **** 		}
  285:Core/Src/stm32f4xx_it.c **** 		
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 12
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 12
 
 
  286:Core/Src/stm32f4xx_it.c **** 		alarm_periph_handler();
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  392 0020 024B     		ldr	r3, .L38+4
  393 0022 0122     		movs	r2, #1
  394 0024 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 13
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 13
 
 
  395 0026 F4E7     		b	.L34
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  472              		.section	.bss.debug_settime_trig,"aw",%nobits
  475              	debug_settime_trig:
  476 0000 00       		.space	1
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 14
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 14
 
 
  477              		.text
@@ -795,71 +795,71 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 1
  488              		.file 11 "Core/Inc/tim.h"
  489              		.file 12 "Core/Inc/alrm_logic.h"
  490              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 15
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_it.c
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:21     .text.NMI_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:27     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:44     .text.HardFault_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:50     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:67     .text.MemManage_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:73     .text.MemManage_Handler:00000000 MemManage_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:90     .text.BusFault_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:96     .text.BusFault_Handler:00000000 BusFault_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:113    .text.UsageFault_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:119    .text.UsageFault_Handler:00000000 UsageFault_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:136    .text.SVC_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:142    .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:155    .text.DebugMon_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:161    .text.DebugMon_Handler:00000000 DebugMon_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:174    .text.PendSV_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:180    .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:193    .text.SysTick_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:199    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:218    .text.SPI1_IRQHandler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:224    .text.SPI1_IRQHandler:00000000 SPI1_IRQHandler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:243    .text.SPI1_IRQHandler:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:248    .text.RTC_Alarm_IRQHandler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:254    .text.RTC_Alarm_IRQHandler:00000000 RTC_Alarm_IRQHandler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:273    .text.RTC_Alarm_IRQHandler:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:278    .text.TIM6_DAC_IRQHandler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:284    .text.TIM6_DAC_IRQHandler:00000000 TIM6_DAC_IRQHandler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:303    .text.TIM6_DAC_IRQHandler:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:308    .text.DMA2_Stream3_IRQHandler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:314    .text.DMA2_Stream3_IRQHandler:00000000 DMA2_Stream3_IRQHandler
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:333    .text.DMA2_Stream3_IRQHandler:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:338    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:344    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:399    .text.HAL_TIM_PeriodElapsedCallback:00000028 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:420    .bss.init_buttons_flag:00000000 init_buttons_flag
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:408    .bss.db_b1_short_cnt:00000000 db_b1_short_cnt
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:409    .bss.db_b1_short_cnt:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:414    .bss.db_b0_short_cnt:00000000 db_b0_short_cnt
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:415    .bss.db_b0_short_cnt:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:421    .bss.init_buttons_flag:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:427    .bss.timer_cnt:00000000 timer_cnt
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:424    .bss.timer_cnt:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:433    .bss.db_sec:00000000 db_sec
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:434    .bss.db_sec:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:439    .bss.db_min:00000000 db_min
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:440    .bss.db_min:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:445    .bss.db_hr:00000000 db_hr
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:446    .bss.db_hr:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:451    .bss.ab_alarm_sec:00000000 ab_alarm_sec
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:452    .bss.ab_alarm_sec:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:457    .bss.ab_alarm_min:00000000 ab_alarm_min
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:458    .bss.ab_alarm_min:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:463    .bss.ab_alarm_hour:00000000 ab_alarm_hour
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:464    .bss.ab_alarm_hour:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:469    .bss.debug_setalarm_trig:00000000 debug_setalarm_trig
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:470    .bss.debug_setalarm_trig:00000000 $d
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s 			page 16
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:21     .text.NMI_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:27     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:44     .text.HardFault_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:50     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:67     .text.MemManage_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:73     .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:90     .text.BusFault_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:96     .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:113    .text.UsageFault_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:119    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:136    .text.SVC_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:142    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:155    .text.DebugMon_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:161    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:174    .text.PendSV_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:180    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:193    .text.SysTick_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:199    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:218    .text.SPI1_IRQHandler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:224    .text.SPI1_IRQHandler:00000000 SPI1_IRQHandler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:243    .text.SPI1_IRQHandler:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:248    .text.RTC_Alarm_IRQHandler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:254    .text.RTC_Alarm_IRQHandler:00000000 RTC_Alarm_IRQHandler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:273    .text.RTC_Alarm_IRQHandler:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:278    .text.TIM6_DAC_IRQHandler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:284    .text.TIM6_DAC_IRQHandler:00000000 TIM6_DAC_IRQHandler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:303    .text.TIM6_DAC_IRQHandler:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:308    .text.DMA2_Stream3_IRQHandler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:314    .text.DMA2_Stream3_IRQHandler:00000000 DMA2_Stream3_IRQHandler
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:333    .text.DMA2_Stream3_IRQHandler:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:338    .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:344    .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:399    .text.HAL_TIM_PeriodElapsedCallback:00000028 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:420    .bss.init_buttons_flag:00000000 init_buttons_flag
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:408    .bss.db_b1_short_cnt:00000000 db_b1_short_cnt
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:409    .bss.db_b1_short_cnt:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:414    .bss.db_b0_short_cnt:00000000 db_b0_short_cnt
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:415    .bss.db_b0_short_cnt:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:421    .bss.init_buttons_flag:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:427    .bss.timer_cnt:00000000 timer_cnt
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:424    .bss.timer_cnt:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:433    .bss.db_sec:00000000 db_sec
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:434    .bss.db_sec:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:439    .bss.db_min:00000000 db_min
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:440    .bss.db_min:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:445    .bss.db_hr:00000000 db_hr
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:446    .bss.db_hr:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:451    .bss.ab_alarm_sec:00000000 ab_alarm_sec
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:452    .bss.ab_alarm_sec:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:457    .bss.ab_alarm_min:00000000 ab_alarm_min
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:458    .bss.ab_alarm_min:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:463    .bss.ab_alarm_hour:00000000 ab_alarm_hour
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:464    .bss.ab_alarm_hour:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:469    .bss.debug_setalarm_trig:00000000 debug_setalarm_trig
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:470    .bss.debug_setalarm_trig:00000000 $d
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s 			page 16
 
 
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:475    .bss.debug_settime_trig:00000000 debug_settime_trig
-C:\Users\zhmis\AppData\Local\Temp\cc3eB55K.s:476    .bss.debug_settime_trig:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:475    .bss.debug_settime_trig:00000000 debug_settime_trig
+C:\Users\zhmis\AppData\Local\Temp\ccih3S9E.s:476    .bss.debug_settime_trig:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick

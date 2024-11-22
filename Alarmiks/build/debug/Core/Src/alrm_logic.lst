@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,1615 +20,2009 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 1
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
   19              		.file 1 "Core/Src/alrm_logic.c"
-  20              		.section	.text.alarm_init_components,"ax",%progbits
-  21              		.align	1
-  22              		.global	alarm_init_components
-  23              		.syntax unified
-  24              		.thumb
-  25              		.thumb_func
-  27              	alarm_init_components:
-  28              	.LFB134:
+  20              		.section	.rodata.create_time_string.str1.4,"aMS",%progbits,1
+  21              		.align	2
+  22              	.LC0:
+  23 0000 25303264 		.ascii	"%02d:%02d\000"
+  23      3A253032 
+  23      6400
+  24              		.section	.text.create_time_string,"ax",%progbits
+  25              		.align	1
+  26              		.global	create_time_string
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  31              	create_time_string:
+  32              	.LVL0:
+  33              	.LFB134:
    1:Core/Src/alrm_logic.c **** #include "alrm_logic.h"
    2:Core/Src/alrm_logic.c **** alarm_t halarm;
    3:Core/Src/alrm_logic.c **** alarm_t* alarm_p = &halarm; // Pointer to alarm data structure
-   4:Core/Src/alrm_logic.c **** 
-   5:Core/Src/alrm_logic.c **** // alarm_t* alarm_p;
-   6:Core/Src/alrm_logic.c **** 
-   7:Core/Src/alrm_logic.c **** void alarm_init_components(){
-  29              		.loc 1 7 29 view -0
-  30              		.cfi_startproc
-  31              		@ args = 0, pretend = 0, frame = 0
-  32              		@ frame_needed = 0, uses_anonymous_args = 0
-  33 0000 08B5     		push	{r3, lr}
-  34              		.cfi_def_cfa_offset 8
-  35              		.cfi_offset 3, -8
-  36              		.cfi_offset 14, -4
-  37 0002 2DED028B 		vpush.64	{d8}
-  38              		.cfi_def_cfa_offset 16
-  39              		.cfi_offset 80, -16
-  40              		.cfi_offset 81, -12
-   8:Core/Src/alrm_logic.c **** 	hbut0 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
-  41              		.loc 1 8 2 view .LVU1
-  42              		.loc 1 8 10 is_stmt 0 view .LVU2
-  43 0006 DFED0E8A 		vldr.32	s17, .L3
-  44 000a 9FED0E8A 		vldr.32	s16, .L3+4
-  45 000e F0EE680A 		vmov.f32	s1, s17
-  46 0012 B0EE480A 		vmov.f32	s0, s16
-  47 0016 FFF7FEFF 		bl	buttonInit
-  48              	.LVL0:
-  49              		.loc 1 8 8 discriminator 1 view .LVU3
-  50 001a 0B4B     		ldr	r3, .L3+8
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 2
+   4:Core/Src/alrm_logic.c **** // uint8_t div10hz;
+   5:Core/Src/alrm_logic.c **** 
+   6:Core/Src/alrm_logic.c **** char time_str[6];
+   7:Core/Src/alrm_logic.c **** 
+   8:Core/Src/alrm_logic.c **** void create_time_string(uint8_t hours_bcd, uint8_t minutes_bcd, char *time_str) {
+  34              		.loc 1 8 81 view -0
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 0, uses_anonymous_args = 0
+  38              		.loc 1 8 81 is_stmt 0 view .LVU1
+  39 0000 00B5     		push	{lr}
+  40              		.cfi_def_cfa_offset 4
+  41              		.cfi_offset 14, -4
+  42 0002 83B0     		sub	sp, sp, #12
+  43              		.cfi_def_cfa_offset 16
+  44 0004 0346     		mov	r3, r0
+  45 0006 1046     		mov	r0, r2
+  46              	.LVL1:
+   9:Core/Src/alrm_logic.c ****   // Convert BCD to decimal
+  10:Core/Src/alrm_logic.c ****   uint8_t hours = ((hours_bcd >> 4) * 10) + (hours_bcd & 0x0F);
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 2
 
 
-  51 001c 1860     		str	r0, [r3]
-   9:Core/Src/alrm_logic.c **** 	hbut1 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
-  52              		.loc 1 9 2 is_stmt 1 view .LVU4
-  53              		.loc 1 9 10 is_stmt 0 view .LVU5
-  54 001e F0EE680A 		vmov.f32	s1, s17
-  55 0022 B0EE480A 		vmov.f32	s0, s16
-  56 0026 FFF7FEFF 		bl	buttonInit
-  57              	.LVL1:
-  58              		.loc 1 9 8 discriminator 1 view .LVU6
-  59 002a 084B     		ldr	r3, .L3+12
-  60 002c 1860     		str	r0, [r3]
-  10:Core/Src/alrm_logic.c **** 	led_init(HANDLE_FREQ, LED_BLINK_FREQ, LED_BLINK_TIME);
-  61              		.loc 1 10 2 is_stmt 1 view .LVU7
-  62 002e 0A22     		movs	r2, #10
-  63 0030 0521     		movs	r1, #5
-  64 0032 6420     		movs	r0, #100
-  65 0034 FFF7FEFF 		bl	led_init
-  66              	.LVL2:
-  11:Core/Src/alrm_logic.c **** }
-  67              		.loc 1 11 1 is_stmt 0 view .LVU8
-  68 0038 BDEC028B 		vldm	sp!, {d8}
-  69              		.cfi_restore 80
-  70              		.cfi_restore 81
-  71              		.cfi_def_cfa_offset 8
-  72 003c 08BD     		pop	{r3, pc}
-  73              	.L4:
-  74 003e 00BF     		.align	2
-  75              	.L3:
-  76 0040 0000C842 		.word	1120403456
-  77 0044 0AD7233C 		.word	1008981770
-  78 0048 00000000 		.word	hbut0
-  79 004c 00000000 		.word	hbut1
-  80              		.cfi_endproc
-  81              	.LFE134:
-  83              		.section	.text.alarm_periph_handler,"ax",%progbits
-  84              		.align	1
-  85              		.global	alarm_periph_handler
-  86              		.syntax unified
-  87              		.thumb
-  88              		.thumb_func
-  90              	alarm_periph_handler:
-  91              	.LFB135:
+  47              		.loc 1 10 3 is_stmt 1 view .LVU2
+  48              		.loc 1 10 43 is_stmt 0 view .LVU3
+  49 0008 1A09     		lsrs	r2, r3, #4
+  50              	.LVL2:
+  51              		.loc 1 10 43 view .LVU4
+  52 000a 02EB8202 		add	r2, r2, r2, lsl #2
+  53              		.loc 1 10 56 view .LVU5
+  54 000e 03F00F03 		and	r3, r3, #15
+  55              	.LVL3:
+  56              		.loc 1 10 11 view .LVU6
+  57 0012 03EB4203 		add	r3, r3, r2, lsl #1
+  58              	.LVL4:
+  11:Core/Src/alrm_logic.c ****   uint8_t minutes = ((minutes_bcd >> 4) * 10) + (minutes_bcd & 0x0F);
+  59              		.loc 1 11 3 is_stmt 1 view .LVU7
+  60              		.loc 1 11 47 is_stmt 0 view .LVU8
+  61 0016 0A09     		lsrs	r2, r1, #4
+  62 0018 02EB8202 		add	r2, r2, r2, lsl #2
+  63              		.loc 1 11 62 view .LVU9
+  64 001c 01F00F01 		and	r1, r1, #15
+  65              	.LVL5:
+  66              		.loc 1 11 11 view .LVU10
+  67 0020 01EB4201 		add	r1, r1, r2, lsl #1
+  68 0024 C9B2     		uxtb	r1, r1
+  69              	.LVL6:
   12:Core/Src/alrm_logic.c **** 
-  13:Core/Src/alrm_logic.c **** void alarm_periph_handler(){
-  92              		.loc 1 13 28 is_stmt 1 view -0
-  93              		.cfi_startproc
-  94              		@ args = 0, pretend = 0, frame = 0
-  95              		@ frame_needed = 0, uses_anonymous_args = 0
-  96 0000 38B5     		push	{r3, r4, r5, lr}
-  97              		.cfi_def_cfa_offset 16
-  98              		.cfi_offset 3, -16
-  99              		.cfi_offset 4, -12
- 100              		.cfi_offset 5, -8
- 101              		.cfi_offset 14, -4
-  14:Core/Src/alrm_logic.c **** 		// Polling and debouncing of buttons (integrator + trigger)
-  15:Core/Src/alrm_logic.c **** 		But0_State = getDebouncedButton(hbut0, !HAL_GPIO_ReadPin(BUT0_GPIO_Port, BUT0_Pin));
- 102              		.loc 1 15 3 view .LVU10
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 3
+  13:Core/Src/alrm_logic.c ****   // Format the string
+  14:Core/Src/alrm_logic.c ****   snprintf(time_str, 6, "%02d:%02d", hours, minutes);
+  70              		.loc 1 14 3 is_stmt 1 view .LVU11
+  71 0026 0091     		str	r1, [sp]
+  72 0028 DBB2     		uxtb	r3, r3
+  73              		.loc 1 14 3 is_stmt 0 view .LVU12
+  74 002a 034A     		ldr	r2, .L3
+  75 002c 0621     		movs	r1, #6
+  76              	.LVL7:
+  77              		.loc 1 14 3 view .LVU13
+  78 002e FFF7FEFF 		bl	snprintf
+  79              	.LVL8:
+  15:Core/Src/alrm_logic.c **** }
+  80              		.loc 1 15 1 view .LVU14
+  81 0032 03B0     		add	sp, sp, #12
+  82              		.cfi_def_cfa_offset 4
+  83              		@ sp needed
+  84 0034 5DF804FB 		ldr	pc, [sp], #4
+  85              	.L4:
+  86              		.align	2
+  87              	.L3:
+  88 0038 00000000 		.word	.LC0
+  89              		.cfi_endproc
+  90              	.LFE134:
+  92              		.section	.text.alarm_init_components,"ax",%progbits
+  93              		.align	1
+  94              		.global	alarm_init_components
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	alarm_init_components:
+ 100              	.LFB135:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 3
 
 
- 103              		.loc 1 15 16 is_stmt 0 view .LVU11
- 104 0002 1D4B     		ldr	r3, .L7
- 105 0004 1D68     		ldr	r5, [r3]
- 106              		.loc 1 15 43 view .LVU12
- 107 0006 1D4C     		ldr	r4, .L7+4
- 108 0008 1021     		movs	r1, #16
- 109 000a 2046     		mov	r0, r4
- 110 000c FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 111              	.LVL3:
- 112              		.loc 1 15 16 discriminator 1 view .LVU13
- 113 0010 B0FA80F1 		clz	r1, r0
- 114 0014 4909     		lsrs	r1, r1, #5
- 115 0016 2846     		mov	r0, r5
- 116 0018 FFF7FEFF 		bl	getDebouncedButton
- 117              	.LVL4:
- 118              		.loc 1 15 14 discriminator 2 view .LVU14
- 119 001c 184B     		ldr	r3, .L7+8
- 120 001e 1870     		strb	r0, [r3]
-  16:Core/Src/alrm_logic.c **** 		But1_State = getDebouncedButton(hbut1, !HAL_GPIO_ReadPin(BUT1_GPIO_Port, BUT1_Pin));
- 121              		.loc 1 16 3 is_stmt 1 view .LVU15
- 122              		.loc 1 16 16 is_stmt 0 view .LVU16
- 123 0020 184B     		ldr	r3, .L7+12
- 124 0022 1D68     		ldr	r5, [r3]
- 125              		.loc 1 16 43 view .LVU17
- 126 0024 0821     		movs	r1, #8
- 127 0026 2046     		mov	r0, r4
- 128 0028 FFF7FEFF 		bl	HAL_GPIO_ReadPin
- 129              	.LVL5:
- 130              		.loc 1 16 16 discriminator 1 view .LVU18
- 131 002c B0FA80F1 		clz	r1, r0
- 132 0030 4909     		lsrs	r1, r1, #5
- 133 0032 2846     		mov	r0, r5
- 134 0034 FFF7FEFF 		bl	getDebouncedButton
- 135              	.LVL6:
- 136              		.loc 1 16 14 discriminator 2 view .LVU19
- 137 0038 134B     		ldr	r3, .L7+16
- 138 003a 1870     		strb	r0, [r3]
-  17:Core/Src/alrm_logic.c **** 		
-  18:Core/Src/alrm_logic.c **** 		// Process keystrokes (long/short)
-  19:Core/Src/alrm_logic.c **** 		PressDetection_Update();
- 139              		.loc 1 19 3 is_stmt 1 view .LVU20
- 140 003c FFF7FEFF 		bl	PressDetection_Update
- 141              	.LVL7:
-  20:Core/Src/alrm_logic.c **** 	
-  21:Core/Src/alrm_logic.c **** 		But0_prev_press_state = But0_press_state;
- 142              		.loc 1 21 3 view .LVU21
- 143              		.loc 1 21 25 is_stmt 0 view .LVU22
- 144 0040 124D     		ldr	r5, .L7+20
- 145 0042 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
- 146 0044 124B     		ldr	r3, .L7+24
- 147 0046 1A70     		strb	r2, [r3]
-  22:Core/Src/alrm_logic.c **** 		But1_prev_press_state = But1_press_state;
- 148              		.loc 1 22 3 is_stmt 1 view .LVU23
- 149              		.loc 1 22 25 is_stmt 0 view .LVU24
- 150 0048 124C     		ldr	r4, .L7+28
- 151 004a 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
- 152 004c 124B     		ldr	r3, .L7+32
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 4
+  16:Core/Src/alrm_logic.c **** 
+  17:Core/Src/alrm_logic.c **** void alarm_init_components(){
+ 101              		.loc 1 17 29 is_stmt 1 view -0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105 0000 08B5     		push	{r3, lr}
+ 106              		.cfi_def_cfa_offset 8
+ 107              		.cfi_offset 3, -8
+ 108              		.cfi_offset 14, -4
+ 109 0002 2DED028B 		vpush.64	{d8}
+ 110              		.cfi_def_cfa_offset 16
+ 111              		.cfi_offset 80, -16
+ 112              		.cfi_offset 81, -12
+  18:Core/Src/alrm_logic.c **** 	hbut0 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
+ 113              		.loc 1 18 2 view .LVU16
+ 114              		.loc 1 18 10 is_stmt 0 view .LVU17
+ 115 0006 DFED0E8A 		vldr.32	s17, .L7
+ 116 000a 9FED0E8A 		vldr.32	s16, .L7+4
+ 117 000e F0EE680A 		vmov.f32	s1, s17
+ 118 0012 B0EE480A 		vmov.f32	s0, s16
+ 119 0016 FFF7FEFF 		bl	buttonInit
+ 120              	.LVL9:
+ 121              		.loc 1 18 8 discriminator 1 view .LVU18
+ 122 001a 0B4B     		ldr	r3, .L7+8
+ 123 001c 1860     		str	r0, [r3]
+  19:Core/Src/alrm_logic.c **** 	hbut1 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
+ 124              		.loc 1 19 2 is_stmt 1 view .LVU19
+ 125              		.loc 1 19 10 is_stmt 0 view .LVU20
+ 126 001e F0EE680A 		vmov.f32	s1, s17
+ 127 0022 B0EE480A 		vmov.f32	s0, s16
+ 128 0026 FFF7FEFF 		bl	buttonInit
+ 129              	.LVL10:
+ 130              		.loc 1 19 8 discriminator 1 view .LVU21
+ 131 002a 084B     		ldr	r3, .L7+12
+ 132 002c 1860     		str	r0, [r3]
+  20:Core/Src/alrm_logic.c **** 	led_init(HANDLE_FREQ, LED_BLINK_FREQ, LED_BLINK_TIME);
+ 133              		.loc 1 20 2 is_stmt 1 view .LVU22
+ 134 002e 0A22     		movs	r2, #10
+ 135 0030 0521     		movs	r1, #5
+ 136 0032 6420     		movs	r0, #100
+ 137 0034 FFF7FEFF 		bl	led_init
+ 138              	.LVL11:
+  21:Core/Src/alrm_logic.c **** }
+ 139              		.loc 1 21 1 is_stmt 0 view .LVU23
+ 140 0038 BDEC028B 		vldm	sp!, {d8}
+ 141              		.cfi_restore 80
+ 142              		.cfi_restore 81
+ 143              		.cfi_def_cfa_offset 8
+ 144 003c 08BD     		pop	{r3, pc}
+ 145              	.L8:
+ 146 003e 00BF     		.align	2
+ 147              	.L7:
+ 148 0040 0000C842 		.word	1120403456
+ 149 0044 0AD7233C 		.word	1008981770
+ 150 0048 00000000 		.word	hbut0
+ 151 004c 00000000 		.word	hbut1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 4
 
 
- 153 004e 1A70     		strb	r2, [r3]
-  23:Core/Src/alrm_logic.c **** 		But0_press_state = Get_Button0_PressState();
- 154              		.loc 1 23 3 is_stmt 1 view .LVU25
- 155              		.loc 1 23 22 is_stmt 0 view .LVU26
- 156 0050 FFF7FEFF 		bl	Get_Button0_PressState
- 157              	.LVL8:
- 158              		.loc 1 23 20 discriminator 1 view .LVU27
- 159 0054 2870     		strb	r0, [r5]
-  24:Core/Src/alrm_logic.c **** 		But1_press_state = Get_Button1_PressState();
- 160              		.loc 1 24 3 is_stmt 1 view .LVU28
- 161              		.loc 1 24 22 is_stmt 0 view .LVU29
- 162 0056 FFF7FEFF 		bl	Get_Button1_PressState
- 163              	.LVL9:
- 164              		.loc 1 24 20 discriminator 1 view .LVU30
- 165 005a 2070     		strb	r0, [r4]
-  25:Core/Src/alrm_logic.c **** 		
-  26:Core/Src/alrm_logic.c **** 		// Update time from HW RTC
-  27:Core/Src/alrm_logic.c **** 		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BCD);
- 166              		.loc 1 27 3 is_stmt 1 view .LVU31
- 167 005c 0F4C     		ldr	r4, .L7+36
- 168 005e 0122     		movs	r2, #1
- 169 0060 0F49     		ldr	r1, .L7+40
- 170 0062 2046     		mov	r0, r4
- 171 0064 FFF7FEFF 		bl	HAL_RTC_GetTime
- 172              	.LVL10:
-  28:Core/Src/alrm_logic.c **** 		HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD); // Necessary for proper time update
- 173              		.loc 1 28 3 view .LVU32
- 174 0068 0122     		movs	r2, #1
- 175 006a 0E49     		ldr	r1, .L7+44
- 176 006c 2046     		mov	r0, r4
- 177 006e FFF7FEFF 		bl	HAL_RTC_GetDate
- 178              	.LVL11:
-  29:Core/Src/alrm_logic.c **** 	
-  30:Core/Src/alrm_logic.c **** 		leds_calculation();
- 179              		.loc 1 30 3 view .LVU33
- 180 0072 FFF7FEFF 		bl	leds_calculation
- 181              	.LVL12:
-  31:Core/Src/alrm_logic.c **** }
- 182              		.loc 1 31 1 is_stmt 0 view .LVU34
- 183 0076 38BD     		pop	{r3, r4, r5, pc}
- 184              	.L8:
- 185              		.align	2
- 186              	.L7:
- 187 0078 00000000 		.word	hbut0
- 188 007c 00100240 		.word	1073876992
- 189 0080 00000000 		.word	But0_State
- 190 0084 00000000 		.word	hbut1
- 191 0088 00000000 		.word	But1_State
- 192 008c 00000000 		.word	But0_press_state
- 193 0090 00000000 		.word	But0_prev_press_state
- 194 0094 00000000 		.word	But1_press_state
- 195 0098 00000000 		.word	But1_prev_press_state
- 196 009c 00000000 		.word	hrtc
- 197 00a0 00000000 		.word	sTime
- 198 00a4 00000000 		.word	sDate
- 199              		.cfi_endproc
- 200              	.LFE135:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 5
+ 152              		.cfi_endproc
+ 153              	.LFE135:
+ 155              		.section	.text.alarm_periph_handler,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	alarm_periph_handler
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 162              	alarm_periph_handler:
+ 163              	.LFB136:
+  22:Core/Src/alrm_logic.c **** 
+  23:Core/Src/alrm_logic.c **** void alarm_periph_handler(){
+ 164              		.loc 1 23 28 is_stmt 1 view -0
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 0
+ 167              		@ frame_needed = 0, uses_anonymous_args = 0
+ 168 0000 38B5     		push	{r3, r4, r5, lr}
+ 169              		.cfi_def_cfa_offset 16
+ 170              		.cfi_offset 3, -16
+ 171              		.cfi_offset 4, -12
+ 172              		.cfi_offset 5, -8
+ 173              		.cfi_offset 14, -4
+  24:Core/Src/alrm_logic.c **** 		// Polling and debouncing of buttons (integrator + trigger)
+  25:Core/Src/alrm_logic.c **** 		But0_State = getDebouncedButton(hbut0, !HAL_GPIO_ReadPin(BUT0_GPIO_Port, BUT0_Pin));
+ 174              		.loc 1 25 3 view .LVU25
+ 175              		.loc 1 25 16 is_stmt 0 view .LVU26
+ 176 0002 1D4B     		ldr	r3, .L11
+ 177 0004 1D68     		ldr	r5, [r3]
+ 178              		.loc 1 25 43 view .LVU27
+ 179 0006 1D4C     		ldr	r4, .L11+4
+ 180 0008 1021     		movs	r1, #16
+ 181 000a 2046     		mov	r0, r4
+ 182 000c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 183              	.LVL12:
+ 184              		.loc 1 25 16 discriminator 1 view .LVU28
+ 185 0010 B0FA80F1 		clz	r1, r0
+ 186 0014 4909     		lsrs	r1, r1, #5
+ 187 0016 2846     		mov	r0, r5
+ 188 0018 FFF7FEFF 		bl	getDebouncedButton
+ 189              	.LVL13:
+ 190              		.loc 1 25 14 discriminator 2 view .LVU29
+ 191 001c 184B     		ldr	r3, .L11+8
+ 192 001e 1870     		strb	r0, [r3]
+  26:Core/Src/alrm_logic.c **** 		But1_State = getDebouncedButton(hbut1, !HAL_GPIO_ReadPin(BUT1_GPIO_Port, BUT1_Pin));
+ 193              		.loc 1 26 3 is_stmt 1 view .LVU30
+ 194              		.loc 1 26 16 is_stmt 0 view .LVU31
+ 195 0020 184B     		ldr	r3, .L11+12
+ 196 0022 1D68     		ldr	r5, [r3]
+ 197              		.loc 1 26 43 view .LVU32
+ 198 0024 0821     		movs	r1, #8
+ 199 0026 2046     		mov	r0, r4
+ 200 0028 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 201              	.LVL14:
+ 202              		.loc 1 26 16 discriminator 1 view .LVU33
+ 203 002c B0FA80F1 		clz	r1, r0
+ 204 0030 4909     		lsrs	r1, r1, #5
+ 205 0032 2846     		mov	r0, r5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 5
 
 
- 202              		.section	.text.alarm_state_machine,"ax",%progbits
- 203              		.align	1
- 204              		.global	alarm_state_machine
- 205              		.syntax unified
- 206              		.thumb
- 207              		.thumb_func
- 209              	alarm_state_machine:
- 210              	.LFB136:
-  32:Core/Src/alrm_logic.c **** 
-  33:Core/Src/alrm_logic.c **** void alarm_state_machine(){
- 211              		.loc 1 33 27 is_stmt 1 view -0
- 212              		.cfi_startproc
- 213              		@ args = 0, pretend = 0, frame = 0
- 214              		@ frame_needed = 0, uses_anonymous_args = 0
- 215 0000 38B5     		push	{r3, r4, r5, lr}
- 216              		.cfi_def_cfa_offset 16
- 217              		.cfi_offset 3, -16
- 218              		.cfi_offset 4, -12
- 219              		.cfi_offset 5, -8
- 220              		.cfi_offset 14, -4
-  34:Core/Src/alrm_logic.c **** 	switch (alarm_p->alarm_state){
- 221              		.loc 1 34 2 view .LVU36
- 222              		.loc 1 34 17 is_stmt 0 view .LVU37
- 223 0002 824B     		ldr	r3, .L63
- 224 0004 1C68     		ldr	r4, [r3]
- 225 0006 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 226              		.loc 1 34 2 view .LVU38
- 227 0008 032B     		cmp	r3, #3
- 228 000a 51D8     		bhi	.L9
- 229 000c DFE813F0 		tbh	[pc, r3, lsl #1]
- 230              	.L12:
- 231 0010 0400     		.2byte	(.L15-.L12)/2
- 232 0012 2700     		.2byte	(.L14-.L12)/2
- 233 0014 5600     		.2byte	(.L13-.L12)/2
- 234 0016 0E01     		.2byte	(.L11-.L12)/2
- 235              		.p2align 1
- 236              	.L15:
-  35:Core/Src/alrm_logic.c **** 		case IDLE:{
-  36:Core/Src/alrm_logic.c **** 			if (alarm_A_flag){
- 237              		.loc 1 36 4 is_stmt 1 view .LVU39
- 238              		.loc 1 36 8 is_stmt 0 view .LVU40
- 239 0018 7D4B     		ldr	r3, .L63+4
- 240 001a 1B88     		ldrh	r3, [r3]
- 241              		.loc 1 36 7 view .LVU41
- 242 001c 2BB1     		cbz	r3, .L16
-  37:Core/Src/alrm_logic.c **** 				alarm_A_flag = 0;
- 243              		.loc 1 37 5 is_stmt 1 view .LVU42
- 244              		.loc 1 37 18 is_stmt 0 view .LVU43
- 245 001e 7C4B     		ldr	r3, .L63+4
- 246 0020 0022     		movs	r2, #0
- 247 0022 1A80     		strh	r2, [r3]	@ movhi
-  38:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = RING;
- 248              		.loc 1 38 5 is_stmt 1 view .LVU44
- 249              		.loc 1 38 26 is_stmt 0 view .LVU45
- 250 0024 0123     		movs	r3, #1
- 251 0026 2370     		strb	r3, [r4]
- 252 0028 42E0     		b	.L9
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 6
+ 206 0034 FFF7FEFF 		bl	getDebouncedButton
+ 207              	.LVL15:
+ 208              		.loc 1 26 14 discriminator 2 view .LVU34
+ 209 0038 134B     		ldr	r3, .L11+16
+ 210 003a 1870     		strb	r0, [r3]
+  27:Core/Src/alrm_logic.c **** 		
+  28:Core/Src/alrm_logic.c **** 		// Process keystrokes (long/short)
+  29:Core/Src/alrm_logic.c **** 		PressDetection_Update();
+ 211              		.loc 1 29 3 is_stmt 1 view .LVU35
+ 212 003c FFF7FEFF 		bl	PressDetection_Update
+ 213              	.LVL16:
+  30:Core/Src/alrm_logic.c **** 	
+  31:Core/Src/alrm_logic.c **** 		But0_prev_press_state = But0_press_state;
+ 214              		.loc 1 31 3 view .LVU36
+ 215              		.loc 1 31 25 is_stmt 0 view .LVU37
+ 216 0040 124D     		ldr	r5, .L11+20
+ 217 0042 2A78     		ldrb	r2, [r5]	@ zero_extendqisi2
+ 218 0044 124B     		ldr	r3, .L11+24
+ 219 0046 1A70     		strb	r2, [r3]
+  32:Core/Src/alrm_logic.c **** 		But1_prev_press_state = But1_press_state;
+ 220              		.loc 1 32 3 is_stmt 1 view .LVU38
+ 221              		.loc 1 32 25 is_stmt 0 view .LVU39
+ 222 0048 124C     		ldr	r4, .L11+28
+ 223 004a 2278     		ldrb	r2, [r4]	@ zero_extendqisi2
+ 224 004c 124B     		ldr	r3, .L11+32
+ 225 004e 1A70     		strb	r2, [r3]
+  33:Core/Src/alrm_logic.c **** 		But0_press_state = Get_Button0_PressState();
+ 226              		.loc 1 33 3 is_stmt 1 view .LVU40
+ 227              		.loc 1 33 22 is_stmt 0 view .LVU41
+ 228 0050 FFF7FEFF 		bl	Get_Button0_PressState
+ 229              	.LVL17:
+ 230              		.loc 1 33 20 discriminator 1 view .LVU42
+ 231 0054 2870     		strb	r0, [r5]
+  34:Core/Src/alrm_logic.c **** 		But1_press_state = Get_Button1_PressState();
+ 232              		.loc 1 34 3 is_stmt 1 view .LVU43
+ 233              		.loc 1 34 22 is_stmt 0 view .LVU44
+ 234 0056 FFF7FEFF 		bl	Get_Button1_PressState
+ 235              	.LVL18:
+ 236              		.loc 1 34 20 discriminator 1 view .LVU45
+ 237 005a 2070     		strb	r0, [r4]
+  35:Core/Src/alrm_logic.c **** 		
+  36:Core/Src/alrm_logic.c **** 		// Update time from HW RTC
+  37:Core/Src/alrm_logic.c **** 		HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BCD);
+ 238              		.loc 1 37 3 is_stmt 1 view .LVU46
+ 239 005c 0F4C     		ldr	r4, .L11+36
+ 240 005e 0122     		movs	r2, #1
+ 241 0060 0F49     		ldr	r1, .L11+40
+ 242 0062 2046     		mov	r0, r4
+ 243 0064 FFF7FEFF 		bl	HAL_RTC_GetTime
+ 244              	.LVL19:
+  38:Core/Src/alrm_logic.c **** 		HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BCD); // Necessary for proper time update
+ 245              		.loc 1 38 3 view .LVU47
+ 246 0068 0122     		movs	r2, #1
+ 247 006a 0E49     		ldr	r1, .L11+44
+ 248 006c 2046     		mov	r0, r4
+ 249 006e FFF7FEFF 		bl	HAL_RTC_GetDate
+ 250              	.LVL20:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 6
 
 
- 253              	.L16:
-  39:Core/Src/alrm_logic.c **** 			} else {
-  40:Core/Src/alrm_logic.c **** 					if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS 
- 254              		.loc 1 40 6 is_stmt 1 view .LVU46
- 255              		.loc 1 40 26 is_stmt 0 view .LVU47
- 256 002a 7A4B     		ldr	r3, .L63+8
- 257 002c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 258              		.loc 1 40 8 view .LVU48
- 259 002e 022B     		cmp	r3, #2
- 260 0030 0AD0     		beq	.L45
- 261              	.L17:
-  41:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
-  42:Core/Src/alrm_logic.c **** 					alarm_p->alarm_state = SET_TIME;
-  43:Core/Src/alrm_logic.c **** 					} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS
- 262              		.loc 1 43 13 is_stmt 1 view .LVU49
- 263              		.loc 1 43 34 is_stmt 0 view .LVU50
- 264 0032 794B     		ldr	r3, .L63+12
- 265 0034 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 266              		.loc 1 43 16 view .LVU51
- 267 0036 022B     		cmp	r3, #2
- 268 0038 3AD1     		bne	.L9
- 269              		.loc 1 43 80 discriminator 1 view .LVU52
- 270 003a 784B     		ldr	r3, .L63+16
- 271 003c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 272              		.loc 1 43 55 discriminator 1 view .LVU53
- 273 003e 022B     		cmp	r3, #2
- 274 0040 36D0     		beq	.L9
-  44:Core/Src/alrm_logic.c **** 						alarm_p->alarm_state = SET_ALARM;
- 275              		.loc 1 44 7 is_stmt 1 view .LVU54
- 276              		.loc 1 44 28 is_stmt 0 view .LVU55
- 277 0042 0323     		movs	r3, #3
- 278 0044 2370     		strb	r3, [r4]
- 279 0046 33E0     		b	.L9
- 280              	.L45:
-  40:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
- 281              		.loc 1 40 72 discriminator 1 view .LVU56
- 282 0048 754B     		ldr	r3, .L63+20
- 283 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  40:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
- 284              		.loc 1 40 47 discriminator 1 view .LVU57
- 285 004c 022B     		cmp	r3, #2
- 286 004e F0D0     		beq	.L17
-  41:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
- 287              		.loc 1 41 26 view .LVU58
- 288 0050 714B     		ldr	r3, .L63+12
- 289 0052 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  41:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
- 290              		.loc 1 41 6 view .LVU59
- 291 0054 022B     		cmp	r3, #2
- 292 0056 ECD0     		beq	.L17
-  42:Core/Src/alrm_logic.c **** 					} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS
- 293              		.loc 1 42 6 is_stmt 1 view .LVU60
-  42:Core/Src/alrm_logic.c **** 					} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS
- 294              		.loc 1 42 27 is_stmt 0 view .LVU61
- 295 0058 0223     		movs	r3, #2
- 296 005a 2370     		strb	r3, [r4]
- 297 005c 28E0     		b	.L9
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 7
+  39:Core/Src/alrm_logic.c **** 	
+  40:Core/Src/alrm_logic.c **** 		leds_calculation();
+ 251              		.loc 1 40 3 view .LVU48
+ 252 0072 FFF7FEFF 		bl	leds_calculation
+ 253              	.LVL21:
+  41:Core/Src/alrm_logic.c **** }
+ 254              		.loc 1 41 1 is_stmt 0 view .LVU49
+ 255 0076 38BD     		pop	{r3, r4, r5, pc}
+ 256              	.L12:
+ 257              		.align	2
+ 258              	.L11:
+ 259 0078 00000000 		.word	hbut0
+ 260 007c 00100240 		.word	1073876992
+ 261 0080 00000000 		.word	But0_State
+ 262 0084 00000000 		.word	hbut1
+ 263 0088 00000000 		.word	But1_State
+ 264 008c 00000000 		.word	But0_press_state
+ 265 0090 00000000 		.word	But0_prev_press_state
+ 266 0094 00000000 		.word	But1_press_state
+ 267 0098 00000000 		.word	But1_prev_press_state
+ 268 009c 00000000 		.word	hrtc
+ 269 00a0 00000000 		.word	sTime
+ 270 00a4 00000000 		.word	sDate
+ 271              		.cfi_endproc
+ 272              	.LFE136:
+ 274              		.section	.rodata.alarm_state_machine.str1.4,"aMS",%progbits,1
+ 275              		.align	2
+ 276              	.LC1:
+ 277 0000 414C4152 		.ascii	"ALARM!\000"
+ 277      4D2100
+ 278 0007 00       		.align	2
+ 279              	.LC2:
+ 280 0008 53657420 		.ascii	"Set time:\000"
+ 280      74696D65 
+ 280      3A00
+ 281 0012 0000     		.align	2
+ 282              	.LC3:
+ 283 0014 53657420 		.ascii	"Set alarm:\000"
+ 283      616C6172 
+ 283      6D3A00
+ 284              		.section	.text.alarm_state_machine,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	alarm_state_machine
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	alarm_state_machine:
+ 292              	.LFB137:
+  42:Core/Src/alrm_logic.c **** 
+  43:Core/Src/alrm_logic.c **** void alarm_state_machine(){
+ 293              		.loc 1 43 27 is_stmt 1 view -0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 298              		.cfi_def_cfa_offset 24
+ 299              		.cfi_offset 4, -24
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 7
 
 
- 298              	.L14:
-  45:Core/Src/alrm_logic.c **** 					}
-  46:Core/Src/alrm_logic.c **** 			}
-  47:Core/Src/alrm_logic.c **** 			break;
-  48:Core/Src/alrm_logic.c **** 		}
-  49:Core/Src/alrm_logic.c **** 		
-  50:Core/Src/alrm_logic.c **** 		case RING:{
-  51:Core/Src/alrm_logic.c **** 			if(!alarm_p->ring_flag){
- 299              		.loc 1 51 4 is_stmt 1 view .LVU62
- 300              		.loc 1 51 15 is_stmt 0 view .LVU63
- 301 005e 6378     		ldrb	r3, [r4, #1]	@ zero_extendqisi2
- 302              		.loc 1 51 6 view .LVU64
- 303 0060 ABB1     		cbz	r3, .L46
- 304              	.L18:
-  52:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 1;
-  53:Core/Src/alrm_logic.c **** 				leds_blink_start();
-  54:Core/Src/alrm_logic.c **** 			} else{}
- 305              		.loc 1 54 11 is_stmt 1 view .LVU65
-  55:Core/Src/alrm_logic.c **** 
-  56:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_SHORT_PRESS || But1_press_state == BUTTON_SHORT_PRESS || 
- 306              		.loc 1 56 4 view .LVU66
- 307              		.loc 1 56 24 is_stmt 0 view .LVU67
- 308 0062 6C4B     		ldr	r3, .L63+8
- 309 0064 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 310              		.loc 1 56 6 view .LVU68
- 311 0066 012B     		cmp	r3, #1
- 312 0068 1AD0     		beq	.L19
- 313              		.loc 1 56 66 discriminator 1 view .LVU69
- 314 006a 6B4A     		ldr	r2, .L63+12
- 315 006c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 316              		.loc 1 56 46 discriminator 1 view .LVU70
- 317 006e 012A     		cmp	r2, #1
- 318 0070 16D0     		beq	.L19
- 319              		.loc 1 56 88 discriminator 2 view .LVU71
- 320 0072 022B     		cmp	r3, #2
- 321 0074 10D0     		beq	.L47
- 322              	.L20:
-  57:Core/Src/alrm_logic.c **** 					(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS) || 
- 323              		.loc 1 57 92 discriminator 1 view .LVU72
- 324 0076 022A     		cmp	r2, #2
- 325 0078 1BD0     		beq	.L48
- 326              	.L21:
-  58:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
-  59:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
-  60:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
-  61:Core/Src/alrm_logic.c **** 				leds_blink_stop();
-  62:Core/Src/alrm_logic.c **** 			} else if (alarm_led->led_cur_state == DIM){
- 327              		.loc 1 62 11 is_stmt 1 view .LVU73
- 328              		.loc 1 62 24 is_stmt 0 view .LVU74
- 329 007a 6A4B     		ldr	r3, .L63+24
- 330 007c 1B68     		ldr	r3, [r3]
- 331 007e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 332              		.loc 1 62 14 view .LVU75
- 333 0080 B3B9     		cbnz	r3, .L9
-  63:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
- 334              		.loc 1 63 5 is_stmt 1 view .LVU76
- 335              		.loc 1 63 12 is_stmt 0 view .LVU77
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 8
+ 300              		.cfi_offset 5, -20
+ 301              		.cfi_offset 6, -16
+ 302              		.cfi_offset 7, -12
+ 303              		.cfi_offset 8, -8
+ 304              		.cfi_offset 14, -4
+ 305 0004 86B0     		sub	sp, sp, #24
+ 306              		.cfi_def_cfa_offset 48
+  44:Core/Src/alrm_logic.c **** 	switch (alarm_p->alarm_state){
+ 307              		.loc 1 44 2 view .LVU51
+ 308              		.loc 1 44 17 is_stmt 0 view .LVU52
+ 309 0006 9D4B     		ldr	r3, .L68
+ 310 0008 1A68     		ldr	r2, [r3]
+ 311 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 312              		.loc 1 44 2 view .LVU53
+ 313 000c 032B     		cmp	r3, #3
+ 314 000e 00F2AD80 		bhi	.L13
+ 315 0012 DFE813F0 		tbh	[pc, r3, lsl #1]
+ 316              	.L16:
+ 317 0016 0400     		.2byte	(.L19-.L16)/2
+ 318 0018 5000     		.2byte	(.L18-.L16)/2
+ 319 001a B300     		.2byte	(.L17-.L16)/2
+ 320 001c A701     		.2byte	(.L15-.L16)/2
+ 321              		.p2align 1
+ 322              	.L19:
+  45:Core/Src/alrm_logic.c **** 		case IDLE:{
+  46:Core/Src/alrm_logic.c **** 			create_time_string(sTime.Hours, sTime.Minutes, time_str);
+ 323              		.loc 1 46 4 is_stmt 1 view .LVU54
+ 324 001e 984C     		ldr	r4, .L68+4
+ 325 0020 984B     		ldr	r3, .L68+8
+ 326 0022 2246     		mov	r2, r4
+ 327 0024 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 328 0026 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 329 0028 FFF7FEFF 		bl	create_time_string
+ 330              	.LVL22:
+  47:Core/Src/alrm_logic.c **** 			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
+ 331              		.loc 1 47 4 view .LVU55
+ 332 002c 964B     		ldr	r3, .L68+12
+ 333 002e 0022     		movs	r2, #0
+ 334 0030 0492     		str	r2, [sp, #16]
+ 335 0032 4FF4FC62 		mov	r2, #2016
+ 336 0036 0392     		str	r2, [sp, #12]
+ 337 0038 0122     		movs	r2, #1
+ 338 003a 0292     		str	r2, [sp, #8]
+ 339 003c 1A1D     		adds	r2, r3, #4
+ 340 003e 92E80300 		ldm	r2, {r0, r1}
+ 341 0042 8DE80300 		stm	sp, {r0, r1}
+ 342 0046 1B68     		ldr	r3, [r3]
+ 343 0048 2246     		mov	r2, r4
+ 344 004a 3421     		movs	r1, #52
+ 345 004c 1420     		movs	r0, #20
+ 346 004e FFF7FEFF 		bl	Displ_WString
+ 347              	.LVL23:
+  48:Core/Src/alrm_logic.c **** 
+  49:Core/Src/alrm_logic.c **** 			if (alarm_A_flag){
+ 348              		.loc 1 49 4 view .LVU56
+ 349              		.loc 1 49 8 is_stmt 0 view .LVU57
+ 350 0052 8E4B     		ldr	r3, .L68+16
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 8
 
 
- 336 0082 624A     		ldr	r2, .L63
- 337 0084 1168     		ldr	r1, [r2]
- 338              		.loc 1 63 24 view .LVU78
- 339 0086 4B70     		strb	r3, [r1, #1]
-  64:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
- 340              		.loc 1 64 5 is_stmt 1 view .LVU79
- 341              		.loc 1 64 12 is_stmt 0 view .LVU80
- 342 0088 1268     		ldr	r2, [r2]
- 343              		.loc 1 64 26 view .LVU81
- 344 008a 1370     		strb	r3, [r2]
- 345 008c 10E0     		b	.L9
- 346              	.L46:
-  52:Core/Src/alrm_logic.c **** 				leds_blink_start();
- 347              		.loc 1 52 5 is_stmt 1 view .LVU82
-  52:Core/Src/alrm_logic.c **** 				leds_blink_start();
- 348              		.loc 1 52 24 is_stmt 0 view .LVU83
- 349 008e 0123     		movs	r3, #1
- 350 0090 6370     		strb	r3, [r4, #1]
-  53:Core/Src/alrm_logic.c **** 			} else{}
- 351              		.loc 1 53 5 is_stmt 1 view .LVU84
- 352 0092 FFF7FEFF 		bl	leds_blink_start
- 353              	.LVL13:
- 354 0096 E4E7     		b	.L18
- 355              	.L47:
-  57:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
- 356              		.loc 1 57 70 is_stmt 0 view .LVU85
- 357 0098 614B     		ldr	r3, .L63+20
- 358 009a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  57:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
- 359              		.loc 1 57 45 view .LVU86
- 360 009c 022B     		cmp	r3, #2
- 361 009e EAD0     		beq	.L20
- 362              	.L19:
-  59:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
- 363              		.loc 1 59 5 is_stmt 1 view .LVU87
-  59:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
- 364              		.loc 1 59 12 is_stmt 0 view .LVU88
- 365 00a0 5A4A     		ldr	r2, .L63
- 366 00a2 1168     		ldr	r1, [r2]
-  59:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
- 367              		.loc 1 59 26 view .LVU89
- 368 00a4 0023     		movs	r3, #0
- 369 00a6 0B70     		strb	r3, [r1]
-  60:Core/Src/alrm_logic.c **** 				leds_blink_stop();
- 370              		.loc 1 60 5 is_stmt 1 view .LVU90
-  60:Core/Src/alrm_logic.c **** 				leds_blink_stop();
- 371              		.loc 1 60 12 is_stmt 0 view .LVU91
- 372 00a8 1268     		ldr	r2, [r2]
-  60:Core/Src/alrm_logic.c **** 				leds_blink_stop();
- 373              		.loc 1 60 24 view .LVU92
- 374 00aa 5370     		strb	r3, [r2, #1]
-  61:Core/Src/alrm_logic.c **** 			} else if (alarm_led->led_cur_state == DIM){
- 375              		.loc 1 61 5 is_stmt 1 view .LVU93
- 376 00ac FFF7FEFF 		bl	leds_blink_stop
- 377              	.LVL14:
- 378              	.L9:
-  65:Core/Src/alrm_logic.c **** 			}
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 9
+ 351 0054 1B88     		ldrh	r3, [r3]
+ 352              		.loc 1 49 7 view .LVU58
+ 353 0056 A3B9     		cbnz	r3, .L49
+  50:Core/Src/alrm_logic.c **** 				alarm_A_flag = 0;
+  51:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = RING;
+  52:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+  53:Core/Src/alrm_logic.c **** 			} else {
+  54:Core/Src/alrm_logic.c **** 					if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS 
+ 354              		.loc 1 54 6 is_stmt 1 view .LVU59
+ 355              		.loc 1 54 26 is_stmt 0 view .LVU60
+ 356 0058 8D4B     		ldr	r3, .L68+20
+ 357 005a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 358              		.loc 1 54 8 view .LVU61
+ 359 005c 022B     		cmp	r3, #2
+ 360 005e 1AD0     		beq	.L50
+ 361              	.L21:
+  55:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
+  56:Core/Src/alrm_logic.c **** 					alarm_p->alarm_state = SET_TIME;
+  57:Core/Src/alrm_logic.c **** 					Displ_CLS(BLACK);
+  58:Core/Src/alrm_logic.c **** 					} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS
+ 362              		.loc 1 58 13 is_stmt 1 view .LVU62
+ 363              		.loc 1 58 34 is_stmt 0 view .LVU63
+ 364 0060 8C4B     		ldr	r3, .L68+24
+ 365 0062 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 366              		.loc 1 58 16 view .LVU64
+ 367 0064 022B     		cmp	r3, #2
+ 368 0066 40F08180 		bne	.L13
+ 369              		.loc 1 58 80 discriminator 1 view .LVU65
+ 370 006a 8B4B     		ldr	r3, .L68+28
+ 371 006c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 372              		.loc 1 58 55 discriminator 1 view .LVU66
+ 373 006e 022B     		cmp	r3, #2
+ 374 0070 7CD0     		beq	.L13
+  59:Core/Src/alrm_logic.c **** 						alarm_p->alarm_state = SET_ALARM;
+ 375              		.loc 1 59 7 is_stmt 1 view .LVU67
+ 376              		.loc 1 59 14 is_stmt 0 view .LVU68
+ 377 0072 824B     		ldr	r3, .L68
+ 378 0074 1B68     		ldr	r3, [r3]
+ 379              		.loc 1 59 28 view .LVU69
+ 380 0076 0322     		movs	r2, #3
+ 381 0078 1A70     		strb	r2, [r3]
+  60:Core/Src/alrm_logic.c **** 						Displ_CLS(BLACK);
+ 382              		.loc 1 60 7 is_stmt 1 view .LVU70
+ 383 007a 0020     		movs	r0, #0
+ 384 007c FFF7FEFF 		bl	Displ_CLS
+ 385              	.LVL24:
+ 386 0080 74E0     		b	.L13
+ 387              	.L49:
+  50:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = RING;
+ 388              		.loc 1 50 5 view .LVU71
+  50:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = RING;
+ 389              		.loc 1 50 18 is_stmt 0 view .LVU72
+ 390 0082 0020     		movs	r0, #0
+ 391 0084 814B     		ldr	r3, .L68+16
+ 392 0086 1880     		strh	r0, [r3]	@ movhi
+  51:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 393              		.loc 1 51 5 is_stmt 1 view .LVU73
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 9
 
 
-  66:Core/Src/alrm_logic.c **** 			break;
-  67:Core/Src/alrm_logic.c **** 		}
-  68:Core/Src/alrm_logic.c **** 		
-  69:Core/Src/alrm_logic.c **** 		case SET_TIME:{
-  70:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
-  71:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
-  72:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
-  73:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 1;
-  74:Core/Src/alrm_logic.c **** 			}
-  75:Core/Src/alrm_logic.c **** 			
-  76:Core/Src/alrm_logic.c **** 			// First check if we are exiting time set mode
-  77:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
-  78:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
-  79:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
-  80:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
-  81:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
-  82:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
-  83:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
-  84:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
-  85:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
-  86:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
-  87:Core/Src/alrm_logic.c **** 				return; // Skip the rest
-  88:Core/Src/alrm_logic.c **** 			}
-  89:Core/Src/alrm_logic.c **** 			
-  90:Core/Src/alrm_logic.c **** 			// Increment hours on short press of button0
-  91:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
-  92:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
-  93:Core/Src/alrm_logic.c **** 			}
-  94:Core/Src/alrm_logic.c **** 			
-  95:Core/Src/alrm_logic.c **** 			// Increment minutes on short press of button1
-  96:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
-  97:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
-  98:Core/Src/alrm_logic.c **** 			}
-  99:Core/Src/alrm_logic.c **** 			
- 100:Core/Src/alrm_logic.c **** 			// Increment hours quickly on long press of button0
- 101:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 102:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 103:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 104:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
- 105:Core/Src/alrm_logic.c **** 				
- 106:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 107:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
- 108:Core/Src/alrm_logic.c **** 				} else {
- 109:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 110:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 111:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 112:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 113:Core/Src/alrm_logic.c **** 					}
- 114:Core/Src/alrm_logic.c **** 				}
- 115:Core/Src/alrm_logic.c **** 				
- 116:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == IDLE){
- 117:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 118:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 119:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+  51:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 394              		.loc 1 51 12 is_stmt 0 view .LVU74
+ 395 0088 7C4B     		ldr	r3, .L68
+ 396 008a 1B68     		ldr	r3, [r3]
+  51:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 397              		.loc 1 51 26 view .LVU75
+ 398 008c 0122     		movs	r2, #1
+ 399 008e 1A70     		strb	r2, [r3]
+  52:Core/Src/alrm_logic.c **** 			} else {
+ 400              		.loc 1 52 5 is_stmt 1 view .LVU76
+ 401 0090 FFF7FEFF 		bl	Displ_CLS
+ 402              	.LVL25:
+ 403 0094 6AE0     		b	.L13
+ 404              	.L50:
+  54:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
+ 405              		.loc 1 54 72 is_stmt 0 discriminator 1 view .LVU77
+ 406 0096 814B     		ldr	r3, .L68+32
+ 407 0098 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  54:Core/Src/alrm_logic.c **** 					&& But1_press_state != BUTTON_LONG_PRESS){
+ 408              		.loc 1 54 47 discriminator 1 view .LVU78
+ 409 009a 022B     		cmp	r3, #2
+ 410 009c E0D0     		beq	.L21
+  55:Core/Src/alrm_logic.c **** 					alarm_p->alarm_state = SET_TIME;
+ 411              		.loc 1 55 26 view .LVU79
+ 412 009e 7D4B     		ldr	r3, .L68+24
+ 413 00a0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  55:Core/Src/alrm_logic.c **** 					alarm_p->alarm_state = SET_TIME;
+ 414              		.loc 1 55 6 view .LVU80
+ 415 00a2 022B     		cmp	r3, #2
+ 416 00a4 DCD0     		beq	.L21
+  56:Core/Src/alrm_logic.c **** 					Displ_CLS(BLACK);
+ 417              		.loc 1 56 6 is_stmt 1 view .LVU81
+  56:Core/Src/alrm_logic.c **** 					Displ_CLS(BLACK);
+ 418              		.loc 1 56 13 is_stmt 0 view .LVU82
+ 419 00a6 754B     		ldr	r3, .L68
+ 420 00a8 1B68     		ldr	r3, [r3]
+  56:Core/Src/alrm_logic.c **** 					Displ_CLS(BLACK);
+ 421              		.loc 1 56 27 view .LVU83
+ 422 00aa 0222     		movs	r2, #2
+ 423 00ac 1A70     		strb	r2, [r3]
+  57:Core/Src/alrm_logic.c **** 					} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS
+ 424              		.loc 1 57 6 is_stmt 1 view .LVU84
+ 425 00ae 0020     		movs	r0, #0
+ 426 00b0 FFF7FEFF 		bl	Displ_CLS
+ 427              	.LVL26:
+ 428 00b4 5AE0     		b	.L13
+ 429              	.L18:
+  61:Core/Src/alrm_logic.c **** 					}
+  62:Core/Src/alrm_logic.c **** 			}
+  63:Core/Src/alrm_logic.c **** 			break;
+  64:Core/Src/alrm_logic.c **** 		}
+  65:Core/Src/alrm_logic.c **** 		
+  66:Core/Src/alrm_logic.c **** 		case RING:{
+  67:Core/Src/alrm_logic.c **** 			Displ_WString(15, 30, "ALARM!", Font24, 1, RED, BLACK);
+ 430              		.loc 1 67 4 view .LVU85
+ 431 00b6 744D     		ldr	r5, .L68+12
+ 432 00b8 4FF00008 		mov	r8, #0
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 10
+
+
+ 433 00bc CDF81080 		str	r8, [sp, #16]
+ 434 00c0 1F23     		movs	r3, #31
+ 435 00c2 0393     		str	r3, [sp, #12]
+ 436 00c4 0127     		movs	r7, #1
+ 437 00c6 0297     		str	r7, [sp, #8]
+ 438 00c8 2C1D     		adds	r4, r5, #4
+ 439 00ca 94E80300 		ldm	r4, {r0, r1}
+ 440 00ce 8DE80300 		stm	sp, {r0, r1}
+ 441 00d2 2B68     		ldr	r3, [r5]
+ 442 00d4 724A     		ldr	r2, .L68+36
+ 443 00d6 1E21     		movs	r1, #30
+ 444 00d8 0F20     		movs	r0, #15
+ 445 00da FFF7FEFF 		bl	Displ_WString
+ 446              	.LVL27:
+  68:Core/Src/alrm_logic.c **** 			create_time_string(sTime.Hours, sTime.Minutes, time_str);
+ 447              		.loc 1 68 4 view .LVU86
+ 448 00de 684E     		ldr	r6, .L68+4
+ 449 00e0 684B     		ldr	r3, .L68+8
+ 450 00e2 3246     		mov	r2, r6
+ 451 00e4 5978     		ldrb	r1, [r3, #1]	@ zero_extendqisi2
+ 452 00e6 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 453 00e8 FFF7FEFF 		bl	create_time_string
+ 454              	.LVL28:
+  69:Core/Src/alrm_logic.c **** 			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
+ 455              		.loc 1 69 4 view .LVU87
+ 456 00ec CDF81080 		str	r8, [sp, #16]
+ 457 00f0 4FF4FC63 		mov	r3, #2016
+ 458 00f4 0393     		str	r3, [sp, #12]
+ 459 00f6 0297     		str	r7, [sp, #8]
+ 460 00f8 94E80300 		ldm	r4, {r0, r1}
+ 461 00fc 8DE80300 		stm	sp, {r0, r1}
+ 462 0100 2B68     		ldr	r3, [r5]
+ 463 0102 3246     		mov	r2, r6
+ 464 0104 3421     		movs	r1, #52
+ 465 0106 1420     		movs	r0, #20
+ 466 0108 FFF7FEFF 		bl	Displ_WString
+ 467              	.LVL29:
+  70:Core/Src/alrm_logic.c **** 
+  71:Core/Src/alrm_logic.c **** 			if(!alarm_p->ring_flag){
+ 468              		.loc 1 71 4 view .LVU88
+ 469              		.loc 1 71 15 is_stmt 0 view .LVU89
+ 470 010c 5B4B     		ldr	r3, .L68
+ 471 010e 1B68     		ldr	r3, [r3]
+ 472 0110 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 473              		.loc 1 71 6 view .LVU90
+ 474 0112 C2B1     		cbz	r2, .L51
+ 475              	.L22:
+  72:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 1;
+  73:Core/Src/alrm_logic.c **** 				leds_blink_start();                                
+  74:Core/Src/alrm_logic.c **** 			} else{}
+ 476              		.loc 1 74 11 is_stmt 1 view .LVU91
+  75:Core/Src/alrm_logic.c **** 
+  76:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_SHORT_PRESS || But1_press_state == BUTTON_SHORT_PRESS || 
+ 477              		.loc 1 76 4 view .LVU92
+ 478              		.loc 1 76 24 is_stmt 0 view .LVU93
+ 479 0114 5E4B     		ldr	r3, .L68+20
+ 480 0116 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 11
+
+
+ 481              		.loc 1 76 6 view .LVU94
+ 482 0118 012B     		cmp	r3, #1
+ 483 011a 1CD0     		beq	.L23
+ 484              		.loc 1 76 66 discriminator 1 view .LVU95
+ 485 011c 5D4A     		ldr	r2, .L68+24
+ 486 011e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 487              		.loc 1 76 46 discriminator 1 view .LVU96
+ 488 0120 012A     		cmp	r2, #1
+ 489 0122 18D0     		beq	.L23
+ 490              		.loc 1 76 88 discriminator 2 view .LVU97
+ 491 0124 022B     		cmp	r3, #2
+ 492 0126 12D0     		beq	.L52
+ 493              	.L24:
+  77:Core/Src/alrm_logic.c **** 					(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS) || 
+ 494              		.loc 1 77 92 discriminator 1 view .LVU98
+ 495 0128 022A     		cmp	r2, #2
+ 496 012a 22D0     		beq	.L53
+ 497              	.L25:
+  78:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
+  79:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+  80:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+  81:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
+  82:Core/Src/alrm_logic.c **** 				leds_blink_stop();
+  83:Core/Src/alrm_logic.c **** 			} else if (alarm_led->led_cur_state == DIM){
+ 498              		.loc 1 83 11 is_stmt 1 view .LVU99
+ 499              		.loc 1 83 24 is_stmt 0 view .LVU100
+ 500 012c 5D4B     		ldr	r3, .L68+40
+ 501 012e 1B68     		ldr	r3, [r3]
+ 502 0130 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 503              		.loc 1 83 14 view .LVU101
+ 504 0132 DBB9     		cbnz	r3, .L13
+  84:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
+ 505              		.loc 1 84 5 is_stmt 1 view .LVU102
+ 506              		.loc 1 84 12 is_stmt 0 view .LVU103
+ 507 0134 514B     		ldr	r3, .L68
+ 508 0136 1A68     		ldr	r2, [r3]
+ 509              		.loc 1 84 24 view .LVU104
+ 510 0138 0020     		movs	r0, #0
+ 511 013a 5070     		strb	r0, [r2, #1]
+  85:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 512              		.loc 1 85 5 is_stmt 1 view .LVU105
+ 513              		.loc 1 85 12 is_stmt 0 view .LVU106
+ 514 013c 1B68     		ldr	r3, [r3]
+ 515              		.loc 1 85 26 view .LVU107
+ 516 013e 1870     		strb	r0, [r3]
+  86:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 517              		.loc 1 86 5 is_stmt 1 view .LVU108
+ 518 0140 FFF7FEFF 		bl	Displ_CLS
+ 519              	.LVL30:
+ 520 0144 12E0     		b	.L13
+ 521              	.L51:
+  72:Core/Src/alrm_logic.c **** 				leds_blink_start();                                
+ 522              		.loc 1 72 5 view .LVU109
+  72:Core/Src/alrm_logic.c **** 				leds_blink_start();                                
+ 523              		.loc 1 72 24 is_stmt 0 view .LVU110
+ 524 0146 5F70     		strb	r7, [r3, #1]
+  73:Core/Src/alrm_logic.c **** 			} else{}
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 12
+
+
+ 525              		.loc 1 73 5 is_stmt 1 view .LVU111
+ 526 0148 FFF7FEFF 		bl	leds_blink_start
+ 527              	.LVL31:
+ 528 014c E2E7     		b	.L22
+ 529              	.L52:
+  77:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
+ 530              		.loc 1 77 70 is_stmt 0 view .LVU112
+ 531 014e 534B     		ldr	r3, .L68+32
+ 532 0150 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  77:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
+ 533              		.loc 1 77 45 view .LVU113
+ 534 0152 022B     		cmp	r3, #2
+ 535 0154 E8D0     		beq	.L24
+ 536              	.L23:
+  79:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 537              		.loc 1 79 5 is_stmt 1 view .LVU114
+  79:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 538              		.loc 1 79 12 is_stmt 0 view .LVU115
+ 539 0156 494D     		ldr	r5, .L68
+ 540 0158 2B68     		ldr	r3, [r5]
+  79:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 541              		.loc 1 79 26 view .LVU116
+ 542 015a 0024     		movs	r4, #0
+ 543 015c 1C70     		strb	r4, [r3]
+  80:Core/Src/alrm_logic.c **** 				alarm_p->ring_flag = 0;
+ 544              		.loc 1 80 5 is_stmt 1 view .LVU117
+ 545 015e 2046     		mov	r0, r4
+ 546 0160 FFF7FEFF 		bl	Displ_CLS
+ 547              	.LVL32:
+  81:Core/Src/alrm_logic.c **** 				leds_blink_stop();
+ 548              		.loc 1 81 5 view .LVU118
+  81:Core/Src/alrm_logic.c **** 				leds_blink_stop();
+ 549              		.loc 1 81 12 is_stmt 0 view .LVU119
+ 550 0164 2B68     		ldr	r3, [r5]
+  81:Core/Src/alrm_logic.c **** 				leds_blink_stop();
+ 551              		.loc 1 81 24 view .LVU120
+ 552 0166 5C70     		strb	r4, [r3, #1]
+  82:Core/Src/alrm_logic.c **** 			} else if (alarm_led->led_cur_state == DIM){
+ 553              		.loc 1 82 5 is_stmt 1 view .LVU121
+ 554 0168 FFF7FEFF 		bl	leds_blink_stop
+ 555              	.LVL33:
+ 556              	.L13:
+  87:Core/Src/alrm_logic.c **** 			}
+  88:Core/Src/alrm_logic.c **** 			break;
+  89:Core/Src/alrm_logic.c **** 		}
+  90:Core/Src/alrm_logic.c **** 		
+  91:Core/Src/alrm_logic.c **** 		case SET_TIME:{
+  92:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
+  93:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
+  94:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
+  95:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 1;
+  96:Core/Src/alrm_logic.c **** 			}
+  97:Core/Src/alrm_logic.c **** 			
+  98:Core/Src/alrm_logic.c **** 			// First check if we are exiting time set mode
+  99:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 100:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 101:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 13
+
+
+ 102:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
+ 103:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
+ 104:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 105:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 106:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 107:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 108:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 109:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 110:Core/Src/alrm_logic.c **** 				return; // Skip the rest
+ 111:Core/Src/alrm_logic.c **** 			}
+ 112:Core/Src/alrm_logic.c **** 
+ 113:Core/Src/alrm_logic.c **** 			Displ_WString(10, 10, "Set time:", Font16, 1, YELLOW, BLACK);
+ 114:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->time_set_hours, alarm_p->time_set_minutes, time_str);
+ 115:Core/Src/alrm_logic.c **** 			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
+ 116:Core/Src/alrm_logic.c **** 			
+ 117:Core/Src/alrm_logic.c **** 			// Increment hours on short press of button0
+ 118:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ 119:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
  120:Core/Src/alrm_logic.c **** 			}
  121:Core/Src/alrm_logic.c **** 			
- 122:Core/Src/alrm_logic.c **** 			// Increment minutes quickly on long press of button1
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 10
-
-
- 123:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 124:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 125:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 126:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
- 127:Core/Src/alrm_logic.c **** 										
- 128:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 129:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
- 130:Core/Src/alrm_logic.c **** 				} else {
- 131:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 132:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 133:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 134:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 135:Core/Src/alrm_logic.c **** 					}
- 136:Core/Src/alrm_logic.c **** 				}
- 137:Core/Src/alrm_logic.c **** 				
- 138:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == IDLE){
- 139:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 140:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 141:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 142:Core/Src/alrm_logic.c **** 			}
- 143:Core/Src/alrm_logic.c **** 			
- 144:Core/Src/alrm_logic.c **** 			break;
- 145:Core/Src/alrm_logic.c **** 		}
- 146:Core/Src/alrm_logic.c **** 		
- 147:Core/Src/alrm_logic.c **** 		case SET_ALARM:{
+ 122:Core/Src/alrm_logic.c **** 			// Increment minutes on short press of button1
+ 123:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 124:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 125:Core/Src/alrm_logic.c **** 			}
+ 126:Core/Src/alrm_logic.c **** 			
+ 127:Core/Src/alrm_logic.c **** 			// Increment hours quickly on long press of button0
+ 128:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 129:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 130:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 131:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
+ 132:Core/Src/alrm_logic.c **** 				
+ 133:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 134:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
+ 135:Core/Src/alrm_logic.c **** 				} else {
+ 136:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 137:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 138:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 139:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 140:Core/Src/alrm_logic.c **** 					}
+ 141:Core/Src/alrm_logic.c **** 				}
+ 142:Core/Src/alrm_logic.c **** 				
+ 143:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_IDLE){
+ 144:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 145:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 146:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 147:Core/Src/alrm_logic.c **** 			}
  148:Core/Src/alrm_logic.c **** 			
- 149:Core/Src/alrm_logic.c **** //				if(!alarm_p->alarm_set_flag){
- 150:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_hours = sTime.Hours;
- 151:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_minutes = sTime.Minutes;
- 152:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_flag = 1;
- 153:Core/Src/alrm_logic.c **** //			}
- 154:Core/Src/alrm_logic.c **** 			
- 155:Core/Src/alrm_logic.c **** 			// First check if we are exiting alarm set mode
- 156:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 157:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
- 158:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
- 159:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_flag = 0;
- 160:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 161:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 162:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 163:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 164:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 165:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 166:Core/Src/alrm_logic.c **** 				return; // Skip the rest
- 167:Core/Src/alrm_logic.c **** 			}
- 168:Core/Src/alrm_logic.c **** 			
- 169:Core/Src/alrm_logic.c **** 			// Increment hours on short press of button0
- 170:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
- 171:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 172:Core/Src/alrm_logic.c **** 			}
- 173:Core/Src/alrm_logic.c **** 			
- 174:Core/Src/alrm_logic.c **** 			// Increment minutes on short press of button1
- 175:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
- 176:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 177:Core/Src/alrm_logic.c **** 			}
- 178:Core/Src/alrm_logic.c **** 			
- 179:Core/Src/alrm_logic.c **** 			// Increment hours quickly on long press of button0
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 11
+ 149:Core/Src/alrm_logic.c **** 			// Increment minutes quickly on long press of button1
+ 150:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 151:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 152:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 153:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
+ 154:Core/Src/alrm_logic.c **** 										
+ 155:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 156:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
+ 157:Core/Src/alrm_logic.c **** 				} else {
+ 158:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 14
 
 
- 180:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 181:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 182:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 183:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
- 184:Core/Src/alrm_logic.c **** 				
- 185:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 186:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
- 187:Core/Src/alrm_logic.c **** 				} else {
- 188:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 189:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 190:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 191:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 192:Core/Src/alrm_logic.c **** 					}
- 193:Core/Src/alrm_logic.c **** 				}
- 194:Core/Src/alrm_logic.c **** 				
- 195:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == IDLE){
- 196:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 197:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 198:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 199:Core/Src/alrm_logic.c **** 			}
+ 159:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 160:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 161:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 162:Core/Src/alrm_logic.c **** 					}
+ 163:Core/Src/alrm_logic.c **** 				}
+ 164:Core/Src/alrm_logic.c **** 				
+ 165:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_IDLE){
+ 166:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 167:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 168:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 169:Core/Src/alrm_logic.c **** 			}
+ 170:Core/Src/alrm_logic.c **** 			
+ 171:Core/Src/alrm_logic.c **** 			break;
+ 172:Core/Src/alrm_logic.c **** 		}
+ 173:Core/Src/alrm_logic.c **** 		
+ 174:Core/Src/alrm_logic.c **** 		case SET_ALARM:{
+ 175:Core/Src/alrm_logic.c **** 			
+ 176:Core/Src/alrm_logic.c **** //				if(!alarm_p->alarm_set_flag){
+ 177:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_hours = sTime.Hours;
+ 178:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_minutes = sTime.Minutes;
+ 179:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_flag = 1;
+ 180:Core/Src/alrm_logic.c **** //			}
+ 181:Core/Src/alrm_logic.c **** 			
+ 182:Core/Src/alrm_logic.c **** 			// First check if we are exiting alarm set mode
+ 183:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 184:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 185:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 186:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
+ 187:Core/Src/alrm_logic.c **** //				alarm_p->alarm_set_flag = 0;
+ 188:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 189:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 190:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 191:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 192:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 193:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 194:Core/Src/alrm_logic.c **** 				return; // Skip the rest
+ 195:Core/Src/alrm_logic.c **** 			}
+ 196:Core/Src/alrm_logic.c **** 
+ 197:Core/Src/alrm_logic.c **** 			Displ_WString(10, 10, "Set alarm:", Font16, 1, YELLOW, BLACK);
+ 198:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, time_str);
+ 199:Core/Src/alrm_logic.c **** 			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
  200:Core/Src/alrm_logic.c **** 			
- 201:Core/Src/alrm_logic.c **** 			// Increment minutes quickly on long press of button1
- 202:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 203:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 204:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 205:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
- 206:Core/Src/alrm_logic.c **** 										
- 207:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 208:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
- 209:Core/Src/alrm_logic.c **** 				} else {
- 210:Core/Src/alrm_logic.c **** 					
- 211:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 212:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 213:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 214:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 215:Core/Src/alrm_logic.c **** 					}
- 216:Core/Src/alrm_logic.c **** 				}
- 217:Core/Src/alrm_logic.c **** 				
- 218:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == IDLE){
- 219:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 220:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 221:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 222:Core/Src/alrm_logic.c **** 			}
- 223:Core/Src/alrm_logic.c **** 			
- 224:Core/Src/alrm_logic.c **** 			
- 225:Core/Src/alrm_logic.c **** 			break;
- 226:Core/Src/alrm_logic.c **** 		}
- 227:Core/Src/alrm_logic.c **** 			
- 228:Core/Src/alrm_logic.c **** 	}
- 229:Core/Src/alrm_logic.c **** 
- 230:Core/Src/alrm_logic.c **** }...
- 379              		.loc 1 230 1 is_stmt 0 view .LVU94
- 380 00b0 38BD     		pop	{r3, r4, r5, pc}
- 381              	.L48:
-  58:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
- 382              		.loc 1 58 70 view .LVU95
- 383 00b2 5A4B     		ldr	r3, .L63+16
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 12
+ 201:Core/Src/alrm_logic.c **** 			// Increment hours on short press of button0
+ 202:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ 203:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 204:Core/Src/alrm_logic.c **** 			}
+ 205:Core/Src/alrm_logic.c **** 			
+ 206:Core/Src/alrm_logic.c **** 			// Increment minutes on short press of button1
+ 207:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 208:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 209:Core/Src/alrm_logic.c **** 			}
+ 210:Core/Src/alrm_logic.c **** 			
+ 211:Core/Src/alrm_logic.c **** 			// Increment hours quickly on long press of button0
+ 212:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 213:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 214:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 215:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 15
 
 
- 384 00b4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  58:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
- 385              		.loc 1 58 45 view .LVU96
- 386 00b6 022B     		cmp	r3, #2
- 387 00b8 F2D1     		bne	.L19
- 388 00ba DEE7     		b	.L21
- 389              	.L13:
-  70:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
- 390              		.loc 1 70 4 is_stmt 1 view .LVU97
-  70:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
- 391              		.loc 1 70 15 is_stmt 0 view .LVU98
- 392 00bc A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
-  70:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
- 393              		.loc 1 70 6 view .LVU99
- 394 00be 33B9     		cbnz	r3, .L22
-  71:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
- 395              		.loc 1 71 5 is_stmt 1 view .LVU100
-  71:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
- 396              		.loc 1 71 36 is_stmt 0 view .LVU101
- 397 00c0 594B     		ldr	r3, .L63+28
- 398 00c2 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
-  71:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
- 399              		.loc 1 71 29 view .LVU102
- 400 00c4 2271     		strb	r2, [r4, #4]
-  72:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
- 401              		.loc 1 72 5 is_stmt 1 view .LVU103
-  72:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
- 402              		.loc 1 72 38 is_stmt 0 view .LVU104
- 403 00c6 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
-  72:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
- 404              		.loc 1 72 31 view .LVU105
- 405 00c8 6371     		strb	r3, [r4, #5]
-  73:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 1;
- 406              		.loc 1 73 5 is_stmt 1 view .LVU106
-  73:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 1;
- 407              		.loc 1 73 28 is_stmt 0 view .LVU107
- 408 00ca 0123     		movs	r3, #1
- 409 00cc A370     		strb	r3, [r4, #2]
- 410              	.L22:
-  77:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 411              		.loc 1 77 4 is_stmt 1 view .LVU108
-  77:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 412              		.loc 1 77 25 is_stmt 0 view .LVU109
- 413 00ce 514B     		ldr	r3, .L63+8
- 414 00d0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  77:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 415              		.loc 1 77 7 view .LVU110
- 416 00d2 022B     		cmp	r3, #2
- 417 00d4 21D0     		beq	.L49
- 418              	.L23:
-  91:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
- 419              		.loc 1 91 4 is_stmt 1 view .LVU111
-  91:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
- 420              		.loc 1 91 7 is_stmt 0 view .LVU112
- 421 00d6 012B     		cmp	r3, #1
- 422 00d8 37D0     		beq	.L50
- 423              	.L24:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 13
+ 216:Core/Src/alrm_logic.c **** 				
+ 217:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 218:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
+ 219:Core/Src/alrm_logic.c **** 				} else {
+ 220:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 221:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 222:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 223:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 224:Core/Src/alrm_logic.c **** 					}
+ 225:Core/Src/alrm_logic.c **** 				}
+ 226:Core/Src/alrm_logic.c **** 				
+ 227:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_IDLE){
+ 228:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 229:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 230:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 231:Core/Src/alrm_logic.c **** 			}
+ 232:Core/Src/alrm_logic.c **** 			
+ 233:Core/Src/alrm_logic.c **** 			// Increment minutes quickly on long press of button1
+ 234:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 235:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 236:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 237:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
+ 238:Core/Src/alrm_logic.c **** 										
+ 239:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 240:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
+ 241:Core/Src/alrm_logic.c **** 				} else {
+ 242:Core/Src/alrm_logic.c **** 					
+ 243:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ 244:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 245:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 246:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 247:Core/Src/alrm_logic.c **** 					}
+ 248:Core/Src/alrm_logic.c **** 				}
+ 249:Core/Src/alrm_logic.c **** 				
+ 250:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_IDLE){
+ 251:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 252:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 253:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 254:Core/Src/alrm_logic.c **** 			}
+ 255:Core/Src/alrm_logic.c **** 			
+ 256:Core/Src/alrm_logic.c **** 			
+ 257:Core/Src/alrm_logic.c **** 			break;
+ 258:Core/Src/alrm_logic.c **** 		}
+ 259:Core/Src/alrm_logic.c **** 			
+ 260:Core/Src/alrm_logic.c **** 	}
+ 261:Core/Src/alrm_logic.c **** 
+ 262:Core/Src/alrm_logic.c **** }...
+ 557              		.loc 1 262 1 is_stmt 0 view .LVU122
+ 558 016c 06B0     		add	sp, sp, #24
+ 559              		.cfi_remember_state
+ 560              		.cfi_def_cfa_offset 24
+ 561              		@ sp needed
+ 562 016e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 563              	.L53:
+ 564              		.cfi_restore_state
+  78:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
+ 565              		.loc 1 78 70 view .LVU123
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 16
 
 
-  96:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
- 424              		.loc 1 96 4 is_stmt 1 view .LVU113
-  96:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
- 425              		.loc 1 96 25 is_stmt 0 view .LVU114
- 426 00da 4F4B     		ldr	r3, .L63+12
- 427 00dc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  96:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
- 428              		.loc 1 96 7 view .LVU115
- 429 00de 012B     		cmp	r3, #1
- 430 00e0 3BD0     		beq	.L51
- 431              	.L25:
- 101:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 432              		.loc 1 101 4 is_stmt 1 view .LVU116
- 101:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 433              		.loc 1 101 24 is_stmt 0 view .LVU117
- 434 00e2 4C4B     		ldr	r3, .L63+8
- 435 00e4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 101:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 436              		.loc 1 101 6 view .LVU118
- 437 00e6 022B     		cmp	r3, #2
- 438 00e8 3FD0     		beq	.L52
- 439              	.L26:
- 103:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 440              		.loc 1 103 11 is_stmt 1 view .LVU119
- 103:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 441              		.loc 1 103 14 is_stmt 0 view .LVU120
- 442 00ea 022B     		cmp	r3, #2
- 443 00ec 46D0     		beq	.L53
- 444              	.L28:
- 116:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == IDLE){
- 445              		.loc 1 116 11 is_stmt 1 view .LVU121
- 116:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == IDLE){
- 446              		.loc 1 116 14 is_stmt 0 view .LVU122
- 447 00ee 2BB9     		cbnz	r3, .L27
- 117:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 448              		.loc 1 117 5 is_stmt 1 view .LVU123
- 117:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 449              		.loc 1 117 12 is_stmt 0 view .LVU124
- 450 00f0 464B     		ldr	r3, .L63
- 451 00f2 1B68     		ldr	r3, [r3]
- 117:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 452              		.loc 1 117 32 view .LVU125
- 453 00f4 0022     		movs	r2, #0
- 454 00f6 1A72     		strb	r2, [r3, #8]
- 118:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 455              		.loc 1 118 5 is_stmt 1 view .LVU126
- 118:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 456              		.loc 1 118 39 is_stmt 0 view .LVU127
- 457 00f8 5A81     		strh	r2, [r3, #10]	@ movhi
- 119:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 458              		.loc 1 119 5 is_stmt 1 view .LVU128
- 119:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 459              		.loc 1 119 39 is_stmt 0 view .LVU129
- 460 00fa 9A73     		strb	r2, [r3, #14]
- 461              	.L27:
- 123:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 462              		.loc 1 123 4 is_stmt 1 view .LVU130
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 14
+ 566 0172 494B     		ldr	r3, .L68+28
+ 567 0174 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  78:Core/Src/alrm_logic.c **** 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
+ 568              		.loc 1 78 45 view .LVU124
+ 569 0176 022B     		cmp	r3, #2
+ 570 0178 EDD1     		bne	.L23
+ 571 017a D7E7     		b	.L25
+ 572              	.L17:
+  92:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
+ 573              		.loc 1 92 4 is_stmt 1 view .LVU125
+  92:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
+ 574              		.loc 1 92 15 is_stmt 0 view .LVU126
+ 575 017c 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+  92:Core/Src/alrm_logic.c **** 			if(!alarm_p->time_set_flag){
+ 576              		.loc 1 92 6 view .LVU127
+ 577 017e 33B9     		cbnz	r3, .L26
+  93:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
+ 578              		.loc 1 93 5 is_stmt 1 view .LVU128
+  93:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
+ 579              		.loc 1 93 36 is_stmt 0 view .LVU129
+ 580 0180 404B     		ldr	r3, .L68+8
+ 581 0182 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+  93:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = sTime.Hours;
+ 582              		.loc 1 93 29 view .LVU130
+ 583 0184 1171     		strb	r1, [r2, #4]
+  94:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
+ 584              		.loc 1 94 5 is_stmt 1 view .LVU131
+  94:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
+ 585              		.loc 1 94 38 is_stmt 0 view .LVU132
+ 586 0186 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+  94:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = sTime.Minutes;
+ 587              		.loc 1 94 31 view .LVU133
+ 588 0188 5371     		strb	r3, [r2, #5]
+  95:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 1;
+ 589              		.loc 1 95 5 is_stmt 1 view .LVU134
+  95:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 1;
+ 590              		.loc 1 95 28 is_stmt 0 view .LVU135
+ 591 018a 0123     		movs	r3, #1
+ 592 018c 9370     		strb	r3, [r2, #2]
+ 593              	.L26:
+  99:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 594              		.loc 1 99 4 is_stmt 1 view .LVU136
+  99:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 595              		.loc 1 99 25 is_stmt 0 view .LVU137
+ 596 018e 404B     		ldr	r3, .L68+20
+ 597 0190 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  99:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 598              		.loc 1 99 7 view .LVU138
+ 599 0192 022B     		cmp	r3, #2
+ 600 0194 03D1     		bne	.L27
+  99:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 601              		.loc 1 99 66 discriminator 1 view .LVU139
+ 602 0196 3F4B     		ldr	r3, .L68+24
+ 603 0198 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  99:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 604              		.loc 1 99 46 discriminator 1 view .LVU140
+ 605 019a 022B     		cmp	r3, #2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 17
 
 
- 123:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 463              		.loc 1 123 24 is_stmt 0 view .LVU131
- 464 00fc 464B     		ldr	r3, .L63+12
- 465 00fe 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 123:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 466              		.loc 1 123 6 view .LVU132
- 467 0100 022B     		cmp	r3, #2
- 468 0102 5AD0     		beq	.L54
- 469              	.L30:
- 125:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 470              		.loc 1 125 11 is_stmt 1 view .LVU133
- 125:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 471              		.loc 1 125 14 is_stmt 0 view .LVU134
- 472 0104 022B     		cmp	r3, #2
- 473 0106 61D0     		beq	.L55
- 474              	.L31:
- 138:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == IDLE){
- 475              		.loc 1 138 11 is_stmt 1 view .LVU135
- 138:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == IDLE){
- 476              		.loc 1 138 14 is_stmt 0 view .LVU136
- 477 0108 002B     		cmp	r3, #0
- 478 010a D1D1     		bne	.L9
- 139:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 479              		.loc 1 139 5 is_stmt 1 view .LVU137
- 139:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 480              		.loc 1 139 12 is_stmt 0 view .LVU138
- 481 010c 3F4B     		ldr	r3, .L63
- 482 010e 1B68     		ldr	r3, [r3]
- 139:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 483              		.loc 1 139 34 view .LVU139
- 484 0110 0022     		movs	r2, #0
- 485 0112 5A72     		strb	r2, [r3, #9]
- 140:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 486              		.loc 1 140 5 is_stmt 1 view .LVU140
- 140:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 487              		.loc 1 140 41 is_stmt 0 view .LVU141
- 488 0114 9A81     		strh	r2, [r3, #12]	@ movhi
- 141:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 489              		.loc 1 141 5 is_stmt 1 view .LVU142
- 141:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 490              		.loc 1 141 41 is_stmt 0 view .LVU143
- 491 0116 DA73     		strb	r2, [r3, #15]
- 492 0118 CAE7     		b	.L9
- 493              	.L49:
-  77:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 494              		.loc 1 77 66 discriminator 1 view .LVU144
- 495 011a 3F4A     		ldr	r2, .L63+12
- 496 011c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
-  77:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 497              		.loc 1 77 46 discriminator 1 view .LVU145
- 498 011e 022A     		cmp	r2, #2
- 499 0120 D9D1     		bne	.L23
-  78:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
- 500              		.loc 1 78 5 is_stmt 1 view .LVU146
-  78:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
- 501              		.loc 1 78 12 is_stmt 0 view .LVU147
- 502 0122 3A4D     		ldr	r5, .L63
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 15
+ 606 019c 4FD0     		beq	.L54
+ 607              	.L27:
+ 113:Core/Src/alrm_logic.c **** 			Displ_WString(10, 10, "Set time:", Font16, 1, YELLOW, BLACK);
+ 608              		.loc 1 113 4 is_stmt 1 view .LVU141
+ 609 019e 424B     		ldr	r3, .L68+44
+ 610 01a0 0026     		movs	r6, #0
+ 611 01a2 0496     		str	r6, [sp, #16]
+ 612 01a4 40F2FF72 		movw	r2, #2047
+ 613 01a8 0392     		str	r2, [sp, #12]
+ 614 01aa 0125     		movs	r5, #1
+ 615 01ac 0295     		str	r5, [sp, #8]
+ 616 01ae 1A1D     		adds	r2, r3, #4
+ 617 01b0 92E80300 		ldm	r2, {r0, r1}
+ 618 01b4 8DE80300 		stm	sp, {r0, r1}
+ 619 01b8 1B68     		ldr	r3, [r3]
+ 620 01ba 3C4A     		ldr	r2, .L68+48
+ 621 01bc 0A21     		movs	r1, #10
+ 622 01be 0846     		mov	r0, r1
+ 623 01c0 FFF7FEFF 		bl	Displ_WString
+ 624              	.LVL34:
+ 114:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->time_set_hours, alarm_p->time_set_minutes, time_str);
+ 625              		.loc 1 114 4 view .LVU142
+ 114:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->time_set_hours, alarm_p->time_set_minutes, time_str);
+ 626              		.loc 1 114 30 is_stmt 0 view .LVU143
+ 627 01c4 2D4B     		ldr	r3, .L68
+ 628 01c6 1B68     		ldr	r3, [r3]
+ 114:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->time_set_hours, alarm_p->time_set_minutes, time_str);
+ 629              		.loc 1 114 4 view .LVU144
+ 630 01c8 2D4C     		ldr	r4, .L68+4
+ 631 01ca 2246     		mov	r2, r4
+ 632 01cc 5979     		ldrb	r1, [r3, #5]	@ zero_extendqisi2
+ 633 01ce 1879     		ldrb	r0, [r3, #4]	@ zero_extendqisi2
+ 634 01d0 FFF7FEFF 		bl	create_time_string
+ 635              	.LVL35:
+ 115:Core/Src/alrm_logic.c **** 			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
+ 636              		.loc 1 115 4 is_stmt 1 view .LVU145
+ 637 01d4 2C4B     		ldr	r3, .L68+12
+ 638 01d6 0496     		str	r6, [sp, #16]
+ 639 01d8 4FF4FC62 		mov	r2, #2016
+ 640 01dc 0392     		str	r2, [sp, #12]
+ 641 01de 0295     		str	r5, [sp, #8]
+ 642 01e0 1A1D     		adds	r2, r3, #4
+ 643 01e2 92E80300 		ldm	r2, {r0, r1}
+ 644 01e6 8DE80300 		stm	sp, {r0, r1}
+ 645 01ea 1B68     		ldr	r3, [r3]
+ 646 01ec 2246     		mov	r2, r4
+ 647 01ee 3421     		movs	r1, #52
+ 648 01f0 1420     		movs	r0, #20
+ 649 01f2 FFF7FEFF 		bl	Displ_WString
+ 650              	.LVL36:
+ 118:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ 651              		.loc 1 118 4 view .LVU146
+ 118:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ 652              		.loc 1 118 25 is_stmt 0 view .LVU147
+ 653 01f6 264B     		ldr	r3, .L68+20
+ 654 01f8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 118:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 18
 
 
- 503 0124 2B68     		ldr	r3, [r5]
-  78:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
- 504              		.loc 1 78 26 view .LVU148
- 505 0126 0024     		movs	r4, #0
- 506 0128 1C70     		strb	r4, [r3]
-  79:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
- 507              		.loc 1 79 5 is_stmt 1 view .LVU149
-  79:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
- 508              		.loc 1 79 25 is_stmt 0 view .LVU150
- 509 012a 2B68     		ldr	r3, [r5]
-  79:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
- 510              		.loc 1 79 5 view .LVU151
- 511 012c 2246     		mov	r2, r4
- 512 012e 5979     		ldrb	r1, [r3, #5]	@ zero_extendqisi2
- 513 0130 1879     		ldrb	r0, [r3, #4]	@ zero_extendqisi2
- 514 0132 FFF7FEFF 		bl	alrm_SetTime
- 515              	.LVL15:
-  80:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
- 516              		.loc 1 80 5 is_stmt 1 view .LVU152
-  80:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
- 517              		.loc 1 80 12 is_stmt 0 view .LVU153
- 518 0136 2B68     		ldr	r3, [r5]
-  80:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
- 519              		.loc 1 80 28 view .LVU154
- 520 0138 9C70     		strb	r4, [r3, #2]
-  81:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 521              		.loc 1 81 5 is_stmt 1 view .LVU155
-  81:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 522              		.loc 1 81 12 is_stmt 0 view .LVU156
- 523 013a 2B68     		ldr	r3, [r5]
-  81:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 524              		.loc 1 81 32 view .LVU157
- 525 013c 1C72     		strb	r4, [r3, #8]
-  82:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 526              		.loc 1 82 5 is_stmt 1 view .LVU158
-  82:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 527              		.loc 1 82 34 is_stmt 0 view .LVU159
- 528 013e 5C72     		strb	r4, [r3, #9]
-  83:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 529              		.loc 1 83 5 is_stmt 1 view .LVU160
-  83:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 530              		.loc 1 83 39 is_stmt 0 view .LVU161
- 531 0140 5C81     		strh	r4, [r3, #10]	@ movhi
-  84:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 532              		.loc 1 84 5 is_stmt 1 view .LVU162
-  84:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 533              		.loc 1 84 41 is_stmt 0 view .LVU163
- 534 0142 9C81     		strh	r4, [r3, #12]	@ movhi
-  85:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 535              		.loc 1 85 5 is_stmt 1 view .LVU164
-  85:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 536              		.loc 1 85 39 is_stmt 0 view .LVU165
- 537 0144 9C73     		strb	r4, [r3, #14]
-  86:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 538              		.loc 1 86 5 is_stmt 1 view .LVU166
-  86:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 539              		.loc 1 86 41 is_stmt 0 view .LVU167
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 16
+ 655              		.loc 1 118 7 view .LVU148
+ 656 01fa AB42     		cmp	r3, r5
+ 657 01fc 36D0     		beq	.L55
+ 658              	.L28:
+ 123:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 659              		.loc 1 123 4 is_stmt 1 view .LVU149
+ 123:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 660              		.loc 1 123 25 is_stmt 0 view .LVU150
+ 661 01fe 254B     		ldr	r3, .L68+24
+ 662 0200 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 123:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 663              		.loc 1 123 7 view .LVU151
+ 664 0202 012B     		cmp	r3, #1
+ 665 0204 54D0     		beq	.L56
+ 666              	.L29:
+ 128:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 667              		.loc 1 128 4 is_stmt 1 view .LVU152
+ 128:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 668              		.loc 1 128 24 is_stmt 0 view .LVU153
+ 669 0206 224B     		ldr	r3, .L68+20
+ 670 0208 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 128:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 671              		.loc 1 128 6 view .LVU154
+ 672 020a 022B     		cmp	r3, #2
+ 673 020c 58D0     		beq	.L57
+ 674              	.L30:
+ 130:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 675              		.loc 1 130 11 is_stmt 1 view .LVU155
+ 130:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 676              		.loc 1 130 14 is_stmt 0 view .LVU156
+ 677 020e 022B     		cmp	r3, #2
+ 678 0210 5FD0     		beq	.L58
+ 679              	.L32:
+ 143:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_IDLE){
+ 680              		.loc 1 143 11 is_stmt 1 view .LVU157
+ 143:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_IDLE){
+ 681              		.loc 1 143 14 is_stmt 0 view .LVU158
+ 682 0212 2BB9     		cbnz	r3, .L31
+ 144:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 683              		.loc 1 144 5 is_stmt 1 view .LVU159
+ 144:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 684              		.loc 1 144 12 is_stmt 0 view .LVU160
+ 685 0214 194B     		ldr	r3, .L68
+ 686 0216 1B68     		ldr	r3, [r3]
+ 144:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 687              		.loc 1 144 32 view .LVU161
+ 688 0218 0022     		movs	r2, #0
+ 689 021a 1A72     		strb	r2, [r3, #8]
+ 145:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 690              		.loc 1 145 5 is_stmt 1 view .LVU162
+ 145:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 691              		.loc 1 145 39 is_stmt 0 view .LVU163
+ 692 021c 5A81     		strh	r2, [r3, #10]	@ movhi
+ 146:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 693              		.loc 1 146 5 is_stmt 1 view .LVU164
+ 146:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 694              		.loc 1 146 39 is_stmt 0 view .LVU165
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 19
 
 
- 540 0146 DC73     		strb	r4, [r3, #15]
-  87:Core/Src/alrm_logic.c **** 				return; // Skip the rest
- 541              		.loc 1 87 5 is_stmt 1 view .LVU168
- 542 0148 B2E7     		b	.L9
- 543              	.L50:
-  92:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 544              		.loc 1 92 5 view .LVU169
-  92:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 545              		.loc 1 92 52 is_stmt 0 view .LVU170
- 546 014a 304B     		ldr	r3, .L63
- 547 014c 1C68     		ldr	r4, [r3]
-  92:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 548              		.loc 1 92 31 view .LVU171
- 549 014e 2321     		movs	r1, #35
- 550 0150 2079     		ldrb	r0, [r4, #4]	@ zero_extendqisi2
- 551 0152 FFF7FEFF 		bl	increment_bcd
- 552              	.LVL16:
-  92:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 553              		.loc 1 92 29 discriminator 1 view .LVU172
- 554 0156 2071     		strb	r0, [r4, #4]
- 555 0158 BFE7     		b	.L24
- 556              	.L51:
-  97:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 557              		.loc 1 97 5 is_stmt 1 view .LVU173
-  97:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 558              		.loc 1 97 54 is_stmt 0 view .LVU174
- 559 015a 2C4B     		ldr	r3, .L63
- 560 015c 1C68     		ldr	r4, [r3]
-  97:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 561              		.loc 1 97 33 view .LVU175
- 562 015e 5921     		movs	r1, #89
- 563 0160 6079     		ldrb	r0, [r4, #5]	@ zero_extendqisi2
- 564 0162 FFF7FEFF 		bl	increment_bcd
- 565              	.LVL17:
-  97:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 566              		.loc 1 97 31 discriminator 1 view .LVU176
- 567 0166 6071     		strb	r0, [r4, #5]
- 568 0168 BBE7     		b	.L25
- 569              	.L52:
- 101:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 570              		.loc 1 101 70 discriminator 1 view .LVU177
- 571 016a 2D4A     		ldr	r2, .L63+20
- 572 016c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 101:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 573              		.loc 1 101 45 discriminator 1 view .LVU178
- 574 016e 022A     		cmp	r2, #2
- 575 0170 BBD0     		beq	.L26
- 102:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 576              		.loc 1 102 5 is_stmt 1 view .LVU179
- 102:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 577              		.loc 1 102 12 is_stmt 0 view .LVU180
- 578 0172 264B     		ldr	r3, .L63
- 579 0174 1B68     		ldr	r3, [r3]
- 102:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 580              		.loc 1 102 32 view .LVU181
- 581 0176 0122     		movs	r2, #1
- 582 0178 1A72     		strb	r2, [r3, #8]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 17
+ 695 021e 9A73     		strb	r2, [r3, #14]
+ 696              	.L31:
+ 150:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 697              		.loc 1 150 4 is_stmt 1 view .LVU166
+ 150:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 698              		.loc 1 150 24 is_stmt 0 view .LVU167
+ 699 0220 1C4B     		ldr	r3, .L68+24
+ 700 0222 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 150:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 701              		.loc 1 150 6 view .LVU168
+ 702 0224 022B     		cmp	r3, #2
+ 703 0226 73D0     		beq	.L59
+ 704              	.L34:
+ 152:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 705              		.loc 1 152 11 is_stmt 1 view .LVU169
+ 152:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 706              		.loc 1 152 14 is_stmt 0 view .LVU170
+ 707 0228 022B     		cmp	r3, #2
+ 708 022a 7AD0     		beq	.L60
+ 709              	.L35:
+ 165:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_IDLE){
+ 710              		.loc 1 165 11 is_stmt 1 view .LVU171
+ 165:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_IDLE){
+ 711              		.loc 1 165 14 is_stmt 0 view .LVU172
+ 712 022c 002B     		cmp	r3, #0
+ 713 022e 9DD1     		bne	.L13
+ 166:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 714              		.loc 1 166 5 is_stmt 1 view .LVU173
+ 166:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 715              		.loc 1 166 12 is_stmt 0 view .LVU174
+ 716 0230 124B     		ldr	r3, .L68
+ 717 0232 1B68     		ldr	r3, [r3]
+ 166:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 718              		.loc 1 166 34 view .LVU175
+ 719 0234 0022     		movs	r2, #0
+ 720 0236 5A72     		strb	r2, [r3, #9]
+ 167:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 721              		.loc 1 167 5 is_stmt 1 view .LVU176
+ 167:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 722              		.loc 1 167 41 is_stmt 0 view .LVU177
+ 723 0238 9A81     		strh	r2, [r3, #12]	@ movhi
+ 168:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 724              		.loc 1 168 5 is_stmt 1 view .LVU178
+ 168:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 725              		.loc 1 168 41 is_stmt 0 view .LVU179
+ 726 023a DA73     		strb	r2, [r3, #15]
+ 727 023c 96E7     		b	.L13
+ 728              	.L54:
+ 100:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 729              		.loc 1 100 5 is_stmt 1 view .LVU180
+ 100:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 730              		.loc 1 100 12 is_stmt 0 view .LVU181
+ 731 023e 0F4D     		ldr	r5, .L68
+ 732 0240 2B68     		ldr	r3, [r5]
+ 100:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 733              		.loc 1 100 26 view .LVU182
+ 734 0242 0024     		movs	r4, #0
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 20
 
 
- 583 017a BFE7     		b	.L27
- 584              	.L53:
- 103:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 585              		.loc 1 103 78 discriminator 1 view .LVU182
- 586 017c 284A     		ldr	r2, .L63+20
- 587 017e 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 103:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 588              		.loc 1 103 53 discriminator 1 view .LVU183
- 589 0180 022A     		cmp	r2, #2
- 590 0182 B4D1     		bne	.L28
- 104:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
- 591              		.loc 1 104 17 view .LVU184
- 592 0184 214A     		ldr	r2, .L63
- 593 0186 1468     		ldr	r4, [r2]
- 594 0188 227A     		ldrb	r2, [r4, #8]	@ zero_extendqisi2
- 103:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 595              		.loc 1 103 99 discriminator 2 view .LVU185
- 596 018a 002A     		cmp	r2, #0
- 597 018c AFD0     		beq	.L28
- 106:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 598              		.loc 1 106 5 is_stmt 1 view .LVU186
- 106:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 599              		.loc 1 106 16 is_stmt 0 view .LVU187
- 600 018e 6389     		ldrh	r3, [r4, #10]
- 106:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 601              		.loc 1 106 8 view .LVU188
- 602 0190 092B     		cmp	r3, #9
- 603 0192 02D8     		bhi	.L29
- 107:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
- 604              		.loc 1 107 6 is_stmt 1 view .LVU189
- 107:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
- 605              		.loc 1 107 39 is_stmt 0 view .LVU190
- 606 0194 0133     		adds	r3, r3, #1
- 607 0196 6381     		strh	r3, [r4, #10]	@ movhi
- 608 0198 B0E7     		b	.L27
- 609              	.L29:
- 109:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 610              		.loc 1 109 6 is_stmt 1 view .LVU191
- 109:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 611              		.loc 1 109 13 is_stmt 0 view .LVU192
- 612 019a A37B     		ldrb	r3, [r4, #14]	@ zero_extendqisi2
- 109:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 613              		.loc 1 109 39 view .LVU193
- 614 019c 0133     		adds	r3, r3, #1
- 615 019e DBB2     		uxtb	r3, r3
- 616 01a0 A373     		strb	r3, [r4, #14]
- 110:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 617              		.loc 1 110 6 is_stmt 1 view .LVU194
- 110:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 618              		.loc 1 110 9 is_stmt 0 view .LVU195
- 619 01a2 092B     		cmp	r3, #9
- 620 01a4 AAD9     		bls	.L27
- 111:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 621              		.loc 1 111 7 is_stmt 1 view .LVU196
- 111:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 622              		.loc 1 111 33 is_stmt 0 view .LVU197
- 623 01a6 2321     		movs	r1, #35
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 18
+ 735 0244 1C70     		strb	r4, [r3]
+ 101:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 736              		.loc 1 101 5 is_stmt 1 view .LVU183
+ 737 0246 2046     		mov	r0, r4
+ 738 0248 FFF7FEFF 		bl	Displ_CLS
+ 739              	.LVL37:
+ 102:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
+ 740              		.loc 1 102 5 view .LVU184
+ 102:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
+ 741              		.loc 1 102 25 is_stmt 0 view .LVU185
+ 742 024c 2B68     		ldr	r3, [r5]
+ 102:Core/Src/alrm_logic.c **** 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
+ 743              		.loc 1 102 5 view .LVU186
+ 744 024e 2246     		mov	r2, r4
+ 745 0250 5979     		ldrb	r1, [r3, #5]	@ zero_extendqisi2
+ 746 0252 1879     		ldrb	r0, [r3, #4]	@ zero_extendqisi2
+ 747 0254 FFF7FEFF 		bl	alrm_SetTime
+ 748              	.LVL38:
+ 103:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
+ 749              		.loc 1 103 5 is_stmt 1 view .LVU187
+ 103:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
+ 750              		.loc 1 103 12 is_stmt 0 view .LVU188
+ 751 0258 2B68     		ldr	r3, [r5]
+ 103:Core/Src/alrm_logic.c **** 				alarm_p->time_set_flag = 0;
+ 752              		.loc 1 103 28 view .LVU189
+ 753 025a 9C70     		strb	r4, [r3, #2]
+ 104:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 754              		.loc 1 104 5 is_stmt 1 view .LVU190
+ 104:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 755              		.loc 1 104 12 is_stmt 0 view .LVU191
+ 756 025c 2B68     		ldr	r3, [r5]
+ 104:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 757              		.loc 1 104 32 view .LVU192
+ 758 025e 1C72     		strb	r4, [r3, #8]
+ 105:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 759              		.loc 1 105 5 is_stmt 1 view .LVU193
+ 105:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 760              		.loc 1 105 34 is_stmt 0 view .LVU194
+ 761 0260 5C72     		strb	r4, [r3, #9]
+ 106:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 762              		.loc 1 106 5 is_stmt 1 view .LVU195
+ 106:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 763              		.loc 1 106 39 is_stmt 0 view .LVU196
+ 764 0262 5C81     		strh	r4, [r3, #10]	@ movhi
+ 107:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 765              		.loc 1 107 5 is_stmt 1 view .LVU197
+ 107:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 766              		.loc 1 107 41 is_stmt 0 view .LVU198
+ 767 0264 9C81     		strh	r4, [r3, #12]	@ movhi
+ 108:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 768              		.loc 1 108 5 is_stmt 1 view .LVU199
+ 108:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 769              		.loc 1 108 39 is_stmt 0 view .LVU200
+ 770 0266 9C73     		strb	r4, [r3, #14]
+ 109:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 771              		.loc 1 109 5 is_stmt 1 view .LVU201
+ 109:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 21
 
 
- 624 01a8 2079     		ldrb	r0, [r4, #4]	@ zero_extendqisi2
- 625 01aa FFF7FEFF 		bl	increment_bcd
- 626              	.LVL18:
- 111:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
- 627              		.loc 1 111 31 discriminator 1 view .LVU198
- 628 01ae 2071     		strb	r0, [r4, #4]
- 112:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 629              		.loc 1 112 7 is_stmt 1 view .LVU199
- 112:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 630              		.loc 1 112 14 is_stmt 0 view .LVU200
- 631 01b0 164B     		ldr	r3, .L63
- 632 01b2 1B68     		ldr	r3, [r3]
- 112:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 633              		.loc 1 112 41 view .LVU201
- 634 01b4 0022     		movs	r2, #0
- 635 01b6 9A73     		strb	r2, [r3, #14]
- 636 01b8 A0E7     		b	.L27
- 637              	.L54:
- 123:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 638              		.loc 1 123 70 discriminator 1 view .LVU202
- 639 01ba 184A     		ldr	r2, .L63+16
- 640 01bc 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 123:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 641              		.loc 1 123 45 discriminator 1 view .LVU203
- 642 01be 022A     		cmp	r2, #2
- 643 01c0 A0D0     		beq	.L30
- 124:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 644              		.loc 1 124 5 is_stmt 1 view .LVU204
- 124:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 645              		.loc 1 124 12 is_stmt 0 view .LVU205
- 646 01c2 124B     		ldr	r3, .L63
- 647 01c4 1B68     		ldr	r3, [r3]
- 124:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 648              		.loc 1 124 34 view .LVU206
- 649 01c6 0122     		movs	r2, #1
- 650 01c8 5A72     		strb	r2, [r3, #9]
- 651 01ca 71E7     		b	.L9
- 652              	.L55:
- 125:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 653              		.loc 1 125 78 discriminator 1 view .LVU207
- 654 01cc 134A     		ldr	r2, .L63+16
- 655 01ce 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 125:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 656              		.loc 1 125 53 discriminator 1 view .LVU208
- 657 01d0 022A     		cmp	r2, #2
- 658 01d2 99D1     		bne	.L31
- 126:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
- 659              		.loc 1 126 17 view .LVU209
- 660 01d4 0D4A     		ldr	r2, .L63
- 661 01d6 1468     		ldr	r4, [r2]
- 662 01d8 627A     		ldrb	r2, [r4, #9]	@ zero_extendqisi2
- 125:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 663              		.loc 1 125 99 discriminator 2 view .LVU210
- 664 01da 002A     		cmp	r2, #0
- 665 01dc 94D0     		beq	.L31
- 128:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 666              		.loc 1 128 5 is_stmt 1 view .LVU211
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 19
+ 772              		.loc 1 109 41 is_stmt 0 view .LVU202
+ 773 0268 DC73     		strb	r4, [r3, #15]
+ 110:Core/Src/alrm_logic.c **** 				return; // Skip the rest
+ 774              		.loc 1 110 5 is_stmt 1 view .LVU203
+ 775 026a 7FE7     		b	.L13
+ 776              	.L55:
+ 119:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 777              		.loc 1 119 5 view .LVU204
+ 119:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 778              		.loc 1 119 52 is_stmt 0 view .LVU205
+ 779 026c 034B     		ldr	r3, .L68
+ 780 026e 1C68     		ldr	r4, [r3]
+ 119:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 781              		.loc 1 119 31 view .LVU206
+ 782 0270 2321     		movs	r1, #35
+ 783 0272 2079     		ldrb	r0, [r4, #4]	@ zero_extendqisi2
+ 784 0274 FFF7FEFF 		bl	increment_bcd
+ 785              	.LVL39:
+ 119:Core/Src/alrm_logic.c **** 				alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 786              		.loc 1 119 29 discriminator 1 view .LVU207
+ 787 0278 2071     		strb	r0, [r4, #4]
+ 788 027a C0E7     		b	.L28
+ 789              	.L69:
+ 790              		.align	2
+ 791              	.L68:
+ 792 027c 00000000 		.word	alarm_p
+ 793 0280 00000000 		.word	time_str
+ 794 0284 00000000 		.word	sTime
+ 795 0288 00000000 		.word	Font24
+ 796 028c 00000000 		.word	alarm_A_flag
+ 797 0290 00000000 		.word	But0_press_state
+ 798 0294 00000000 		.word	But1_press_state
+ 799 0298 00000000 		.word	But1_prev_press_state
+ 800 029c 00000000 		.word	But0_prev_press_state
+ 801 02a0 00000000 		.word	.LC1
+ 802 02a4 00000000 		.word	alarm_led
+ 803 02a8 00000000 		.word	Font16
+ 804 02ac 08000000 		.word	.LC2
+ 805              	.L56:
+ 124:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 806              		.loc 1 124 5 is_stmt 1 view .LVU208
+ 124:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 807              		.loc 1 124 54 is_stmt 0 view .LVU209
+ 808 02b0 934B     		ldr	r3, .L70
+ 809 02b2 1C68     		ldr	r4, [r3]
+ 124:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 810              		.loc 1 124 33 view .LVU210
+ 811 02b4 5921     		movs	r1, #89
+ 812 02b6 6079     		ldrb	r0, [r4, #5]	@ zero_extendqisi2
+ 813 02b8 FFF7FEFF 		bl	increment_bcd
+ 814              	.LVL40:
+ 124:Core/Src/alrm_logic.c **** 				alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 815              		.loc 1 124 31 discriminator 1 view .LVU211
+ 816 02bc 6071     		strb	r0, [r4, #5]
+ 817 02be A2E7     		b	.L29
+ 818              	.L57:
+ 128:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 22
 
 
- 128:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 667              		.loc 1 128 16 is_stmt 0 view .LVU212
- 668 01de A389     		ldrh	r3, [r4, #12]
- 128:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 669              		.loc 1 128 8 view .LVU213
- 670 01e0 092B     		cmp	r3, #9
- 671 01e2 02D8     		bhi	.L32
- 129:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
- 672              		.loc 1 129 6 is_stmt 1 view .LVU214
- 129:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
- 673              		.loc 1 129 41 is_stmt 0 view .LVU215
- 674 01e4 0133     		adds	r3, r3, #1
- 675 01e6 A381     		strh	r3, [r4, #12]	@ movhi
- 676 01e8 62E7     		b	.L9
- 677              	.L32:
- 131:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 678              		.loc 1 131 6 is_stmt 1 view .LVU216
- 131:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 679              		.loc 1 131 13 is_stmt 0 view .LVU217
- 680 01ea E37B     		ldrb	r3, [r4, #15]	@ zero_extendqisi2
- 131:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 681              		.loc 1 131 41 view .LVU218
- 682 01ec 0133     		adds	r3, r3, #1
- 683 01ee DBB2     		uxtb	r3, r3
- 684 01f0 E373     		strb	r3, [r4, #15]
- 132:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 685              		.loc 1 132 6 is_stmt 1 view .LVU219
- 132:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 686              		.loc 1 132 9 is_stmt 0 view .LVU220
- 687 01f2 092B     		cmp	r3, #9
- 688 01f4 7FF65CAF 		bls	.L9
- 133:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 689              		.loc 1 133 7 is_stmt 1 view .LVU221
- 133:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 690              		.loc 1 133 35 is_stmt 0 view .LVU222
- 691 01f8 5921     		movs	r1, #89
- 692 01fa 6079     		ldrb	r0, [r4, #5]	@ zero_extendqisi2
- 693 01fc FFF7FEFF 		bl	increment_bcd
- 694              	.LVL19:
- 133:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
- 695              		.loc 1 133 33 discriminator 1 view .LVU223
- 696 0200 6071     		strb	r0, [r4, #5]
- 134:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 697              		.loc 1 134 7 is_stmt 1 view .LVU224
- 134:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 698              		.loc 1 134 14 is_stmt 0 view .LVU225
- 699 0202 024B     		ldr	r3, .L63
- 700 0204 1B68     		ldr	r3, [r3]
- 134:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 701              		.loc 1 134 43 view .LVU226
- 702 0206 0022     		movs	r2, #0
- 703 0208 DA73     		strb	r2, [r3, #15]
- 704 020a 51E7     		b	.L9
- 705              	.L64:
- 706              		.align	2
- 707              	.L63:
- 708 020c 00000000 		.word	alarm_p
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 20
+ 819              		.loc 1 128 70 discriminator 1 view .LVU212
+ 820 02c0 904A     		ldr	r2, .L70+4
+ 821 02c2 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 128:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 822              		.loc 1 128 45 discriminator 1 view .LVU213
+ 823 02c4 022A     		cmp	r2, #2
+ 824 02c6 A2D0     		beq	.L30
+ 129:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 825              		.loc 1 129 5 is_stmt 1 view .LVU214
+ 129:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 826              		.loc 1 129 12 is_stmt 0 view .LVU215
+ 827 02c8 8D4B     		ldr	r3, .L70
+ 828 02ca 1B68     		ldr	r3, [r3]
+ 129:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 829              		.loc 1 129 32 view .LVU216
+ 830 02cc 0122     		movs	r2, #1
+ 831 02ce 1A72     		strb	r2, [r3, #8]
+ 832 02d0 A6E7     		b	.L31
+ 833              	.L58:
+ 130:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 834              		.loc 1 130 78 discriminator 1 view .LVU217
+ 835 02d2 8C4A     		ldr	r2, .L70+4
+ 836 02d4 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 130:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 837              		.loc 1 130 53 discriminator 1 view .LVU218
+ 838 02d6 022A     		cmp	r2, #2
+ 839 02d8 9BD1     		bne	.L32
+ 131:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
+ 840              		.loc 1 131 17 view .LVU219
+ 841 02da 894A     		ldr	r2, .L70
+ 842 02dc 1468     		ldr	r4, [r2]
+ 843 02de 227A     		ldrb	r2, [r4, #8]	@ zero_extendqisi2
+ 130:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 844              		.loc 1 130 99 discriminator 2 view .LVU220
+ 845 02e0 002A     		cmp	r2, #0
+ 846 02e2 96D0     		beq	.L32
+ 133:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 847              		.loc 1 133 5 is_stmt 1 view .LVU221
+ 133:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 848              		.loc 1 133 16 is_stmt 0 view .LVU222
+ 849 02e4 6389     		ldrh	r3, [r4, #10]
+ 133:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 850              		.loc 1 133 8 view .LVU223
+ 851 02e6 092B     		cmp	r3, #9
+ 852 02e8 02D8     		bhi	.L33
+ 134:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
+ 853              		.loc 1 134 6 is_stmt 1 view .LVU224
+ 134:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
+ 854              		.loc 1 134 39 is_stmt 0 view .LVU225
+ 855 02ea 0133     		adds	r3, r3, #1
+ 856 02ec 6381     		strh	r3, [r4, #10]	@ movhi
+ 857 02ee 97E7     		b	.L31
+ 858              	.L33:
+ 136:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 859              		.loc 1 136 6 is_stmt 1 view .LVU226
+ 136:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 860              		.loc 1 136 13 is_stmt 0 view .LVU227
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 23
 
 
- 709 0210 00000000 		.word	alarm_A_flag
- 710 0214 00000000 		.word	But0_press_state
- 711 0218 00000000 		.word	But1_press_state
- 712 021c 00000000 		.word	But1_prev_press_state
- 713 0220 00000000 		.word	But0_prev_press_state
- 714 0224 00000000 		.word	alarm_led
- 715 0228 00000000 		.word	sTime
- 716              	.L11:
- 156:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 717              		.loc 1 156 4 is_stmt 1 view .LVU227
- 156:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 718              		.loc 1 156 25 is_stmt 0 view .LVU228
- 719 022c 4D4B     		ldr	r3, .L65
- 720 022e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 156:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 721              		.loc 1 156 7 view .LVU229
- 722 0230 022B     		cmp	r3, #2
- 723 0232 22D0     		beq	.L56
- 724              	.L33:
- 170:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
- 725              		.loc 1 170 4 is_stmt 1 view .LVU230
- 170:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
- 726              		.loc 1 170 7 is_stmt 0 view .LVU231
- 727 0234 012B     		cmp	r3, #1
- 728 0236 35D0     		beq	.L57
- 729              	.L34:
- 175:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
- 730              		.loc 1 175 4 is_stmt 1 view .LVU232
- 175:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
- 731              		.loc 1 175 25 is_stmt 0 view .LVU233
- 732 0238 4B4B     		ldr	r3, .L65+4
- 733 023a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 175:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
- 734              		.loc 1 175 7 view .LVU234
- 735 023c 012B     		cmp	r3, #1
- 736 023e 37D0     		beq	.L58
- 737              	.L35:
- 180:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 738              		.loc 1 180 4 is_stmt 1 view .LVU235
- 180:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 739              		.loc 1 180 24 is_stmt 0 view .LVU236
- 740 0240 484B     		ldr	r3, .L65
- 741 0242 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 180:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 742              		.loc 1 180 6 view .LVU237
- 743 0244 022B     		cmp	r3, #2
- 744 0246 3BD0     		beq	.L59
- 745              	.L36:
- 182:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 746              		.loc 1 182 11 is_stmt 1 view .LVU238
- 182:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 747              		.loc 1 182 14 is_stmt 0 view .LVU239
- 748 0248 022B     		cmp	r3, #2
- 749 024a 42D0     		beq	.L60
- 750              	.L38:
- 195:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == IDLE){
- 751              		.loc 1 195 11 is_stmt 1 view .LVU240
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 21
+ 861 02f0 A37B     		ldrb	r3, [r4, #14]	@ zero_extendqisi2
+ 136:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 862              		.loc 1 136 39 view .LVU228
+ 863 02f2 0133     		adds	r3, r3, #1
+ 864 02f4 DBB2     		uxtb	r3, r3
+ 865 02f6 A373     		strb	r3, [r4, #14]
+ 137:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 866              		.loc 1 137 6 is_stmt 1 view .LVU229
+ 137:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 867              		.loc 1 137 9 is_stmt 0 view .LVU230
+ 868 02f8 092B     		cmp	r3, #9
+ 869 02fa 91D9     		bls	.L31
+ 138:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 870              		.loc 1 138 7 is_stmt 1 view .LVU231
+ 138:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 871              		.loc 1 138 33 is_stmt 0 view .LVU232
+ 872 02fc 2321     		movs	r1, #35
+ 873 02fe 2079     		ldrb	r0, [r4, #4]	@ zero_extendqisi2
+ 874 0300 FFF7FEFF 		bl	increment_bcd
+ 875              	.LVL41:
+ 138:Core/Src/alrm_logic.c **** 						alarm_p->time_set_hours = increment_bcd(alarm_p->time_set_hours, 0x23);
+ 876              		.loc 1 138 31 discriminator 1 view .LVU233
+ 877 0304 2071     		strb	r0, [r4, #4]
+ 139:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 878              		.loc 1 139 7 is_stmt 1 view .LVU234
+ 139:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 879              		.loc 1 139 14 is_stmt 0 view .LVU235
+ 880 0306 7E4B     		ldr	r3, .L70
+ 881 0308 1B68     		ldr	r3, [r3]
+ 139:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 882              		.loc 1 139 41 view .LVU236
+ 883 030a 0022     		movs	r2, #0
+ 884 030c 9A73     		strb	r2, [r3, #14]
+ 885 030e 87E7     		b	.L31
+ 886              	.L59:
+ 150:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 887              		.loc 1 150 70 discriminator 1 view .LVU237
+ 888 0310 7D4A     		ldr	r2, .L70+8
+ 889 0312 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 150:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 890              		.loc 1 150 45 discriminator 1 view .LVU238
+ 891 0314 022A     		cmp	r2, #2
+ 892 0316 87D0     		beq	.L34
+ 151:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 893              		.loc 1 151 5 is_stmt 1 view .LVU239
+ 151:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 894              		.loc 1 151 12 is_stmt 0 view .LVU240
+ 895 0318 794B     		ldr	r3, .L70
+ 896 031a 1B68     		ldr	r3, [r3]
+ 151:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 897              		.loc 1 151 34 view .LVU241
+ 898 031c 0122     		movs	r2, #1
+ 899 031e 5A72     		strb	r2, [r3, #9]
+ 900 0320 24E7     		b	.L13
+ 901              	.L60:
+ 152:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 902              		.loc 1 152 78 discriminator 1 view .LVU242
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 24
 
 
- 195:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == IDLE){
- 752              		.loc 1 195 14 is_stmt 0 view .LVU241
- 753 024c 2BB9     		cbnz	r3, .L37
- 196:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 754              		.loc 1 196 5 is_stmt 1 view .LVU242
- 196:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 755              		.loc 1 196 12 is_stmt 0 view .LVU243
- 756 024e 474B     		ldr	r3, .L65+8
- 757 0250 1B68     		ldr	r3, [r3]
- 196:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 758              		.loc 1 196 32 view .LVU244
- 759 0252 0022     		movs	r2, #0
- 760 0254 1A72     		strb	r2, [r3, #8]
- 197:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 761              		.loc 1 197 5 is_stmt 1 view .LVU245
- 197:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 762              		.loc 1 197 39 is_stmt 0 view .LVU246
- 763 0256 5A81     		strh	r2, [r3, #10]	@ movhi
- 198:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 764              		.loc 1 198 5 is_stmt 1 view .LVU247
- 198:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 765              		.loc 1 198 39 is_stmt 0 view .LVU248
- 766 0258 9A73     		strb	r2, [r3, #14]
- 767              	.L37:
- 202:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 768              		.loc 1 202 4 is_stmt 1 view .LVU249
- 202:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 769              		.loc 1 202 24 is_stmt 0 view .LVU250
- 770 025a 434B     		ldr	r3, .L65+4
- 771 025c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 202:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 772              		.loc 1 202 6 view .LVU251
- 773 025e 022B     		cmp	r3, #2
- 774 0260 56D0     		beq	.L61
- 775              	.L40:
- 204:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 776              		.loc 1 204 11 is_stmt 1 view .LVU252
- 204:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 777              		.loc 1 204 14 is_stmt 0 view .LVU253
- 778 0262 022B     		cmp	r3, #2
- 779 0264 5DD0     		beq	.L62
- 780              	.L41:
- 218:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == IDLE){
- 781              		.loc 1 218 11 is_stmt 1 view .LVU254
- 218:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == IDLE){
- 782              		.loc 1 218 14 is_stmt 0 view .LVU255
- 783 0266 002B     		cmp	r3, #0
- 784 0268 7FF422AF 		bne	.L9
- 219:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 785              		.loc 1 219 5 is_stmt 1 view .LVU256
- 219:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 786              		.loc 1 219 12 is_stmt 0 view .LVU257
- 787 026c 3F4B     		ldr	r3, .L65+8
- 788 026e 1B68     		ldr	r3, [r3]
- 219:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 789              		.loc 1 219 34 view .LVU258
- 790 0270 0022     		movs	r2, #0
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 22
+ 903 0322 794A     		ldr	r2, .L70+8
+ 904 0324 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 152:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 905              		.loc 1 152 53 discriminator 1 view .LVU243
+ 906 0326 022A     		cmp	r2, #2
+ 907 0328 80D1     		bne	.L35
+ 153:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
+ 908              		.loc 1 153 17 view .LVU244
+ 909 032a 754A     		ldr	r2, .L70
+ 910 032c 1468     		ldr	r4, [r2]
+ 911 032e 627A     		ldrb	r2, [r4, #9]	@ zero_extendqisi2
+ 152:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 912              		.loc 1 152 99 discriminator 2 view .LVU245
+ 913 0330 002A     		cmp	r2, #0
+ 914 0332 3FF47BAF 		beq	.L35
+ 155:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 915              		.loc 1 155 5 is_stmt 1 view .LVU246
+ 155:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 916              		.loc 1 155 16 is_stmt 0 view .LVU247
+ 917 0336 A389     		ldrh	r3, [r4, #12]
+ 155:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 918              		.loc 1 155 8 view .LVU248
+ 919 0338 092B     		cmp	r3, #9
+ 920 033a 02D8     		bhi	.L36
+ 156:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
+ 921              		.loc 1 156 6 is_stmt 1 view .LVU249
+ 156:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
+ 922              		.loc 1 156 41 is_stmt 0 view .LVU250
+ 923 033c 0133     		adds	r3, r3, #1
+ 924 033e A381     		strh	r3, [r4, #12]	@ movhi
+ 925 0340 14E7     		b	.L13
+ 926              	.L36:
+ 158:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ 927              		.loc 1 158 6 is_stmt 1 view .LVU251
+ 158:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ 928              		.loc 1 158 13 is_stmt 0 view .LVU252
+ 929 0342 E37B     		ldrb	r3, [r4, #15]	@ zero_extendqisi2
+ 158:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ 930              		.loc 1 158 41 view .LVU253
+ 931 0344 0133     		adds	r3, r3, #1
+ 932 0346 DBB2     		uxtb	r3, r3
+ 933 0348 E373     		strb	r3, [r4, #15]
+ 159:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 934              		.loc 1 159 6 is_stmt 1 view .LVU254
+ 159:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 935              		.loc 1 159 9 is_stmt 0 view .LVU255
+ 936 034a 092B     		cmp	r3, #9
+ 937 034c 7FF60EAF 		bls	.L13
+ 160:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 938              		.loc 1 160 7 is_stmt 1 view .LVU256
+ 160:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ 939              		.loc 1 160 35 is_stmt 0 view .LVU257
+ 940 0350 5921     		movs	r1, #89
+ 941 0352 6079     		ldrb	r0, [r4, #5]	@ zero_extendqisi2
+ 942 0354 FFF7FEFF 		bl	increment_bcd
+ 943              	.LVL42:
+ 160:Core/Src/alrm_logic.c **** 						alarm_p->time_set_minutes = increment_bcd(alarm_p->time_set_minutes, 0x59);
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 25
 
 
- 791 0272 5A72     		strb	r2, [r3, #9]
- 220:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 792              		.loc 1 220 5 is_stmt 1 view .LVU259
- 220:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 793              		.loc 1 220 41 is_stmt 0 view .LVU260
- 794 0274 9A81     		strh	r2, [r3, #12]	@ movhi
- 221:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 795              		.loc 1 221 5 is_stmt 1 view .LVU261
- 221:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 796              		.loc 1 221 41 is_stmt 0 view .LVU262
- 797 0276 DA73     		strb	r2, [r3, #15]
- 798 0278 1AE7     		b	.L9
- 799              	.L56:
- 156:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 800              		.loc 1 156 66 discriminator 1 view .LVU263
- 801 027a 3B4A     		ldr	r2, .L65+4
- 802 027c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 156:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
- 803              		.loc 1 156 46 discriminator 1 view .LVU264
- 804 027e 022A     		cmp	r2, #2
- 805 0280 D8D1     		bne	.L33
- 157:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
- 806              		.loc 1 157 5 is_stmt 1 view .LVU265
- 157:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
- 807              		.loc 1 157 26 is_stmt 0 view .LVU266
- 808 0282 0025     		movs	r5, #0
- 809 0284 2570     		strb	r5, [r4]
- 158:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
- 810              		.loc 1 158 5 is_stmt 1 view .LVU267
- 158:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
- 811              		.loc 1 158 26 is_stmt 0 view .LVU268
- 812 0286 394C     		ldr	r4, .L65+8
- 813 0288 2368     		ldr	r3, [r4]
- 158:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
- 814              		.loc 1 158 5 view .LVU269
- 815 028a 2A46     		mov	r2, r5
- 816 028c D979     		ldrb	r1, [r3, #7]	@ zero_extendqisi2
- 817 028e 9879     		ldrb	r0, [r3, #6]	@ zero_extendqisi2
- 818 0290 FFF7FEFF 		bl	alrm_SetAlarm
- 819              	.LVL20:
- 160:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 820              		.loc 1 160 5 is_stmt 1 view .LVU270
- 160:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 821              		.loc 1 160 12 is_stmt 0 view .LVU271
- 822 0294 2368     		ldr	r3, [r4]
- 160:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
- 823              		.loc 1 160 32 view .LVU272
- 824 0296 1D72     		strb	r5, [r3, #8]
- 161:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 825              		.loc 1 161 5 is_stmt 1 view .LVU273
- 161:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
- 826              		.loc 1 161 34 is_stmt 0 view .LVU274
- 827 0298 5D72     		strb	r5, [r3, #9]
- 162:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 828              		.loc 1 162 5 is_stmt 1 view .LVU275
- 162:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
- 829              		.loc 1 162 39 is_stmt 0 view .LVU276
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 23
+ 944              		.loc 1 160 33 discriminator 1 view .LVU258
+ 945 0358 6071     		strb	r0, [r4, #5]
+ 161:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 946              		.loc 1 161 7 is_stmt 1 view .LVU259
+ 161:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 947              		.loc 1 161 14 is_stmt 0 view .LVU260
+ 948 035a 694B     		ldr	r3, .L70
+ 949 035c 1B68     		ldr	r3, [r3]
+ 161:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 950              		.loc 1 161 43 view .LVU261
+ 951 035e 0022     		movs	r2, #0
+ 952 0360 DA73     		strb	r2, [r3, #15]
+ 953 0362 03E7     		b	.L13
+ 954              	.L15:
+ 183:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 955              		.loc 1 183 4 is_stmt 1 view .LVU262
+ 183:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 956              		.loc 1 183 25 is_stmt 0 view .LVU263
+ 957 0364 694B     		ldr	r3, .L70+12
+ 958 0366 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 183:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 959              		.loc 1 183 7 view .LVU264
+ 960 0368 022B     		cmp	r3, #2
+ 961 036a 03D1     		bne	.L37
+ 183:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 962              		.loc 1 183 66 discriminator 1 view .LVU265
+ 963 036c 684B     		ldr	r3, .L70+16
+ 964 036e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 183:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
+ 965              		.loc 1 183 46 discriminator 1 view .LVU266
+ 966 0370 022B     		cmp	r3, #2
+ 967 0372 50D0     		beq	.L61
+ 968              	.L37:
+ 197:Core/Src/alrm_logic.c **** 			Displ_WString(10, 10, "Set alarm:", Font16, 1, YELLOW, BLACK);
+ 969              		.loc 1 197 4 is_stmt 1 view .LVU267
+ 970 0374 674B     		ldr	r3, .L70+20
+ 971 0376 0026     		movs	r6, #0
+ 972 0378 0496     		str	r6, [sp, #16]
+ 973 037a 40F2FF72 		movw	r2, #2047
+ 974 037e 0392     		str	r2, [sp, #12]
+ 975 0380 0125     		movs	r5, #1
+ 976 0382 0295     		str	r5, [sp, #8]
+ 977 0384 1A1D     		adds	r2, r3, #4
+ 978 0386 92E80300 		ldm	r2, {r0, r1}
+ 979 038a 8DE80300 		stm	sp, {r0, r1}
+ 980 038e 1B68     		ldr	r3, [r3]
+ 981 0390 614A     		ldr	r2, .L70+24
+ 982 0392 0A21     		movs	r1, #10
+ 983 0394 0846     		mov	r0, r1
+ 984 0396 FFF7FEFF 		bl	Displ_WString
+ 985              	.LVL43:
+ 198:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, time_str);
+ 986              		.loc 1 198 4 view .LVU268
+ 198:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, time_str);
+ 987              		.loc 1 198 30 is_stmt 0 view .LVU269
+ 988 039a 594B     		ldr	r3, .L70
+ 989 039c 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 26
 
 
- 830 029a 5D81     		strh	r5, [r3, #10]	@ movhi
- 163:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 831              		.loc 1 163 5 is_stmt 1 view .LVU277
- 163:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
- 832              		.loc 1 163 41 is_stmt 0 view .LVU278
- 833 029c 9D81     		strh	r5, [r3, #12]	@ movhi
- 164:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 834              		.loc 1 164 5 is_stmt 1 view .LVU279
- 164:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
- 835              		.loc 1 164 39 is_stmt 0 view .LVU280
- 836 029e 9D73     		strb	r5, [r3, #14]
- 165:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 837              		.loc 1 165 5 is_stmt 1 view .LVU281
- 165:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
- 838              		.loc 1 165 41 is_stmt 0 view .LVU282
- 839 02a0 DD73     		strb	r5, [r3, #15]
- 166:Core/Src/alrm_logic.c **** 				return; // Skip the rest
- 840              		.loc 1 166 5 is_stmt 1 view .LVU283
- 841 02a2 05E7     		b	.L9
- 842              	.L57:
- 171:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 843              		.loc 1 171 5 view .LVU284
- 171:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 844              		.loc 1 171 32 is_stmt 0 view .LVU285
- 845 02a4 2321     		movs	r1, #35
- 846 02a6 A079     		ldrb	r0, [r4, #6]	@ zero_extendqisi2
- 847 02a8 FFF7FEFF 		bl	increment_bcd
- 848              	.LVL21:
- 171:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 849              		.loc 1 171 30 discriminator 1 view .LVU286
- 850 02ac A071     		strb	r0, [r4, #6]
- 851 02ae C3E7     		b	.L34
- 852              	.L58:
- 176:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 853              		.loc 1 176 5 is_stmt 1 view .LVU287
- 176:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 854              		.loc 1 176 55 is_stmt 0 view .LVU288
- 855 02b0 2E4B     		ldr	r3, .L65+8
- 856 02b2 1C68     		ldr	r4, [r3]
- 176:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 857              		.loc 1 176 34 view .LVU289
- 858 02b4 5921     		movs	r1, #89
- 859 02b6 E079     		ldrb	r0, [r4, #7]	@ zero_extendqisi2
- 860 02b8 FFF7FEFF 		bl	increment_bcd
- 861              	.LVL22:
- 176:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 862              		.loc 1 176 32 discriminator 1 view .LVU290
- 863 02bc E071     		strb	r0, [r4, #7]
- 864 02be BFE7     		b	.L35
- 865              	.L59:
- 180:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 866              		.loc 1 180 70 discriminator 1 view .LVU291
- 867 02c0 2B4A     		ldr	r2, .L65+12
- 868 02c2 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 180:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
- 869              		.loc 1 180 45 discriminator 1 view .LVU292
- 870 02c4 022A     		cmp	r2, #2
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 24
+ 198:Core/Src/alrm_logic.c **** 			create_time_string(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, time_str);
+ 990              		.loc 1 198 4 view .LVU270
+ 991 039e 5F4C     		ldr	r4, .L70+28
+ 992 03a0 2246     		mov	r2, r4
+ 993 03a2 D979     		ldrb	r1, [r3, #7]	@ zero_extendqisi2
+ 994 03a4 9879     		ldrb	r0, [r3, #6]	@ zero_extendqisi2
+ 995 03a6 FFF7FEFF 		bl	create_time_string
+ 996              	.LVL44:
+ 199:Core/Src/alrm_logic.c **** 			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
+ 997              		.loc 1 199 4 is_stmt 1 view .LVU271
+ 998 03aa 5D4B     		ldr	r3, .L70+32
+ 999 03ac 0496     		str	r6, [sp, #16]
+ 1000 03ae 4FF4FC62 		mov	r2, #2016
+ 1001 03b2 0392     		str	r2, [sp, #12]
+ 1002 03b4 0295     		str	r5, [sp, #8]
+ 1003 03b6 1A1D     		adds	r2, r3, #4
+ 1004 03b8 92E80300 		ldm	r2, {r0, r1}
+ 1005 03bc 8DE80300 		stm	sp, {r0, r1}
+ 1006 03c0 1B68     		ldr	r3, [r3]
+ 1007 03c2 2246     		mov	r2, r4
+ 1008 03c4 3421     		movs	r1, #52
+ 1009 03c6 1420     		movs	r0, #20
+ 1010 03c8 FFF7FEFF 		bl	Displ_WString
+ 1011              	.LVL45:
+ 202:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ 1012              		.loc 1 202 4 view .LVU272
+ 202:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ 1013              		.loc 1 202 25 is_stmt 0 view .LVU273
+ 1014 03cc 4F4B     		ldr	r3, .L70+12
+ 1015 03ce 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 202:Core/Src/alrm_logic.c **** 			if (But0_press_state == BUTTON_SHORT_PRESS){
+ 1016              		.loc 1 202 7 view .LVU274
+ 1017 03d0 AB42     		cmp	r3, r5
+ 1018 03d2 34D0     		beq	.L62
+ 1019              	.L38:
+ 207:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 1020              		.loc 1 207 4 is_stmt 1 view .LVU275
+ 207:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 1021              		.loc 1 207 25 is_stmt 0 view .LVU276
+ 1022 03d4 4E4B     		ldr	r3, .L70+16
+ 1023 03d6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 207:Core/Src/alrm_logic.c **** 			if (But1_press_state == BUTTON_SHORT_PRESS){
+ 1024              		.loc 1 207 7 view .LVU277
+ 1025 03d8 012B     		cmp	r3, #1
+ 1026 03da 38D0     		beq	.L63
+ 1027              	.L39:
+ 212:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 1028              		.loc 1 212 4 is_stmt 1 view .LVU278
+ 212:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 1029              		.loc 1 212 24 is_stmt 0 view .LVU279
+ 1030 03dc 4B4B     		ldr	r3, .L70+12
+ 1031 03de 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 212:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 1032              		.loc 1 212 6 view .LVU280
+ 1033 03e0 022B     		cmp	r3, #2
+ 1034 03e2 3CD0     		beq	.L64
+ 1035              	.L40:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 27
 
 
- 871 02c6 BFD0     		beq	.L36
- 181:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 872              		.loc 1 181 5 is_stmt 1 view .LVU293
- 181:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 873              		.loc 1 181 12 is_stmt 0 view .LVU294
- 874 02c8 284B     		ldr	r3, .L65+8
- 875 02ca 1B68     		ldr	r3, [r3]
- 181:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
- 876              		.loc 1 181 32 view .LVU295
- 877 02cc 0122     		movs	r2, #1
- 878 02ce 1A72     		strb	r2, [r3, #8]
- 879 02d0 C3E7     		b	.L37
- 880              	.L60:
- 182:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 881              		.loc 1 182 78 discriminator 1 view .LVU296
- 882 02d2 274A     		ldr	r2, .L65+12
- 883 02d4 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 182:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 884              		.loc 1 182 53 discriminator 1 view .LVU297
- 885 02d6 022A     		cmp	r2, #2
- 886 02d8 B8D1     		bne	.L38
- 183:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
- 887              		.loc 1 183 17 view .LVU298
- 888 02da 244A     		ldr	r2, .L65+8
- 889 02dc 1468     		ldr	r4, [r2]
- 890 02de 227A     		ldrb	r2, [r4, #8]	@ zero_extendqisi2
- 182:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
- 891              		.loc 1 182 99 discriminator 2 view .LVU299
- 892 02e0 002A     		cmp	r2, #0
- 893 02e2 B3D0     		beq	.L38
- 185:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 894              		.loc 1 185 5 is_stmt 1 view .LVU300
- 185:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 895              		.loc 1 185 16 is_stmt 0 view .LVU301
- 896 02e4 6389     		ldrh	r3, [r4, #10]
- 185:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 897              		.loc 1 185 8 view .LVU302
- 898 02e6 092B     		cmp	r3, #9
- 899 02e8 02D8     		bhi	.L39
- 186:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
- 900              		.loc 1 186 6 is_stmt 1 view .LVU303
- 186:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
- 901              		.loc 1 186 39 is_stmt 0 view .LVU304
- 902 02ea 0133     		adds	r3, r3, #1
- 903 02ec 6381     		strh	r3, [r4, #10]	@ movhi
- 904 02ee B4E7     		b	.L37
- 905              	.L39:
- 188:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 906              		.loc 1 188 6 is_stmt 1 view .LVU305
- 188:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 907              		.loc 1 188 13 is_stmt 0 view .LVU306
- 908 02f0 A37B     		ldrb	r3, [r4, #14]	@ zero_extendqisi2
- 188:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
- 909              		.loc 1 188 39 view .LVU307
- 910 02f2 0133     		adds	r3, r3, #1
- 911 02f4 DBB2     		uxtb	r3, r3
- 912 02f6 A373     		strb	r3, [r4, #14]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 25
+ 214:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 1036              		.loc 1 214 11 is_stmt 1 view .LVU281
+ 214:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 1037              		.loc 1 214 14 is_stmt 0 view .LVU282
+ 1038 03e4 022B     		cmp	r3, #2
+ 1039 03e6 43D0     		beq	.L65
+ 1040              	.L42:
+ 227:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_IDLE){
+ 1041              		.loc 1 227 11 is_stmt 1 view .LVU283
+ 227:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_IDLE){
+ 1042              		.loc 1 227 14 is_stmt 0 view .LVU284
+ 1043 03e8 2BB9     		cbnz	r3, .L41
+ 228:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 1044              		.loc 1 228 5 is_stmt 1 view .LVU285
+ 228:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 1045              		.loc 1 228 12 is_stmt 0 view .LVU286
+ 1046 03ea 454B     		ldr	r3, .L70
+ 1047 03ec 1B68     		ldr	r3, [r3]
+ 228:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 1048              		.loc 1 228 32 view .LVU287
+ 1049 03ee 0022     		movs	r2, #0
+ 1050 03f0 1A72     		strb	r2, [r3, #8]
+ 229:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 1051              		.loc 1 229 5 is_stmt 1 view .LVU288
+ 229:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 1052              		.loc 1 229 39 is_stmt 0 view .LVU289
+ 1053 03f2 5A81     		strh	r2, [r3, #10]	@ movhi
+ 230:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 1054              		.loc 1 230 5 is_stmt 1 view .LVU290
+ 230:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 1055              		.loc 1 230 39 is_stmt 0 view .LVU291
+ 1056 03f4 9A73     		strb	r2, [r3, #14]
+ 1057              	.L41:
+ 234:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 1058              		.loc 1 234 4 is_stmt 1 view .LVU292
+ 234:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 1059              		.loc 1 234 24 is_stmt 0 view .LVU293
+ 1060 03f6 464B     		ldr	r3, .L70+16
+ 1061 03f8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 234:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 1062              		.loc 1 234 6 view .LVU294
+ 1063 03fa 022B     		cmp	r3, #2
+ 1064 03fc 57D0     		beq	.L66
+ 1065              	.L44:
+ 236:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 1066              		.loc 1 236 11 is_stmt 1 view .LVU295
+ 236:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 1067              		.loc 1 236 14 is_stmt 0 view .LVU296
+ 1068 03fe 022B     		cmp	r3, #2
+ 1069 0400 5ED0     		beq	.L67
+ 1070              	.L45:
+ 250:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_IDLE){
+ 1071              		.loc 1 250 11 is_stmt 1 view .LVU297
+ 250:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_IDLE){
+ 1072              		.loc 1 250 14 is_stmt 0 view .LVU298
+ 1073 0402 002B     		cmp	r3, #0
+ 1074 0404 7FF4B2AE 		bne	.L13
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 28
 
 
- 189:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 913              		.loc 1 189 6 is_stmt 1 view .LVU308
- 189:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 914              		.loc 1 189 9 is_stmt 0 view .LVU309
- 915 02f8 092B     		cmp	r3, #9
- 916 02fa AED9     		bls	.L37
- 190:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 917              		.loc 1 190 7 is_stmt 1 view .LVU310
- 190:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 918              		.loc 1 190 34 is_stmt 0 view .LVU311
- 919 02fc 2321     		movs	r1, #35
- 920 02fe A079     		ldrb	r0, [r4, #6]	@ zero_extendqisi2
- 921 0300 FFF7FEFF 		bl	increment_bcd
- 922              	.LVL23:
- 190:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
- 923              		.loc 1 190 32 discriminator 1 view .LVU312
- 924 0304 A071     		strb	r0, [r4, #6]
- 191:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 925              		.loc 1 191 7 is_stmt 1 view .LVU313
- 191:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 926              		.loc 1 191 14 is_stmt 0 view .LVU314
- 927 0306 194B     		ldr	r3, .L65+8
- 928 0308 1B68     		ldr	r3, [r3]
- 191:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
- 929              		.loc 1 191 41 view .LVU315
- 930 030a 0022     		movs	r2, #0
- 931 030c 9A73     		strb	r2, [r3, #14]
- 932 030e A4E7     		b	.L37
- 933              	.L61:
- 202:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 934              		.loc 1 202 70 discriminator 1 view .LVU316
- 935 0310 184A     		ldr	r2, .L65+16
- 936 0312 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 202:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
- 937              		.loc 1 202 45 discriminator 1 view .LVU317
- 938 0314 022A     		cmp	r2, #2
- 939 0316 A4D0     		beq	.L40
- 203:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 940              		.loc 1 203 5 is_stmt 1 view .LVU318
- 203:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 941              		.loc 1 203 12 is_stmt 0 view .LVU319
- 942 0318 144B     		ldr	r3, .L65+8
- 943 031a 1B68     		ldr	r3, [r3]
- 203:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
- 944              		.loc 1 203 34 view .LVU320
- 945 031c 0122     		movs	r2, #1
- 946 031e 5A72     		strb	r2, [r3, #9]
- 947 0320 C6E6     		b	.L9
- 948              	.L62:
- 204:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 949              		.loc 1 204 78 discriminator 1 view .LVU321
- 950 0322 144A     		ldr	r2, .L65+16
- 951 0324 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
- 204:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 952              		.loc 1 204 53 discriminator 1 view .LVU322
- 953 0326 022A     		cmp	r2, #2
- 954 0328 9DD1     		bne	.L41
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 26
+ 251:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 1075              		.loc 1 251 5 is_stmt 1 view .LVU299
+ 251:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 1076              		.loc 1 251 12 is_stmt 0 view .LVU300
+ 1077 0408 3D4B     		ldr	r3, .L70
+ 1078 040a 1B68     		ldr	r3, [r3]
+ 251:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 1079              		.loc 1 251 34 view .LVU301
+ 1080 040c 0022     		movs	r2, #0
+ 1081 040e 5A72     		strb	r2, [r3, #9]
+ 252:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 1082              		.loc 1 252 5 is_stmt 1 view .LVU302
+ 252:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 1083              		.loc 1 252 41 is_stmt 0 view .LVU303
+ 1084 0410 9A81     		strh	r2, [r3, #12]	@ movhi
+ 253:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 1085              		.loc 1 253 5 is_stmt 1 view .LVU304
+ 253:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 1086              		.loc 1 253 41 is_stmt 0 view .LVU305
+ 1087 0412 DA73     		strb	r2, [r3, #15]
+ 1088 0414 AAE6     		b	.L13
+ 1089              	.L61:
+ 184:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 1090              		.loc 1 184 5 is_stmt 1 view .LVU306
+ 184:Core/Src/alrm_logic.c **** 				alarm_p->alarm_state = IDLE;
+ 1091              		.loc 1 184 26 is_stmt 0 view .LVU307
+ 1092 0416 0024     		movs	r4, #0
+ 1093 0418 1470     		strb	r4, [r2]
+ 185:Core/Src/alrm_logic.c **** 				Displ_CLS(BLACK);
+ 1094              		.loc 1 185 5 is_stmt 1 view .LVU308
+ 1095 041a 2046     		mov	r0, r4
+ 1096 041c FFF7FEFF 		bl	Displ_CLS
+ 1097              	.LVL46:
+ 186:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
+ 1098              		.loc 1 186 5 view .LVU309
+ 186:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
+ 1099              		.loc 1 186 26 is_stmt 0 view .LVU310
+ 1100 0420 374D     		ldr	r5, .L70
+ 1101 0422 2B68     		ldr	r3, [r5]
+ 186:Core/Src/alrm_logic.c **** 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
+ 1102              		.loc 1 186 5 view .LVU311
+ 1103 0424 2246     		mov	r2, r4
+ 1104 0426 D979     		ldrb	r1, [r3, #7]	@ zero_extendqisi2
+ 1105 0428 9879     		ldrb	r0, [r3, #6]	@ zero_extendqisi2
+ 1106 042a FFF7FEFF 		bl	alrm_SetAlarm
+ 1107              	.LVL47:
+ 188:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 1108              		.loc 1 188 5 is_stmt 1 view .LVU312
+ 188:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 1109              		.loc 1 188 12 is_stmt 0 view .LVU313
+ 1110 042e 2B68     		ldr	r3, [r5]
+ 188:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 0;
+ 1111              		.loc 1 188 32 view .LVU314
+ 1112 0430 1C72     		strb	r4, [r3, #8]
+ 189:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ 1113              		.loc 1 189 5 is_stmt 1 view .LVU315
+ 189:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 0;
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 29
 
 
- 205:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
- 955              		.loc 1 205 17 view .LVU323
- 956 032a 104A     		ldr	r2, .L65+8
- 957 032c 1468     		ldr	r4, [r2]
- 958 032e 627A     		ldrb	r2, [r4, #9]	@ zero_extendqisi2
- 204:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
- 959              		.loc 1 204 99 discriminator 2 view .LVU324
- 960 0330 002A     		cmp	r2, #0
- 961 0332 98D0     		beq	.L41
- 207:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 962              		.loc 1 207 5 is_stmt 1 view .LVU325
- 207:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 963              		.loc 1 207 16 is_stmt 0 view .LVU326
- 964 0334 A389     		ldrh	r3, [r4, #12]
- 207:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
- 965              		.loc 1 207 8 view .LVU327
- 966 0336 092B     		cmp	r3, #9
- 967 0338 02D8     		bhi	.L42
- 208:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
- 968              		.loc 1 208 6 is_stmt 1 view .LVU328
- 208:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
- 969              		.loc 1 208 41 is_stmt 0 view .LVU329
- 970 033a 0133     		adds	r3, r3, #1
- 971 033c A381     		strh	r3, [r4, #12]	@ movhi
- 972 033e B7E6     		b	.L9
- 973              	.L42:
- 211:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 974              		.loc 1 211 6 is_stmt 1 view .LVU330
- 211:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 975              		.loc 1 211 13 is_stmt 0 view .LVU331
- 976 0340 E37B     		ldrb	r3, [r4, #15]	@ zero_extendqisi2
- 211:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
- 977              		.loc 1 211 41 view .LVU332
- 978 0342 0133     		adds	r3, r3, #1
- 979 0344 DBB2     		uxtb	r3, r3
- 980 0346 E373     		strb	r3, [r4, #15]
- 212:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 981              		.loc 1 212 6 is_stmt 1 view .LVU333
- 212:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
- 982              		.loc 1 212 9 is_stmt 0 view .LVU334
- 983 0348 092B     		cmp	r3, #9
- 984 034a 7FF6B1AE 		bls	.L9
- 213:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 985              		.loc 1 213 7 is_stmt 1 view .LVU335
- 213:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 986              		.loc 1 213 36 is_stmt 0 view .LVU336
- 987 034e 5921     		movs	r1, #89
- 988 0350 E079     		ldrb	r0, [r4, #7]	@ zero_extendqisi2
- 989 0352 FFF7FEFF 		bl	increment_bcd
- 990              	.LVL24:
- 213:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
- 991              		.loc 1 213 34 discriminator 1 view .LVU337
- 992 0356 E071     		strb	r0, [r4, #7]
- 214:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 993              		.loc 1 214 7 is_stmt 1 view .LVU338
- 214:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 994              		.loc 1 214 14 is_stmt 0 view .LVU339
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 27
+ 1114              		.loc 1 189 34 is_stmt 0 view .LVU316
+ 1115 0432 5C72     		strb	r4, [r3, #9]
+ 190:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 1116              		.loc 1 190 5 is_stmt 1 view .LVU317
+ 190:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_timeout_cnt = 0;
+ 1117              		.loc 1 190 39 is_stmt 0 view .LVU318
+ 1118 0434 5C81     		strh	r4, [r3, #10]	@ movhi
+ 191:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 1119              		.loc 1 191 5 is_stmt 1 view .LVU319
+ 191:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_timeout_cnt = 0;
+ 1120              		.loc 1 191 41 is_stmt 0 view .LVU320
+ 1121 0436 9C81     		strh	r4, [r3, #12]	@ movhi
+ 192:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 1122              		.loc 1 192 5 is_stmt 1 view .LVU321
+ 192:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_divider_cnt = 0;
+ 1123              		.loc 1 192 39 is_stmt 0 view .LVU322
+ 1124 0438 9C73     		strb	r4, [r3, #14]
+ 193:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 1125              		.loc 1 193 5 is_stmt 1 view .LVU323
+ 193:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_divider_cnt = 0;
+ 1126              		.loc 1 193 41 is_stmt 0 view .LVU324
+ 1127 043a DC73     		strb	r4, [r3, #15]
+ 194:Core/Src/alrm_logic.c **** 				return; // Skip the rest
+ 1128              		.loc 1 194 5 is_stmt 1 view .LVU325
+ 1129 043c 96E6     		b	.L13
+ 1130              	.L62:
+ 203:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 1131              		.loc 1 203 5 view .LVU326
+ 203:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 1132              		.loc 1 203 53 is_stmt 0 view .LVU327
+ 1133 043e 304B     		ldr	r3, .L70
+ 1134 0440 1C68     		ldr	r4, [r3]
+ 203:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 1135              		.loc 1 203 32 view .LVU328
+ 1136 0442 2321     		movs	r1, #35
+ 1137 0444 A079     		ldrb	r0, [r4, #6]	@ zero_extendqisi2
+ 1138 0446 FFF7FEFF 		bl	increment_bcd
+ 1139              	.LVL48:
+ 203:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 1140              		.loc 1 203 30 discriminator 1 view .LVU329
+ 1141 044a A071     		strb	r0, [r4, #6]
+ 1142 044c C2E7     		b	.L38
+ 1143              	.L63:
+ 208:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 1144              		.loc 1 208 5 is_stmt 1 view .LVU330
+ 208:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 1145              		.loc 1 208 55 is_stmt 0 view .LVU331
+ 1146 044e 2C4B     		ldr	r3, .L70
+ 1147 0450 1C68     		ldr	r4, [r3]
+ 208:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 1148              		.loc 1 208 34 view .LVU332
+ 1149 0452 5921     		movs	r1, #89
+ 1150 0454 E079     		ldrb	r0, [r4, #7]	@ zero_extendqisi2
+ 1151 0456 FFF7FEFF 		bl	increment_bcd
+ 1152              	.LVL49:
+ 208:Core/Src/alrm_logic.c **** 				alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 1153              		.loc 1 208 32 discriminator 1 view .LVU333
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 30
 
 
- 995 0358 044B     		ldr	r3, .L65+8
- 996 035a 1B68     		ldr	r3, [r3]
- 214:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
- 997              		.loc 1 214 43 view .LVU340
- 998 035c 0022     		movs	r2, #0
- 999 035e DA73     		strb	r2, [r3, #15]
- 1000 0360 A6E6     		b	.L9
- 1001              	.L66:
- 1002 0362 00BF     		.align	2
- 1003              	.L65:
- 1004 0364 00000000 		.word	But0_press_state
- 1005 0368 00000000 		.word	But1_press_state
- 1006 036c 00000000 		.word	alarm_p
- 1007 0370 00000000 		.word	But0_prev_press_state
- 1008 0374 00000000 		.word	But1_prev_press_state
- 1009              		.cfi_endproc
- 1010              	.LFE136:
- 1012              		.global	alarm_p
- 1013              		.section	.data.alarm_p,"aw"
- 1014              		.align	2
- 1017              	alarm_p:
- 1018 0000 00000000 		.word	halarm
- 1019              		.global	halarm
- 1020              		.section	.bss.halarm,"aw",%nobits
- 1021              		.align	2
- 1024              	halarm:
- 1025 0000 00000000 		.space	16
- 1025      00000000 
- 1025      00000000 
- 1025      00000000 
- 1026              		.text
- 1027              	.Letext0:
- 1028              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
- 1029              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
- 1030              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
- 1031              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 1032              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 1033              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h"
- 1034              		.file 8 "Core/Inc/rtc.h"
- 1035              		.file 9 "Core/Inc/alrm.h"
- 1036              		.file 10 "Core/Inc/button.h"
- 1037              		.file 11 "Core/Inc/press_detection.h"
- 1038              		.file 12 "Core/Inc/Leds.h"
- 1039              		.file 13 "Core/Inc/alrm_logic.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s 			page 28
+ 1154 045a E071     		strb	r0, [r4, #7]
+ 1155 045c BEE7     		b	.L39
+ 1156              	.L64:
+ 212:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 1157              		.loc 1 212 70 discriminator 1 view .LVU334
+ 1158 045e 294A     		ldr	r2, .L70+4
+ 1159 0460 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 212:Core/Src/alrm_logic.c **** 			if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS){
+ 1160              		.loc 1 212 45 discriminator 1 view .LVU335
+ 1161 0462 022A     		cmp	r2, #2
+ 1162 0464 BED0     		beq	.L40
+ 213:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 1163              		.loc 1 213 5 is_stmt 1 view .LVU336
+ 213:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 1164              		.loc 1 213 12 is_stmt 0 view .LVU337
+ 1165 0466 264B     		ldr	r3, .L70
+ 1166 0468 1B68     		ldr	r3, [r3]
+ 213:Core/Src/alrm_logic.c **** 				alarm_p->hours_scroll_flag = 1;
+ 1167              		.loc 1 213 32 view .LVU338
+ 1168 046a 0122     		movs	r2, #1
+ 1169 046c 1A72     		strb	r2, [r3, #8]
+ 1170 046e C2E7     		b	.L41
+ 1171              	.L65:
+ 214:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 1172              		.loc 1 214 78 discriminator 1 view .LVU339
+ 1173 0470 244A     		ldr	r2, .L70+4
+ 1174 0472 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 214:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 1175              		.loc 1 214 53 discriminator 1 view .LVU340
+ 1176 0474 022A     		cmp	r2, #2
+ 1177 0476 B7D1     		bne	.L42
+ 215:Core/Src/alrm_logic.c **** 									alarm_p->hours_scroll_flag){
+ 1178              		.loc 1 215 17 view .LVU341
+ 1179 0478 214A     		ldr	r2, .L70
+ 1180 047a 1468     		ldr	r4, [r2]
+ 1181 047c 227A     		ldrb	r2, [r4, #8]	@ zero_extendqisi2
+ 214:Core/Src/alrm_logic.c **** 			} else if (But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state == BUTTON_LONG_PRESS &
+ 1182              		.loc 1 214 99 discriminator 2 view .LVU342
+ 1183 047e 002A     		cmp	r2, #0
+ 1184 0480 B2D0     		beq	.L42
+ 217:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 1185              		.loc 1 217 5 is_stmt 1 view .LVU343
+ 217:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 1186              		.loc 1 217 16 is_stmt 0 view .LVU344
+ 1187 0482 6389     		ldrh	r3, [r4, #10]
+ 217:Core/Src/alrm_logic.c **** 				if (alarm_p->hours_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 1188              		.loc 1 217 8 view .LVU345
+ 1189 0484 092B     		cmp	r3, #9
+ 1190 0486 02D8     		bhi	.L43
+ 218:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
+ 1191              		.loc 1 218 6 is_stmt 1 view .LVU346
+ 218:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_timeout_cnt++;
+ 1192              		.loc 1 218 39 is_stmt 0 view .LVU347
+ 1193 0488 0133     		adds	r3, r3, #1
+ 1194 048a 6381     		strh	r3, [r4, #10]	@ movhi
+ 1195 048c B3E7     		b	.L41
+ 1196              	.L43:
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 31
+
+
+ 220:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 1197              		.loc 1 220 6 is_stmt 1 view .LVU348
+ 220:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 1198              		.loc 1 220 13 is_stmt 0 view .LVU349
+ 1199 048e A37B     		ldrb	r3, [r4, #14]	@ zero_extendqisi2
+ 220:Core/Src/alrm_logic.c **** 					alarm_p->hours_scroll_divider_cnt++;
+ 1200              		.loc 1 220 39 view .LVU350
+ 1201 0490 0133     		adds	r3, r3, #1
+ 1202 0492 DBB2     		uxtb	r3, r3
+ 1203 0494 A373     		strb	r3, [r4, #14]
+ 221:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 1204              		.loc 1 221 6 is_stmt 1 view .LVU351
+ 221:Core/Src/alrm_logic.c **** 					if (alarm_p->hours_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 1205              		.loc 1 221 9 is_stmt 0 view .LVU352
+ 1206 0496 092B     		cmp	r3, #9
+ 1207 0498 ADD9     		bls	.L41
+ 222:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 1208              		.loc 1 222 7 is_stmt 1 view .LVU353
+ 222:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 1209              		.loc 1 222 34 is_stmt 0 view .LVU354
+ 1210 049a 2321     		movs	r1, #35
+ 1211 049c A079     		ldrb	r0, [r4, #6]	@ zero_extendqisi2
+ 1212 049e FFF7FEFF 		bl	increment_bcd
+ 1213              	.LVL50:
+ 222:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_hours = increment_bcd(alarm_p->alarm_set_hours, 0x23);
+ 1214              		.loc 1 222 32 discriminator 1 view .LVU355
+ 1215 04a2 A071     		strb	r0, [r4, #6]
+ 223:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 1216              		.loc 1 223 7 is_stmt 1 view .LVU356
+ 223:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 1217              		.loc 1 223 14 is_stmt 0 view .LVU357
+ 1218 04a4 164B     		ldr	r3, .L70
+ 1219 04a6 1B68     		ldr	r3, [r3]
+ 223:Core/Src/alrm_logic.c **** 						alarm_p->hours_scroll_divider_cnt = 0;
+ 1220              		.loc 1 223 41 view .LVU358
+ 1221 04a8 0022     		movs	r2, #0
+ 1222 04aa 9A73     		strb	r2, [r3, #14]
+ 1223 04ac A3E7     		b	.L41
+ 1224              	.L66:
+ 234:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 1225              		.loc 1 234 70 discriminator 1 view .LVU359
+ 1226 04ae 164A     		ldr	r2, .L70+8
+ 1227 04b0 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 234:Core/Src/alrm_logic.c **** 			if(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
+ 1228              		.loc 1 234 45 discriminator 1 view .LVU360
+ 1229 04b2 022A     		cmp	r2, #2
+ 1230 04b4 A3D0     		beq	.L44
+ 235:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 1231              		.loc 1 235 5 is_stmt 1 view .LVU361
+ 235:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 1232              		.loc 1 235 12 is_stmt 0 view .LVU362
+ 1233 04b6 124B     		ldr	r3, .L70
+ 1234 04b8 1B68     		ldr	r3, [r3]
+ 235:Core/Src/alrm_logic.c **** 				alarm_p->minutes_scroll_flag = 1;
+ 1235              		.loc 1 235 34 view .LVU363
+ 1236 04ba 0122     		movs	r2, #1
+ 1237 04bc 5A72     		strb	r2, [r3, #9]
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 32
+
+
+ 1238 04be 55E6     		b	.L13
+ 1239              	.L67:
+ 236:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 1240              		.loc 1 236 78 discriminator 1 view .LVU364
+ 1241 04c0 114A     		ldr	r2, .L70+8
+ 1242 04c2 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 236:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 1243              		.loc 1 236 53 discriminator 1 view .LVU365
+ 1244 04c4 022A     		cmp	r2, #2
+ 1245 04c6 9CD1     		bne	.L45
+ 237:Core/Src/alrm_logic.c **** 									alarm_p->minutes_scroll_flag){
+ 1246              		.loc 1 237 17 view .LVU366
+ 1247 04c8 0D4A     		ldr	r2, .L70
+ 1248 04ca 1468     		ldr	r4, [r2]
+ 1249 04cc 627A     		ldrb	r2, [r4, #9]	@ zero_extendqisi2
+ 236:Core/Src/alrm_logic.c **** 			} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state == BUTTON_LONG_PRESS &
+ 1250              		.loc 1 236 99 discriminator 2 view .LVU367
+ 1251 04ce 002A     		cmp	r2, #0
+ 1252 04d0 97D0     		beq	.L45
+ 239:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 1253              		.loc 1 239 5 is_stmt 1 view .LVU368
+ 239:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 1254              		.loc 1 239 16 is_stmt 0 view .LVU369
+ 1255 04d2 A389     		ldrh	r3, [r4, #12]
+ 239:Core/Src/alrm_logic.c **** 				if (alarm_p->minutes_scroll_timeout_cnt < BUTTON_SCROLL_TIMEOUT){
+ 1256              		.loc 1 239 8 view .LVU370
+ 1257 04d4 092B     		cmp	r3, #9
+ 1258 04d6 02D8     		bhi	.L46
+ 240:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
+ 1259              		.loc 1 240 6 is_stmt 1 view .LVU371
+ 240:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_timeout_cnt++;
+ 1260              		.loc 1 240 41 is_stmt 0 view .LVU372
+ 1261 04d8 0133     		adds	r3, r3, #1
+ 1262 04da A381     		strh	r3, [r4, #12]	@ movhi
+ 1263 04dc 46E6     		b	.L13
+ 1264              	.L46:
+ 243:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ 1265              		.loc 1 243 6 is_stmt 1 view .LVU373
+ 243:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ 1266              		.loc 1 243 13 is_stmt 0 view .LVU374
+ 1267 04de E37B     		ldrb	r3, [r4, #15]	@ zero_extendqisi2
+ 243:Core/Src/alrm_logic.c **** 					alarm_p->minutes_scroll_divider_cnt++;
+ 1268              		.loc 1 243 41 view .LVU375
+ 1269 04e0 0133     		adds	r3, r3, #1
+ 1270 04e2 DBB2     		uxtb	r3, r3
+ 1271 04e4 E373     		strb	r3, [r4, #15]
+ 244:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 1272              		.loc 1 244 6 is_stmt 1 view .LVU376
+ 244:Core/Src/alrm_logic.c **** 					if (alarm_p->minutes_scroll_divider_cnt >= BUTTON_SCROLL_FREQ_DIV){
+ 1273              		.loc 1 244 9 is_stmt 0 view .LVU377
+ 1274 04e6 092B     		cmp	r3, #9
+ 1275 04e8 7FF640AE 		bls	.L13
+ 245:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 1276              		.loc 1 245 7 is_stmt 1 view .LVU378
+ 245:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 1277              		.loc 1 245 36 is_stmt 0 view .LVU379
+ 1278 04ec 5921     		movs	r1, #89
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 33
+
+
+ 1279 04ee E079     		ldrb	r0, [r4, #7]	@ zero_extendqisi2
+ 1280 04f0 FFF7FEFF 		bl	increment_bcd
+ 1281              	.LVL51:
+ 245:Core/Src/alrm_logic.c **** 						alarm_p->alarm_set_minutes = increment_bcd(alarm_p->alarm_set_minutes, 0x59);
+ 1282              		.loc 1 245 34 discriminator 1 view .LVU380
+ 1283 04f4 E071     		strb	r0, [r4, #7]
+ 246:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 1284              		.loc 1 246 7 is_stmt 1 view .LVU381
+ 246:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 1285              		.loc 1 246 14 is_stmt 0 view .LVU382
+ 1286 04f6 024B     		ldr	r3, .L70
+ 1287 04f8 1B68     		ldr	r3, [r3]
+ 246:Core/Src/alrm_logic.c **** 						alarm_p->minutes_scroll_divider_cnt = 0;
+ 1288              		.loc 1 246 43 view .LVU383
+ 1289 04fa 0022     		movs	r2, #0
+ 1290 04fc DA73     		strb	r2, [r3, #15]
+ 1291 04fe 35E6     		b	.L13
+ 1292              	.L71:
+ 1293              		.align	2
+ 1294              	.L70:
+ 1295 0500 00000000 		.word	alarm_p
+ 1296 0504 00000000 		.word	But0_prev_press_state
+ 1297 0508 00000000 		.word	But1_prev_press_state
+ 1298 050c 00000000 		.word	But0_press_state
+ 1299 0510 00000000 		.word	But1_press_state
+ 1300 0514 00000000 		.word	Font16
+ 1301 0518 14000000 		.word	.LC3
+ 1302 051c 00000000 		.word	time_str
+ 1303 0520 00000000 		.word	Font24
+ 1304              		.cfi_endproc
+ 1305              	.LFE137:
+ 1307              		.global	time_str
+ 1308              		.section	.bss.time_str,"aw",%nobits
+ 1309              		.align	2
+ 1312              	time_str:
+ 1313 0000 00000000 		.space	6
+ 1313      0000
+ 1314              		.global	alarm_p
+ 1315              		.section	.data.alarm_p,"aw"
+ 1316              		.align	2
+ 1319              	alarm_p:
+ 1320 0000 00000000 		.word	halarm
+ 1321              		.global	halarm
+ 1322              		.section	.bss.halarm,"aw",%nobits
+ 1323              		.align	2
+ 1326              	halarm:
+ 1327 0000 00000000 		.space	16
+ 1327      00000000 
+ 1327      00000000 
+ 1327      00000000 
+ 1328              		.text
+ 1329              	.Letext0:
+ 1330              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ 1331              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
+ 1332              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 1333              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1334              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 34
+
+
+ 1335              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h"
+ 1336              		.file 8 "Core/Inc/fonts.h"
+ 1337              		.file 9 "Core/Inc/rtc.h"
+ 1338              		.file 10 "Core/Inc/alrm.h"
+ 1339              		.file 11 "Core/Inc/button.h"
+ 1340              		.file 12 "Core/Inc/press_detection.h"
+ 1341              		.file 13 "Core/Inc/Leds.h"
+ 1342              		.file 14 "Core/Inc/alrm_logic.h"
+ 1343              		.file 15 "Core/Inc/z_displ_ST7735.h"
+ 1344              		.file 16 "<built-in>"
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 35
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 alrm_logic.c
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:21     .text.alarm_init_components:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:27     .text.alarm_init_components:00000000 alarm_init_components
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:76     .text.alarm_init_components:00000040 $d
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:84     .text.alarm_periph_handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:90     .text.alarm_periph_handler:00000000 alarm_periph_handler
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:187    .text.alarm_periph_handler:00000078 $d
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:203    .text.alarm_state_machine:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:209    .text.alarm_state_machine:00000000 alarm_state_machine
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:231    .text.alarm_state_machine:00000010 $d
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:235    .text.alarm_state_machine:00000018 $t
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:708    .text.alarm_state_machine:0000020c $d
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:1017   .data.alarm_p:00000000 alarm_p
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:719    .text.alarm_state_machine:0000022c $t
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:1004   .text.alarm_state_machine:00000364 $d
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:1014   .data.alarm_p:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:1024   .bss.halarm:00000000 halarm
-C:\Users\zhmis\AppData\Local\Temp\ccb7l4pl.s:1021   .bss.halarm:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:21     .rodata.create_time_string.str1.4:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:25     .text.create_time_string:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:31     .text.create_time_string:00000000 create_time_string
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:88     .text.create_time_string:00000038 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:93     .text.alarm_init_components:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:99     .text.alarm_init_components:00000000 alarm_init_components
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:148    .text.alarm_init_components:00000040 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:156    .text.alarm_periph_handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:162    .text.alarm_periph_handler:00000000 alarm_periph_handler
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:259    .text.alarm_periph_handler:00000078 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:275    .rodata.alarm_state_machine.str1.4:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:285    .text.alarm_state_machine:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:291    .text.alarm_state_machine:00000000 alarm_state_machine
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:317    .text.alarm_state_machine:00000016 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:321    .text.alarm_state_machine:0000001e $t
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:792    .text.alarm_state_machine:0000027c $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:1319   .data.alarm_p:00000000 alarm_p
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:1312   .bss.time_str:00000000 time_str
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:808    .text.alarm_state_machine:000002b0 $t
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:1295   .text.alarm_state_machine:00000500 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:1309   .bss.time_str:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:1316   .data.alarm_p:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:1326   .bss.halarm:00000000 halarm
+C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s:1323   .bss.halarm:00000000 $d
 
 UNDEFINED SYMBOLS
+snprintf
 buttonInit
 led_init
 hbut0
@@ -1650,10 +2044,17 @@ But1_prev_press_state
 hrtc
 sTime
 sDate
+Displ_WString
+Displ_CLS
 leds_blink_start
 leds_blink_stop
 alrm_SetTime
 increment_bcd
+Font24
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKBbbAe.s 			page 36
+
+
 alarm_A_flag
 alarm_led
+Font16
 alrm_SetAlarm

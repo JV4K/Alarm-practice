@@ -80,6 +80,11 @@ Core/Src/alrm.c \
 Core/Src/alrm_logic.c \
 Core/Src/button.c \
 Core/Src/dma.c \
+Core/Src/font12.c \
+Core/Src/font16.c \
+Core/Src/font20.c \
+Core/Src/font24.c \
+Core/Src/font8.c \
 Core/Src/gpio.c \
 Core/Src/main.c \
 Core/Src/press_detection.c \
@@ -91,6 +96,7 @@ Core/Src/syscalls.c \
 Core/Src/sysmem.c \
 Core/Src/system_stm32f4xx.c \
 Core/Src/tim.c \
+Core/Src/z_displ_ST7735.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c \

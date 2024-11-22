@@ -1,8 +1,18 @@
 #include "alrm_logic.h"
 alarm_t halarm;
 alarm_t* alarm_p = &halarm; // Pointer to alarm data structure
+// uint8_t div10hz;
 
-// alarm_t* alarm_p;
+char time_str[6];
+
+void create_time_string(uint8_t hours_bcd, uint8_t minutes_bcd, char *time_str) {
+  // Convert BCD to decimal
+  uint8_t hours = ((hours_bcd >> 4) * 10) + (hours_bcd & 0x0F);
+  uint8_t minutes = ((minutes_bcd >> 4) * 10) + (minutes_bcd & 0x0F);
+
+  // Format the string
+  snprintf(time_str, 6, "%02d:%02d", hours, minutes);
+}
 
 void alarm_init_components(){
 	hbut0 = buttonInit(DEBOUNCE_TIME, HANDLE_FREQ);
@@ -33,35 +43,47 @@ void alarm_periph_handler(){
 void alarm_state_machine(){
 	switch (alarm_p->alarm_state){
 		case IDLE:{
+			create_time_string(sTime.Hours, sTime.Minutes, time_str);
+			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
+
 			if (alarm_A_flag){
 				alarm_A_flag = 0;
 				alarm_p->alarm_state = RING;
+				Displ_CLS(BLACK);
 			} else {
 					if(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS 
 					&& But1_press_state != BUTTON_LONG_PRESS){
 					alarm_p->alarm_state = SET_TIME;
+					Displ_CLS(BLACK);
 					} else if (But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS){
 						alarm_p->alarm_state = SET_ALARM;
+						Displ_CLS(BLACK);
 					}
 			}
 			break;
 		}
 		
 		case RING:{
+			Displ_WString(15, 30, "ALARM!", Font24, 1, RED, BLACK);
+			create_time_string(sTime.Hours, sTime.Minutes, time_str);
+			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
+
 			if(!alarm_p->ring_flag){
 				alarm_p->ring_flag = 1;
-				leds_blink_start();
+				leds_blink_start();                                
 			} else{}
 
 			if(But0_press_state == BUTTON_SHORT_PRESS || But1_press_state == BUTTON_SHORT_PRESS || 
 					(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS) || 
 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
 				alarm_p->alarm_state = IDLE;
+				Displ_CLS(BLACK);
 				alarm_p->ring_flag = 0;
 				leds_blink_stop();
 			} else if (alarm_led->led_cur_state == DIM){
 				alarm_p->ring_flag = 0;
 				alarm_p->alarm_state = IDLE;
+				Displ_CLS(BLACK);
 			}
 			break;
 		}
@@ -76,6 +98,7 @@ void alarm_state_machine(){
 			// First check if we are exiting time set mode
 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
 				alarm_p->alarm_state = IDLE;
+				Displ_CLS(BLACK);
 				alrm_SetTime(alarm_p->time_set_hours, alarm_p->time_set_minutes, 0); // Set time to rtc
 				alarm_p->time_set_flag = 0;
 				alarm_p->hours_scroll_flag = 0;
@@ -86,6 +109,10 @@ void alarm_state_machine(){
 				alarm_p->minutes_scroll_divider_cnt = 0;
 				return; // Skip the rest
 			}
+
+			Displ_WString(10, 10, "Set time:", Font16, 1, YELLOW, BLACK);
+			create_time_string(alarm_p->time_set_hours, alarm_p->time_set_minutes, time_str);
+			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
 			
 			// Increment hours on short press of button0
 			if (But0_press_state == BUTTON_SHORT_PRESS){
@@ -113,7 +140,7 @@ void alarm_state_machine(){
 					}
 				}
 				
-			} else if (But0_press_state == IDLE){
+			} else if (But0_press_state == BUTTON_IDLE){
 				alarm_p->hours_scroll_flag = 0;
 				alarm_p->hours_scroll_timeout_cnt = 0;
 				alarm_p->hours_scroll_divider_cnt = 0;
@@ -135,7 +162,7 @@ void alarm_state_machine(){
 					}
 				}
 				
-			} else if (But1_press_state == IDLE){
+			} else if (But1_press_state == BUTTON_IDLE){
 				alarm_p->minutes_scroll_flag = 0;
 				alarm_p->minutes_scroll_timeout_cnt = 0;
 				alarm_p->minutes_scroll_divider_cnt = 0;
@@ -155,6 +182,7 @@ void alarm_state_machine(){
 			// First check if we are exiting alarm set mode
 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){
 				alarm_p->alarm_state = IDLE;
+				Displ_CLS(BLACK);
 				alrm_SetAlarm(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, 0); // Set time to rtc
 //				alarm_p->alarm_set_flag = 0;
 				alarm_p->hours_scroll_flag = 0;
@@ -165,6 +193,10 @@ void alarm_state_machine(){
 				alarm_p->minutes_scroll_divider_cnt = 0;
 				return; // Skip the rest
 			}
+
+			Displ_WString(10, 10, "Set alarm:", Font16, 1, YELLOW, BLACK);
+			create_time_string(alarm_p->alarm_set_hours, alarm_p->alarm_set_minutes, time_str);
+			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
 			
 			// Increment hours on short press of button0
 			if (But0_press_state == BUTTON_SHORT_PRESS){
@@ -192,7 +224,7 @@ void alarm_state_machine(){
 					}
 				}
 				
-			} else if (But0_press_state == IDLE){
+			} else if (But0_press_state == BUTTON_IDLE){
 				alarm_p->hours_scroll_flag = 0;
 				alarm_p->hours_scroll_timeout_cnt = 0;
 				alarm_p->hours_scroll_divider_cnt = 0;
@@ -215,7 +247,7 @@ void alarm_state_machine(){
 					}
 				}
 				
-			} else if (But1_press_state == IDLE){
+			} else if (But1_press_state == BUTTON_IDLE){
 				alarm_p->minutes_scroll_flag = 0;
 				alarm_p->minutes_scroll_timeout_cnt = 0;
 				alarm_p->minutes_scroll_divider_cnt = 0;

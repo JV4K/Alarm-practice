@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
   28:Core/Src/spi.c **** DMA_HandleTypeDef hdma_spi1_tx;
   29:Core/Src/spi.c **** 
   30:Core/Src/spi.c **** /* SPI1 init function */
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 2
 
 
   31:Core/Src/spi.c **** void MX_SPI1_Init(void)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
   65              		.loc 1 48 32 is_stmt 0 view .LVU16
   66 0022 1022     		movs	r2, #16
   67 0024 C261     		str	r2, [r0, #28]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 3
 
 
   49:Core/Src/spi.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
  109              		.thumb_func
  111              	HAL_SPI_MspInit:
  112              	.LVL2:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 4
 
 
  113              	.LFB135:
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
   86:Core/Src/spi.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
   87:Core/Src/spi.c **** 
   88:Core/Src/spi.c ****     /* SPI1 DMA Init */
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 5
 
 
   89:Core/Src/spi.c ****     /* SPI1_TX Init */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
  167 0034 0192     		str	r2, [sp, #4]
   73:Core/Src/spi.c **** 
  168              		.loc 1 73 5 view .LVU44
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 6
 
 
  169 0036 019A     		ldr	r2, [sp, #4]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
  206 005c 03A9     		add	r1, sp, #12
  207 005e 1448     		ldr	r0, .L13+4
  208              	.LVL5:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 7
 
 
   86:Core/Src/spi.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
   99:Core/Src/spi.c ****     if (HAL_DMA_Init(&hdma_spi1_tx) != HAL_OK)
  244              		.loc 1 99 5 is_stmt 1 view .LVU81
   99:Core/Src/spi.c ****     if (HAL_DMA_Init(&hdma_spi1_tx) != HAL_OK)
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 8
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 8
 
 
  245              		.loc 1 99 32 is_stmt 0 view .LVU82
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
  290              		.global	HAL_SPI_MspDeInit
  291              		.syntax unified
  292              		.thumb
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 9
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 9
 
 
  293              		.thumb_func
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
  133:Core/Src/spi.c **** 
  134:Core/Src/spi.c ****     /* SPI1 DMA DeInit */
  135:Core/Src/spi.c ****     HAL_DMA_DeInit(spiHandle->hdmatx);
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 10
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 10
 
 
  329              		.loc 1 135 5 is_stmt 1 view .LVU102
@@ -598,28 +598,28 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 1
  372              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
  373              		.file 9 "Core/Inc/spi.h"
  374              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 11
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 11
 
 
  375              		.file 11 "Core/Inc/main.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s 			page 12
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:21     .text.MX_SPI1_Init:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:27     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:99     .text.MX_SPI1_Init:00000040 $d
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:362    .bss.hspi1:00000000 hspi1
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:105    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:111    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:281    .text.HAL_SPI_MspInit:000000ac $d
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:355    .bss.hdma_spi1_tx:00000000 hdma_spi1_tx
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:289    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:295    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:344    .text.HAL_SPI_MspDeInit:00000030 $d
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:352    .bss.hdma_spi1_tx:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cc19hYtD.s:359    .bss.hspi1:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:21     .text.MX_SPI1_Init:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:27     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:99     .text.MX_SPI1_Init:00000040 $d
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:362    .bss.hspi1:00000000 hspi1
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:105    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:111    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:281    .text.HAL_SPI_MspInit:000000ac $d
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:355    .bss.hdma_spi1_tx:00000000 hdma_spi1_tx
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:289    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:295    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:344    .text.HAL_SPI_MspDeInit:00000030 $d
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:352    .bss.hdma_spi1_tx:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccC1v9Xz.s:359    .bss.hspi1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

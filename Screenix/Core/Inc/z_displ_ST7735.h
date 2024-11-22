@@ -54,8 +54,8 @@
  ******* Same as configuration set on CubeMX ******/
 
 //#define DISPLAY_SPI_POLLING_MODE
-//#define DISPLAY_SPI_INTERRUPT_MODE
-#define DISPLAY_SPI_DMA_MODE
+#define DISPLAY_SPI_INTERRUPT_MODE
+// #define DISPLAY_SPI_DMA_MODE
 
 
 /*****************     STEP 3      *****************
@@ -153,7 +153,7 @@ extern int16_t _height;      								///< (oriented) display height
  * set data length lower limit to
  * enable DMA instead to direct polling
  ***************************/
-#define DISPL_DMA_CUTOFF 	20
+#define DISPL_DMA_CUTOFF 	0
 
 #define RED       0x001F  // Blue channel (5 bits)
 #define GREEN     0x07E0  // Green channel (6 bits, unchanged)

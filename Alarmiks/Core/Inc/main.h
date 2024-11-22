@@ -33,7 +33,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include "fonts.h"
 #include "z_displ_ST7735.h"
-#include "z_displ_ST7735_test.h"
+// #include "z_displ_ST7735_test.h"
 
 /* USER CODE END Includes */
 

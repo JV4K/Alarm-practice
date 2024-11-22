@@ -98,8 +98,12 @@ int main(void)
   MX_TIM6_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-	
-	HAL_TIM_Base_Start_IT(&htim6);
+
+  Displ_Init(Displ_Orientat_0); // initialize the display and set the initial display orientation (here is orientaton: 0�) - THIS FUNCTION MUST PRECEED ANY OTHER DISPLAY FUNCTION CALL.
+  Displ_CLS(BLACK);             // after initialization (above) and before turning on backlight (below), you can draw the initial display appearance. (here I'm just clearing display with a black background)
+  Displ_BackLight('I'); // initialize backlight and turn it on at init level
+  Displ_BackLight('F');
+  HAL_TIM_Base_Start_IT(&htim6);
 
   /* USER CODE END 2 */
 

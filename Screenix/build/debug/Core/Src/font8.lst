@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 1
   41      20000000 
   41      00000010 
   42 0065 20200000 		.ascii	"  \000\000\000\000p\000\000\000\000\000\000\000\000"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s 			page 2
 
 
   42      00007000 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 1
   53      7050D800 
   53      00E04040 
   53      4048F800 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s 			page 3
 
 
   54 0168 D8D8D8A8 		.ascii	"\330\330\330\250\210\330\000\000\330hhXX\350\000\000"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 1
   65      C0405870 
   65      50D80000 
   65      60202020 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s 			page 4
 
 
   66 0267 000000D0 		.ascii	"\000\000\000\320\250\250\250\000\000\000\000\360HH\310"
@@ -221,14 +221,14 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 1
   76              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
   77              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
   78              		.file 4 "Core/Inc/fonts.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 font8.c
-C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s:25     .data.Font8:00000000 Font8
-C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s:22     .data.Font8:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s:36     .rodata.Font8_Table:00000000 Font8_Table
-C:\Users\zhmis\AppData\Local\Temp\ccTBgC8G.s:33     .rodata.Font8_Table:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s:25     .data.Font8:00000000 Font8
+C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s:22     .data.Font8:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s:36     .rodata.Font8_Table:00000000 Font8_Table
+C:\Users\zhmis\AppData\Local\Temp\ccOdwUEt.s:33     .rodata.Font8_Table:00000000 $d
 
 NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
   34              		.loc 1 22 5 view .LVU1
   35              		.loc 1 22 20 is_stmt 0 view .LVU2
   36 0000 1B4B     		ldr	r3, .L10
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s 			page 2
 
 
   37 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
   72 002a 1B88     		ldrh	r3, [r3]
   73 002c 013B     		subs	r3, r3, #1
   74 002e 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s 			page 3
 
 
   75              		.loc 1 41 12 view .LVU16
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
  116 005e 9BB2     		uxth	r3, r3
  117 0060 1380     		strh	r3, [r2]	@ movhi
   37:Core/Src/press_detection.c ****             But1_PressState = BUTTON_LONG_PRESS;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s 			page 4
 
 
  118              		.loc 1 37 9 is_stmt 1 view .LVU30
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
  164              		.loc 1 53 5 is_stmt 1 view .LVU39
   54:Core/Src/press_detection.c **** }
  165              		.loc 1 54 1 is_stmt 0 view .LVU40
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s 			page 5
 
 
  166 0008 7047     		bx	lr
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
  219              		.align	1
  222              	But1_PressCounter:
  223 0000 0000     		.space	2
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s 			page 6
 
 
  224              		.section	.bss.But0_PressCounter,"aw",%nobits
@@ -345,43 +345,43 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 1
  283              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  284              		.file 4 "Core/Inc/button.h"
  285              		.file 5 "Core/Inc/press_detection.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 press_detection.c
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:21     .text.PressDetection_Update:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:27     .text.PressDetection_Update:00000000 PressDetection_Update
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:131    .text.PressDetection_Update:00000070 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:278    .bss.But0_State:00000000 But0_State
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:228    .bss.But0_PressCounter:00000000 But0_PressCounter
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:216    .bss.But0_PressState:00000000 But0_PressState
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:272    .bss.But1_State:00000000 But1_State
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:222    .bss.But1_PressCounter:00000000 But1_PressCounter
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:211    .bss.But1_PressState:00000000 But1_PressState
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:141    .text.Get_Button0_PressState:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:147    .text.Get_Button0_PressState:00000000 Get_Button0_PressState
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:170    .text.Get_Button0_PressState:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:175    .text.Get_Button1_PressState:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:181    .text.Get_Button1_PressState:00000000 Get_Button1_PressState
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:204    .text.Get_Button1_PressState:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:212    .bss.But1_PressState:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:217    .bss.But0_PressState:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:219    .bss.But1_PressCounter:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:225    .bss.But0_PressCounter:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:234    .bss.But1_prev_press_state:00000000 But1_prev_press_state
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:235    .bss.But1_prev_press_state:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:240    .bss.But0_prev_press_state:00000000 But0_prev_press_state
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:241    .bss.But0_prev_press_state:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:246    .bss.But1_press_state:00000000 But1_press_state
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:247    .bss.But1_press_state:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:252    .bss.But0_press_state:00000000 But0_press_state
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:253    .bss.But0_press_state:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:259    .bss.hbut0:00000000 hbut0
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:256    .bss.hbut0:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:266    .bss.hbut1:00000000 hbut1
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:263    .bss.hbut1:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:273    .bss.But1_State:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\cctCFRPz.s:279    .bss.But0_State:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:21     .text.PressDetection_Update:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:27     .text.PressDetection_Update:00000000 PressDetection_Update
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:131    .text.PressDetection_Update:00000070 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:278    .bss.But0_State:00000000 But0_State
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:228    .bss.But0_PressCounter:00000000 But0_PressCounter
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:216    .bss.But0_PressState:00000000 But0_PressState
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:272    .bss.But1_State:00000000 But1_State
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:222    .bss.But1_PressCounter:00000000 But1_PressCounter
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:211    .bss.But1_PressState:00000000 But1_PressState
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:141    .text.Get_Button0_PressState:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:147    .text.Get_Button0_PressState:00000000 Get_Button0_PressState
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:170    .text.Get_Button0_PressState:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:175    .text.Get_Button1_PressState:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:181    .text.Get_Button1_PressState:00000000 Get_Button1_PressState
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:204    .text.Get_Button1_PressState:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:212    .bss.But1_PressState:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:217    .bss.But0_PressState:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:219    .bss.But1_PressCounter:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:225    .bss.But0_PressCounter:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:234    .bss.But1_prev_press_state:00000000 But1_prev_press_state
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:235    .bss.But1_prev_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:240    .bss.But0_prev_press_state:00000000 But0_prev_press_state
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:241    .bss.But0_prev_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:246    .bss.But1_press_state:00000000 But1_press_state
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:247    .bss.But1_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:252    .bss.But0_press_state:00000000 But0_press_state
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:253    .bss.But0_press_state:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:259    .bss.hbut0:00000000 hbut0
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:256    .bss.hbut0:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:266    .bss.hbut1:00000000 hbut1
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:263    .bss.hbut1:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:273    .bss.But1_State:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccoQJIUy.s:279    .bss.But0_State:00000000 $d
 
 NO UNDEFINED SYMBOLS

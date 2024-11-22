@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 1
   41      00
   42 0054 00101010 		.ascii	"\000\020\020\020\020\000\000\000\000\000\000\000\000"
   42      10000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s 			page 2
 
 
   42      00000000 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 1
   54      44443800 
   54      000000
   55 012d 38444444 		.ascii	"8DDD<\004\010p\000\000\000\000\000\00000\000\00000\000"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s 			page 3
 
 
   55      3C040870 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 1
   66      20202020 
   67 021a 000000EE 		.ascii	"\000\000\000\356llTTDD\356\000\000\000\000\356ddTTT"
   67      6C6C5454 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s 			page 4
 
 
   67      4444EE00 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 1
   79 0300 00100800 		.ascii	"\000\020\010\000\000\000\000\000\000\000\000\000\000"
   79      00000000 
   79      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s 			page 5
 
 
   79      00
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 1
   91 03e2 00000000 		.ascii	"\000\000\000\000\000<D8\004Dx\000\000\000\000\000 |"
   91      003C4438 
   91      04447800 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s 			page 6
 
 
   91      00000000 
@@ -342,14 +342,14 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 1
  102              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  103              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  104              		.file 4 "Core/Inc/fonts.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 font12.c
-C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s:25     .data.Font12:00000000 Font12
-C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s:22     .data.Font12:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s:36     .rodata.Font12_Table:00000000 Font12_Table
-C:\Users\zhmis\AppData\Local\Temp\ccBmhi0w.s:33     .rodata.Font12_Table:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s:25     .data.Font12:00000000 Font12
+C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s:22     .data.Font12:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s:36     .rodata.Font12_Table:00000000 Font12_Table
+C:\Users\zhmis\AppData\Local\Temp\ccgYFY0n.s:33     .rodata.Font12_Table:00000000 $d
 
 NO UNDEFINED SYMBOLS

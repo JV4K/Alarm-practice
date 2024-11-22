@@ -194,7 +194,7 @@ HAL_GPIO_WritePin(DISPL_DC_GPIO_Port, DISPL_DC_Pin, DC_Status);
 	}
 
 #ifdef DISPLAY_SPI_INTERRUPT_MODE
-	Displ_SpiAvailable=0;
+	dispSpiAvailable=0;
 	HAL_SPI_Transmit_IT(&DISPLAY_SPI_PORT , data, dataSize);
 #else
 #ifdef DISPLAY_SPI_DMA_MODE
@@ -263,7 +263,6 @@ void ST7735_InitCmds(const uint8_t *addr)
 	while(numCommands--) {
 		uint8_t cmd = *addr++;
 		Displ_WriteCommand(cmd);
-
 		numArgs = *addr++;
 		// If high bit set, delay follows args
 		ms = numArgs & DELAY;

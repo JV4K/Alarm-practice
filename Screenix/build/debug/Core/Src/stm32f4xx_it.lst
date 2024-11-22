@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -27,7 +27,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   24              		.thumb
   25              		.thumb_func
   27              	NMI_Handler:
-  28              	.LFB137:
+  28              	.LFB134:
    1:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN Header */
    2:Core/Src/stm32f4xx_it.c **** /**
    3:Core/Src/stm32f4xx_it.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   28:Core/Src/stm32f4xx_it.c **** /* USER CODE BEGIN TD */
   29:Core/Src/stm32f4xx_it.c **** 
   30:Core/Src/stm32f4xx_it.c **** /* USER CODE END TD */
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 2
 
 
   31:Core/Src/stm32f4xx_it.c **** 
@@ -118,14 +118,14 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   77:Core/Src/stm32f4xx_it.c ****   {
   78:Core/Src/stm32f4xx_it.c ****   }
   37              		.loc 1 78 3 view .LVU2
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 3
 
 
   76:Core/Src/stm32f4xx_it.c ****   {
   38              		.loc 1 76 10 view .LVU3
   39 0000 FEE7     		b	.L2
   40              		.cfi_endproc
-  41              	.LFE137:
+  41              	.LFE134:
   43              		.section	.text.HardFault_Handler,"ax",%progbits
   44              		.align	1
   45              		.global	HardFault_Handler
@@ -133,7 +133,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   47              		.thumb
   48              		.thumb_func
   50              	HardFault_Handler:
-  51              	.LFB138:
+  51              	.LFB135:
   79:Core/Src/stm32f4xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
   80:Core/Src/stm32f4xx_it.c **** }
   81:Core/Src/stm32f4xx_it.c **** 
@@ -163,7 +163,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   61              		.loc 1 90 9 view .LVU7
   62 0000 FEE7     		b	.L4
   63              		.cfi_endproc
-  64              	.LFE138:
+  64              	.LFE135:
   66              		.section	.text.MemManage_Handler,"ax",%progbits
   67              		.align	1
   68              		.global	MemManage_Handler
@@ -171,14 +171,14 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   70              		.thumb
   71              		.thumb_func
   73              	MemManage_Handler:
-  74              	.LFB139:
+  74              	.LFB136:
   95:Core/Src/stm32f4xx_it.c **** }
   96:Core/Src/stm32f4xx_it.c **** 
   97:Core/Src/stm32f4xx_it.c **** /**
   98:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Memory management fault.
   99:Core/Src/stm32f4xx_it.c ****   */
  100:Core/Src/stm32f4xx_it.c **** void MemManage_Handler(void)
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 4
 
 
  101:Core/Src/stm32f4xx_it.c **** {
@@ -203,7 +203,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   84              		.loc 1 105 9 view .LVU11
   85 0000 FEE7     		b	.L6
   86              		.cfi_endproc
-  87              	.LFE139:
+  87              	.LFE136:
   89              		.section	.text.BusFault_Handler,"ax",%progbits
   90              		.align	1
   91              		.global	BusFault_Handler
@@ -211,7 +211,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
   93              		.thumb
   94              		.thumb_func
   96              	BusFault_Handler:
-  97              	.LFB140:
+  97              	.LFB137:
  110:Core/Src/stm32f4xx_it.c **** }
  111:Core/Src/stm32f4xx_it.c **** 
  112:Core/Src/stm32f4xx_it.c **** /**
@@ -238,12 +238,12 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  106              		.loc 1 124 3 view .LVU14
  120:Core/Src/stm32f4xx_it.c ****   {
  107              		.loc 1 120 9 view .LVU15
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 5
 
 
  108 0000 FEE7     		b	.L8
  109              		.cfi_endproc
- 110              	.LFE140:
+ 110              	.LFE137:
  112              		.section	.text.UsageFault_Handler,"ax",%progbits
  113              		.align	1
  114              		.global	UsageFault_Handler
@@ -251,7 +251,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  116              		.thumb
  117              		.thumb_func
  119              	UsageFault_Handler:
- 120              	.LFB141:
+ 120              	.LFB138:
  125:Core/Src/stm32f4xx_it.c **** }
  126:Core/Src/stm32f4xx_it.c **** 
  127:Core/Src/stm32f4xx_it.c **** /**
@@ -280,7 +280,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  130              		.loc 1 135 9 view .LVU19
  131 0000 FEE7     		b	.L10
  132              		.cfi_endproc
- 133              	.LFE141:
+ 133              	.LFE138:
  135              		.section	.text.SVC_Handler,"ax",%progbits
  136              		.align	1
  137              		.global	SVC_Handler
@@ -288,7 +288,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  139              		.thumb
  140              		.thumb_func
  142              	SVC_Handler:
- 143              	.LFB142:
+ 143              	.LFB139:
  140:Core/Src/stm32f4xx_it.c **** }
  141:Core/Src/stm32f4xx_it.c **** 
  142:Core/Src/stm32f4xx_it.c **** /**
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  146:Core/Src/stm32f4xx_it.c **** {
  144              		.loc 1 146 1 view -0
  145              		.cfi_startproc
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 6
 
 
  146              		@ args = 0, pretend = 0, frame = 0
@@ -314,7 +314,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  149              		.loc 1 153 1 view .LVU21
  150 0000 7047     		bx	lr
  151              		.cfi_endproc
- 152              	.LFE142:
+ 152              	.LFE139:
  154              		.section	.text.DebugMon_Handler,"ax",%progbits
  155              		.align	1
  156              		.global	DebugMon_Handler
@@ -322,7 +322,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  158              		.thumb
  159              		.thumb_func
  161              	DebugMon_Handler:
- 162              	.LFB143:
+ 162              	.LFB140:
  154:Core/Src/stm32f4xx_it.c **** 
  155:Core/Src/stm32f4xx_it.c **** /**
  156:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Debug monitor.
@@ -344,7 +344,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  168              		.loc 1 166 1 view .LVU23
  169 0000 7047     		bx	lr
  170              		.cfi_endproc
- 171              	.LFE143:
+ 171              	.LFE140:
  173              		.section	.text.PendSV_Handler,"ax",%progbits
  174              		.align	1
  175              		.global	PendSV_Handler
@@ -352,13 +352,13 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  177              		.thumb
  178              		.thumb_func
  180              	PendSV_Handler:
- 181              	.LFB144:
+ 181              	.LFB141:
  167:Core/Src/stm32f4xx_it.c **** 
  168:Core/Src/stm32f4xx_it.c **** /**
  169:Core/Src/stm32f4xx_it.c ****   * @brief This function handles Pendable request for system service.
  170:Core/Src/stm32f4xx_it.c ****   */
  171:Core/Src/stm32f4xx_it.c **** void PendSV_Handler(void)
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 7
 
 
  172:Core/Src/stm32f4xx_it.c **** {
@@ -377,7 +377,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  187              		.loc 1 179 1 view .LVU25
  188 0000 7047     		bx	lr
  189              		.cfi_endproc
- 190              	.LFE144:
+ 190              	.LFE141:
  192              		.section	.text.SysTick_Handler,"ax",%progbits
  193              		.align	1
  194              		.global	SysTick_Handler
@@ -385,7 +385,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  196              		.thumb
  197              		.thumb_func
  199              	SysTick_Handler:
- 200              	.LFB145:
+ 200              	.LFB142:
  180:Core/Src/stm32f4xx_it.c **** 
  181:Core/Src/stm32f4xx_it.c **** /**
  182:Core/Src/stm32f4xx_it.c ****   * @brief This function handles System tick timer.
@@ -414,18 +414,18 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  212              		.loc 1 193 1 is_stmt 0 view .LVU28
  213 0006 08BD     		pop	{r3, pc}
  214              		.cfi_endproc
- 215              	.LFE145:
+ 215              	.LFE142:
  217              		.section	.text.SPI1_IRQHandler,"ax",%progbits
  218              		.align	1
  219              		.global	SPI1_IRQHandler
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 8
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 8
 
 
  220              		.syntax unified
  221              		.thumb
  222              		.thumb_func
  224              	SPI1_IRQHandler:
- 225              	.LFB146:
+ 225              	.LFB143:
  194:Core/Src/stm32f4xx_it.c **** 
  195:Core/Src/stm32f4xx_it.c **** /******************************************************************************/
  196:Core/Src/stm32f4xx_it.c **** /* STM32F4xx Peripheral Interrupt Handlers                                    */
@@ -466,7 +466,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  242              	.L18:
  243 000c 00000000 		.word	hspi1
  244              		.cfi_endproc
- 245              	.LFE146:
+ 245              	.LFE143:
  247              		.section	.text.DMA2_Stream3_IRQHandler,"ax",%progbits
  248              		.align	1
  249              		.global	DMA2_Stream3_IRQHandler
@@ -474,11 +474,11 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  251              		.thumb
  252              		.thumb_func
  254              	DMA2_Stream3_IRQHandler:
- 255              	.LFB147:
+ 255              	.LFB144:
  215:Core/Src/stm32f4xx_it.c **** 
  216:Core/Src/stm32f4xx_it.c **** /**
  217:Core/Src/stm32f4xx_it.c ****   * @brief This function handles DMA2 stream3 global interrupt.
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 9
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 9
 
 
  218:Core/Src/stm32f4xx_it.c ****   */
@@ -511,7 +511,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  272              	.L22:
  273 000c 00000000 		.word	hdma_spi1_tx
  274              		.cfi_endproc
- 275              	.LFE147:
+ 275              	.LFE144:
  277              		.text
  278              	.Letext0:
  279              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
@@ -521,35 +521,35 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 1
  283              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  284              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
  285              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s 			page 10
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_it.c
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:21     .text.NMI_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:27     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:44     .text.HardFault_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:50     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:67     .text.MemManage_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:73     .text.MemManage_Handler:00000000 MemManage_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:90     .text.BusFault_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:96     .text.BusFault_Handler:00000000 BusFault_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:113    .text.UsageFault_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:119    .text.UsageFault_Handler:00000000 UsageFault_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:136    .text.SVC_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:142    .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:155    .text.DebugMon_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:161    .text.DebugMon_Handler:00000000 DebugMon_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:174    .text.PendSV_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:180    .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:193    .text.SysTick_Handler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:199    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:218    .text.SPI1_IRQHandler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:224    .text.SPI1_IRQHandler:00000000 SPI1_IRQHandler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:243    .text.SPI1_IRQHandler:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:248    .text.DMA2_Stream3_IRQHandler:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:254    .text.DMA2_Stream3_IRQHandler:00000000 DMA2_Stream3_IRQHandler
-C:\Users\zhmis\AppData\Local\Temp\cc7CyWAV.s:273    .text.DMA2_Stream3_IRQHandler:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:21     .text.NMI_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:27     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:44     .text.HardFault_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:50     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:67     .text.MemManage_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:73     .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:90     .text.BusFault_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:96     .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:113    .text.UsageFault_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:119    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:136    .text.SVC_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:142    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:155    .text.DebugMon_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:161    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:174    .text.PendSV_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:180    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:193    .text.SysTick_Handler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:199    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:218    .text.SPI1_IRQHandler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:224    .text.SPI1_IRQHandler:00000000 SPI1_IRQHandler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:243    .text.SPI1_IRQHandler:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:248    .text.DMA2_Stream3_IRQHandler:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:254    .text.DMA2_Stream3_IRQHandler:00000000 DMA2_Stream3_IRQHandler
+C:\Users\zhmis\AppData\Local\Temp\cc4Ha4RH.s:273    .text.DMA2_Stream3_IRQHandler:0000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick

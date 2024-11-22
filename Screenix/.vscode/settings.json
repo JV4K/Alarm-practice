@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "main.h": "c"
+        "main.h": "c",
+        "z_displ_st7735.h": "c"
     }
 }
