@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
   42      80088008 
   42      80
   43 004e 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 2
 
 
   43      00000000 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
   56      0C000C00 
   56      0C
   57 0111 000E0006 		.ascii	"\000\016\000\006\000\003\000\003\000\000\000\000\000"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 3
 
 
   57      00030003 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
   70      00
   71 01cb 00000000 		.ascii	"\000\000\000\000\000\000\000\014\000\014\000\000\000"
   71      0000000C 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 4
 
 
   71      000C0000 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
   84      800300
   85 0294 0F800000 		.ascii	"\017\200\000\000\000\000\000\000\000\000\000\000\000"
   85      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 5
 
 
   85      00000000 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
   98      00
   99 0359 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
   99      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 6
 
 
   99      00000000 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  112      0000
  113 041a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000?\000\017\000"
  113      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 7
 
 
  113      00003F00 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  125      1E
  126 04e5 80318060 		.ascii	"\2001\200`\200`\000`\000g\300a\2001\200\037\000\000"
  126      80600060 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 8
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 8
 
 
  126      0067C061 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  139      C064C060 
  139      C0FBE000 
  139      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 9
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 9
 
 
  140 05bb 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000s\3001\2009\200"
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  152      4C80
  153 0688 4C804C80 		.ascii	"L\200L\200\014\000\014\000\014\000\014\000?\000\000"
  153      0C000C00 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 10
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 10
 
 
  153      0C000C00 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  166      30803F80 
  166      000000
  167 0759 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\007\200\006\000"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 11
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 11
 
 
  167      00000000 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  180      00
  181 0811 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  181      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 12
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 12
 
 
  181      00000000 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  194      3F800000 
  194      00000000 
  194      0000
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 13
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 13
 
 
  195 08de 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\035\3003\200"
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  208 099f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\177\2006\3006\300"
  208      00000000 
  208      007F8036 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 14
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 14
 
 
  208      C036C0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  221      803C001F 
  221      000380
  222 0a72 31803F00 		.ascii	"1\200?\000\000\000\000\000\000\000\000\000\000\000\000"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 15
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 15
 
 
  222      00000000 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  235      000F0006 
  235      0006000C 
  235      00
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 16
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 16
 
 
  236 0b3a 3E000000 		.ascii	">\000\000\000\000\000\000\000\000\000\000\000\000\000"
@@ -956,14 +956,14 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 1
  251              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  252              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  253              		.file 4 "Core/Inc/fonts.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s 			page 17
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 font16.c
-C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s:25     .data.Font16:00000000 Font16
-C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s:22     .data.Font16:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s:36     .rodata.Font16_Table:00000000 Font16_Table
-C:\Users\zhmis\AppData\Local\Temp\ccKvTotl.s:33     .rodata.Font16_Table:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s:25     .data.Font16:00000000 Font16
+C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s:22     .data.Font16:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s:36     .rodata.Font16_Table:00000000 Font16_Table
+C:\Users\zhmis\AppData\Local\Temp\ccNSG9Wr.s:33     .rodata.Font16_Table:00000000 $d
 
 NO UNDEFINED SYMBOLS

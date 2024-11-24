@@ -78,6 +78,8 @@ void Error_Handler(void);
 #define DISPL_DC_GPIO_Port GPIOC
 #define DISPL_RST_Pin GPIO_PIN_0
 #define DISPL_RST_GPIO_Port GPIOB
+#define BUZZER_PWM_Pin GPIO_PIN_1
+#define BUZZER_PWM_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

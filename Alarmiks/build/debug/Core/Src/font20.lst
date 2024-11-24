@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
   42      00000000 
   42      00
   43 004e 00000000 		.ascii	"\000\000\000\000\000\000\034\340\034\340\034\340\010"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 2
 
 
   43      00001CE0 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
   56      00000000 
   56      00
   57 0114 00000000 		.ascii	"\000\000\000\000\000\000\000\000\003\200\003\200\003"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 3
 
 
   57      00000000 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
   70      030003
   71 01cd 00030003 		.ascii	"\000\003\000\003\000\000\000\000\000\000\000\000\000"
   71      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 4
 
 
   71      00000000 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
   85 0287 C0306030 		.ascii	"\3000`0`0`0`0`0`0`\030\300\037\300\017\200\000\000\000"
   85      60306030 
   85      60306030 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 5
 
 
   85      60306018 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
   99 0355 C018E000 		.ascii	"\300\030\340\000`\000`\000`0\340?\300\037\200\000\000"
   99      60006000 
   99      6030E03F 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 6
 
 
   99      C01F8000 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  112 041b 80038003 		.ascii	"\200\003\200\003\200\000\000\000\000\000\000\003\200"
  112      80000000 
  112      00000003 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 7
 
 
  112      80
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  126      0F801FC0 
  126      18601860 
  126      006001
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 8
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 8
 
 
  127 04e7 C0038003 		.ascii	"\300\003\200\003\000\000\000\000\000\007\000\007\000"
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  139      E03070
  140 05ac 30303030 		.ascii	"000000000p0\340\177\300\177\200\000\000\000\000\000"
  140      30303030 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 9
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 9
 
 
  140      307030E0 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  153      03000300 
  153      03001FE0 
  153      1F
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 10
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 10
 
 
  154 0683 E0000000 		.ascii	"\340\000\000\000\000\000\000\000\000\000\000\000\000"
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  166      3E600000 
  166      00000000 
  166      000000
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 11
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 11
 
 
  167 0755 00000000 		.ascii	"\000\000\000\000\000\000\000\007\200\017\300\034\340"
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  179      00000000 
  179      00
  180 0822 00003FF0 		.ascii	"\000\000?\360?\360303030\003\000\003\000\003\000\003"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 12
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 12
 
 
  180      3FF03330 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  192      3CF0
  193 08ee 3CF01860 		.ascii	"<\360\030`\014\300\007\200\007\200\003\000\003\000\003"
  193      0CC00780 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 13
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 13
 
 
  193      07800300 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  207 09ab 00000000 		.ascii	"\000\000\000\000\000\000\000\002\000\007\000\015\200"
  207      00000002 
  207      0007000D 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 14
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 14
 
 
  207      80
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  221 0a76 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\007"
  221      00000000 
  221      00000000 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 15
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 15
 
 
  221      07
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  234      00000000 
  234      38003800 
  234      180018
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 16
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 16
 
 
  235 0b49 001BC01F 		.ascii	"\000\033\300\037\340\034`\030`\030`\030`\030`<\360<"
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  248      00000000 
  248      00000000 
  248      00
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 17
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 17
 
 
  249 0c0a 00000000 		.ascii	"\000\000\000\000\000\000\000\000~\340\177\360303030"
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  261 0cd2 00000000 		.ascii	"\000\000\000\000\000\000\000\000<\340=\360\0170\016"
  261      00000000 
  261      3CE03DF0 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 18
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 18
 
 
  261      0F300E
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  275 0d9a 00000000 		.ascii	"\000\000\000\000\000\000\000\000x\360x\3602`2`7\340"
  275      00000000 
  275      78F078F0 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 19
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 19
 
 
  275      32603260 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  289 0e5d 00000000 		.ascii	"\000\000\000\000\000\003\000\003\000\003\000\003\000"
  289      00030003 
  289      00030003 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 20
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 20
 
 
  289      00
@@ -1180,14 +1180,14 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 1
  301              		.file 2 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  302              		.file 3 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  303              		.file 4 "Core/Inc/fonts.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s 			page 21
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 font20.c
-C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s:25     .data.Font20:00000000 Font20
-C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s:22     .data.Font20:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s:36     .rodata.Font20_Table:00000000 Font20_Table
-C:\Users\zhmis\AppData\Local\Temp\ccSdrUcm.s:33     .rodata.Font20_Table:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s:25     .data.Font20:00000000 Font20
+C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s:22     .data.Font20:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s:36     .rodata.Font20_Table:00000000 Font20_Table
+C:\Users\zhmis\AppData\Local\Temp\ccvPjVct.s:33     .rodata.Font20_Table:00000000 $d
 
 NO UNDEFINED SYMBOLS

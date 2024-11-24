@@ -45,7 +45,6 @@ void alarm_state_machine(){
 		case IDLE:{
 			create_time_string(sTime.Hours, sTime.Minutes, time_str);
 			Displ_WString(20, 52, time_str, Font24, 1, GREEN, BLACK);
-
 			if (alarm_A_flag){
 				alarm_A_flag = 0;
 				alarm_p->alarm_state = RING;
@@ -70,19 +69,22 @@ void alarm_state_machine(){
 
 			if(!alarm_p->ring_flag){
 				alarm_p->ring_flag = 1;
-				leds_blink_start();                                
+				leds_blink_start();
+				HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);                                
 			} else{}
 
 			if(But0_press_state == BUTTON_SHORT_PRESS || But1_press_state == BUTTON_SHORT_PRESS || 
 					(But0_press_state == BUTTON_LONG_PRESS && But0_prev_press_state != BUTTON_LONG_PRESS) || 
 					(But1_press_state == BUTTON_LONG_PRESS && But1_prev_press_state != BUTTON_LONG_PRESS)){
 				alarm_p->alarm_state = IDLE;
+				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_4);
 				Displ_CLS(BLACK);
 				alarm_p->ring_flag = 0;
 				leds_blink_stop();
 			} else if (alarm_led->led_cur_state == DIM){
 				alarm_p->ring_flag = 0;
 				alarm_p->alarm_state = IDLE;
+				HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_4);
 				Displ_CLS(BLACK);
 			}
 			break;
@@ -173,11 +175,12 @@ void alarm_state_machine(){
 		
 		case SET_ALARM:{
 			
-//				if(!alarm_p->alarm_set_flag){
-//				alarm_p->alarm_set_hours = sTime.Hours;
-//				alarm_p->alarm_set_minutes = sTime.Minutes;
-//				alarm_p->alarm_set_flag = 1;
-//			}
+				if(!alarm_p->alarm_set_flag){
+				HAL_RTC_GetAlarm(&hrtc, &sAlarm, RTC_ALARM_A, RTC_FORMAT_BCD);
+				alarm_p->alarm_set_hours = sAlarm.AlarmTime.Hours;
+				alarm_p->alarm_set_minutes = sAlarm.AlarmTime.Minutes;
+				alarm_p->alarm_set_flag = 1;
+			}
 			
 			// First check if we are exiting alarm set mode
 			if (But0_press_state == BUTTON_LONG_PRESS && But1_press_state == BUTTON_LONG_PRESS){

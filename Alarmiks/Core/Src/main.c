@@ -97,6 +97,7 @@ int main(void)
   MX_RTC_Init();
   MX_TIM6_Init();
   MX_SPI1_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
   Displ_Init(Displ_Orientat_0); // initialize the display and set the initial display orientation (here is orientaton: 0�) - THIS FUNCTION MUST PRECEED ANY OTHER DISPLAY FUNCTION CALL.

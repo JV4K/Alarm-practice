@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
   28:Core/Src/z_displ_ST7735.c **** uint8_t _rowstart;       							///< Some displays need this changed to offset
   29:Core/Src/z_displ_ST7735.c **** uint8_t _xstart;
   30:Core/Src/z_displ_ST7735.c **** uint8_t _ystart;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 2
 
 
   31:Core/Src/z_displ_ST7735.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
   85:Core/Src/z_displ_ST7735.c **** #define ST7735_PWCTR5  0xC4
   86:Core/Src/z_displ_ST7735.c **** #define ST7735_VMCTR1  0xC5
   87:Core/Src/z_displ_ST7735.c **** 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 3
 
 
   88:Core/Src/z_displ_ST7735.c **** #define ST7735_RDID1   0xDA
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  142:Core/Src/z_displ_ST7735.c **** init_cmds2[] = {            // Init for 7735R, part 2 (1.44" display)
  143:Core/Src/z_displ_ST7735.c ****   0,                        //  no commands in list:
  144:Core/Src/z_displ_ST7735.c ****     },           			//
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 4
 
 
  145:Core/Src/z_displ_ST7735.c **** #endif // ST7735_IS_128X128
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
   59 0024 10BD     		pop	{r4, pc}
   60              	.L4:
   61 0026 00BF     		.align	2
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 5
 
 
   62              	.L3:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  101              		.loc 1 185 30 discriminator 2 view .LVU11
  186:Core/Src/z_displ_ST7735.c **** 
  187:Core/Src/z_displ_ST7735.c **** HAL_GPIO_WritePin(DISPL_DC_GPIO_Port, DISPL_DC_Pin, DC_Status);
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 6
 
 
  102              		.loc 1 187 1 view .LVU12
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
   13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
   14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
   15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 7
 
 
   16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
   70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
   71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 8
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 8
 
 
   73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  127:Drivers/CMSIS/Include/cmsis_gcc.h ****            sections relying on .copy.table and .zero.table specified properly
  128:Drivers/CMSIS/Include/cmsis_gcc.h ****            in the used linker script.
  129:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 9
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 9
 
 
  130:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  184:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  185:Drivers/CMSIS/Include/cmsis_gcc.h **** #if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)
  186:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __STACK_SEAL
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 10
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 10
 
 
  187:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __STACK_SEAL              __StackSeal
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  241:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  242:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __WFE()                             __ASM volatile ("wfe":::"memory")
  243:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 11
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 11
 
 
  244:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  298:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  299:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM ("rev %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
  300:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 12
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 12
 
 
  301:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  169 0032 1A60     		str	r2, [r3]
  198:Core/Src/z_displ_ST7735.c **** 	HAL_SPI_Transmit_IT(&DISPLAY_SPI_PORT , data, dataSize);
  170              		.loc 1 198 2 is_stmt 1 view .LVU37
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 13
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 13
 
 
  171 0034 3246     		mov	r2, r6
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  227:Core/Src/z_displ_ST7735.c **** /*
  228:Core/Src/z_displ_ST7735.c ****  * @BRIEF	transmit a byte in a SPI_COMMAND format
  229:Core/Src/z_displ_ST7735.c ****  */
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 14
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 14
 
 
  230:Core/Src/z_displ_ST7735.c **** void Displ_WriteCommand(uint8_t cmd)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  248:Core/Src/z_displ_ST7735.c **** void Displ_WriteData(uint8_t* buff, size_t buff_size, uint8_t isTouchGFXBuffer){
  237              		.loc 1 248 80 is_stmt 1 view -0
  238              		.cfi_startproc
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 15
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 15
 
 
  239              		@ args = 0, pretend = 0, frame = 0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  284 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
  285              		.cfi_def_cfa_offset 32
  286              		.cfi_offset 3, -32
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 16
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 16
 
 
  287              		.cfi_offset 4, -28
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  325              		.loc 1 272 5 view .LVU67
  326 001c 3446     		mov	r4, r6
  327              	.LVL33:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 17
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 17
 
 
  328              	.L24:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  364              		.loc 1 264 11 is_stmt 0 view .LVU79
  365 0036 2C46     		mov	r4, r5
  366              	.LVL40:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 18
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 18
 
 
  265:Core/Src/z_displ_ST7735.c **** 		numArgs = *addr++;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  281:Core/Src/z_displ_ST7735.c **** 	}
  282:Core/Src/z_displ_ST7735.c **** }
  404              		.loc 1 282 1 view .LVU96
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 19
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 19
 
 
  405 005e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  453              	.LVL50:
  454              		.loc 1 290 10 view .LVU105
  455 0020 8DF80550 		strb	r5, [sp, #5]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 20
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 20
 
 
  456 0024 8DF80660 		strb	r6, [sp, #6]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  499              	.LVL56:
  500              	.L38:
  501              		.loc 1 301 1 view .LVU119
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 21
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 21
 
 
  502              		.align	2
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  544              		.loc 1 315 3 view .LVU125
  545              		.loc 1 315 10 is_stmt 0 view .LVU126
  546 0016 C023     		movs	r3, #192
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 22
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 22
 
 
  547 0018 8DF80730 		strb	r3, [sp, #7]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  346:Core/Src/z_displ_ST7735.c **** 		madctl = ST7735_MADCTL_MX | ST7735_MADCTL_MV | ST7735_MADCTL_BGR;
  347:Core/Src/z_displ_ST7735.c **** #else
  348:Core/Src/z_displ_ST7735.c **** 		madctl = ST7735_MADCTL_MX | ST7735_MADCTL_MV | ST7735_MADCTL_RGB;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 23
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 23
 
 
  349:Core/Src/z_displ_ST7735.c **** 		_width = ST7735_HEIGHT;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  329:Core/Src/z_displ_ST7735.c **** 		_xstart = _rowstart;
  606              		.loc 1 329 11 is_stmt 0 view .LVU147
  607 005e 164B     		ldr	r3, .L48+8
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 24
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 24
 
 
  608 0060 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  647 008c 6023     		movs	r3, #96
  648 008e 8DF80730 		strb	r3, [sp, #7]
  349:Core/Src/z_displ_ST7735.c **** 		_height = ST7735_WIDTH;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 25
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 25
 
 
  649              		.loc 1 349 3 is_stmt 1 view .LVU163
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  364:Core/Src/z_displ_ST7735.c **** 
  365:Core/Src/z_displ_ST7735.c **** void ST7735_Init(Displ_Orientat_e orientation)
  366:Core/Src/z_displ_ST7735.c **** {
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 26
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 26
 
 
  694              		.loc 1 366 1 view -0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  729              		.loc 1 385 2 is_stmt 1 view .LVU182
  730 0026 2046     		mov	r0, r4
  731 0028 FFF7FEFF 		bl	ST7735_SetRotation
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 27
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 27
 
 
  732              	.LVL67:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  776 000c 1546     		mov	r5, r2
  777 000e 1E46     		mov	r6, r3
  778              		.loc 1 397 26 discriminator 2 view .LVU190
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 28
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 28
 
 
  779 0010 104B     		ldr	r3, .L58+4
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  822 003c FFF7FEFF 		bl	ST7735_SetAddressWindow
  823              	.LVL76:
  402:Core/Src/z_displ_ST7735.c **** }
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 29
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 29
 
 
  824              		.loc 1 402 3 is_stmt 1 view .LVU205
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  873              	.L62:
  407:Core/Src/z_displ_ST7735.c ****   Displ_WriteCommand(invert ? ST7735_INVON : ST7735_INVOFF);
  874              		.loc 1 407 3 discriminator 2 view .LVU214
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 30
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 30
 
 
  875 000c 2020     		movs	r0, #32
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  909              		.loc 1 429 11 is_stmt 0 view .LVU221
  910 0006 2F4C     		ldr	r4, .L78
  911 0008 B4F90060 		ldrsh	r6, [r4]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 31
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 31
 
 
  912              		.loc 1 429 7 view .LVU222
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  958 0038 9C42     		cmp	r4, r3
  959 003a 00DA     		bge	.L67
  438:Core/Src/z_displ_ST7735.c ****     	y1=_height;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 32
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 32
 
 
  960              		.loc 1 438 6 is_stmt 1 view .LVU241
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1003              		.loc 1 449 2 view .LVU261
  1004 0064 06E0     		b	.L69
  1005              	.LVL94:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 33
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 33
 
 
  1006              	.L74:
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1050              	.LVL105:
  1051              	.L72:
  456:Core/Src/z_displ_ST7735.c **** 		Displ_WriteData(dispBuffer,SIZEBUF,0);
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 34
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 34
 
 
  1052              		.loc 1 456 3 is_stmt 1 view .LVU278
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1098              	.LVL112:
  1099              	.L77:
  459:Core/Src/z_displ_ST7735.c **** 	dispBuffer = (dispBuffer==dispBuffer1 ? dispBuffer2 : dispBuffer1); // swapping buffer
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 35
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 35
 
 
  1100              		.loc 1 459 54 discriminator 1 view .LVU292
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  472:Core/Src/z_displ_ST7735.c ****     if((x >= _width) || (y >= _height))
  1144              		.loc 1 472 58 view .LVU299
  1145 0016 00B5     		push	{lr}
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 36
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 36
 
 
  1146              		.cfi_def_cfa_offset 4
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1188              		.cfi_offset 4, -28
  1189              		.cfi_offset 5, -24
  1190              		.cfi_offset 6, -20
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 37
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 37
 
 
  1191              		.cfi_offset 7, -16
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1241              		.loc 1 491 18 is_stmt 0 view .LVU316
  1242 0050 04EB0900 		add	r0, r4, r9
  1243 0054 80B2     		uxth	r0, r0
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 38
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 38
 
 
  1244              		.loc 1 491 2 view .LVU317
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1291 0008 0F46     		mov	r7, r1
  1292 000a 9E46     		mov	lr, r3
  1293 000c BDF838B0 		ldrh	fp, [sp, #56]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 39
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 39
 
 
  501:Core/Src/z_displ_ST7735.c **** 	int16_t l,x,steep,ystep,err,dx, dy;
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1326 0032 1546     		mov	r5, r2
  1327              	.LVL126:
  1328              		.loc 1 522 8 view .LVU335
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 40
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 40
 
 
  1329 0034 3A46     		mov	r2, r7
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1371 005c B542     		cmp	r5, r6
  1372 005e 41DA     		bge	.L105
  535:Core/Src/z_displ_ST7735.c ****         dy = y1-y0;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 41
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 41
 
 
  1373              		.loc 1 535 9 is_stmt 1 view .LVU351
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1412 007e 9BB2     		uxth	r3, r3
  1413 0080 0122     		movs	r2, #1
  1414              	.LVL142:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 42
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 42
 
 
  505:Core/Src/z_displ_ST7735.c ****     	}
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1455              	.LVL150:
  514:Core/Src/z_displ_ST7735.c ****     	else
  1456              		.loc 1 514 32 view .LVU382
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 43
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 43
 
 
  1457 00aa 92B2     		uxth	r2, r2
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1499 00dc A1E7     		b	.L100
  1500              	.L101:
  520:Core/Src/z_displ_ST7735.c **** 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 44
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 44
 
 
  1501              		.loc 1 520 54 discriminator 6 view .LVU395
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  553:Core/Src/z_displ_ST7735.c ****             l=0;
  1540              		.loc 1 553 13 is_stmt 1 view .LVU407
  554:Core/Src/z_displ_ST7735.c ****             x0=x+1;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 45
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 45
 
 
  1541              		.loc 1 554 13 view .LVU408
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1584              	.LVL178:
  546:Core/Src/z_displ_ST7735.c ****         	if (steep) {
  1585              		.loc 1 546 9 is_stmt 1 view .LVU424
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 46
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 46
 
 
  546:Core/Src/z_displ_ST7735.c ****         	if (steep) {
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  564:Core/Src/z_displ_ST7735.c ****     }
  565:Core/Src/z_displ_ST7735.c **** }
  1626              		.loc 1 565 1 view .LVU437
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 47
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 47
 
 
  1627 016a 05B0     		add	sp, sp, #20
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1668 0002 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
  1669              		.cfi_def_cfa_offset 44
  1670              		.cfi_offset 4, -44
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 48
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 48
 
 
  1671              		.cfi_offset 5, -40
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1714 0032 9DF84490 		ldrb	r9, [sp, #68]	@ zero_extendqisi2
  1715              		.loc 1 588 20 view .LVU457
  1716 0036 09FB02FB 		mul	fp, r9, r2
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 49
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 49
 
 
  1717              	.LVL192:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1754              		.loc 1 604 2 view .LVU470
  1755 006a 31E0     		b	.L120
  1756              	.LVL198:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 50
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 50
 
 
  1757              	.L136:
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1795              		.loc 1 614 10 view .LVU484
  1796 0090 30E0     		b	.L123
  1797              	.LVL206:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 51
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 51
 
 
  1798              	.L139:
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1834              		.loc 1 619 5 is_stmt 1 view .LVU499
  619:Core/Src/z_displ_ST7735.c **** 				if (size==2){
  1835              		.loc 1 619 25 is_stmt 0 view .LVU500
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 52
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 52
 
 
  1836 00b6 621C     		adds	r2, r4, #1
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1877 00ea 0902     		lsls	r1, r1, #8
  608:Core/Src/z_displ_ST7735.c **** 				break;
  1878              		.loc 1 608 18 view .LVU516
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 53
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 53
 
 
  1879 00ec 41EA0241 		orr	r1, r1, r2, lsl #16
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1921 011c 0022     		movs	r2, #0
  1922 011e 6100     		lsls	r1, r4, #1
  1923 0120 2868     		ldr	r0, [r5]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 54
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 54
 
 
  1924 0122 FFF7FEFF 		bl	Displ_WriteData
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  1973              	.LFE148:
  1975              		.section	.text.Displ_WString,"ax",%progbits
  1976              		.align	1
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 55
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 55
 
 
  1977              		.global	Displ_WString
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2015              		.loc 1 653 2 is_stmt 1 view .LVU543
  2016              		.loc 1 653 5 is_stmt 0 view .LVU544
  2017 0020 B8F1010F 		cmp	r8, #1
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 56
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 56
 
 
  2018 0024 15D9     		bls	.L146
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2050              		.loc 1 675 12 is_stmt 0 view .LVU554
  2051 0050 0135     		adds	r5, r5, #1
  2052              	.LVL232:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 57
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 57
 
 
  2053              	.L146:
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2090              		.loc 1 693 149 is_stmt 1 view -0
  2091              		.cfi_startproc
  2092              		@ args = 28, pretend = 0, frame = 8
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 58
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 58
 
 
  2093              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2141              	.LVL240:
  2142              		.loc 1 699 18 discriminator 1 view .LVU573
  2143 002e CDF81880 		str	r8, [sp, #24]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 59
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 59
 
 
  2144 0032 08FB00F0 		mul	r0, r8, r0
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  710:Core/Src/z_displ_ST7735.c **** 	} else
  711:Core/Src/z_displ_ST7735.c **** 		x=x0; // fixing here mistake could be due to roundings: x lower than x0.
  2188              		.loc 1 711 4 view .LVU593
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 60
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 60
 
 
  2189 006e A046     		mov	r8, r4
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2230 009c BDF85C30 		ldrh	r3, [sp, #92]
  2231 00a0 0393     		str	r3, [sp, #12]
  2232 00a2 079B     		ldr	r3, [sp, #28]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 61
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 61
 
 
  2233 00a4 0293     		str	r3, [sp, #8]
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2279              	.L163:
  713:Core/Src/z_displ_ST7735.c **** 
  2280              		.loc 1 713 3 is_stmt 1 view .LVU615
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 62
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 62
 
 
  713:Core/Src/z_displ_ST7735.c **** 
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2324              		.loc 1 720 31 view .LVU626
  2325 0132 321B     		subs	r2, r6, r4
  2326 0134 92B2     		uxth	r2, r2
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 63
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 63
 
 
  720:Core/Src/z_displ_ST7735.c **** 
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2370              	.LVL258:
  738:Core/Src/z_displ_ST7735.c **** }
  2371              		.loc 1 738 1 is_stmt 0 view .LVU632
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 64
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 64
 
 
  2372 0006 08BD     		pop	{r3, pc}
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2414              		.cfi_startproc
  2415              		@ args = 0, pretend = 0, frame = 0
  2416              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 65
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 65
 
 
  2417              		.loc 1 754 33 is_stmt 0 view .LVU638
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2465              	@ 762 "Core/Src/z_displ_ST7735.c" 1
  2466 0000 00BF     		nop
  2467              	@ 0 "" 2
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 66
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 66
 
 
  763:Core/Src/z_displ_ST7735.c **** 	if (hspi->Instance==DISPLAY_SPI) {
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2512              		.loc 1 772 10 is_stmt 0 view .LVU653
  2513 0000 0268     		ldr	r2, [r0]
  2514              		.loc 1 772 5 view .LVU654
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 67
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 67
 
 
  2515 0002 044B     		ldr	r3, .L184
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2549              		@ args = 4, pretend = 0, frame = 24
  2550              		@ frame_needed = 0, uses_anonymous_args = 0
  2551              		.loc 1 792 1 is_stmt 0 view .LVU660
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 68
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 68
 
 
  2552 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2597              		.loc 1 799 11 view .LVU674
  2598 002c 20E0     		b	.L187
  2599              	.LVL270:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 69
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 69
 
 
  2600              	.L200:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2645              	.L189:
  809:Core/Src/z_displ_ST7735.c ****             Displ_Pixel(x0 + x, y0 + y, color);
  810:Core/Src/z_displ_ST7735.c ****             Displ_Pixel(x0 + y, y0 + x, color);
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 70
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 70
 
 
  811:Core/Src/z_displ_ST7735.c ****         }
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2685 00a0 019A     		ldr	r2, [sp, #4]
  2686 00a2 89B2     		uxth	r1, r1
  2687 00a4 80B2     		uxth	r0, r0
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 71
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 71
 
 
  2688 00a6 FFF7FEFF 		bl	Displ_Pixel
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2737 0118 BDF810A0 		ldrh	r10, [sp, #16]
  2738 011c AAEB0701 		sub	r1, r10, r7
  2739 0120 A9EB0B00 		sub	r0, r9, fp
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 72
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 72
 
 
  2740 0124 019A     		ldr	r2, [sp, #4]
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2786              		.cfi_offset 9, -16
  2787              		.cfi_offset 10, -12
  2788              		.cfi_offset 11, -8
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 73
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 73
 
 
  2789              		.cfi_offset 14, -4
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2830              		.loc 1 835 13 view .LVU728
  2831 0032 0025     		movs	r5, #0
  833:Core/Src/z_displ_ST7735.c ****     int16_t ddF_y = -2 * r;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 74
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 74
 
 
  2832              		.loc 1 833 13 view .LVU729
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  861:Core/Src/z_displ_ST7735.c ****             if(corners & 1) Displ_Line(x0+py, y0-px, x0+py, y0-1+px+delta, color);
  2868              		.loc 1 861 13 is_stmt 1 view .LVU740
  2869              		.loc 1 861 15 is_stmt 0 view .LVU741
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 75
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 75
 
 
  2870 0068 1BF0010F 		tst	fp, #1
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2908              		.loc 1 848 10 view .LVU755
  2909 008e 1FFA85F9 		uxth	r9, r5
  2910 0092 2DB2     		sxth	r5, r5
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 76
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 76
 
 
  2911              	.LVL301:
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2949 00c8 12FA83F3 		uxtah	r3, r2, r3
  2950 00cc 013B     		subs	r3, r3, #1
  857:Core/Src/z_displ_ST7735.c ****         }
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 77
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 77
 
 
  2951              		.loc 1 857 29 discriminator 1 view .LVU772
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  2993              		.loc 1 863 42 is_stmt 0 discriminator 1 view .LVU784
  2994 0114 079B     		ldr	r3, [sp, #28]
  2995 0116 A3EB0800 		sub	r0, r3, r8
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 78
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 78
 
 
  863:Core/Src/z_displ_ST7735.c ****             py = y;
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3039              		.cfi_offset 5, -32
  3040              		.cfi_offset 6, -28
  3041              		.cfi_offset 7, -24
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 79
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 79
 
 
  3042              		.cfi_offset 8, -20
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3091 004c 2B46     		mov	r3, r5
  3092              	.LVL315:
  3093              		.loc 1 881 5 view .LVU805
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 80
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 80
 
 
  3094 004e 3A46     		mov	r2, r7
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3142              		.loc 1 887 5 view .LVU821
  3143 008e 00B2     		sxth	r0, r0
  3144 0090 CDF80080 		str	r8, [sp]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 81
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 81
 
 
  3145 0094 2346     		mov	r3, r4
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3194              		.syntax unified
  3195              		.thumb
  3196              		.thumb_func
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 82
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 82
 
 
  3198              	Displ_fillRoundRect:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3241              	.LVL331:
  3242              		.loc 1 904 5 is_stmt 0 view .LVU836
  3243 002c A819     		adds	r0, r5, r6
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 83
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 83
 
 
  3244              	.LVL332:
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  907:Core/Src/z_displ_ST7735.c ****     fillCircleHelper(x+r    , y+r, r, 2, h-2*r-1, color);
  3296              		.loc 1 907 5 is_stmt 1 view .LVU853
  3297 007e CDF804B0 		str	fp, [sp, #4]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 84
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 84
 
 
  3298 0082 0094     		str	r4, [sp]
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3344 000a BDF95020 		ldrsh	r2, [sp, #80]
  3345              	.LVL339:
  3346              		.loc 1 917 1 view .LVU858
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 85
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 85
 
 
  3347 000e BDF95410 		ldrsh	r1, [sp, #84]
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3390 0036 8B42     		cmp	r3, r1
  3391 0038 05DC     		bgt	.L222
  3392 003a 0C46     		mov	r4, r1
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 86
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 86
 
 
  3393 003c 1946     		mov	r1, r3
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3430 0064 0492     		str	r2, [sp, #16]
  3431              	.LVL355:
  946:Core/Src/z_displ_ST7735.c ****     dx02 = x2 - x0,
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 87
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 87
 
 
  3432              		.loc 1 946 15 view .LVU887
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  963:Core/Src/z_displ_ST7735.c ****     for(y=y0; y<=last; y++) {
  3470              		.loc 1 963 5 is_stmt 1 view .LVU902
  3471              		.loc 1 963 10 is_stmt 0 view .LVU903
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 88
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 88
 
 
  3472 0092 0C46     		mov	r4, r1
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3512 00ba CDF800B0 		str	fp, [sp]
  3513 00be 0B46     		mov	r3, r1
  3514 00c0 FFF7FEFF 		bl	Displ_Line
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 89
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 89
 
 
  3515              	.LVL366:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3535              	.LVL370:
  935:Core/Src/z_displ_ST7735.c ****         if(x2 < a)      a = x2;
  3536              		.loc 1 935 27 discriminator 1 view .LVU924
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 90
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 90
 
 
  3537 00d0 EEE7     		b	.L224
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3578              		.loc 1 964 13 view .LVU937
  3579 00f8 12B2     		sxth	r2, r2
  3580              	.LVL379:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 91
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 91
 
 
  965:Core/Src/z_displ_ST7735.c ****         sa += dx01;
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  979:Core/Src/z_displ_ST7735.c ****     sb = (int32_t)dx02 * (y - y0);
  3620              		.loc 1 979 5 is_stmt 1 view .LVU953
  979:Core/Src/z_displ_ST7735.c ****     sb = (int32_t)dx02 * (y - y0);
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 92
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 92
 
 
  3621              		.loc 1 979 29 is_stmt 0 view .LVU954
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3662 014a 059B     		ldr	r3, [sp, #20]
  3663 014c 96FBF3F2 		sdiv	r2, r6, r3
  982:Core/Src/z_displ_ST7735.c ****         b   = x0 + sb / dy02;
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 93
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 93
 
 
  3664              		.loc 1 982 18 view .LVU968
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3705              		.syntax unified
  3706              		.thumb
  3707              		.thumb_func
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 94
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 94
 
 
  3709              	Displ_drawTriangle:
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3753 0036 4846     		mov	r0, r9
  3754 0038 FFF7FEFF 		bl	Displ_Line
  3755              	.LVL404:
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 95
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 95
 
 
 1005:Core/Src/z_displ_ST7735.c **** }
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3804              	.LVL408:
  3805              		.loc 1 1012 5 view .LVU997
  3806 0014 0097     		str	r7, [sp]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 96
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 96
 
 
  3807 0016 1BB2     		sxth	r3, r3
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3854              		.cfi_offset 8, -20
  3855              		.cfi_offset 9, -16
  3856              		.cfi_offset 10, -12
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 97
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 97
 
 
  3857              		.cfi_offset 11, -8
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3902              	.LVL419:
 1031:Core/Src/z_displ_ST7735.c ****     Displ_Pixel(x0+r, y0  , color);
  3903              		.loc 1 1031 5 view .LVU1018
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 98
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 98
 
 
  3904 0042 04EB0B00 		add	r0, r4, fp
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
 1040:Core/Src/z_displ_ST7735.c ****         x++;
  3948              		.loc 1 1040 9 is_stmt 1 view .LVU1030
  3949              		.loc 1 1040 10 is_stmt 0 view .LVU1031
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 99
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 99
 
 
  3950 0080 029B     		ldr	r3, [sp, #8]
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  3997 00da 3246     		mov	r2, r6
  3998 00dc 4146     		mov	r1, r8
  3999 00de 3846     		mov	r0, r7
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 100
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 100
 
 
  4000 00e0 FFF7FEFF 		bl	Displ_Pixel
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
 1053:Core/Src/z_displ_ST7735.c **** }
  4046              		.loc 1 1053 1 view .LVU1047
  4047 0136 07B0     		add	sp, sp, #28
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 101
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 101
 
 
  4048              		.cfi_def_cfa_offset 36
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
 1084:Core/Src/z_displ_ST7735.c **** 
 1085:Core/Src/z_displ_ST7735.c **** 	switch (cmd) {
  4074              		.loc 1 1085 2 is_stmt 1 view .LVU1051
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 102
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 102
 
 
  4075 0002 3128     		cmp	r0, #49
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
 1109:Core/Src/z_displ_ST7735.c **** 		break;
 1110:Core/Src/z_displ_ST7735.c **** 	case '+':
 1111:Core/Src/z_displ_ST7735.c **** 		if (BKLIT_TIMER->ARR>BKLIT_TIMER->BKLIT_CCR)		// if CCR1 has not yet the highest value (ARR)
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 103
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 103
 
 
 1112:Core/Src/z_displ_ST7735.c **** 			++BKLIT_TIMER->BKLIT_CCR;
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
 1144:Core/Src/z_displ_ST7735.c **** /************************
 1145:Core/Src/z_displ_ST7735.c ****  * @brief	TouchGFX integration: returns status of communication to the display
 1146:Core/Src/z_displ_ST7735.c ****  * @return	1 = there is a transmission running
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 104
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 104
 
 
 1147:Core/Src/z_displ_ST7735.c ****  * 			0 = no transmission
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  4166              		.cfi_offset 6, -8
  4167              		.cfi_offset 14, -4
  4168 0002 0546     		mov	r5, r0
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 105
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 105
 
 
  4169 0004 1C46     		mov	r4, r3
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  4226              	init_cmds2:
  4227 0000 00       		.space	1
  4228              		.global	init_cmds1
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 106
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 106
 
 
  4229              		.section	.rodata.init_cmds1,"a"
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  4279 0000 00       		.space	1
  4280              		.global	_height
  4281              		.section	.bss._height,"aw",%nobits
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 107
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 107
 
 
  4282              		.align	1
@@ -6387,127 +6387,127 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 1
  4311              		.file 12 "Core/Inc/z_displ_ST7735.h"
  4312              		.file 13 "C:/Users/zhmis/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-t
  4313              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 108
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 108
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 z_displ_ST7735.c
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:21     .text.ST7735_Reset:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:27     .text.ST7735_Reset:00000000 ST7735_Reset
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:63     .text.ST7735_Reset:00000028 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:68     .text.Displ_Transmit:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:74     .text.Displ_Transmit:00000000 Displ_Transmit
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:183    .text.Displ_Transmit:00000040 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4298   .data.dispSpiAvailable:00000000 dispSpiAvailable
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:190    .text.Displ_WriteCommand:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:196    .text.Displ_WriteCommand:00000000 Displ_WriteCommand
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:228    .text.Displ_WriteData:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:234    .text.Displ_WriteData:00000000 Displ_WriteData
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:270    .text.ST7735_InitCmds:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:276    .text.ST7735_InitCmds:00000000 ST7735_InitCmds
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:411    .text.ST7735_SetAddressWindow:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:417    .text.ST7735_SetAddressWindow:00000000 ST7735_SetAddressWindow
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:504    .text.ST7735_SetAddressWindow:00000068 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4266   .bss._xstart:00000000 _xstart
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4260   .bss._ystart:00000000 _ystart
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:510    .text.ST7735_SetRotation:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:516    .text.ST7735_SetRotation:00000000 ST7735_SetRotation
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:538    .text.ST7735_SetRotation:00000012 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:542    .text.ST7735_SetRotation:00000016 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:675    .text.ST7735_SetRotation:000000b0 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4285   .bss._height:00000000 _height
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4292   .bss._width:00000000 _width
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4278   .bss._colstart:00000000 _colstart
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4272   .bss._rowstart:00000000 _rowstart
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:685    .text.ST7735_Init:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:691    .text.ST7735_Init:00000000 ST7735_Init
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:740    .text.ST7735_Init:00000030 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4233   .rodata.init_cmds1:00000000 init_cmds1
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4226   .rodata.init_cmds2:00000000 init_cmds2
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4219   .rodata.init_cmds3:00000000 init_cmds3
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:749    .text.ST7735_DrawImage:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:755    .text.ST7735_DrawImage:00000000 ST7735_DrawImage
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:837    .text.ST7735_DrawImage:00000050 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:843    .text.ST7735_InvertColors:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:849    .text.ST7735_InvertColors:00000000 ST7735_InvertColors
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:883    .text.Displ_FillArea:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:889    .text.Displ_FillArea:00000000 Displ_FillArea
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1106   .text.Displ_FillArea:000000c4 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4242   .data.dispBuffer:00000000 dispBuffer
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4254   .bss.dispBuffer1:00000000 dispBuffer1
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4248   .bss.dispBuffer2:00000000 dispBuffer2
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1115   .text.Displ_Pixel:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1121   .text.Displ_Pixel:00000000 Displ_Pixel
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1166   .text.Displ_Pixel:0000002c $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1172   .text.Displ_Border:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1178   .text.Displ_Border:00000000 Displ_Border
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1263   .text.Displ_Line:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1269   .text.Displ_Line:00000000 Displ_Line
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1652   .text.Displ_WChar:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1658   .text.Displ_WChar:00000000 Displ_WChar
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1969   .text.Displ_WChar:00000144 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1976   .text.Displ_WString:00000000 $t
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 109
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:21     .text.ST7735_Reset:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:27     .text.ST7735_Reset:00000000 ST7735_Reset
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:63     .text.ST7735_Reset:00000028 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:68     .text.Displ_Transmit:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:74     .text.Displ_Transmit:00000000 Displ_Transmit
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:183    .text.Displ_Transmit:00000040 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4298   .data.dispSpiAvailable:00000000 dispSpiAvailable
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:190    .text.Displ_WriteCommand:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:196    .text.Displ_WriteCommand:00000000 Displ_WriteCommand
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:228    .text.Displ_WriteData:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:234    .text.Displ_WriteData:00000000 Displ_WriteData
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:270    .text.ST7735_InitCmds:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:276    .text.ST7735_InitCmds:00000000 ST7735_InitCmds
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:411    .text.ST7735_SetAddressWindow:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:417    .text.ST7735_SetAddressWindow:00000000 ST7735_SetAddressWindow
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:504    .text.ST7735_SetAddressWindow:00000068 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4266   .bss._xstart:00000000 _xstart
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4260   .bss._ystart:00000000 _ystart
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:510    .text.ST7735_SetRotation:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:516    .text.ST7735_SetRotation:00000000 ST7735_SetRotation
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:538    .text.ST7735_SetRotation:00000012 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:542    .text.ST7735_SetRotation:00000016 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:675    .text.ST7735_SetRotation:000000b0 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4285   .bss._height:00000000 _height
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4292   .bss._width:00000000 _width
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4278   .bss._colstart:00000000 _colstart
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4272   .bss._rowstart:00000000 _rowstart
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:685    .text.ST7735_Init:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:691    .text.ST7735_Init:00000000 ST7735_Init
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:740    .text.ST7735_Init:00000030 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4233   .rodata.init_cmds1:00000000 init_cmds1
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4226   .rodata.init_cmds2:00000000 init_cmds2
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4219   .rodata.init_cmds3:00000000 init_cmds3
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:749    .text.ST7735_DrawImage:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:755    .text.ST7735_DrawImage:00000000 ST7735_DrawImage
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:837    .text.ST7735_DrawImage:00000050 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:843    .text.ST7735_InvertColors:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:849    .text.ST7735_InvertColors:00000000 ST7735_InvertColors
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:883    .text.Displ_FillArea:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:889    .text.Displ_FillArea:00000000 Displ_FillArea
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1106   .text.Displ_FillArea:000000c4 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4242   .data.dispBuffer:00000000 dispBuffer
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4254   .bss.dispBuffer1:00000000 dispBuffer1
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4248   .bss.dispBuffer2:00000000 dispBuffer2
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1115   .text.Displ_Pixel:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1121   .text.Displ_Pixel:00000000 Displ_Pixel
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1166   .text.Displ_Pixel:0000002c $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1172   .text.Displ_Border:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1178   .text.Displ_Border:00000000 Displ_Border
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1263   .text.Displ_Line:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1269   .text.Displ_Line:00000000 Displ_Line
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1652   .text.Displ_WChar:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1658   .text.Displ_WChar:00000000 Displ_WChar
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1969   .text.Displ_WChar:00000144 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1976   .text.Displ_WString:00000000 $t
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 109
 
 
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:1982   .text.Displ_WString:00000000 Displ_WString
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2081   .text.Displ_CString:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2087   .text.Displ_CString:00000000 Displ_CString
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2345   .text.Displ_CString:00000158 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4212   .bss.cambia.0:00000000 cambia.0
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2350   .text.Displ_Init:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2356   .text.Displ_Init:00000000 Displ_Init
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2377   .text.Displ_Orientation:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2383   .text.Displ_Orientation:00000000 Displ_Orientation
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2404   .text.Displ_CLS:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2410   .text.Displ_CLS:00000000 Displ_CLS
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2443   .text.Displ_CLS:0000001c $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2449   .text.HAL_SPI_ErrorCallback:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2455   .text.HAL_SPI_ErrorCallback:00000000 HAL_SPI_ErrorCallback
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2491   .text.HAL_SPI_ErrorCallback:00000014 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2497   .text.HAL_SPI_TxCpltCallback:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2503   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2532   .text.HAL_SPI_TxCpltCallback:00000014 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2538   .text.drawCircleHelper:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2544   .text.drawCircleHelper:00000000 drawCircleHelper
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2765   .text.fillCircleHelper:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:2771   .text.fillCircleHelper:00000000 fillCircleHelper
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3022   .text.Displ_drawRoundRect:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3028   .text.Displ_drawRoundRect:00000000 Displ_drawRoundRect
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3192   .text.Displ_fillRoundRect:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3198   .text.Displ_fillRoundRect:00000000 Displ_fillRoundRect
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3315   .text.Displ_fillTriangle:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3321   .text.Displ_fillTriangle:00000000 Displ_fillTriangle
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3703   .text.Displ_drawTriangle:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3709   .text.Displ_drawTriangle:00000000 Displ_drawTriangle
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3766   .text.Displ_fillCircle:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3772   .text.Displ_fillCircle:00000000 Displ_fillCircle
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3834   .text.Displ_drawCircle:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:3840   .text.Displ_drawCircle:00000000 Displ_drawCircle
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4056   .text.Displ_BackLight:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4062   .text.Displ_BackLight:00000000 Displ_BackLight
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4114   .text.Displ_BackLight:00000030 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4119   .text.touchgfxDisplayDriverTransmitActive:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4125   .text.touchgfxDisplayDriverTransmitActive:00000000 touchgfxDisplayDriverTransmitActive
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4143   .text.touchgfxDisplayDriverTransmitActive:0000000c $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4148   .text.touchgfxDisplayDriverTransmitBlock:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4154   .text.touchgfxDisplayDriverTransmitBlock:00000000 touchgfxDisplayDriverTransmitBlock
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4213   .bss.cambia.0:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4216   .rodata.init_cmds3:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4223   .rodata.init_cmds2:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4230   .rodata.init_cmds1:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4239   .data.dispBuffer:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4245   .bss.dispBuffer2:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4251   .bss.dispBuffer1:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4261   .bss._ystart:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4267   .bss._xstart:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4273   .bss._rowstart:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4279   .bss._colstart:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4282   .bss._height:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4289   .bss._width:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s:4295   .data.dispSpiAvailable:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:1982   .text.Displ_WString:00000000 Displ_WString
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2081   .text.Displ_CString:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2087   .text.Displ_CString:00000000 Displ_CString
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2345   .text.Displ_CString:00000158 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4212   .bss.cambia.0:00000000 cambia.0
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2350   .text.Displ_Init:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2356   .text.Displ_Init:00000000 Displ_Init
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2377   .text.Displ_Orientation:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2383   .text.Displ_Orientation:00000000 Displ_Orientation
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2404   .text.Displ_CLS:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2410   .text.Displ_CLS:00000000 Displ_CLS
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2443   .text.Displ_CLS:0000001c $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2449   .text.HAL_SPI_ErrorCallback:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2455   .text.HAL_SPI_ErrorCallback:00000000 HAL_SPI_ErrorCallback
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2491   .text.HAL_SPI_ErrorCallback:00000014 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2497   .text.HAL_SPI_TxCpltCallback:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2503   .text.HAL_SPI_TxCpltCallback:00000000 HAL_SPI_TxCpltCallback
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2532   .text.HAL_SPI_TxCpltCallback:00000014 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2538   .text.drawCircleHelper:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2544   .text.drawCircleHelper:00000000 drawCircleHelper
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2765   .text.fillCircleHelper:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:2771   .text.fillCircleHelper:00000000 fillCircleHelper
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3022   .text.Displ_drawRoundRect:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3028   .text.Displ_drawRoundRect:00000000 Displ_drawRoundRect
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3192   .text.Displ_fillRoundRect:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3198   .text.Displ_fillRoundRect:00000000 Displ_fillRoundRect
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3315   .text.Displ_fillTriangle:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3321   .text.Displ_fillTriangle:00000000 Displ_fillTriangle
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3703   .text.Displ_drawTriangle:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3709   .text.Displ_drawTriangle:00000000 Displ_drawTriangle
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3766   .text.Displ_fillCircle:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3772   .text.Displ_fillCircle:00000000 Displ_fillCircle
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3834   .text.Displ_drawCircle:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:3840   .text.Displ_drawCircle:00000000 Displ_drawCircle
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4056   .text.Displ_BackLight:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4062   .text.Displ_BackLight:00000000 Displ_BackLight
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4114   .text.Displ_BackLight:00000030 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4119   .text.touchgfxDisplayDriverTransmitActive:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4125   .text.touchgfxDisplayDriverTransmitActive:00000000 touchgfxDisplayDriverTransmitActive
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4143   .text.touchgfxDisplayDriverTransmitActive:0000000c $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4148   .text.touchgfxDisplayDriverTransmitBlock:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4154   .text.touchgfxDisplayDriverTransmitBlock:00000000 touchgfxDisplayDriverTransmitBlock
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4213   .bss.cambia.0:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4216   .rodata.init_cmds3:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4223   .rodata.init_cmds2:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4230   .rodata.init_cmds1:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4239   .data.dispBuffer:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4245   .bss.dispBuffer2:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4251   .bss.dispBuffer1:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4261   .bss._ystart:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4267   .bss._xstart:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4273   .bss._rowstart:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4279   .bss._colstart:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4282   .bss._height:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4289   .bss._width:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s:4295   .data.dispSpiAvailable:00000000 $d
 
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccg27c3V.s 			page 110
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccMTp6Wr.s 			page 110
 
 
 UNDEFINED SYMBOLS

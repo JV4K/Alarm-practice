@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 1
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 1
   44              		.loc 1 12 3 is_stmt 1 view .LVU5
   45              		.loc 1 12 17 is_stmt 0 view .LVU6
   46 0006 5970     		strb	r1, [r3, #1]
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 2
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s 			page 2
 
 
   13:Core/Src/alrm.c ****   sTime.Seconds = seconds;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 1
   93              		@ args = 0, pretend = 0, frame = 0
   94              		@ frame_needed = 0, uses_anonymous_args = 0
   95              		.loc 1 22 81 is_stmt 0 view .LVU21
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 3
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s 			page 3
 
 
   96 0000 08B5     		push	{r3, lr}
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 1
  138 001e 83F82020 		strb	r2, [r3, #32]
   35:Core/Src/alrm.c ****   sAlarm.Alarm = RTC_ALARM_A;
  139              		.loc 1 35 3 is_stmt 1 view .LVU45
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 4
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s 			page 4
 
 
  140              		.loc 1 35 16 is_stmt 0 view .LVU46
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 1
  186              	.L10:
  187 0008 00000000 		.word	alarm_A_flag
  188              		.cfi_endproc
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 5
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s 			page 5
 
 
  189              	.LFE136:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 1
  230              	.LVL14:
  231              	.L14:
   61:Core/Src/alrm.c ****     }
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 6
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s 			page 6
 
 
   62:Core/Src/alrm.c **** 
@@ -346,30 +346,30 @@ ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 1
  272              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h"
  273              		.file 7 "Core/Inc/rtc.h"
  274              		.file 8 "Core/Inc/alrm.h"
-ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s 			page 7
+ARM GAS  C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 alrm.c
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:21     .text.alrm_SetTime:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:27     .text.alrm_SetTime:00000000 alrm_SetTime
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:76     .text.alrm_SetTime:0000001c $d
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:264    .bss.sTime:00000000 sTime
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:82     .text.alrm_SetAlarm:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:88     .text.alrm_SetAlarm:00000000 alrm_SetAlarm
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:157    .text.alrm_SetAlarm:00000034 $d
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:250    .bss.sAlarm:00000000 sAlarm
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:163    .text.HAL_RTC_AlarmAEventCallback:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:169    .text.HAL_RTC_AlarmAEventCallback:00000000 HAL_RTC_AlarmAEventCallback
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:187    .text.HAL_RTC_AlarmAEventCallback:00000008 $d
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:243    .bss.alarm_A_flag:00000000 alarm_A_flag
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:192    .text.increment_bcd:00000000 $t
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:198    .text.increment_bcd:00000000 increment_bcd
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:240    .bss.alarm_A_flag:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:247    .bss.sAlarm:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:257    .bss.sDate:00000000 sDate
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:254    .bss.sDate:00000000 $d
-C:\Users\zhmis\AppData\Local\Temp\ccIQIJ1a.s:261    .bss.sTime:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:21     .text.alrm_SetTime:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:27     .text.alrm_SetTime:00000000 alrm_SetTime
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:76     .text.alrm_SetTime:0000001c $d
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:264    .bss.sTime:00000000 sTime
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:82     .text.alrm_SetAlarm:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:88     .text.alrm_SetAlarm:00000000 alrm_SetAlarm
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:157    .text.alrm_SetAlarm:00000034 $d
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:250    .bss.sAlarm:00000000 sAlarm
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:163    .text.HAL_RTC_AlarmAEventCallback:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:169    .text.HAL_RTC_AlarmAEventCallback:00000000 HAL_RTC_AlarmAEventCallback
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:187    .text.HAL_RTC_AlarmAEventCallback:00000008 $d
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:243    .bss.alarm_A_flag:00000000 alarm_A_flag
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:192    .text.increment_bcd:00000000 $t
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:198    .text.increment_bcd:00000000 increment_bcd
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:240    .bss.alarm_A_flag:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:247    .bss.sAlarm:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:257    .bss.sDate:00000000 sDate
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:254    .bss.sDate:00000000 $d
+C:\Users\zhmis\AppData\Local\Temp\ccZsZPMa.s:261    .bss.sTime:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_RTC_SetTime

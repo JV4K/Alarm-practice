@@ -2,6 +2,7 @@
     "files.associations": {
         "alrm_logic.h": "c",
         "alrm.h": "c",
-        "tim.h": "c"
+        "tim.h": "c",
+        "main.h": "c"
     }
 }

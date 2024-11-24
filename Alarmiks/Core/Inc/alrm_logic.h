@@ -8,6 +8,7 @@
 #include "Leds.h"
 #include "fonts.h"
 #include "z_displ_ST7735.h"
+#include "tim.h"
 
 #define HANDLE_FREQ 100 // Frequency of periodical interrupt handle
 #define DEBOUNCE_TIME 0.01 // Debounce time in seconds
